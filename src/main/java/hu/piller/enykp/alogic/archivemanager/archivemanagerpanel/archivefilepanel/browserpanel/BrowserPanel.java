@@ -7,6 +7,8 @@ import hu.piller.enykp.alogic.archivemanager.archivemanagerpanel.archivefilepane
 import hu.piller.enykp.interfaces.IFileChooser;
 import hu.piller.enykp.util.base.eventsupport.Event;
 import hu.piller.enykp.util.base.eventsupport.IEventListener;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Dimension;
 import java.io.File;
 import java.net.URI;
@@ -57,7 +59,7 @@ public class BrowserPanel extends JPanel implements IFileChooser, IEventListener
       this.file_business = this.file_panel.getBusiness();
       this.folder_business = this.folder_panel.getBusiness();
       this.folder_business.addEventListener(this);
-      this.folder_business.setSelectedPath(new File("."));
+      this.folder_business.setSelectedPath(new NecroFile("."));
    }
 
    public void setSelectedFiles(File[] var1) {

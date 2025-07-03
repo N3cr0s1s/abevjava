@@ -37,6 +37,10 @@ import hu.piller.enykp.util.base.errordialog.TextWithIcon;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
 import hu.piller.enykp.util.icon.ENYKIconSet;
 import hu.piller.enykp.util.oshandler.OsFactory;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+import me.necrocore.abevjava.NecroFileWriter;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -1432,7 +1436,7 @@ public class MainPrinter implements ItemListener {
 
                var8 = PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.saves") + File.separator + var8;
                var6 = var5.createHash(var8.getBytes());
-               bookModel.cc.setLoadedfile(new File(var8));
+               bookModel.cc.setLoadedfile(new NecroFile(var8));
             } else {
                var6 = var5.createHash(bookModel.cc.getLoadedfile().getName().getBytes());
             }
@@ -1602,7 +1606,7 @@ public class MainPrinter implements ItemListener {
                            this.document = new Document();
 
                            try {
-                              var38 = new FileOutputStream(var2);
+                              var38 = new NecroFileOutputStream(var2);
                            } catch (FileNotFoundException var33) {
                               return -2;
                            }
@@ -1619,7 +1623,7 @@ public class MainPrinter implements ItemListener {
                         this.document = new Document();
 
                         try {
-                           var38 = new FileOutputStream(var2);
+                           var38 = new NecroFileOutputStream(var2);
                         } catch (FileNotFoundException var32) {
                            return -2;
                         }
@@ -1630,11 +1634,11 @@ public class MainPrinter implements ItemListener {
                         if (PropertyList.getInstance().get("pdfxml.print.xml.silent") != null) {
                            try {
                               String var10 = (String)PropertyList.getInstance().get("pdfxml.print.xml.silent");
-                              PdfFileSpecification var11 = PdfFileSpecification.fileEmbedded(this.writer, var10, (new File(var10)).getName(), (byte[])null);
+                              PdfFileSpecification var11 = PdfFileSpecification.fileEmbedded(this.writer, var10, (new NecroFile(var10)).getName(), (byte[])null);
                               var11.addDescription("csatolt Nyomtatvány xml fájl", false);
                               this.writer.addFileAttachment(var11);
                               String var12 = var10 + ".errorList.txt";
-                              File var13 = new File(var12);
+                              File var13 = new NecroFile(var12);
                               if (var13.exists()) {
                                  PdfFileSpecification var14 = PdfFileSpecification.fileEmbedded(this.writer, var12, var13.getName(), (byte[])null);
                                  var14.addDescription("Nyomtatvány hibalista fájl", false);
@@ -2094,7 +2098,7 @@ public class MainPrinter implements ItemListener {
             pdfDir = pdfDir + File.separator;
          }
 
-         File var2 = new File(pdfDir);
+         File var2 = new NecroFile(pdfDir);
          if (var2.exists() && var2.isDirectory()) {
             this.setPdfFileName();
             return true;
@@ -2132,14 +2136,14 @@ public class MainPrinter implements ItemListener {
 
          File var3;
          try {
-            var3 = new File(SettingsStore.getInstance().get("gui", "pdf_viewer"));
+            var3 = new NecroFile(SettingsStore.getInstance().get("gui", "pdf_viewer"));
             if (!var3.exists()) {
                throw new Exception();
             }
 
             var4 = var3.getAbsolutePath();
          } catch (Exception var6) {
-            var3 = new File("");
+            var3 = new NecroFile("");
          }
 
          if ("".equals(var4)) {
@@ -2226,7 +2230,7 @@ public class MainPrinter implements ItemListener {
             var1 = var1 + ".frm.enyk";
          }
 
-         bookModel.cc.setLoadedfile(new File(PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.saves") + File.separator + var1));
+         bookModel.cc.setLoadedfile(new NecroFile(PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.saves") + File.separator + var1));
       } else {
          var1 = bookModel.cc.getLoadedfile().getName();
       }
@@ -2383,7 +2387,7 @@ public class MainPrinter implements ItemListener {
                   if (this.batchPrint2OnePdf) {
                      if (var2 == this.ciklusEleje) {
                         this.document = new Document();
-                        this.writer = PdfWriter.getInstance(this.document, new FileOutputStream(var3));
+                        this.writer = PdfWriter.getInstance(this.document, new NecroFileOutputStream(var3));
                         this.document.open();
                      }
 
@@ -2395,7 +2399,7 @@ public class MainPrinter implements ItemListener {
                      }
                   } else {
                      this.document = new Document();
-                     this.writer = PdfWriter.getInstance(this.document, new FileOutputStream(var3));
+                     this.writer = PdfWriter.getInstance(this.document, new NecroFileOutputStream(var3));
                      this.document.open();
                      var9.printJep2Pdf(this.document, this.writer, true);
                      this.document.close();
@@ -2567,7 +2571,7 @@ public class MainPrinter implements ItemListener {
 
       try {
          URI var10 = new URI(this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
-         this.backgroundImage = (new File(var10.getPath())).getParent() + "/abevjava.jar!/resources/print/bg.gif";
+         this.backgroundImage = (new NecroFile(var10.getPath())).getParent() + "/abevjava.jar!/resources/print/bg.gif";
          this.backgroundImage = this.backgroundImage.startsWith("/") ? "file:" + this.backgroundImage : "file:/" + this.backgroundImage;
          this.backgroundImage = "jar:" + this.backgroundImage;
       } catch (URISyntaxException var28) {
@@ -3098,7 +3102,7 @@ public class MainPrinter implements ItemListener {
    }
 
    private void delTempFiles() {
-      File var1 = new File(System.getProperty("java.io.tmpdir"));
+      File var1 = new NecroFile(System.getProperty("java.io.tmpdir"));
       File[] var2 = var1.listFiles();
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
@@ -3165,7 +3169,7 @@ public class MainPrinter implements ItemListener {
          var3.append("_kivonatolt");
       }
 
-      File var5 = new File(var3.toString() + ".pdf");
+      File var5 = new NecroFile(var3.toString() + ".pdf");
       if (var5.exists()) {
          var3.append("_").append(this.getTimeString());
       }
@@ -3260,7 +3264,7 @@ public class MainPrinter implements ItemListener {
    }
 
    private String getLoggedString(File var1, String var2) {
-      return var1.getName() + " -> " + (new File(var2)).getName();
+      return var1.getName() + " -> " + (new NecroFile(var2)).getName();
    }
 
    private boolean isPapirosBekuldesTiltasa() {
@@ -3646,7 +3650,7 @@ public class MainPrinter implements ItemListener {
 
    private void setPdfPreviewFile() {
       try {
-         File var1 = new File(autoFillPdfPrevFileName);
+         File var1 = new NecroFile(autoFillPdfPrevFileName);
          var1.deleteOnExit();
          pdfPreviewFilesInSession.add(var1);
       } catch (Exception var2) {
@@ -3672,7 +3676,7 @@ public class MainPrinter implements ItemListener {
          FileWriter var3 = null;
 
          try {
-            var3 = new FileWriter((String)var2);
+            var3 = new NecroFileWriter((String)var2);
             var3.write(var1);
          } catch (Exception var13) {
             PropertyList.getInstance().set("html.create.xml.silent", "Hiba a html fájl létrehozásakor: " + var13.toString());

@@ -8,6 +8,9 @@ import com.lowagie.text.pdf.PdfReader;
 import com.lowagie.text.pdf.PdfWriter;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -28,7 +31,7 @@ public class AsicPdfHandler {
 
    public Result getSigners(String var1) {
       Result var2 = new Result();
-      if (!(new File(var1)).exists()) {
+      if (!(new NecroFile(var1)).exists()) {
          var2.setOk(false);
          var2.errorList.add("Nincs ilyen nevű aláírás fájl");
          return var2;
@@ -44,9 +47,9 @@ public class AsicPdfHandler {
             var4 = var4 + File.separator;
          }
 
-         String var5 = var4 + (new File(var1)).getName() + "_alairok.pdf";
+         String var5 = var4 + (new NecroFile(var1)).getName() + "_alairok.pdf";
          var4 = var4 + this.r.nextInt();
-         if (!(new File(var4)).mkdir()) {
+         if (!(new NecroFile(var4)).mkdir()) {
             var2.setOk(false);
             var2.errorList.add("Nem sikerült megállapítani az aláírókat!");
          }
@@ -78,19 +81,19 @@ public class AsicPdfHandler {
          ZipEntry var7 = (ZipEntry)var6.nextElement();
          String var8;
          if (this.pdfFilename.equals(var7.getName())) {
-            var8 = var3 + File.separator + (new File(var1)).getName() + this.r.nextInt() + "_" + var7.getName();
-            this.unzip(var5.getInputStream(var7), new BufferedOutputStream(new FileOutputStream(var8)));
+            var8 = var3 + File.separator + (new NecroFile(var1)).getName() + this.r.nextInt() + "_" + var7.getName();
+            this.unzip(var5.getInputStream(var7), new BufferedOutputStream(new NecroFileOutputStream(var8)));
             var4.add(var8);
          }
 
          if (var7.getName().toLowerCase().endsWith(this.ext)) {
             var8 = var3 + File.separator + var7.getName();
-            File var9 = new File(var8);
+            File var9 = new NecroFile(var8);
             if (var9.exists()) {
                var8 = var8 + this.r.nextInt();
             }
 
-            this.unzip(var5.getInputStream(var7), new BufferedOutputStream(new FileOutputStream(var8)));
+            this.unzip(var5.getInputStream(var7), new BufferedOutputStream(new NecroFileOutputStream(var8)));
             this.getAllFile(var8, var2, var3, var4);
          }
       }
@@ -113,7 +116,7 @@ public class AsicPdfHandler {
    }
 
    private void mergePdf(ArrayList<String> var1, String var2) throws IOException, DocumentException {
-      FileOutputStream var3 = new FileOutputStream(var2);
+      FileOutputStream var3 = new NecroFileOutputStream(var2);
       Document var4 = new Document();
       PdfWriter var5 = PdfWriter.getInstance(var4, var3);
       var4.open();
@@ -135,7 +138,7 @@ public class AsicPdfHandler {
 
    private boolean clean(String var1) {
       boolean var2 = true;
-      File var3 = new File(var1);
+      File var3 = new NecroFile(var1);
       if (!var3.isDirectory()) {
          return var2;
       } else {

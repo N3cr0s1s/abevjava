@@ -18,6 +18,8 @@ import hu.piller.enykp.gui.model.PageModel;
 import hu.piller.enykp.interfaces.ILoadManager;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Frame;
 import java.io.File;
 import java.io.InputStream;
@@ -514,7 +516,7 @@ public class DbLoader implements ILoadManager {
          String var5 = (String)var4.get("nyomtatvanyazonosito");
          String var6 = (String)var4.get("nyomtatvanyverzio");
          String var7 = (String)var4.get("org");
-         File var8 = new File(TemplateChecker.getInstance().getTemplateFileNames(var5, var6, var7).getTemplateFileNames()[0]);
+         File var8 = new NecroFile(TemplateChecker.getInstance().getTemplateFileNames(var5, var6, var7).getTemplateFileNames()[0]);
          if (!var8.exists()) {
             var1.errormsg = "Nincs megfelelő sablon!";
             return var1;

@@ -16,6 +16,8 @@ import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
 import hu.piller.kripto.keys.KeyWrapper;
 import hu.piller.xml.abev.element.DocMetaData;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.util.Hashtable;
 import java.util.Properties;
@@ -37,7 +39,7 @@ public class KrApp4PdfXml {
       FileLoader4BatchCheck var2 = new FileLoader4BatchCheck();
       var2.setFileToList(this.xmlFilename);
       XmlLoader var3 = new XmlLoader();
-      Hashtable var4 = var2.loadHeadData(new File(this.xmlFilename), var3);
+      Hashtable var4 = var2.loadHeadData(new NecroFile(this.xmlFilename), var3);
 
       Hashtable var5;
       try {
@@ -170,7 +172,7 @@ public class KrApp4PdfXml {
 
       String var8 = OrgInfo.getInstance().getKRCimzett(var3);
       var4.setCimzett(var8);
-      var4.setFileNev((new File(this.pdfFilename)).getName());
+      var4.setFileNev((new NecroFile(this.pdfFilename)).getName());
       var13 = DatastoreKeyToXml.htmlCut(var13);
       var4.setMegjegyzes(var13);
       Properties var9 = var4.getParamList();

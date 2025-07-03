@@ -15,6 +15,8 @@ import java.util.Vector;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
@@ -57,7 +59,7 @@ public class DocInfoLoader implements ILoadManager {
          }
       }
 
-      File var8 = new File(var7.getFile());
+      File var8 = new NecroFile(var7.getFile());
       return this.getHeadData(var8);
    }
 
@@ -144,7 +146,7 @@ public class DocInfoLoader implements ILoadManager {
       FileInputStream var4 = null;
 
       try {
-         var4 = new FileInputStream(new File(var1));
+         var4 = new FileInputStream(var1);
          DocInfoLoader.DocInfoXmlHandler var5 = new DocInfoLoader.DocInfoXmlHandler(this.load_type);
          var3.parse(var4, var5);
          this.head_data = var5.getHeadData();

@@ -8,6 +8,9 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.ErrorDialog;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -289,7 +292,7 @@ public class CsoportosAddForm extends JDialog implements ActionListener, ListDat
    private void doAdd() {
       ABEVOpenPanel var1 = new ABEVOpenPanel();
       var1.setMode("open_multi");
-      var1.setPath(new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.saves")));
+      var1.setPath(new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.saves")));
       var1.setFilters(new String[]{"inner_data_loader_v1"});
       Hashtable var2 = var1.showDialog();
       if (var2 != null && var2.size() != 0) {
@@ -307,7 +310,7 @@ public class CsoportosAddForm extends JDialog implements ActionListener, ListDat
 
    private void doAddimp() {
       EJFileChooser var1 = new EJFileChooser();
-      var1.setCurrentDirectory(new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import")));
+      var1.setCurrentDirectory(new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import")));
       var1.setDialogTitle("Import állomány kiválasztása");
       FileFilter var2 = new FileFilter() {
          public boolean accept(File var1) {
@@ -374,13 +377,13 @@ public class CsoportosAddForm extends JDialog implements ActionListener, ListDat
    private void doList() {
       Vector var1 = new Vector();
       this.initDialog("Megnyitás");
-      File var2 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+      File var2 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
 
       try {
          ((BasicFileChooserUI)this.fc.getUI()).setFileName("hozzaadas_lista.txt");
       } catch (ClassCastException var9) {
          try {
-            this.fc.setSelectedFile(new File("hozzaadas_lista.txt"));
+            this.fc.setSelectedFile(new NecroFile("hozzaadas_lista.txt"));
          } catch (Exception var8) {
             Tools.eLog(var8, 0);
          }
@@ -412,13 +415,13 @@ public class CsoportosAddForm extends JDialog implements ActionListener, ListDat
 
    private void doSaveList() {
       this.initDialog("Mentés");
-      File var1 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.saves"));
+      File var1 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.saves"));
 
       try {
          ((BasicFileChooserUI)this.fc.getUI()).setFileName("hozzaadas_lista.txt");
       } catch (ClassCastException var9) {
          try {
-            this.fc.setSelectedFile(new File("hozzaadas_lista.txt"));
+            this.fc.setSelectedFile(new NecroFile("hozzaadas_lista.txt"));
          } catch (Exception var8) {
             Tools.eLog(var8, 0);
          }
@@ -431,7 +434,7 @@ public class CsoportosAddForm extends JDialog implements ActionListener, ListDat
          FileOutputStream var4 = null;
 
          try {
-            var4 = new FileOutputStream(var3);
+            var4 = new NecroFileOutputStream(var3);
 
             for(int var5 = 0; var5 < this.listModel.size(); ++var5) {
                var4.write((this.listModel.get(var5) + "\r\n").getBytes());
@@ -454,7 +457,7 @@ public class CsoportosAddForm extends JDialog implements ActionListener, ListDat
    }
 
    private void parseFile(String var1, Vector var2) throws Exception {
-      File var3 = new File(var1);
+      File var3 = new NecroFile(var1);
       if (!var3.exists()) {
          GuiUtil.showMessageDialog(this.mainFrame, "Nem található a listafájl!", "Hiba", 0);
       } else {
@@ -469,9 +472,9 @@ public class CsoportosAddForm extends JDialog implements ActionListener, ListDat
                   var2.add(new TextWithIcon(var4 + " - nem megfelelő kiterjesztés"));
                } else {
                   try {
-                     File var7 = new File(var4);
+                     File var7 = new NecroFile(var4);
                      if (!var7.exists()) {
-                        var7 = new File(var1.substring(0, var1.lastIndexOf(File.separator) + 1) + var4);
+                        var7 = new NecroFile(var1.substring(0, var1.lastIndexOf(File.separator) + 1) + var4);
                         if (!var7.exists()) {
                            var2.add(new TextWithIcon(var4 + " - nem található a fájl"));
                            continue;
@@ -547,7 +550,7 @@ public class CsoportosAddForm extends JDialog implements ActionListener, ListDat
 
                      Vector var2;
                      try {
-                        File var3 = new File(CsoportosAddForm.this.listModel.get(0).toString());
+                        File var3 = new NecroFile(CsoportosAddForm.this.listModel.get(0).toString());
                         var2 = CsoportosAddForm.this.bm.add2(var3, true);
                         var1 = CsoportosAddForm.this.bm.hasAddError;
                      } catch (OutOfMemoryError var4) {
@@ -629,7 +632,7 @@ public class CsoportosAddForm extends JDialog implements ActionListener, ListDat
          ((BasicFileChooserUI)this.fc.getUI()).setFileName("");
       } catch (ClassCastException var5) {
          try {
-            this.fc.setSelectedFile(new File(""));
+            this.fc.setSelectedFile(new NecroFile(""));
          } catch (Exception var4) {
             Tools.eLog(var4, 0);
          }
@@ -655,7 +658,7 @@ public class CsoportosAddForm extends JDialog implements ActionListener, ListDat
                ((BasicFileChooserUI)CsoportosAddForm.this.fc.getUI()).setFileName("naplo.txt");
             } catch (ClassCastException var9) {
                try {
-                  CsoportosAddForm.this.fc.setSelectedFile(new File("naplo.txt"));
+                  CsoportosAddForm.this.fc.setSelectedFile(new NecroFile("naplo.txt"));
                } catch (Exception var8) {
                   Tools.eLog(var8, 0);
                }
@@ -667,7 +670,7 @@ public class CsoportosAddForm extends JDialog implements ActionListener, ListDat
                FileOutputStream var4 = null;
 
                try {
-                  var4 = new FileOutputStream(var3);
+                  var4 = new NecroFileOutputStream(var3);
 
                   for(int var5 = 0; var5 < CsoportosAddForm.this.logLista.getModel().getSize(); ++var5) {
                      var4.write((CsoportosAddForm.this.logLista.getModel().getElementAt(var5) + "\r\n").getBytes());

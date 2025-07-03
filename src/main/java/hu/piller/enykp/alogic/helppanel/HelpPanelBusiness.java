@@ -10,6 +10,8 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.chardet.ENYKCharsetDetector;
 import hu.piller.enykp.util.oshandler.OsFactory;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -385,16 +387,16 @@ class HelpPanelBusiness {
    public File getFileByLocation(String var1) {
       File var2;
       try {
-         var2 = new File((new URL(var1)).toString());
+         var2 = new NecroFile((new URL(var1)).toString());
       } catch (Exception var6) {
          String var3 = this.getRootPath();
          String var4 = this.getHelpPath();
          if (var1.startsWith(var4)) {
-            var2 = new File(this.getRootPath(), var1);
+            var2 = new NecroFile(this.getRootPath(), var1);
          } else if (var4.indexOf(58) >= 0) {
-            var2 = new File((new File(var4, var1)).toString());
+            var2 = new NecroFile((new NecroFile(var4, var1)).toString());
          } else {
-            var2 = new File(new File(var3, var4), var1);
+            var2 = new NecroFile(new NecroFile(var3, var4), var1);
          }
       }
 
@@ -415,8 +417,8 @@ class HelpPanelBusiness {
          IPropertyList var1 = PropertyList.getInstance();
          if (var1 != null) {
             try {
-               String var2 = (new File((String)var1.get("prop.sys.helps"))).toString();
-               return var2 == null ? (new File(".")).getCanonicalPath() : var2;
+               String var2 = (new NecroFile((String)var1.get("prop.sys.helps"))).toString();
+               return var2 == null ? (new NecroFile(".")).getCanonicalPath() : var2;
             } catch (IOException var3) {
                this.writeError("Sikertelen súgó útvonal megszerzési művelet !", var3);
             }
@@ -433,8 +435,8 @@ class HelpPanelBusiness {
          IPropertyList var1 = PropertyList.getInstance();
          if (var1 != null) {
             try {
-               String var2 = (new File((String)var1.get("prop.sys.root"))).toString();
-               return var2 == null ? (new File(".")).getCanonicalPath() : var2;
+               String var2 = (new NecroFile((String)var1.get("prop.sys.root"))).toString();
+               return var2 == null ? (new NecroFile(".")).getCanonicalPath() : var2;
             } catch (IOException var3) {
                this.writeError("Sikertelen gyökér útvonal megszerzési művelet !", var3);
             }
@@ -504,12 +506,12 @@ class HelpPanelBusiness {
          try {
             File var4;
             try {
-               var4 = new File(SettingsStore.getInstance().get("gui", "internet_browser"));
+               var4 = new NecroFile(SettingsStore.getInstance().get("gui", "internet_browser"));
                if (!var4.exists()) {
                   throw new Exception();
                }
             } catch (Exception var6) {
-               var4 = new File(var3.getSystemBrowserPath());
+               var4 = new NecroFile(var3.getSystemBrowserPath());
             }
 
             if (var4.getName().toLowerCase().indexOf("edge") > -1) {
@@ -530,7 +532,7 @@ class HelpPanelBusiness {
 
    private URL convertUrl(URL var1) {
       try {
-         File var2 = new File(var1.getFile());
+         File var2 = new NecroFile(var1.getFile());
          return new URL("http", var2.getName(), var1.getPort(), "");
       } catch (Exception var3) {
          return var1;

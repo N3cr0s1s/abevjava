@@ -1,5 +1,7 @@
 package hu.piller.enykp.alogic.primaryaccount.common.file;
 
+import me.necrocore.abevjava.NecroImageOutputStream;
+
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -28,7 +30,7 @@ public class SeekableOutputStream extends OutputStream {
          this.lineSeparator = var3.getBytes(var2);
       }
 
-      this.fios = new FileImageOutputStream(var1);
+      this.fios = new NecroImageOutputStream(var1);
       this.fd = new FileDescriptor();
    }
 

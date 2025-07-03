@@ -14,6 +14,8 @@ import hu.piller.enykp.gui.GuiUtil;
 import hu.piller.enykp.gui.framework.MainFrame;
 import hu.piller.enykp.util.base.SwingWorker;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -319,7 +321,7 @@ public final class UpgradeFormController implements ActionListener {
    }
 
    public boolean isRestartNeeded() {
-      File var1 = new File(Directories.getUpgradePath() + File.separator + "abevjava_install.jar");
+      File var1 = new NecroFile(Directories.getUpgradePath() + File.separator + "abevjava_install.jar");
       return var1.exists();
    }
 

@@ -1,6 +1,8 @@
 package hu.piller.enykp.alogic.templateutils.blacklist;
 
 import hu.piller.enykp.alogic.upgrademanager_v2_0.Directories;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.util.ArrayList;
@@ -87,7 +89,7 @@ public class Blacklist {
       JAXBContext var1 = JAXBContext.newInstance(Blacklist.class);
       Unmarshaller var2 = var1.createUnmarshaller();
       SchemaFactory var3 = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
-      Schema var4 = var3.newSchema(new File(Directories.getSchemasPath() + "/blacklist.xsd"));
+      Schema var4 = var3.newSchema(new NecroFile(Directories.getSchemasPath() + "/blacklist.xsd"));
       var2.setSchema(var4);
       return (Blacklist)var2.unmarshal(new ByteArrayInputStream(var0.getBytes("utf-8")));
    }
@@ -96,7 +98,7 @@ public class Blacklist {
       JAXBContext var1 = JAXBContext.newInstance(Blacklist.class);
       Marshaller var2 = var1.createMarshaller();
       var2.setProperty("jaxb.formatted.output", true);
-      var2.marshal(var0, new File(Directories.getOrgresourcesPath() + "/blacklist.xml"));
+      var2.marshal(var0, new NecroFile(Directories.getOrgresourcesPath() + "/blacklist.xml"));
    }
 
    public HashMap<String, Blacklist.Template> getCurrentBlacklistIds() {

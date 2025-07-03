@@ -13,6 +13,8 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.xml.abev.element.DocMetaData;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -216,7 +218,7 @@ public class Pass2DSignParts {
          throw new Exception();
       } else {
          byte[] var8 = EbevTools.getCertBytes((String)var1.docinfo.get("org"));
-         FileOutputStream var9 = new FileOutputStream(var2);
+         FileOutputStream var9 = new NecroFileOutputStream(var2);
 
          try {
             var9.write(("<?xml version=\"1.0\" encoding=\"ISO-8859-2\"?>\n<abev:Boritek xmlns:abev='http://iop.gov.hu/2006/01/boritek'>\n<abev:Fejlec>\n  <abev:Cimzett>" + var7 + "</abev:Cimzett>\n" + "  <abev:DokTipusAzonosito>" + var3.getDokTipusAzonosito() + "</abev:DokTipusAzonosito>\n" + "  <abev:DokTipusLeiras>" + var3.getDokTipusLeiras() + "</abev:DokTipusLeiras>\n" + "  <abev:DokTipusVerzio>" + var3.getDokTipusVerzio() + "</abev:DokTipusVerzio>\n" + "  <abev:FileNev>" + PropertyList.USER_IN_FILENAME + var3.getFileNev() + "</abev:FileNev>\n" + "  <abev:Megjegyzes>" + var3.getMegjegyzes() + "</abev:Megjegyzes>\n" + this.getParamLista(var3.getParamList()) + this.getCsatolmanyInfo(var4, var5) + "\n</abev:Fejlec>\n" + "<abev:CimzettNyilvanosKulcs>\n").getBytes("ISO-8859-2"));

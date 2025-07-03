@@ -2,6 +2,7 @@ package hu.piller.enykp.util.icon;
 
 import hu.piller.enykp.gui.GuiUtil;
 import hu.piller.enykp.util.base.ImageUtil;
+import me.necrocore.abevjava.NecroFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -76,7 +77,7 @@ public class ENYKIconSet {
 
             while (dirs.hasMoreElements()) {
                URL dirUrl = dirs.nextElement();
-               File dir = new File(dirUrl.toURI());
+               File dir = new NecroFile(dirUrl.toURI());
                if (!dir.isDirectory()) {
                   continue;
                }

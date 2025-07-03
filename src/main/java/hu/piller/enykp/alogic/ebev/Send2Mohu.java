@@ -24,6 +24,9 @@ import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.EJList;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -316,7 +319,7 @@ public class Send2Mohu {
    private void delXmlFileFromSignedFolder(BookModel var1, SendParams var2) {
       String var3 = var1.cc.getLoadedfile().getName();
       var3 = var3.substring(0, var3.length() - ".frm.enyk".length());
-      (new File(var2.srcPath + var3 + ".xml")).delete();
+      (new NecroFile(var2.srcPath + var3 + ".xml")).delete();
    }
 
    private void fillDialog(String var1, Vector var2) {
@@ -362,7 +365,7 @@ public class Send2Mohu {
       this.initDialog("Lista mentése");
 
       try {
-         this.fc.setCurrentDirectory(new File((String)PropertyList.getInstance().get("prop.usr.naplo")));
+         this.fc.setCurrentDirectory(new NecroFile((String)PropertyList.getInstance().get("prop.usr.naplo")));
       } catch (Exception var10) {
          Tools.eLog(var10, 0);
       }
@@ -371,7 +374,7 @@ public class Send2Mohu {
          ((BasicFileChooserUI)this.fc.getUI()).setFileName("magyarorszag_hu_kuldesek_uzenetei.txt");
       } catch (ClassCastException var9) {
          try {
-            this.fc.setSelectedFile(new File("magyarorszag_hu_kuldesek_uzenetei.txt"));
+            this.fc.setSelectedFile(new NecroFile("magyarorszag_hu_kuldesek_uzenetei.txt"));
          } catch (Exception var8) {
             Tools.eLog(var8, 0);
          }
@@ -391,7 +394,7 @@ public class Send2Mohu {
                FileOutputStream var4 = null;
 
                try {
-                  var4 = new FileOutputStream(var3);
+                  var4 = new NecroFileOutputStream(var3);
 
                   for(int var5 = 0; var5 < this.logLista.getModel().getSize(); ++var5) {
                      if (this.logLista.getModel().getElementAt(var5) instanceof TextWithIcon) {
@@ -429,7 +432,7 @@ public class Send2Mohu {
          ((BasicFileChooserUI)this.fc.getUI()).setFileName("");
       } catch (ClassCastException var5) {
          try {
-            this.fc.setSelectedFile(new File(""));
+            this.fc.setSelectedFile(new NecroFile(""));
          } catch (Exception var4) {
             Tools.eLog(var4, 0);
          }
@@ -440,7 +443,7 @@ public class Send2Mohu {
 
    private void delXmlFileFromSignedFolder(String var1) {
       SendParams var2 = new SendParams(PropertyList.getInstance());
-      String var3 = (new File(var1)).getName();
+      String var3 = (new NecroFile(var1)).getName();
       if (var3.toLowerCase().endsWith(".kr")) {
          var3 = var3.substring(0, var3.length() - ".kr".length());
       }
@@ -449,12 +452,12 @@ public class Send2Mohu {
          var3 = var3.substring(0, var3.length() - ".xml".length());
       }
 
-      (new File(var2.srcPath + var3 + ".xml")).delete();
+      (new NecroFile(var2.srcPath + var3 + ".xml")).delete();
    }
 
    public Object[] parseMohuFile(String var1) throws Exception {
       Object[] var2 = new Object[3];
-      File var3 = new File(var1);
+      File var3 = new NecroFile(var1);
       BufferedReader var4 = new BufferedReader(new FileReader(var3));
       String var5 = var4.readLine();
       String[] var6 = var5.split(":");
@@ -474,7 +477,7 @@ public class Send2Mohu {
 
    public String[] parseKAUFile(String var1) throws Exception {
       String[] var2 = new String[3];
-      File var3 = new File(var1);
+      File var3 = new NecroFile(var1);
       BufferedReader var4 = new BufferedReader(new FileReader(var3));
       String var5 = var4.readLine();
       String[] var6 = var5.split(":");

@@ -3,6 +3,10 @@ package hu.piller.enykp.alogic.upgrademanager_v2_0.fileinstaller;
 import hu.piller.enykp.alogic.orghandler.OrgInfo;
 import hu.piller.enykp.alogic.upgrademanager_v2_0.Directories;
 import hu.piller.enykp.alogic.upgrademanager_v2_0.UpgradeLogger;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+import me.necrocore.abevjava.NecroFileWriter;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -51,7 +55,7 @@ public class FileInstaller {
          File var5 = var2[var4];
          if ("abevjava_install.jar".equals(var5.getName())) {
             this.hasNewFramework = true;
-            var5.renameTo(new File(Directories.getUpgradePath() + File.separator + "abevjava_install.jar"));
+            var5.renameTo(new NecroFile(Directories.getUpgradePath() + File.separator + "abevjava_install.jar"));
             this.notifyGUI(var5, FileInstallStatus.SIKER);
          } else {
             JarFile var6 = null;
@@ -102,13 +106,13 @@ public class FileInstaller {
                      } while(var32.isDirectory());
 
                      InputStream var10 = var6.getInputStream(var32);
-                     File var11 = new File(var9);
+                     File var11 = new NecroFile(var9);
                      var11.getParentFile().mkdirs();
                      FileOutputStream var12 = null;
                      byte[] var14 = new byte[2048];
 
                      try {
-                        var12 = new FileOutputStream(var11);
+                        var12 = new NecroFileOutputStream(var11);
 
                         int var13;
                         while((var13 = var10.read(var14)) != -1) {
@@ -132,7 +136,7 @@ public class FileInstaller {
 
                   while(var8.hasNext()) {
                      var9 = (String)var8.next();
-                     (new File(var9)).delete();
+                     (new NecroFile(var9)).delete();
                   }
                }
             } finally {
@@ -173,7 +177,7 @@ public class FileInstaller {
       PrintWriter var1 = null;
 
       try {
-         var1 = new PrintWriter(new FileWriter(this.getUninstallPath(), true));
+         var1 = new PrintWriter(new NecroFileWriter(this.getUninstallPath(), true));
          String var2 = null;
 
          while((var2 = (String)this.installed.poll()) != null) {

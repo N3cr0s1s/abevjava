@@ -9,6 +9,8 @@ import hu.piller.enykp.interfaces.IPropertyList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.SizeAndPositonSaveDialog;
 import hu.piller.enykp.util.base.eventsupport.CloseEvent;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Container;
 import java.io.File;
 import java.util.Arrays;
@@ -47,7 +49,7 @@ public class CopyFromImpExpFolder implements ICommandObject {
 
    private void prepare() {
       CopyFromImpExpFolder.ButtonActions var1 = new CopyFromImpExpFolder.ButtonActions(this.file_panel);
-      this.enyk_path = new File(this.getProperty("prop.usr.root"), this.getProperty("prop.usr.import"));
+      this.enyk_path = new NecroFile(this.getProperty("prop.usr.root"), this.getProperty("prop.usr.import"));
       var1.b11Clicked();
       this.business.setButtonExecutor(var1);
    }

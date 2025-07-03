@@ -9,6 +9,8 @@ import hu.piller.enykp.gui.framework.MainPanel;
 import hu.piller.enykp.gui.model.BookModel;
 import hu.piller.enykp.gui.viewer.DefaultMultiFormViewer;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Frame;
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,16 +24,16 @@ public class MultiImport {
    Vector errlist = new Vector();
 
    public void display(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       this.parent = var2.getParent();
       this.mfiles.clear();
       this.errlist.clear();
       String var3 = this.get1row(var2);
       if (var3 != null && !"".equals(var3)) {
-         File var4 = new File(var3);
+         File var4 = new NecroFile(var3);
          int var5;
          if (!var4.exists()) {
-            var4 = new File(this.parent, var3);
+            var4 = new NecroFile(this.parent, var3);
             if (!var4.exists()) {
                this.errlist.add(var3);
                this.errlist.add(new TextWithIcon("    Nem található ilyen állomány!", 2));
@@ -215,11 +217,11 @@ public class MultiImport {
             }
 
             if (!var4.startsWith(";") && var4.trim().length() != 0) {
-               File var5 = new File(var4);
+               File var5 = new NecroFile(var4);
                if (var5.exists()) {
                   this.mfiles.add(var5);
                } else {
-                  this.mfiles.add(new File(this.parent, var4));
+                  this.mfiles.add(new NecroFile(this.parent, var4));
                }
             }
          }

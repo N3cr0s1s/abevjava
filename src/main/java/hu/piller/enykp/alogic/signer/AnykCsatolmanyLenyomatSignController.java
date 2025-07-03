@@ -4,6 +4,9 @@ import hu.piller.enykp.kauclient.KauAuthMethod;
 import hu.piller.enykp.kauclient.KauAuthMethods;
 import hu.piller.enykp.niszws.util.DapSessionHandler;
 import hu.piller.enykp.util.base.PropertyList;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -77,7 +80,7 @@ public class AnykCsatolmanyLenyomatSignController {
          List var2 = (List)this.controlledFilesToSign.get(var1);
 
          for(int var3 = 0; var3 < var2.size(); ++var3) {
-            File var4 = new File(((File)var2.get(var3)).getAbsolutePath() + ".anyk.ASiC");
+            File var4 = new NecroFile(((File)var2.get(var3)).getAbsolutePath() + ".anyk.ASiC");
             var4.delete();
          }
       }
@@ -99,8 +102,8 @@ public class AnykCsatolmanyLenyomatSignController {
 
    private void dummyAvdhSign(ArrayList<File> var1, String var2) throws IOException {
       for(int var3 = 0; var3 < var1.size(); ++var3) {
-         File var4 = new File(((File)var1.get(var3)).getAbsolutePath() + ".anyk.ASiC");
-         FileOutputStream var5 = new FileOutputStream(var4);
+         File var4 = new NecroFile(((File)var1.get(var3)).getAbsolutePath() + ".anyk.ASiC");
+         FileOutputStream var5 = new NecroFileOutputStream(var4);
          FileInputStream var6 = new FileInputStream(var2 + "\\1signer.asic");
          byte[] var7 = new byte[2048];
 

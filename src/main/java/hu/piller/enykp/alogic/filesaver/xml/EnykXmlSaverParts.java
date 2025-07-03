@@ -31,6 +31,9 @@ import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.ErrorDialog;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.Frame;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -136,7 +139,7 @@ public class EnykXmlSaverParts {
                            var10 = this.createMultipartFilenme(this.filename, var9);
                         }
 
-                        var7 = new FileOutputStream(var10);
+                        var7 = new NecroFileOutputStream(var10);
                         Elem var11 = (Elem)this.bm.cc.get(var9);
                         FormModel var12 = this.bm.get(var11.getType());
                         this.setNewData(var12, var9);
@@ -154,11 +157,11 @@ public class EnykXmlSaverParts {
                         this.hashPos += 6;
                         File var13;
                         if (var4 == null) {
-                           var13 = new File(var10);
+                           var13 = new NecroFile(var10);
                            this.createHash(var10, false);
                            var30.add(var13.getName());
                         } else {
-                           var13 = new File(var10);
+                           var13 = new NecroFile(var10);
                            this.createHash(var10, true);
                            var30.add(var13.getName());
                         }
@@ -223,7 +226,7 @@ public class EnykXmlSaverParts {
          this.filename = PropertyList.USER_IN_FILENAME + var1 + this.getFileNameSuffix();
       } else {
          this.filename = var1;
-         File var2 = new File(var1);
+         File var2 = new NecroFile(var1);
          if (var2.exists()) {
             return;
          }
@@ -340,7 +343,7 @@ public class EnykXmlSaverParts {
    }
 
    private void deleteFile() {
-      File var1 = new File(this.filename);
+      File var1 = new NecroFile(this.filename);
       var1.delete();
    }
 
@@ -441,7 +444,7 @@ public class EnykXmlSaverParts {
 
    private String getKRDir() throws Exception {
       String var1 = Tools.fillPath((String)PropertyList.getInstance().get("prop.usr.krdir"));
-      if (!(new File(var1)).isDirectory()) {
+      if (!(new NecroFile(var1)).isDirectory()) {
          throw new FileNotFoundException("nem található krdir");
       } else {
          return var1;
@@ -737,7 +740,7 @@ public class EnykXmlSaverParts {
          var4 = var4.substring(0, var4.toLowerCase().indexOf(".frm.enyk")) + var2;
       }
 
-      var4 = PropertyList.USER_IN_FILENAME + (new File(var4)).getName();
+      var4 = PropertyList.USER_IN_FILENAME + (new NecroFile(var4)).getName();
       Result var5 = this.save(var4, var3, true, (SendParams)null, this.filename);
       return !var5.isOk() ? var5 : var5;
    }

@@ -21,6 +21,8 @@ import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -166,7 +168,7 @@ public class DownloadableVersionDataProvider extends VersionDataProvider {
          var3.setValidating(false);
          var3.setNamespaceAware(true);
          SchemaFactory var4 = SchemaFactory.newInstance(var2);
-         var3.setSchema(var4.newSchema(new Source[]{new StreamSource(new File(Directories.getSchemasPath() + "/enyk.xsd"))}));
+         var3.setSchema(var4.newSchema(new Source[]{new StreamSource(new NecroFile(Directories.getSchemasPath() + "/enyk.xsd"))}));
          SAXParser var5 = var3.newSAXParser();
          XMLReader var6 = var5.getXMLReader();
          XmlHandler var7 = new XmlHandler();

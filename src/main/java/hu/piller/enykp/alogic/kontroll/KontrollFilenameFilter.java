@@ -1,5 +1,7 @@
 package hu.piller.enykp.alogic.kontroll;
 
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.io.FilenameFilter;
 
@@ -11,7 +13,7 @@ public class KontrollFilenameFilter implements FilenameFilter {
    }
 
    public boolean accept(File var1, String var2) {
-      if ((new File(var1, var2)).isDirectory()) {
+      if ((new NecroFile(var1, var2)).isDirectory()) {
          return false;
       } else {
          try {

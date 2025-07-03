@@ -15,6 +15,9 @@ import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileWriter;
+
 import java.awt.Component;
 import java.awt.Desktop;
 import java.io.File;
@@ -65,14 +68,14 @@ public class KrPreparation {
 
    public boolean external() {
       String var1 = this.sp.srcPath + this.loadedFileAzon + File.separator;
-      (new File(var1)).mkdir();
-      (new File(var1 + "alairando")).mkdir();
-      (new File(var1 + "alairt")).mkdir();
+      (new NecroFile(var1)).mkdir();
+      (new NecroFile(var1 + "alairando")).mkdir();
+      (new NecroFile(var1 + "alairt")).mkdir();
       String var2 = var1 + "alairando" + File.separator + this.loadedFileAzon;
       Result var3 = this.saveAnykFileAsXml(var2 + ".xml", true);
       String var4;
       if (!var3.isOk()) {
-         if (!(new File(var2 + ".xml")).delete()) {
+         if (!(new NecroFile(var2 + ".xml")).delete()) {
             var4 = (String)var3.errorList.get(0);
             var4 = var4 + "\nA " + var2 + ".xml" + " fájl törlése nem sikerült, kérjük törölje más módon!";
             var3.errorList.insertElementAt(var4, 0);
@@ -138,14 +141,14 @@ public class KrPreparation {
    }
 
    private String doHashAnykFile(String var1) {
-      File var2 = new File(var1 + "_lenyomat" + ".xml");
+      File var2 = new NecroFile(var1 + "_lenyomat" + ".xml");
       FileWriter var3 = null;
 
       label71: {
          String var5;
          try {
-            var3 = new FileWriter(var2);
-            var3.write(this.createHashFromXml(new File(var1 + ".xml")));
+            var3 = new NecroFileWriter(var2);
+            var3.write(this.createHashFromXml(new NecroFile(var1 + ".xml")));
             break label71;
          } catch (Exception var15) {
             ErrorList.getInstance().writeError(new Long(4009L), var1 + ".xml" + "Hiba a nyomtatvány mentésekor - nem készíthető el a lenyomat!", IErrorList.LEVEL_ERROR, var15, (Object)null);
@@ -162,12 +165,12 @@ public class KrPreparation {
          return var5;
       }
 
-      File var4 = new File(this.sp.srcPath + this.loadedFileAzon + ".xml");
+      File var4 = new NecroFile(this.sp.srcPath + this.loadedFileAzon + ".xml");
       if (var4.exists()) {
          var4.delete();
       }
 
-      (new File(var1 + ".xml")).renameTo(var4);
+      (new NecroFile(var1 + ".xml")).renameTo(var4);
       return null;
    }
 
@@ -183,7 +186,7 @@ public class KrPreparation {
 
    private void openSourceFolder(String var1) {
       try {
-         Desktop.getDesktop().open(new File(var1));
+         Desktop.getDesktop().open(new NecroFile(var1));
       } catch (Exception var3) {
          ErrorList.getInstance().writeError(new Long(4009L), "Nem sikerült a " + var1 + " mappa megnyitása!", IErrorList.LEVEL_ERROR, var3, (Object)null);
       }
@@ -198,7 +201,7 @@ public class KrPreparation {
       String var2 = this.sp.srcPath + this.loadedFileAzon + File.separator;
       String var3 = "";
       Vector var4 = new Vector();
-      File var5 = new File(var2 + "alairando");
+      File var5 = new NecroFile(var2 + "alairando");
       File[] var6 = var5.listFiles();
       if (var6 != null) {
          for(int var7 = 0; var7 < var6.length; ++var7) {
@@ -210,12 +213,12 @@ public class KrPreparation {
          }
       }
 
-      File var9 = new File(var2 + "alairando");
+      File var9 = new NecroFile(var2 + "alairando");
       if (var9.exists() && !var9.delete()) {
          var3 = var3 + "\nA " + var9.getAbsolutePath() + " mappa törlése nem sikerült";
       }
 
-      var5 = new File(var2 + "alairt");
+      var5 = new NecroFile(var2 + "alairt");
       var6 = var5.listFiles();
       if (var6 != null) {
          for(int var8 = 0; var8 < var6.length; ++var8) {
@@ -227,12 +230,12 @@ public class KrPreparation {
          }
       }
 
-      var9 = new File(var2 + "alairt");
+      var9 = new NecroFile(var2 + "alairt");
       if (var9.exists() && !var9.delete()) {
          var3 = var3 + "\nA " + var9.getAbsolutePath() + " mappa törlése nem sikerült";
       }
 
-      var9 = new File(var2);
+      var9 = new NecroFile(var2);
       if (var9.exists() && !var9.delete()) {
          var3 = var3 + "\nA " + var9.getAbsolutePath() + " mappa törlése nem sikerült";
       }
@@ -256,12 +259,12 @@ public class KrPreparation {
       String var1 = "";
 
       try {
-         File var2 = new File(this.sp.krdir + "fizikai_adathordozo" + File.separator + this.loadedFileAzon + ".xcz");
+         File var2 = new NecroFile(this.sp.krdir + "fizikai_adathordozo" + File.separator + this.loadedFileAzon + ".xcz");
          if (!var2.delete()) {
             var1 = this.sp.krdir + "fizikai_adathordozo" + File.separator + this.loadedFileAzon + ".xcz" + " fájl törlése nem sikerült!\nKérjük más módon törölje!";
          }
 
-         var2 = new File(this.sp.destPath + File.separator + this.loadedFileAzon + ".xcz" + "_status");
+         var2 = new NecroFile(this.sp.destPath + File.separator + this.loadedFileAzon + ".xcz" + "_status");
          if (!var2.delete()) {
             var1 = var1 + "\n" + this.sp.destPath + File.separator + this.loadedFileAzon + ".xcz" + "_status fájl törlése nem sikerült!\nKérjük más módon törölje!";
          }
@@ -285,10 +288,10 @@ public class KrPreparation {
 
    public void moveXmlToTargetDir(String var1) {
       String var2 = this.sp.srcPath + this.loadedFileAzon + File.separator;
-      (new File(var2)).mkdir();
-      (new File(var2 + "alairt")).mkdir();
-      File var3 = new File(this.sp.srcPath + File.separator + var1 + ".xml" + ".anyk.ASiC");
-      boolean var4 = var3.renameTo(new File(var2 + "alairt" + File.separator + var1 + ".urlap.anyk.ASiC"));
+      (new NecroFile(var2)).mkdir();
+      (new NecroFile(var2 + "alairt")).mkdir();
+      File var3 = new NecroFile(this.sp.srcPath + File.separator + var1 + ".xml" + ".anyk.ASiC");
+      boolean var4 = var3.renameTo(new NecroFile(var2 + "alairt" + File.separator + var1 + ".urlap.anyk.ASiC"));
       System.out.println(var4);
    }
 
@@ -301,7 +304,7 @@ public class KrPreparation {
       }
 
       var2 = var2 + this.loadedFileAzon + File.separator + this.bm.get_formid();
-      File[] var3 = (new File(var2)).listFiles();
+      File[] var3 = (new NecroFile(var2)).listFiles();
       if (var3 == null) {
          return var1;
       } else {

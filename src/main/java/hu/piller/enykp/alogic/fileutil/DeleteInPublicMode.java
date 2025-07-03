@@ -6,6 +6,8 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.ErrorDialog;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.Arrays;
@@ -62,7 +64,7 @@ public class DeleteInPublicMode {
       Result var3 = new Result();
 
       for(int var4 = 0; var4 < this.dirs.length; ++var4) {
-         File var5 = new File(this.dirs[var4]);
+         File var5 = new NecroFile(this.dirs[var4]);
          this.eff.type = var4;
          File[] var6 = var5.listFiles(this.eff);
 
@@ -92,7 +94,7 @@ public class DeleteInPublicMode {
             return false;
          } else {
             for(int var15 = 0; var15 < this.dirs.length; ++var15) {
-               File var16 = new File(this.dirs[var15]);
+               File var16 = new NecroFile(this.dirs[var15]);
                this.eff.type = var15;
                File[] var17 = var16.listFiles(this.eff);
 

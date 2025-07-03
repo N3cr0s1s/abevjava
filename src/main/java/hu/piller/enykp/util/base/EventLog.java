@@ -8,6 +8,8 @@ import hu.piller.enykp.util.base.eventsupport.Event;
 import hu.piller.enykp.util.base.eventsupport.IEventListener;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
 import hu.piller.enykp.util.oshandler.OsFactory;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Component;
 import java.io.File;
 import java.io.FileDescriptor;
@@ -60,7 +62,7 @@ public class EventLog extends List implements IEventLog, IEventSupport {
    private EventLog(int var1, String var2) throws IOException, UnsupportedEncodingException {
       super(var1);
       System.out.println("EventLogFile:" + var2);
-      File var3 = new File(var2);
+      File var3 = new NecroFile(var2);
       this.maintainLogFile(var3);
       this.sof = new EventLog.SeekableOutputStream(var3);
       this.osw = new OutputStreamWriter(this.sof, "UTF-8");
@@ -75,7 +77,7 @@ public class EventLog extends List implements IEventLog, IEventSupport {
             String var5 = this.sdf2.format(new Date()) + "_enyklog";
             int var6 = var4.lastIndexOf(46);
             var4 = var4.substring(0, var6) + var5 + var4.substring(var6);
-            File var7 = new File(var4);
+            File var7 = new NecroFile(var4);
             var1.renameTo(var7);
 
             try {

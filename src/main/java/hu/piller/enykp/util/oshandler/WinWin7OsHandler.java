@@ -1,6 +1,6 @@
 package hu.piller.enykp.util.oshandler;
 
-public class winWin7OsHandler extends defaultWindowsOsHandler {
+public class WinWin7OsHandler extends DefaultWindowsOsHandler {
    public String createApplicationDir() {
       return this.getEnvironmentVariable("public");
    }

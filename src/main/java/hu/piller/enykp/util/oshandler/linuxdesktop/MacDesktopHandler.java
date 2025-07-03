@@ -1,17 +1,19 @@
 package hu.piller.enykp.util.oshandler.linuxdesktop;
 
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.util.Vector;
 
 public class MacDesktopHandler implements ILinuxDesktopHandler {
    public File getDesktopPath() {
       try {
-         File var1 = new File(System.getProperty("user.home") + File.separator + "Asztal");
+         File var1 = new NecroFile(System.getProperty("user.home") + File.separator + "Asztal");
          if (var1.exists() && var1.isDirectory() && var1.canWrite()) {
             return var1;
          }
 
-         var1 = new File(System.getProperty("user.home") + File.separator + "Desktop");
+         var1 = new NecroFile(System.getProperty("user.home") + File.separator + "Desktop");
          if (var1.exists() && var1.isDirectory() && var1.canWrite()) {
             return var1;
          }
@@ -24,8 +26,8 @@ public class MacDesktopHandler implements ILinuxDesktopHandler {
 
    public File getMenuPath(String var1) {
       try {
-         File var2 = new File(System.getProperty("user.home") + File.separator + ".gnome" + File.separator + "apps");
-         File var3 = new File(var2, var1);
+         File var2 = new NecroFile(System.getProperty("user.home") + File.separator + ".gnome" + File.separator + "apps");
+         File var3 = new NecroFile(var2, var1);
          if (!var3.exists()) {
             if (var3.mkdirs()) {
                return var3;

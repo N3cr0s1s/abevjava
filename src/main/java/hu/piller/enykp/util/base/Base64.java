@@ -1,5 +1,8 @@
 package hu.piller.enykp.util.base;
 
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -501,7 +504,7 @@ public class Base64 {
          Base64.OutputStream var2 = null;
 
          try {
-            var2 = new Base64.OutputStream(new FileOutputStream(var1), 1);
+            var2 = new Base64.OutputStream(new NecroFileOutputStream(var1), 1);
             var2.write(var0);
          } catch (IOException var11) {
             throw var11;
@@ -521,7 +524,7 @@ public class Base64 {
       Base64.OutputStream var2 = null;
 
       try {
-         var2 = new Base64.OutputStream(new FileOutputStream(var1), 0);
+         var2 = new Base64.OutputStream(new NecroFileOutputStream(var1), 0);
          var2.write(var0.getBytes("US-ASCII"));
       } catch (IOException var11) {
          throw var11;
@@ -541,7 +544,7 @@ public class Base64 {
       Base64.InputStream var2 = null;
 
       try {
-         File var3 = new File(var0);
+         File var3 = new NecroFile(var0);
          Object var4 = null;
          int var5 = 0;
          boolean var6 = false;
@@ -575,7 +578,7 @@ public class Base64 {
       Base64.InputStream var2 = null;
 
       try {
-         File var3 = new File(var0);
+         File var3 = new NecroFile(var0);
          byte[] var4 = new byte[Math.max((int)((double)var3.length() * 1.4D), 40)];
          int var5 = 0;
          boolean var6 = false;
@@ -603,7 +606,7 @@ public class Base64 {
       BufferedOutputStream var3 = null;
 
       try {
-         var3 = new BufferedOutputStream(new FileOutputStream(var1));
+         var3 = new BufferedOutputStream(new NecroFileOutputStream(var1));
          var3.write(var2.getBytes("US-ASCII"));
       } catch (IOException var12) {
          throw var12;
@@ -623,7 +626,7 @@ public class Base64 {
       BufferedOutputStream var3 = null;
 
       try {
-         var3 = new BufferedOutputStream(new FileOutputStream(var1));
+         var3 = new BufferedOutputStream(new NecroFileOutputStream(var1));
          var3.write(var2);
       } catch (IOException var12) {
          throw var12;

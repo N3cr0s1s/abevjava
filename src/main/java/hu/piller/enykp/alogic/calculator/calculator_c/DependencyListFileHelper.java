@@ -1,5 +1,8 @@
 package hu.piller.enykp.alogic.calculator.calculator_c;
 
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -32,13 +35,13 @@ public class DependencyListFileHelper {
          var8 = var8 + File.separator + var6 + var7;
       }
 
-      return new File(var8);
+      return new NecroFile(var8);
    }
 
    static void saveToFile(File var0, Object var1) throws IOException {
       var0.getParentFile().mkdirs();
       var0.createNewFile();
-      BufferedWriter var2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(var0), "iso-8859-2"));
+      BufferedWriter var2 = new BufferedWriter(new OutputStreamWriter(new NecroFileOutputStream(var0), "iso-8859-2"));
 
       try {
          if (var1 instanceof Map) {

@@ -11,6 +11,8 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.SizeAndPositonSaveDialog;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.eventsupport.CloseEvent;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Container;
 import java.io.File;
 import java.util.Arrays;
@@ -49,7 +51,7 @@ public class CopyFromSaveFolder implements ICommandObject {
 
    private void prepare() {
       CopyFromSaveFolder.ButtonActions var1 = new CopyFromSaveFolder.ButtonActions(this.file_panel);
-      this.enyk_path = new File(this.getProperty("prop.usr.root"), this.getProperty("prop.usr.saves"));
+      this.enyk_path = new NecroFile(this.getProperty("prop.usr.root"), this.getProperty("prop.usr.saves"));
       this.other_path = null;
       var1.b11Clicked();
       this.business.setButtonExecutor(var1);
@@ -212,7 +214,7 @@ public class CopyFromSaveFolder implements ICommandObject {
                File var6 = var2[var5];
                Object[] var7 = new Object[]{var1[var5]};
                if (Operations.before_copyWithAtc(var6, CopyFromSaveFolder.this.other_path)) {
-                  Operations.copyFile__(var6, new File(CopyFromSaveFolder.this.other_path, var6.getName()));
+                  Operations.copyFile__(var6, new NecroFile(CopyFromSaveFolder.this.other_path, var6.getName()));
                   Vector var8 = new Vector();
                   Tools.copyAtc(var7, CopyFromSaveFolder.this.other_path.getAbsolutePath(), var8);
                   String var9 = var6.getName().substring(0, var6.getName().length() - ".frm.enyk".length());

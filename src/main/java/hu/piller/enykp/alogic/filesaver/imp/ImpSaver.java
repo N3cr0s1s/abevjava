@@ -13,6 +13,9 @@ import hu.piller.enykp.interfaces.IPropertyList;
 import hu.piller.enykp.interfaces.ISaveManager;
 import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.PropertyList;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -118,7 +121,7 @@ public class ImpSaver implements ISaveManager {
 
    public OutputStream getStream(String var1) {
       try {
-         return new FileOutputStream(new File(new URI(var1)));
+         return new NecroFileOutputStream(new NecroFile(new URI(var1)));
       } catch (FileNotFoundException var3) {
          throw new RuntimeException(var3);
       } catch (URISyntaxException var4) {
@@ -142,7 +145,7 @@ public class ImpSaver implements ISaveManager {
       boolean var2;
       if (this.bm != null) {
          try {
-            this.save((OutputStream)(new FileOutputStream(var1)));
+            this.save((OutputStream)(new NecroFileOutputStream(var1)));
          } catch (FileNotFoundException var4) {
             throw new RuntimeException(var4);
          }

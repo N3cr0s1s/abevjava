@@ -53,7 +53,7 @@ public class StoreFilter extends FileFilter implements java.io.FileFilter {
                return false;
             }
 
-            type = StoreManager.getStoreType((InputStream)(new FileInputStream(pathname)));
+            type = StoreManager.getStoreType((new FileInputStream(pathname)));
 
             for(int i = 0; i < this.types.size(); ++i) {
                if (this.types.contains(new Integer(type))) {

@@ -1,6 +1,8 @@
 package hu.piller.enykp.alogic.helppanel;
 
 import hu.piller.enykp.util.base.ErrorList;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.util.Hashtable;
 import javax.swing.JPanel;
@@ -24,7 +26,7 @@ public class Help {
 
    public void setForcePath(String var1) {
       if (var1 != null) {
-         File var2 = new File(var1);
+         File var2 = new NecroFile(var1);
          this.forcePath = var2.getParent();
       } else {
          this.forcePath = var1;
@@ -56,7 +58,7 @@ public class Help {
             var6 = this.help_panel.getHelpBusiness().getFileByLocation(var7 + File.separator + var9);
          } else {
             String var11 = var1.substring(8) + File.separator + var3 + File.separator + var4;
-            var6 = new File(var11 + File.separator + var9);
+            var6 = new NecroFile(var11 + File.separator + var9);
          }
 
          if (var6.exists()) {
@@ -78,7 +80,7 @@ public class Help {
             var2.clearContent();
          } else {
             if (this.forcePath != null) {
-               var1 = this.forcePath + "\\" + (new File(var1)).getName();
+               var1 = this.forcePath + "\\" + (new NecroFile(var1)).getName();
             }
 
             var2.updateHelpPanel(var2.getURL(var2.getFileByLocation(var1)));

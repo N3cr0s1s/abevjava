@@ -17,6 +17,8 @@ import hu.piller.enykp.util.base.eventsupport.IEventListener;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
 import hu.piller.enykp.util.filelist.EnykFileList;
 import hu.piller.enykp.util.icon.ENYKIconSet;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -57,7 +59,7 @@ public class ABEVSavePanel extends JDialog implements IEventSupport, IFileChoose
    private JPanel mainPanel = new JPanel();
    private BrowserPanel panel;
    private FileNameResolver fnr;
-   private File path = new File(this.getProperty("prop.sys.root"), this.getProperty("prop.usr.saves"));
+   private File path = new NecroFile(this.getProperty("prop.sys.root"), this.getProperty("prop.usr.saves"));
    private String[] filters = new String[]{"inner_data_saver_v1"};
    private String mode = "open";
    private Hashtable result;
@@ -152,7 +154,7 @@ public class ABEVSavePanel extends JDialog implements IEventSupport, IFileChoose
          }
 
          var3 = var5 == null ? "" : var5.toString();
-         var4 = new File(var3);
+         var4 = new NecroFile(var3);
       } else {
          var3 = var1.toString();
          var4 = var1;
@@ -161,7 +163,7 @@ public class ABEVSavePanel extends JDialog implements IEventSupport, IFileChoose
       if (var4.isDirectory()) {
          var3 = this.fnr.getFileMask();
       } else {
-         var3 = (new File(var3)).getName();
+         var3 = (new NecroFile(var3)).getName();
       }
 
       return var3;
@@ -191,7 +193,7 @@ public class ABEVSavePanel extends JDialog implements IEventSupport, IFileChoose
          String var4 = this.fnr.removeInvalidFileChars(this.getSelectedFileName(true));
          EnykFileList var5 = EnykFileList.getInstance();
          ISaveManager var6 = (ISaveManager)var5.getFileManagerInstance(var3[0], 2);
-         var2[0] = new File(this.panel.getFilePanel().getBusiness().getSelectedPath(), var6.createFileName(var4));
+         var2[0] = new NecroFile(this.panel.getFilePanel().getBusiness().getSelectedPath(), var6.createFileName(var4));
       } catch (Exception var7) {
          Tools.eLog(var7, 1);
       }
@@ -241,7 +243,7 @@ public class ABEVSavePanel extends JDialog implements IEventSupport, IFileChoose
    }
 
    public void setSelectedPath(URI var1) {
-      this.path = new File(var1);
+      this.path = new NecroFile(var1);
    }
 
    public Vector fireEvent(Event var1) {
@@ -369,7 +371,7 @@ public class ABEVSavePanel extends JDialog implements IEventSupport, IFileChoose
             String var2 = ABEVSavePanel.this.getSelectedFileName(false).trim();
             if (var2.length() > ABEVSavePanel.this.txt_suffix.getText().length()) {
                String var3 = ABEVSavePanel.this.panel.getFilePanel().getBusiness().getSelectedPath() + File.separator + var2;
-               File var4 = new File(var3);
+               File var4 = new NecroFile(var3);
                if (!var4.exists() || 1 != JOptionPane.showConfirmDialog(ABEVSavePanel.this.mainPanel, "Ilyen nevű állomány már létezik !\n" + var4.getAbsolutePath() + "\nFelülírja ?", "Mentés", 0)) {
                   ABEVSavePanel.this.result = new Hashtable();
                   ABEVSavePanel.this.result.put("file_name", var3);

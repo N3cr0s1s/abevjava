@@ -17,6 +17,8 @@ import hu.piller.enykp.util.base.eventsupport.Event;
 import hu.piller.enykp.util.base.eventsupport.IEventListener;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
 import hu.piller.enykp.util.filelist.EnykFileList;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -303,7 +305,7 @@ public class FileBusiness extends DefaultFileBusiness implements IFileChooser, I
    }
 
    public void setSelectedPath(URI var1) {
-      this.setSelectedPath(new File(var1.getPath()));
+      this.setSelectedPath(new NecroFile(var1.getPath()));
    }
 
    public void setSelectedPath(File var1) {
@@ -312,7 +314,7 @@ public class FileBusiness extends DefaultFileBusiness implements IFileChooser, I
 
    public void setSelectedPath(URI var1, boolean var2) {
       if (!this.is_selected_path_locked) {
-         this.setSelectedPath(new File(var1.getPath()), var2);
+         this.setSelectedPath(new NecroFile(var1.getPath()), var2);
       }
 
    }
@@ -388,7 +390,7 @@ public class FileBusiness extends DefaultFileBusiness implements IFileChooser, I
       if (var8 != null && var8.length > 0) {
          for(int var9 = 0; var9 < var8.length; ++var9) {
             Object[] var10 = (Object[])((Object[])var8[var9]);
-            this.vct_files.add(new ListItem(new File((String)var10[0]), (Icon)null, var10[1], var10[2]));
+            this.vct_files.add(new ListItem(new NecroFile((String)var10[0]), (Icon)null, var10[1], var10[2]));
          }
       }
 

@@ -14,6 +14,9 @@ import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
 import hu.piller.enykp.util.test.XMLFileComparator;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Hashtable;
@@ -93,7 +96,7 @@ public class BatchCheck {
    }
 
    private void checkVector(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       if (!var2.isDirectory()) {
          var1 = var2.getParent();
       }
@@ -227,13 +230,13 @@ public class BatchCheck {
          var2 = var2 + File.separator;
       }
 
-      this.fOut = new File(var2 + "jabev_batch_" + Tools.getTimeStringForFiles() + "." + var1);
-      this.fileOutput = new FileOutputStream(this.fOut);
+      this.fOut = new NecroFile(var2 + "jabev_batch_" + Tools.getTimeStringForFiles() + "." + var1);
+      this.fileOutput = new NecroFileOutputStream(this.fOut);
    }
 
    private void openFileOutput4OneCheck(String var1) throws Exception {
-      this.fOut = new File(var1);
-      this.fileOutput = new FileOutputStream(this.fOut);
+      this.fOut = new NecroFile(var1);
+      this.fileOutput = new NecroFileOutputStream(this.fOut);
    }
 
    private void closeFileOutput() {
@@ -285,7 +288,7 @@ public class BatchCheck {
    }
 
    private void dsignVector(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       if (!var2.isDirectory()) {
          var1 = var2.getParent();
       }
@@ -336,8 +339,8 @@ public class BatchCheck {
 
    private void compareFiles(String var1, String var2, FileOutputStream var3) throws Exception {
       XMLFileComparator var4 = new XMLFileComparator();
-      File var5 = new File(var1);
-      File var6 = new File(var2);
+      File var5 = new NecroFile(var1);
+      File var6 = new NecroFile(var2);
       new Vector();
       new Vector();
       new Hashtable();

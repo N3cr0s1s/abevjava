@@ -5,6 +5,9 @@ import hu.piller.enykp.gui.GuiUtil;
 import hu.piller.enykp.gui.model.BookModel;
 import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -113,7 +116,7 @@ public class MasolasForm extends JPanel implements ItemListener {
          SettingsStore var17 = SettingsStore.getInstance();
          if (var17.get("gui", "kontroll_allomanyok_masolasa_cel") != null && !var17.get("gui", "kontroll_allomanyok_masolasa_cel").equals("")) {
             celPath = Tools.fillPath(var17.get("gui", "kontroll_allomanyok_masolasa_cel"));
-            File var18 = new File(celPath);
+            File var18 = new NecroFile(celPath);
             if (!var18.exists() || !var18.isDirectory()) {
                celPath = null;
             }
@@ -174,7 +177,7 @@ public class MasolasForm extends JPanel implements ItemListener {
                   ((BasicFileChooserUI)MasolasForm.this.pathChooser.getUI()).setFileName("kontroll_állományok_helye");
                } catch (ClassCastException var5) {
                   try {
-                     MasolasForm.this.pathChooser.setSelectedFile(new File("kontroll_állományok_helye.txt"));
+                     MasolasForm.this.pathChooser.setSelectedFile(new NecroFile("kontroll_állományok_helye.txt"));
                   } catch (Exception var4) {
                      Tools.eLog(var4, 0);
                   }
@@ -274,7 +277,7 @@ public class MasolasForm extends JPanel implements ItemListener {
 
    private int copyFile(String var1, boolean var2) throws Exception {
       int var3 = 0;
-      File var7 = new File(celPath + var1.substring(var1.lastIndexOf(File.separator) + 1));
+      File var7 = new NecroFile(celPath + var1.substring(var1.lastIndexOf(File.separator) + 1));
       if (var7.exists()) {
          if (var2) {
             var3 = JOptionPane.showOptionDialog(this, var1.substring(var1.lastIndexOf(File.separator) + 1) + "\nIlyen nevű kontroll állomány már létezik a\n" + celPath + " mappában.\nFelülírja ?", "Kontroll állományok másolása", 1, 3, (Icon)null, Kontroll.igenNem, Kontroll.igenNem[0]);
@@ -287,7 +290,7 @@ public class MasolasForm extends JPanel implements ItemListener {
          return var3;
       } else {
          FileInputStream var4 = new FileInputStream(var1);
-         FileOutputStream var5 = new FileOutputStream(celPath + var1.substring(var1.lastIndexOf(File.separator) + 1));
+         FileOutputStream var5 = new NecroFileOutputStream(celPath + var1.substring(var1.lastIndexOf(File.separator) + 1));
          byte[] var8 = new byte[2048];
 
          int var6;

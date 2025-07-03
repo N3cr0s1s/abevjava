@@ -3,6 +3,9 @@ package hu.piller.enykp.alogic.masterdata.repository;
 import hu.piller.enykp.alogic.masterdata.repository.xml.MDRepositoryImpl;
 import hu.piller.enykp.alogic.upgrademanager_v2_0.Directories;
 import hu.piller.enykp.util.base.PropertyList;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileWriter;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,11 +17,11 @@ public class MDRepositoryFactory {
       if (_repository == null) {
          String var0 = Directories.getSchemasPath() + "/Repository.xsd";
          String var1 = PropertyList.getInstance().get("prop.usr.primaryaccounts") + "/repository.xml";
-         if (!(new File(var0)).exists()) {
+         if (!(new NecroFile(var0)).exists()) {
             throw new MDRepositoryException("Nem található az adattár leíró: " + var0);
          }
 
-         File var2 = new File(var1);
+         File var2 = new NecroFile(var1);
          if (var2.exists()) {
             if (var2.length() == 0L) {
                var2.delete();
@@ -40,7 +43,7 @@ public class MDRepositoryFactory {
       FileWriter var1 = null;
 
       try {
-         var1 = new FileWriter(var0);
+         var1 = new NecroFileWriter(var0);
          var1.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?><Repository sequence=\"0\"/>");
          var1.flush();
       } catch (IOException var9) {

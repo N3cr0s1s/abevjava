@@ -11,6 +11,8 @@ import hu.piller.enykp.gui.model.FormModel;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
@@ -54,9 +56,9 @@ public class UnMark {
 
          File var7;
          if (var6.equals("")) {
-            var7 = new File(this.sp.destPath + PropertyList.USER_IN_FILENAME + (var3.getName().toLowerCase().endsWith(".frm.enyk") ? var3.getName().substring(0, var3.getName().toLowerCase().indexOf(".frm.enyk")) + ".kr" : var3.getName() + ".kr"));
+            var7 = new NecroFile(this.sp.destPath + PropertyList.USER_IN_FILENAME + (var3.getName().toLowerCase().endsWith(".frm.enyk") ? var3.getName().substring(0, var3.getName().toLowerCase().indexOf(".frm.enyk")) + ".kr" : var3.getName() + ".kr"));
          } else {
-            var7 = new File(this.sp.destPath + PropertyList.USER_IN_FILENAME + var6);
+            var7 = new NecroFile(this.sp.destPath + PropertyList.USER_IN_FILENAME + var6);
          }
 
          boolean var8 = false;
@@ -96,7 +98,7 @@ public class UnMark {
                GuiUtil.showMessageDialog(MainFrame.thisinstance, Tools.beautyPath(var7.getAbsolutePath()) + "\nfájl elektronikus feladásra történt kijelölése megszűnt.", "Visszavonás- üzenet", 1);
             }
          } else {
-            File var9 = new File(this.sp.destPath);
+            File var9 = new NecroFile(this.sp.destPath);
             String var10 = var3.getName().indexOf(".") == -1 ? var3.getName() : var3.getName().substring(0, var3.getName().indexOf("."));
             UnMark.MarkedFileFilter var11 = new UnMark.MarkedFileFilter(PropertyList.USER_IN_FILENAME + var10);
             String[] var12 = var9.list(var11);
@@ -112,7 +114,7 @@ public class UnMark {
                   break;
                }
 
-               File var15 = new File(this.sp.destPath + var12[var14]);
+               File var15 = new NecroFile(this.sp.destPath + var12[var14]);
                var15.delete();
 
                try {
@@ -177,7 +179,7 @@ public class UnMark {
          String var6 = var4.substring(0, var4.toLowerCase().indexOf(".frm.enyk")) + "_" + var1.get(var5).name + ".cst";
 
          try {
-            (new File(var6)).delete();
+            (new NecroFile(var6)).delete();
          } catch (Exception var14) {
             Tools.eLog(var14, 0);
          }
@@ -189,7 +191,7 @@ public class UnMark {
 
          for(int var16 = 0; var16 < var1.forms.size(); ++var16) {
             FormModel var7 = (FormModel)var1.forms.get(var16);
-            File var8 = new File(var15 + "/" + var7.id);
+            File var8 = new NecroFile(var15 + "/" + var7.id);
             if (var8.exists() && var8.isDirectory()) {
                File[] var9 = var8.listFiles(new FilenameFilter() {
                   public boolean accept(File var1, String var2) {
@@ -236,7 +238,7 @@ public class UnMark {
       String var2 = this.bm.cc.getLoadedfile().getName();
       var2 = var2.substring(0, var2.length() - ".frm.enyk".length());
       String var3 = this.sp.srcPath + var2 + File.separator;
-      File var4 = new File(var3 + "alairando");
+      File var4 = new NecroFile(var3 + "alairando");
       File[] var5 = var4.listFiles();
       int var6;
       if (var5 != null) {
@@ -251,7 +253,7 @@ public class UnMark {
          var1.errorList.add("A " + var4.getAbsolutePath() + " mappa törlése nem sikerült");
       }
 
-      var4 = new File(var3 + "alairt");
+      var4 = new NecroFile(var3 + "alairt");
       var5 = var4.listFiles();
       if (var5 != null) {
          for(var6 = 0; var6 < var5.length; ++var6) {
@@ -265,7 +267,7 @@ public class UnMark {
          var1.errorList.add("A " + var4.getAbsolutePath() + " mappa törlése nem sikerült");
       }
 
-      var4 = new File(var3);
+      var4 = new NecroFile(var3);
       if (var4.exists() && !var4.delete()) {
          var1.errorList.add("A " + var4.getAbsolutePath() + " mappa törlése nem sikerült");
       }
@@ -276,7 +278,7 @@ public class UnMark {
    private void cleanSourceFolder() {
       String var1 = this.bm.cc.getLoadedfile().getName();
       var1 = var1.substring(0, var1.length() - ".frm.enyk".length());
-      (new File(this.sp.srcPath + var1 + ".xml")).delete();
+      (new NecroFile(this.sp.srcPath + var1 + ".xml")).delete();
    }
 
    private class MarkedFileFilter implements FilenameFilter {

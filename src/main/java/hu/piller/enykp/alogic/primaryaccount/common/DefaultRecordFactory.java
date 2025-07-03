@@ -11,6 +11,8 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Vector;
 import java.util.Map.Entry;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
@@ -110,7 +112,7 @@ public class DefaultRecordFactory extends XMLParser implements IRecordFactory {
    }
 
    public Vector loadRecords(InputStream var1, DefaultEnvelope var2) throws Exception {
-      this.path = new File("");
+      this.path = new NecroFile("");
       this.record = null;
       this.envelope = var2;
       this.append = false;
@@ -149,9 +151,9 @@ public class DefaultRecordFactory extends XMLParser implements IRecordFactory {
                   var3.delete();
                }
 
-               (new File(var1.getPath())).renameTo(var3);
+               (new NecroFile(var1.getPath())).renameTo(var3);
             } else {
-               (new File(var1.getParent())).mkdirs();
+               (new NecroFile(var1.getParent())).mkdirs();
             }
 
             SeekableOutputStream var2 = this.openFile(var1);
@@ -184,7 +186,7 @@ public class DefaultRecordFactory extends XMLParser implements IRecordFactory {
    }
 
    private File getFileCopy(File var1) {
-      return var1 != null ? new File(var1.getPath() + ".cpy") : null;
+      return var1 != null ? new NecroFile(var1.getPath() + ".cpy") : null;
    }
 
    public void deleteAll(File var1) {

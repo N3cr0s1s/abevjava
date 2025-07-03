@@ -124,6 +124,9 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
@@ -453,7 +456,7 @@ public class Menubar extends JMenuBar {
 
                   int var2 = var1.save();
                   if (var2 == 0) {
-                     Menubar.this.tmp_savefile = new File("");
+                     Menubar.this.tmp_savefile = new NecroFile("");
                   } else {
                      Menubar.this.tmp_savefile = null;
                   }
@@ -467,7 +470,7 @@ public class Menubar extends JMenuBar {
                         RDbSaver var1 = new RDbSaver();
                         int var2 = var1.save();
                         if (var2 == 0) {
-                           Menubar.this.tmp_savefile = new File("");
+                           Menubar.this.tmp_savefile = new NecroFile("");
                         } else {
                            Menubar.this.tmp_savefile = null;
                         }
@@ -875,7 +878,7 @@ public class Menubar extends JMenuBar {
                      MainFrame.thisinstance.setGlassLabel("Listakészítés folyamatban!");
                      ABEVOpenPanel var2 = new ABEVOpenPanel();
                      var2.setMode("open");
-                     var2.setPath(new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.saves")));
+                     var2.setPath(new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.saves")));
                      var2.setFilters(new String[]{"inner_data_loader_v1"});
                      Hashtable var3 = var2.showDialog();
                      if (var3 != null) {
@@ -1191,16 +1194,16 @@ public class Menubar extends JMenuBar {
                   var3 = var7;
                }
 
-               File var9 = new File(var3);
+               File var9 = new NecroFile(var3);
                if (var9.getParent() == null) {
                   if (var4 == null) {
                      var3 = PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.saves") + File.separator + var3;
                   } else {
-                     var3 = (new File((File)var4, var3)).getAbsolutePath();
+                     var3 = (new NecroFile((File)var4, var3)).getAbsolutePath();
                   }
                }
 
-               var9 = new File(var3);
+               var9 = new NecroFile(var3);
                if (AttachementTool.hasAttachement(var2, var9)) {
                   String var20 = "A " + var3 + " állomány névhez csatolmány tartozik. Kérem adjon meg másik nevet!";
                   GuiUtil.showMessageDialog(MainFrame.thisinstance, var20, "Üzenet", 0);
@@ -1355,8 +1358,8 @@ public class Menubar extends JMenuBar {
                         var4.setOutputProperty("encoding", "windows-1250");
                         var4.setOutputProperty("indent", "yes");
                         DOMSource var5 = new DOMSource(MainFrame.FTRdoc);
-                        File var6 = new File((String)PropertyList.getInstance().get("prop.usr.naplo"), "FTR_" + var2.name + "_" + Long.toString(System.currentTimeMillis()) + ".xml");
-                        FileOutputStream var7 = new FileOutputStream(var6);
+                        File var6 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.naplo"), "FTR_" + var2.name + "_" + Long.toString(System.currentTimeMillis()) + ".xml");
+                        FileOutputStream var7 = new NecroFileOutputStream(var6);
                         OutputStreamWriter var8 = new OutputStreamWriter(var7, "windows-1250");
                         StreamResult var9 = new StreamResult(var8);
                         var4.transform(var5, var9);
@@ -2133,12 +2136,12 @@ public class Menubar extends JMenuBar {
             try {
                File var2;
                try {
-                  var2 = new File(SettingsStore.getInstance().get("gui", "internet_browser"));
+                  var2 = new NecroFile(SettingsStore.getInstance().get("gui", "internet_browser"));
                   if (!var2.exists()) {
                      throw new Exception();
                   }
                } catch (Exception var4) {
-                  var2 = new File(var1.getSystemBrowserPath());
+                  var2 = new NecroFile(var1.getSystemBrowserPath());
                }
 
                if (var2.getName().toLowerCase().indexOf("edge") > -1) {
@@ -2736,10 +2739,10 @@ public class Menubar extends JMenuBar {
          final String var4 = var2.length > 2 ? var2[2] : null;
          File var5;
          if (var1.endsWith(".tem.enyk")) {
-            var5 = new File(var1);
+            var5 = new NecroFile(var1);
             if (!var5.exists()) {
-               File var11 = new File(this.getProperty("prop.dynamic.templates.absolutepath"));
-               var5 = new File(var11, var1);
+               File var11 = new NecroFile(this.getProperty("prop.dynamic.templates.absolutepath"));
+               var5 = new NecroFile(var11, var1);
             }
 
             if (var5 == null || !var5.exists()) {
@@ -2755,7 +2758,7 @@ public class Menubar extends JMenuBar {
             try {
                ExtendedTemplateData var6 = TemplateChecker.getInstance().getTemplateFileNames(var1);
                String[] var7 = var6.getTemplateFileNames();
-               var5 = new File(var7[0]);
+               var5 = new NecroFile(var7[0]);
             } catch (Exception var9) {
                GuiUtil.showMessageDialog(MainFrame.thisinstance, "A megadott állomány azonosító nem található! ( " + var1 + " )", "Hiba!", 0);
                return;
@@ -2869,7 +2872,7 @@ public class Menubar extends JMenuBar {
 
    public void cmd_file_open(String var1, Boolean var2, final boolean var3, final boolean var4, final boolean var5, final boolean var6, final boolean var7) {
       try {
-         final File var8 = new File(var1);
+         final File var8 = new NecroFile(var1);
          if (var8 == null || !var8.exists()) {
             GuiUtil.showMessageDialog(MainFrame.thisinstance, "A megadott állomány nem található! ( " + var1 + " )", "Hiba", 0);
             if ("yes".equals(PropertyList.getInstance().get("prop.dynamic.uniimport"))) {
@@ -2920,7 +2923,7 @@ public class Menubar extends JMenuBar {
                } else {
                   try {
                      var5x = TemplateChecker.getInstance().getTemplateFileNames(var1, var2, var3x);
-                     var4x = new File(var5x.getTemplateFileNames()[0]);
+                     var4x = new NecroFile(var5x.getTemplateFileNames()[0]);
                   } catch (Exception var10) {
                      MainFrame.thisinstance.setGlassLabel((String)null);
                      if ("yes".equals(PropertyList.getInstance().get("prop.dynamic.uniimport"))) {
@@ -3061,10 +3064,10 @@ public class Menubar extends JMenuBar {
    }
 
    public void cmd_file_multiimport(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       if (!var2.exists()) {
-         File var3 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
-         var2 = new File(var3, var1);
+         File var3 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+         var2 = new NecroFile(var3, var1);
       }
 
       if (var2 != null && var2.exists()) {
@@ -3076,10 +3079,10 @@ public class Menubar extends JMenuBar {
    }
 
    public void cmd_file_import(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       if (!var2.exists()) {
-         File var3 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
-         var2 = new File(var3, var1);
+         File var3 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+         var2 = new NecroFile(var3, var1);
       }
 
       if (var2 != null && var2.exists()) {
@@ -3116,10 +3119,10 @@ public class Menubar extends JMenuBar {
    }
 
    public void cmd_edit_imp(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       if (!var2.exists()) {
-         File var3 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
-         var2 = new File(var3, var1);
+         File var3 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+         var2 = new NecroFile(var3, var1);
       }
 
       if (var2 != null && var2.exists()) {
@@ -3139,10 +3142,10 @@ public class Menubar extends JMenuBar {
    }
 
    public void cmd_edit_xml(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       if (!var2.exists()) {
-         File var3 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
-         var2 = new File(var3, var1);
+         File var3 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+         var2 = new NecroFile(var3, var1);
       }
 
       if (var2 != null && var2.exists()) {
@@ -3162,10 +3165,10 @@ public class Menubar extends JMenuBar {
    }
 
    public void cmd_edit_dat(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       if (!var2.exists()) {
-         File var3 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
-         var2 = new File(var3, var1);
+         File var3 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+         var2 = new NecroFile(var3, var1);
       }
 
       if (var2 != null && var2.exists()) {
@@ -3185,10 +3188,10 @@ public class Menubar extends JMenuBar {
    }
 
    public void cmd_show_xml(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       if (!var2.exists()) {
-         File var3 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
-         var2 = new File(var3, var1);
+         File var3 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+         var2 = new NecroFile(var3, var1);
       }
 
       if (var2 != null && var2.exists()) {
@@ -3206,7 +3209,7 @@ public class Menubar extends JMenuBar {
    }
 
    public void cmd_check_dir(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       if (!var2.exists()) {
          GuiUtil.showMessageDialog(MainFrame.thisinstance, "A megadott könyvtár nem található! ( " + var1 + " )");
       } else if (!var2.isDirectory()) {
@@ -3546,7 +3549,7 @@ public class Menubar extends JMenuBar {
             if (var2) {
                var5 = var7[2];
                if (var7.length == 4) {
-                  var13 = new File(var7[3]);
+                  var13 = new NecroFile(var7[3]);
                   if (!var13.isDirectory()) {
                      System.out.println("Hibás pdf output path");
                      this.writeerrorfile(var4, var3, ";3.44.0;;", "Hibás pdf output path " + var7[3], (Vector)null);
@@ -3556,7 +3559,7 @@ public class Menubar extends JMenuBar {
                   var6.set("prop.usr.forcedPdfPath", var7[3]);
                }
             } else if (var7.length == 3) {
-               var13 = new File(var7[2]);
+               var13 = new NecroFile(var7[2]);
                if (!var13.isDirectory()) {
                   System.out.println("Hibás pdf output path");
                   this.writeerrorfile(var4, var3, ";3.44.0;;", "Hibás pdf output path " + var7[2], (Vector)null);
@@ -3570,10 +3573,10 @@ public class Menubar extends JMenuBar {
             return;
          }
 
-         var13 = new File(var3);
+         var13 = new NecroFile(var3);
          String var9;
          if (!var13.exists()) {
-            var13 = new File((new File((String)var6.get("prop.usr.root"), (String)var6.get("prop.usr.import"))).getAbsolutePath(), var3);
+            var13 = new NecroFile((new NecroFile((String)var6.get("prop.usr.root"), (String)var6.get("prop.usr.import"))).getAbsolutePath(), var3);
             if (!var13.exists()) {
                var9 = "A megadott állomány nem található! ( " + var3 + " )";
                System.out.println(var9);
@@ -3584,10 +3587,10 @@ public class Menubar extends JMenuBar {
             var3 = var13.getAbsolutePath();
          }
 
-         var13 = new File(var4);
+         var13 = new NecroFile(var4);
          var9 = var13.getParent();
          if (var9 == null) {
-            var4 = (new File((new File(var3)).getParent(), var4)).getAbsolutePath();
+            var4 = (new NecroFile((new NecroFile(var3)).getParent(), var4)).getAbsolutePath();
          }
       } catch (Exception var12) {
          String var8 = "Hibás parancssor!";
@@ -3596,7 +3599,7 @@ public class Menubar extends JMenuBar {
          return;
       }
 
-      new File(var3);
+      new NecroFile(var3);
       BatchFunctions var14 = new BatchFunctions(false, false, false);
 
       try {
@@ -3621,7 +3624,7 @@ public class Menubar extends JMenuBar {
          String[] var3 = var1.split(" ");
          String var4 = var3[0];
          String var5 = var3[1];
-         BookModel var6 = new BookModel(new File(var4), true);
+         BookModel var6 = new BookModel(new NecroFile(var4), true);
          var2.put("bookmodel", var6);
          if (var6.hasError) {
             return var2;
@@ -3787,10 +3790,10 @@ public class Menubar extends JMenuBar {
    }
 
    public void cmd_open_xml(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       if (!var2.exists()) {
          IPropertyList var3 = PropertyList.getInstance();
-         var2 = new File((new File((String)var3.get("prop.usr.root"), (String)var3.get("prop.usr.import"))).getAbsolutePath(), var1);
+         var2 = new NecroFile((new NecroFile((String)var3.get("prop.usr.root"), (String)var3.get("prop.usr.import"))).getAbsolutePath(), var1);
          if (!var2.exists()) {
             GuiUtil.showMessageDialog(MainFrame.thisinstance, "A megadott állomány nem található! ( " + var1 + " )", "Hiba", 0);
             return;
@@ -3808,10 +3811,10 @@ public class Menubar extends JMenuBar {
          String[] var4 = var1.split(";");
          var2 = var4[0];
          var3 = var4[1];
-         File var5 = new File(var2);
+         File var5 = new NecroFile(var2);
          if (!var5.exists()) {
             IPropertyList var6 = PropertyList.getInstance();
-            var5 = new File((new File((String)var6.get("prop.usr.root"), (String)var6.get("prop.usr.import"))).getAbsolutePath(), var2);
+            var5 = new NecroFile((new NecroFile((String)var6.get("prop.usr.root"), (String)var6.get("prop.usr.import"))).getAbsolutePath(), var2);
             if (!var5.exists()) {
                System.out.println("A megadott állomány nem található! ( " + var2 + " )");
                return;
@@ -3820,11 +3823,11 @@ public class Menubar extends JMenuBar {
             var2 = var5.getAbsolutePath();
          }
 
-         var5 = new File(var3);
+         var5 = new NecroFile(var3);
          String var12 = var5.getParent();
          if (var12 == null) {
             IPropertyList var7 = PropertyList.getInstance();
-            var3 = (new File((new File((String)var7.get("prop.usr.root"), (String)var7.get("prop.usr.import"))).getAbsolutePath(), var3)).getAbsolutePath();
+            var3 = (new NecroFile((new NecroFile((String)var7.get("prop.usr.root"), (String)var7.get("prop.usr.import"))).getAbsolutePath(), var3)).getAbsolutePath();
          }
       } catch (Exception var9) {
          System.out.println("Hibás parancssor!");
@@ -3860,10 +3863,10 @@ public class Menubar extends JMenuBar {
          String[] var4 = var1.split(";");
          var2 = var4[0];
          var3 = var4[1];
-         var26 = new File(var2);
+         var26 = new NecroFile(var2);
          if (!var26.exists()) {
             IPropertyList var6 = PropertyList.getInstance();
-            var26 = new File((new File((String)var6.get("prop.usr.root"), (String)var6.get("prop.usr.import"))).getAbsolutePath(), var2);
+            var26 = new NecroFile((new NecroFile((String)var6.get("prop.usr.root"), (String)var6.get("prop.usr.import"))).getAbsolutePath(), var2);
             if (!var26.exists()) {
                var29 = "A megadott állomány nem található! ( " + var2 + " )";
                System.out.println(var29);
@@ -3874,10 +3877,10 @@ public class Menubar extends JMenuBar {
             var2 = var26.getAbsolutePath();
          }
 
-         var26 = new File(var3);
+         var26 = new NecroFile(var3);
          String var27 = var26.getParent();
          if (var27 == null) {
-            var3 = (new File((new File(var2)).getParent(), var3)).getAbsolutePath();
+            var3 = (new NecroFile((new NecroFile(var2)).getParent(), var3)).getAbsolutePath();
          }
       } catch (Exception var23) {
          String var5 = "Hibás parancssor!";
@@ -3895,7 +3898,7 @@ public class Menubar extends JMenuBar {
          }
 
          XMLFlyCheckLoader var24 = new XMLFlyCheckLoader();
-         var26 = new File(var2);
+         var26 = new NecroFile(var2);
          Hashtable var28 = var24.getHeadData(var26);
          if (var24.hasError) {
             var29 = var24.errormsg.substring(var24.errormsg.indexOf(":") + 1);
@@ -3962,7 +3965,7 @@ public class Menubar extends JMenuBar {
                   var16.addAll(var24.warninglist);
                }
 
-               FileOutputStream var17 = new FileOutputStream(var3);
+               FileOutputStream var17 = new NecroFileOutputStream(var3);
                PrintWriter var18 = new PrintWriter(var17);
                var18.println(" > " + var2 + ";" + "3.44.0" + ";" + var15.docinfo.get("id") + ";" + var15.docinfo.get("ver"));
 
@@ -4022,7 +4025,7 @@ public class Menubar extends JMenuBar {
 
    public void writeerrorfile(String var1, String var2, String var3, String var4, Vector var5) {
       try {
-         FileOutputStream var6 = new FileOutputStream(var1);
+         FileOutputStream var6 = new NecroFileOutputStream(var1);
          PrintWriter var7 = new PrintWriter(var6);
          var7.println(" > " + var2 + var3);
          var7.println(" > " + var4);
@@ -4329,10 +4332,10 @@ public class Menubar extends JMenuBar {
       }
 
       IPropertyList var5 = PropertyList.getInstance();
-      File var6 = new File((new File((String)var5.get("prop.usr.root"), (String)var5.get("prop.usr.settings"))).getAbsolutePath(), var3 + ".info");
+      File var6 = new NecroFile((new NecroFile((String)var5.get("prop.usr.root"), (String)var5.get("prop.usr.settings"))).getAbsolutePath(), var3 + ".info");
 
       try {
-         FileOutputStream var7 = new FileOutputStream(var6);
+         FileOutputStream var7 = new NecroFileOutputStream(var6);
          var7.write(var4.getBytes());
          var7.close();
       } catch (Exception var8) {
@@ -4343,7 +4346,7 @@ public class Menubar extends JMenuBar {
 
    private String get_settingsInfo(String var1) {
       IPropertyList var2 = PropertyList.getInstance();
-      File var3 = new File((new File((String)var2.get("prop.usr.root"), (String)var2.get("prop.usr.settings"))).getAbsolutePath(), var1 + ".info");
+      File var3 = new NecroFile((new NecroFile((String)var2.get("prop.usr.root"), (String)var2.get("prop.usr.settings"))).getAbsolutePath(), var1 + ".info");
       if (var3.exists()) {
          try {
             FileInputStream var4 = new FileInputStream(var3);
@@ -4364,12 +4367,12 @@ public class Menubar extends JMenuBar {
       try {
          File var3;
          try {
-            var3 = new File(SettingsStore.getInstance().get("gui", "internet_browser"));
+            var3 = new NecroFile(SettingsStore.getInstance().get("gui", "internet_browser"));
             if (!var3.exists()) {
                throw new Exception();
             }
          } catch (Exception var5) {
-            var3 = new File(var2.getSystemBrowserPath());
+            var3 = new NecroFile(var2.getSystemBrowserPath());
          }
 
          var2.execute(var3.getName() + " " + var1, (String[])null, var3.getParentFile());
@@ -4421,14 +4424,14 @@ public class Menubar extends JMenuBar {
          String var4 = SettingsStore.getInstance().get("gui", "sys_calculator");
          File var3;
          if (var4 != null && !"".equals(var4)) {
-            var3 = new File(var4);
+            var3 = new NecroFile(var4);
          } else {
             if (IOsHandler.OS_NAME.indexOf("windows") == -1) {
                GuiUtil.showMessageDialog(MainFrame.thisinstance, "Nincs beállítva alapértelmezett számológép alkalmazás!", "Üzenet", 0);
                return;
             }
 
-            var3 = new File("calc.exe");
+            var3 = new NecroFile("calc.exe");
             var2 = true;
          }
 

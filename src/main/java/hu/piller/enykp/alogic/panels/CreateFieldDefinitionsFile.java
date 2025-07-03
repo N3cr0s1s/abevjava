@@ -14,6 +14,9 @@ import hu.piller.enykp.interfaces.ICommandObject;
 import hu.piller.enykp.interfaces.IPropertyList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -64,14 +67,14 @@ public class CreateFieldDefinitionsFile implements ICommandObject {
                ((BasicFileChooserUI)((BasicFileChooserUI)var1.getUI())).setFileName("mdf.csv");
             } catch (ClassCastException var6) {
                try {
-                  var1.setSelectedFile(new File("mdf.csv"));
+                  var1.setSelectedFile(new NecroFile("mdf.csv"));
                } catch (Exception var5) {
                   Tools.eLog(var5, 0);
                }
             }
          }
 
-         var1.setCurrentDirectory(new File((String)PropertyList.getInstance().get("prop.usr.naplo")));
+         var1.setCurrentDirectory(new NecroFile((String)PropertyList.getInstance().get("prop.usr.naplo")));
       } catch (Exception var7) {
          Tools.eLog(var7, 0);
       }
@@ -83,7 +86,7 @@ public class CreateFieldDefinitionsFile implements ICommandObject {
          }
 
          if (!var2.getName().endsWith(".csv")) {
-            var2 = new File(var2.getPath() + ".csv");
+            var2 = new NecroFile(var2.getPath() + ".csv");
          }
 
          if (!var2.exists() || JOptionPane.showConfirmDialog(MainFrame.thisinstance, var2.getName() + " létezik !\nFelülírja ?", "Mező definíciós állomány készítése", 0) != 1) {
@@ -149,7 +152,7 @@ public class CreateFieldDefinitionsFile implements ICommandObject {
       BufferedWriter var2 = null;
 
       try {
-         var2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(var1), "ISO-8859-2"));
+         var2 = new BufferedWriter(new OutputStreamWriter(new NecroFileOutputStream(var1), "ISO-8859-2"));
          this.writeData(var2);
          var2.flush();
       } finally {

@@ -8,6 +8,9 @@ import hu.piller.enykp.alogic.upgrademanager_v2_0.components.DownloadableCompone
 import hu.piller.enykp.alogic.upgrademanager_v2_0.versiondataconverters.VersionData;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -44,7 +47,7 @@ public class FileDownloader {
       label575: {
          try {
             var28 = true;
-            var8 = new File(var2, var1.getFileNameByType("jar"));
+            var8 = new NecroFile(var2, var1.getFileNameByType("jar"));
             var9 = new JarFile(var8);
             Enumeration var12 = var9.entries();
             int var13 = 0;
@@ -91,14 +94,14 @@ public class FileDownloader {
                   } while("".equals(var15));
 
                   InputStream var16 = var9.getInputStream(var14);
-                  File var17 = new File(var15);
+                  File var17 = new NecroFile(var15);
                   if (var14.isDirectory()) {
                      var4.push(var17);
                   } else {
                      this.validateDestination(var17);
 
                      try {
-                        var7 = new FileOutputStream(var17);
+                        var7 = new NecroFileOutputStream(var17);
 
                         int var6;
                         while((var6 = var16.read(var5)) != -1 && !this.isStopped()) {
@@ -215,11 +218,11 @@ public class FileDownloader {
       FileOutputStream var3 = null;
 
       try {
-         var3 = new FileOutputStream(new File(var1 + "/" + var2));
+         var3 = new NecroFileOutputStream(new NecroFile(var1 + "/" + var2));
          var3.write(var0.getBytes("UTF-8"));
       } catch (IOException var15) {
-         UpgradeLogger.getInstance().log("A " + (new File(var1 + "/" + var2)).getAbsolutePath() + " -t nem lehet menteni!", (Exception)var15);
-         throw new UpgradeTechnicalException("A " + (new File(var1 + "/" + var2)).getAbsolutePath() + " -t nem lehet menteni!");
+         UpgradeLogger.getInstance().log("A " + (new NecroFile(var1 + "/" + var2)).getAbsolutePath() + " -t nem lehet menteni!", (Exception)var15);
+         throw new UpgradeTechnicalException("A " + (new NecroFile(var1 + "/" + var2)).getAbsolutePath() + " -t nem lehet menteni!");
       } finally {
          try {
             if (var3 != null) {
@@ -257,12 +260,12 @@ public class FileDownloader {
       }
 
       try {
-         var9 = new File(var3 + "/" + var2.getFileNameByType(var1));
+         var9 = new NecroFile(var3 + "/" + var2.getFileNameByType(var1));
          this.validateDestination(var9);
 
          try {
             var5 = var4.openStream();
-            var8 = new FileOutputStream(var9);
+            var8 = new NecroFileOutputStream(var9);
             byte[] var6 = new byte[4096];
             int var11 = 0;
 
@@ -313,8 +316,8 @@ public class FileDownloader {
    }
 
    public void move(VersionData var1, String var2, String var3) throws UpgradeTechnicalException, UpgradeBusinessException {
-      File var4 = new File(var2 + File.separator + var1.getFileNameByType("jar"));
-      File var5 = new File(var3 + File.separator + var1.getFileNameByType("jar"));
+      File var4 = new NecroFile(var2 + File.separator + var1.getFileNameByType("jar"));
+      File var5 = new NecroFile(var3 + File.separator + var1.getFileNameByType("jar"));
       if (!var4.renameTo(var5)) {
          throw new UpgradeTechnicalException("Can not move " + var4.getPath() + " to " + var5.getPath());
       }
@@ -330,7 +333,7 @@ public class FileDownloader {
          }
 
          if (var4 != null && "offline".equalsIgnoreCase(var4)) {
-            var3 = (new File(Directories.getDownloadPath() + "/" + var1.getFileNameByType(var2))).toURL();
+            var3 = (new NecroFile(Directories.getDownloadPath() + "/" + var1.getFileNameByType(var2))).toURL();
          } else {
             String var5 = var1.getFileNameByTypeAndPath(var2);
             if (var5.charAt(0) == '/') {
@@ -384,7 +387,7 @@ public class FileDownloader {
    }
 
    public static void cleanDirectory(String var0, boolean var1) throws UpgradeBusinessException {
-      File var2 = new File(var0);
+      File var2 = new NecroFile(var0);
       if (var2.isDirectory()) {
          if (!var2.canRead() || !var2.canWrite()) {
             throw new UpgradeBusinessException("Nincs elegendő jog a könyvtár előkészítéséhez: " + var0);

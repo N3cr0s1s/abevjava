@@ -23,6 +23,9 @@ import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
+
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
@@ -69,7 +72,7 @@ public class MDRepositoryImpl implements MDRepository {
 
    public synchronized void sync() throws MDRepositoryException {
       if (this.lock_id == NO_LOCK) {
-         File var1 = new File(this.pathRepo);
+         File var1 = new NecroFile(this.pathRepo);
          if (!var1.exists()) {
             throw new MDRepositoryException("A(z) " + this.pathRepo + " adatfájl nem található!");
          } else {
@@ -264,13 +267,13 @@ public class MDRepositoryImpl implements MDRepository {
    }
 
    private void loadRepository() throws Exception {
-      File var1 = new File(this.pathRepo);
+      File var1 = new NecroFile(this.pathRepo);
       if (var1.exists()) {
          SAXParserFactory var2 = SAXParserFactory.newInstance();
          var2.setNamespaceAware(true);
          var2.setValidating(false);
          SchemaFactory var3 = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
-         var2.setSchema(var3.newSchema(new Source[]{new StreamSource(new File(this.pathRepoSchema))}));
+         var2.setSchema(var3.newSchema(new Source[]{new StreamSource(new NecroFile(this.pathRepoSchema))}));
          SAXParser var4 = var2.newSAXParser();
          XMLReader var5 = var4.getXMLReader();
          EntityHandler var6 = new EntityHandler();
@@ -293,7 +296,7 @@ public class MDRepositoryImpl implements MDRepository {
 
    private File checkRepositoryAvailableForTransaction() throws MDRepositoryException {
       String var1 = "";
-      File var2 = new File(this.pathRepo);
+      File var2 = new NecroFile(this.pathRepo);
       if (!var2.exists()) {
          return var2;
       } else {
@@ -316,11 +319,11 @@ public class MDRepositoryImpl implements MDRepository {
       try {
          switch(getLockPolicy()) {
          case 1:
-            if ((new File(getLockfileName())).exists()) {
+            if ((new NecroFile(getLockfileName())).exists()) {
                throw new Exception("az adattár zárolt");
             }
 
-            (new File(getLockfileName())).createNewFile();
+            (new NecroFile(getLockfileName())).createNewFile();
             MainFrame.masterDataLockCleanUpNeeded = true;
             this.rafRepo = new RandomAccessFile(var1, "rw");
             break;
@@ -367,15 +370,15 @@ public class MDRepositoryImpl implements MDRepository {
 
             this.rafRepo.close();
             this.rafRepo = null;
-            File var7 = new File(this.pathRepo);
+            File var7 = new NecroFile(this.pathRepo);
             this.last_length = var7.length();
             this.last_modified = var7.lastModified();
          } catch (IOException var5) {
             var5.printStackTrace();
             throw new MDRepositoryException("A törzsadattár zárolás nem oldható fel: " + var5.getMessage());
          } finally {
-            if (getLockPolicy() == 1 && (new File(getLockfileName())).exists()) {
-               (new File(getLockfileName())).delete();
+            if (getLockPolicy() == 1 && (new NecroFile(getLockfileName())).exists()) {
+               (new NecroFile(getLockfileName())).delete();
                MainFrame.masterDataLockCleanUpNeeded = false;
             }
 
@@ -395,8 +398,8 @@ public class MDRepositoryImpl implements MDRepository {
          var1.append(this.pathRepo);
          var1.append(".");
          var1.append(System.currentTimeMillis() + (long)(Math.random() * 1000.0D));
-         File var4 = new File(var1.toString());
-         FileOutputStream var5 = new FileOutputStream(var4);
+         File var4 = new NecroFile(var1.toString());
+         FileOutputStream var5 = new NecroFileOutputStream(var4);
          var5.write(var3, 0, var3.length);
          var5.flush();
          var5.close();
@@ -414,7 +417,7 @@ public class MDRepositoryImpl implements MDRepository {
 
    private boolean removeBackupFile() {
       boolean var1 = false;
-      File var2 = new File(this.pathBackup);
+      File var2 = new NecroFile(this.pathBackup);
       if (var2.exists() && var2.isFile()) {
          var1 = var2.delete();
       }

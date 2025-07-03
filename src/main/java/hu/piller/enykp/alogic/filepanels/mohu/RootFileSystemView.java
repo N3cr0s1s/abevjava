@@ -1,5 +1,7 @@
 package hu.piller.enykp.alogic.filepanels.mohu;
 
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import javax.swing.filechooser.FileSystemView;
 
@@ -13,7 +15,7 @@ public class RootFileSystemView extends FileSystemView {
    }
 
    public File createNewFolder(File var1) {
-      File var2 = new File(var1, "New Folder");
+      File var2 = new NecroFile(var1, "New Folder");
       var2.mkdir();
       return var2;
    }

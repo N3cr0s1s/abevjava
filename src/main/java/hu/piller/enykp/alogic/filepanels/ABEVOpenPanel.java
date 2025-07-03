@@ -20,6 +20,8 @@ import hu.piller.enykp.util.base.eventsupport.Event;
 import hu.piller.enykp.util.base.eventsupport.IEventListener;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
 import hu.piller.enykp.util.icon.ENYKIconSet;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -74,7 +76,7 @@ public class ABEVOpenPanel extends JDialog implements IEventSupport, IFileChoose
    public static final String OPEN_ADD_MULTI_DIALOG_TITLE = "Nyomtatvány kiválasztása";
    public static final String OPEN_XML_CHECK_DIALOG_TITLE = "XML állomány kiválasztása";
    private Hashtable result;
-   private File path = new File(this.getProperty("prop.sys.root"), this.getProperty("prop.usr.saves"));
+   private File path = new NecroFile(this.getProperty("prop.sys.root"), this.getProperty("prop.usr.saves"));
    private String[] filters = new String[]{"inner_data_loader_v1"};
    private String mode = "open";
    private Dimension loadedDimension = null;
@@ -229,7 +231,7 @@ public class ABEVOpenPanel extends JDialog implements IEventSupport, IFileChoose
    }
 
    public void setSelectedPath(URI var1) {
-      this.path = new File(var1);
+      this.path = new NecroFile(var1);
    }
 
    public ABEVOpenPanel() {
@@ -496,7 +498,7 @@ public class ABEVOpenPanel extends JDialog implements IEventSupport, IFileChoose
             }
 
             var3 = var1.getAbsolutePath().substring(0, var2) + "_" + var4 + ".frm.enyk";
-            var5 = new File(var3);
+            var5 = new NecroFile(var3);
          } while(var5.exists());
 
          return var3;
@@ -633,7 +635,7 @@ public class ABEVOpenPanel extends JDialog implements IEventSupport, IFileChoose
                      } else if (!DatastoreKeyToXml.htmlCut(var4).equals(var4)) {
                         GuiUtil.showMessageDialog(this.file_panel, "A fájlnév nem megengedett karaktert tartalmaz ( &,<,>,',\" ), kérjük módosítsa!", "Hibás fájlnév", 0);
                         var6 = false;
-                     } else if ((new File(var4)).exists()) {
+                     } else if ((new NecroFile(var4)).exists()) {
                         if (JOptionPane.showConfirmDialog(this.file_panel, "Ilyen nevű állomány már létezik? Felülírja?", "Állománynév", 0) == 1) {
                            var6 = false;
                         } else {
@@ -643,7 +645,7 @@ public class ABEVOpenPanel extends JDialog implements IEventSupport, IFileChoose
                   } while(!var6);
                }
 
-               File var14 = new File(var4);
+               File var14 = new NecroFile(var4);
                Object[] var7 = (Object[])((Object[])var1[0]);
                Object var8 = var7[0];
                Object var9 = var7[1];
@@ -696,7 +698,7 @@ public class ABEVOpenPanel extends JDialog implements IEventSupport, IFileChoose
       private JLabel lbl_file_list_title;
       private JTextField txt_path;
       private FileBusiness business;
-      private File enyk_path = new File(ABEVOpenPanel.this.getProperty("prop.usr.root"), ABEVOpenPanel.this.getProperty("prop.usr.saves"));
+      private File enyk_path = new NecroFile(ABEVOpenPanel.this.getProperty("prop.usr.root"), ABEVOpenPanel.this.getProperty("prop.usr.saves"));
       private File outer_path;
       private File current_path;
       private File other_path = null;
@@ -707,7 +709,7 @@ public class ABEVOpenPanel extends JDialog implements IEventSupport, IFileChoose
          this.txt_path = (JTextField)var2.getFPComponent("path_txt");
          this.business = var2.getBusiness();
          if (this.txt_path.getText().length() > 0) {
-            this.outer_path = new File(this.txt_path.getText());
+            this.outer_path = new NecroFile(this.txt_path.getText());
             if (!this.enyk_path.toString().equalsIgnoreCase(this.outer_path.toString())) {
                this.lbl_file_list_title.setText("Külső mappa adat állományai");
             }

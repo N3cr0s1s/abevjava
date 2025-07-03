@@ -44,6 +44,8 @@ import java.util.Vector;
 import javax.swing.Icon;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.InputSource;
@@ -274,7 +276,7 @@ public class XMLFlyCheckLoader implements ILoadManager {
          var6.hasError = true;
 
          try {
-            File var7 = new File(var1);
+            File var7 = new NecroFile(var1);
             if (var2 == null) {
                var6.errormsg = "Nincs nyomtatványazonosító az xml állományban!";
                return var6;
@@ -288,7 +290,7 @@ public class XMLFlyCheckLoader implements ILoadManager {
                   return var6;
                } else {
                   var9 = var8.getTemplateFileNames();
-                  File var10 = new File(var9[0]);
+                  File var10 = new NecroFile(var9[0]);
                   if (!var10.exists()) {
                      var6.errormsg = var9[2];
                      return var6;
@@ -357,7 +359,7 @@ public class XMLFlyCheckLoader implements ILoadManager {
       var6.hasError = true;
 
       try {
-         File var7 = new File(var1);
+         File var7 = new NecroFile(var1);
          if (var2 == null) {
             var6.errormsg = "Nincs nyomtatványazonosító az xml állományban!";
             return var6;
@@ -374,7 +376,7 @@ public class XMLFlyCheckLoader implements ILoadManager {
                File var10;
                if (!var5 && this.checkIfTemplatesAreDifferent(var9)) {
                   if (GuiUtil.showOptionDialog((Component)null, "A megnyitni kívánt nyomtatványból újabb verzió is létezik. Kívánja az újjal megnyitni az állományt?", "Nyomtatványverzió választás", 0, 3, (Icon)null, PropertyList.igenNem, PropertyList.igenNem[0]) == 0) {
-                     var10 = new File(var9[0]);
+                     var10 = new NecroFile(var9[0]);
                      if (!var10.exists()) {
                         throw new Exception();
                      }
@@ -386,10 +388,10 @@ public class XMLFlyCheckLoader implements ILoadManager {
                         return null;
                      }
 
-                     var10 = new File(var9[1]);
+                     var10 = new NecroFile(var9[1]);
                   }
                } else {
-                  var10 = new File(var9[0]);
+                  var10 = new NecroFile(var9[0]);
                }
 
                if (!var10.exists()) {

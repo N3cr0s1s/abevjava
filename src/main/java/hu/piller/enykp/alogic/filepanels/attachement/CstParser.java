@@ -31,6 +31,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
 import org.apache.commons.codec.binary.Base64InputStream;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -110,7 +113,7 @@ public class CstParser {
          }
       }
 
-      File var16 = new File(attachPath + "tmp");
+      File var16 = new NecroFile(attachPath + "tmp");
       if (var16.exists()) {
          emptyDir(var16);
       } else {
@@ -130,7 +133,7 @@ public class CstParser {
          }
 
          if (var9.length() != 1) {
-            File var10 = new File(var9);
+            File var10 = new NecroFile(var9);
             int var11 = this.isZippedFile(var10);
             if (var11 == -1) {
                this.hiba("Nem sikerült a csatolmány fájl olvasása: " + var9);
@@ -157,7 +160,7 @@ public class CstParser {
    }
 
    private byte[] getPlainDataFromZip(String var1) throws Exception {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       FileInputStream var3 = new FileInputStream(var2);
       var3.skip(2L);
       ByteArrayOutputStream var4 = new ByteArrayOutputStream();
@@ -199,11 +202,11 @@ public class CstParser {
       var1 = var1.substring(var1.lastIndexOf(File.separator) + 1, var1.length() - 3);
 
       try {
-         var8 = new FileOutputStream(var2 + var1 + "atc");
+         var8 = new NecroFileOutputStream(var2 + var1 + "atc");
 
          for(int var10 = 0; var10 < var7.size(); ++var10) {
             String var11 = var2 + ((String[])var3.get(var7.get(var10)))[0];
-            File var12 = new File(var11);
+            File var12 = new NecroFile(var11);
             if (var12.exists()) {
                int var13 = var11.lastIndexOf(".");
                if (var13 > -1) {
@@ -211,7 +214,7 @@ public class CstParser {
                }
             }
 
-            FileOutputStream var21 = new FileOutputStream(var11);
+            FileOutputStream var21 = new NecroFileOutputStream(var11);
 
             try {
                this.decodeB64WithApache(new FileInputStream(var6 + ((String[])var3.get(var7.get(var10)))[0] + "_b64"), var21);
@@ -230,7 +233,7 @@ public class CstParser {
             }
 
             try {
-               File var14 = new File(var6 + ((String[])var3.get(var7.get(var10)))[0] + "_b64");
+               File var14 = new NecroFile(var6 + ((String[])var3.get(var7.get(var10)))[0] + "_b64");
                var14.delete();
             } catch (Exception var17) {
                Tools.eLog(var17, 0);
@@ -350,7 +353,7 @@ public class CstParser {
       try {
          root = Tools.fillPath((String)PropertyList.getInstance().get("prop.usr.root"));
          attachPath = Tools.fillPath(root + PropertyList.getInstance().get("prop.usr.attachment"));
-         File var0 = new File(attachPath + "tmp");
+         File var0 = new NecroFile(attachPath + "tmp");
          emptyDir(var0);
       } catch (Exception var1) {
          Tools.eLog(var1, 0);
@@ -417,49 +420,49 @@ public class CstParser {
    }
 
    private String getRightCSTFilename(String var1, BookModel var2, String var3) {
-      File var4 = new File(var1);
+      File var4 = new NecroFile(var1);
       String var5 = var1 + "_" + (var2.splitesaver.equals("true") ? var2.get_formid() : var2.get(((Elem)var2.cc.getActiveObject()).getType()).name) + ".cst";
-      File var6 = new File(var5);
+      File var6 = new NecroFile(var5);
       if (var6.exists()) {
          return var5;
       } else {
          var5 = var1 + ".xml_csatolmanyai" + File.separator + var4.getName() + "_" + (var2.splitesaver.equals("true") ? var2.get_formid() : var2.get(((Elem)var2.cc.getActiveObject()).getType()).name) + ".cst";
-         var6 = new File(var5);
+         var6 = new NecroFile(var5);
          if (var6.exists()) {
             return var5;
          } else {
             var5 = var1 + ".cst";
-            var6 = new File(var5);
+            var6 = new NecroFile(var5);
             if (var6.exists()) {
                return var5;
             } else {
                var5 = var1 + ".xml_csatolmanyai" + File.separator + var4.getName() + ".cst";
-               var6 = new File(var5);
+               var6 = new NecroFile(var5);
                if (var6.exists()) {
                   return var5;
                } else {
                   if (var1.endsWith("_p")) {
                      var1 = var1.substring(0, var1.length() - 4);
                      var5 = var1 + "_" + (var2.splitesaver.equals("true") ? var2.get_formid() : var2.get(((Elem)var2.cc.getActiveObject()).getType()).name) + ".cst";
-                     var6 = new File(var5);
+                     var6 = new NecroFile(var5);
                      if (var6.exists()) {
                         return var5;
                      }
 
                      var5 = var1 + ".xml_csatolmanyai" + File.separator + var4.getName() + "_" + (var2.splitesaver.equals("true") ? var2.get_formid() : var2.get(((Elem)var2.cc.getActiveObject()).getType()).name) + ".cst";
-                     var6 = new File(var5);
+                     var6 = new NecroFile(var5);
                      if (var6.exists()) {
                         return var5;
                      }
 
                      var5 = var1 + ".cst";
-                     var6 = new File(var5);
+                     var6 = new NecroFile(var5);
                      if (var6.exists()) {
                         return var5;
                      }
 
                      var5 = var1 + ".xml_csatolmanyai" + File.separator + var4.getName() + ".cst";
-                     var6 = new File(var5);
+                     var6 = new NecroFile(var5);
                      if (var6.exists()) {
                         return var5;
                      }
@@ -474,9 +477,9 @@ public class CstParser {
 
    private String writePlainData(byte[] var1, File var2) throws IOException {
       String var3 = var2.getAbsolutePath() + "_plain";
-      File var4 = new File(var3);
+      File var4 = new NecroFile(var3);
       var4.deleteOnExit();
-      FileOutputStream var5 = new FileOutputStream(var4);
+      FileOutputStream var5 = new NecroFileOutputStream(var4);
       var5.write(var1);
       var5.close();
       return var3;
@@ -484,12 +487,12 @@ public class CstParser {
 
    private String writeTempFile(String var1, int var2) throws IOException {
       String var3 = PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.tmp") + File.separator + System.currentTimeMillis() + "_" + var2 + ".tmp";
-      File var4 = new File(var3);
+      File var4 = new NecroFile(var3);
       var4.deleteOnExit();
       FileOutputStream var5 = null;
 
       try {
-         var5 = new FileOutputStream(var4);
+         var5 = new NecroFileOutputStream(var4);
          var5.write(var1.getBytes());
       } catch (Exception var15) {
          Tools.eLog(var15, 0);
@@ -583,12 +586,12 @@ public class CstParser {
          try {
             String var19 = var4 + var2 + "atc";
             var19 = var19.replaceAll("\\?", "_");
-            FileOutputStream var28 = new FileOutputStream(var19);
+            FileOutputStream var28 = new NecroFileOutputStream(var19);
 
             for(int var20 = 0; var20 < var27.size(); ++var20) {
                String var21 = ((String)var5.get(var27.get(var20))).split(";")[0];
                var21 = var21.replaceAll("\\?", "_");
-               FileOutputStream var29 = new FileOutputStream(var21);
+               FileOutputStream var29 = new NecroFileOutputStream(var21);
                var29.write(this.getBase64DecodedString((String)var6.get(var27.get(var20))));
                var29.close();
                this.checkAndFixAttachment(var21);

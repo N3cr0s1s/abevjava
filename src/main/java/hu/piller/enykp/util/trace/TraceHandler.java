@@ -1,5 +1,7 @@
 package hu.piller.enykp.util.trace;
 
+import me.necrocore.abevjava.NecroFileWriter;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -19,7 +21,7 @@ public class TraceHandler extends Handler {
    public TraceHandler(TraceConfig var1) throws IOException, SecurityException {
       this.traceableClasses.addAll(var1.getTracedClassesFQN());
       if (this.traceableClasses.size() > 0) {
-         this.pw = new PrintWriter(new BufferedWriter(new FileWriter(var1.getLogDir() + File.separator + "anyktrc.log")));
+         this.pw = new PrintWriter(new BufferedWriter(new NecroFileWriter(var1.getLogDir() + File.separator + "anyktrc.log")));
       }
 
       this.setLevel(Level.INFO);

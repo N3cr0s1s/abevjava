@@ -5,6 +5,8 @@ import hu.piller.enykp.util.base.eventsupport.DefaultEventSupport;
 import hu.piller.enykp.util.base.eventsupport.Event;
 import hu.piller.enykp.util.base.eventsupport.IEventListener;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Component;
 import java.io.File;
 import java.io.FileFilter;
@@ -287,7 +289,7 @@ public class FolderBusiness implements IEventSupport {
    }
 
    public File getSelectedPath() {
-      return new File(this.current_path, "");
+      return new NecroFile(this.current_path, "");
    }
 
    public void setSelectedPath(File var1) {

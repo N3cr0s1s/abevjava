@@ -17,27 +17,27 @@ public class OsFactory {
 
    public static IOsHandler getOsHandler() {
       if (IOsHandler.OS_NAME.indexOf("linux") != -1) {
-         return new defaultUnixOsHandler();
+         return new DefaultUnixOsHandler();
       } else if (IOsHandler.OS_NAME.indexOf("windows") != -1) {
          if (IOsHandler.OS_NAME.indexOf("98") != -1) {
-            return new win9xOsHandler();
+            return new Win9xOsHandler();
          } else if (IOsHandler.OS_NAME.indexOf("me") != -1) {
-            return new winMeOsHandler();
+            return new WinMeOsHandler();
          } else if (IOsHandler.OS_NAME.indexOf("nt") != -1) {
-            return new winNTOsHandler();
+            return new WinNTOsHandler();
          } else if (IOsHandler.OS_NAME.indexOf("vista") != -1) {
-            return new winVistaOsHandler();
+            return new WinVistaOsHandler();
          } else if (IOsHandler.OS_NAME.indexOf(" 7") != -1) {
-            return new winWin7OsHandler();
+            return new WinWin7OsHandler();
          } else if (IOsHandler.OS_NAME.indexOf(" 8") != -1) {
-            return new winWin7OsHandler();
+            return new WinWin7OsHandler();
          } else if (IOsHandler.OS_NAME.indexOf("10") != -1) {
-            return new winWin7OsHandler();
+            return new WinWin7OsHandler();
          } else {
-            return (IOsHandler)(IOsHandler.OS_NAME.indexOf("11") != -1 ? new winWin7OsHandler() : new defaultWindowsOsHandler());
+            return (IOsHandler)(IOsHandler.OS_NAME.indexOf("11") != -1 ? new WinWin7OsHandler() : new DefaultWindowsOsHandler());
          }
       } else {
-         return (IOsHandler)(IOsHandler.OS_NAME.indexOf("mac") != -1 ? new otherUnixOsHandler() : new defaultUnixOsHandler());
+         return (IOsHandler)(IOsHandler.OS_NAME.indexOf("mac") != -1 ? new OtherUnixOsHandler() : new DefaultUnixOsHandler());
       }
    }
 }

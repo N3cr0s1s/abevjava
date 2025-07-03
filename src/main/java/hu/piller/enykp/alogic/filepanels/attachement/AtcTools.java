@@ -13,6 +13,10 @@ import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.ErrorDialog;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
 import hu.piller.enykp.util.base.tabledialog.TooltipTableHeader;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+import me.necrocore.abevjava.NecroFileWriter;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -85,7 +89,7 @@ public class AtcTools {
                      try {
                         if (var1.cc.getLoadedfile() != null) {
                            String var5 = AttachementTool.getAtcFilename(var1.cc.getLoadedfile().getAbsolutePath(), var1);
-                           if (!(new File(var5)).exists()) {
+                           if (!(new NecroFile(var5)).exists()) {
                               throw new Exception("A fájlhoz nincsen csatolmány csatolva, a csomag nem készíthető el!");
                            }
 
@@ -97,7 +101,7 @@ public class AtcTools {
                            Hashtable var6 = new Hashtable();
 
                            try {
-                              var3x = new FileOutputStream(var5 + ".teszt");
+                              var3x = new NecroFileOutputStream(var5 + ".teszt");
                               var3x.write("encoding=\"utf-8\"\n".getBytes("utf-8"));
                            } catch (Exception var34) {
                               return;
@@ -106,7 +110,7 @@ public class AtcTools {
                            Object var7 = null;
 
                            try {
-                              var7 = AttachementTool.loadAtcFile(new File(var5), true);
+                              var7 = AttachementTool.loadAtcFile(new NecroFile(var5), true);
                            } catch (Exception var33) {
                               var33.printStackTrace();
                            }
@@ -120,7 +124,7 @@ public class AtcTools {
 
                            for(int var9 = 0; var9 < var8.size(); ++var9) {
                               String[] var10 = (String[])((String[])var8.elementAt(var9));
-                              File var11 = new File(var10[0]);
+                              File var11 = new NecroFile(var10[0]);
                               String var12 = var11.getName();
                               var12 = FileNameResolver.ektelen(var12);
                               String var13 = var11.getParentFile().getName();
@@ -136,7 +140,7 @@ public class AtcTools {
                            }
 
                            var3x.close();
-                           var6.put(var5 + ".teszt", (new File(var5)).getName());
+                           var6.put(var5 + ".teszt", (new NecroFile(var5)).getName());
                            EnykXmlSaver var37 = new EnykXmlSaver(var1);
                            String var38 = PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.tmp") + File.separator;
                            Result var39 = var37.save(var38 + var1.cc.getLoadedfile().getName().substring(0, var1.cc.getLoadedfile().getName().toLowerCase().indexOf(".frm.enyk")) + ".xml", true, true, (SendParams)null, var38 + var1.cc.getLoadedfile().getName().substring(0, var1.cc.getLoadedfile().getName().toLowerCase().indexOf(".frm.enyk")) + ".xml");
@@ -153,7 +157,7 @@ public class AtcTools {
 
                            var6.put(var38 + var1.cc.getLoadedfile().getName().substring(0, var1.cc.getLoadedfile().getName().toLowerCase().indexOf(".frm.enyk")) + ".xml", var1.cc.getLoadedfile().getName().substring(0, var1.cc.getLoadedfile().getName().indexOf(".frm.enyk")) + ".xml");
                            Tools.zipFileAndRename(var6, var2.getAbsolutePath(), true);
-                           File var40 = new File(var5 + ".teszt");
+                           File var40 = new NecroFile(var5 + ".teszt");
                            var40.delete();
                            GuiUtil.showMessageDialog(MainFrame.thisinstance, "Az 'adatfájl csatolmánnyal' csomag elkészült.\n(Létrehozott állomány: " + var2.getAbsolutePath() + ")", "Üzenet", 1);
                            break label237;
@@ -165,7 +169,7 @@ public class AtcTools {
                         break label237;
                      } finally {
                         try {
-                           (new File(var4)).delete();
+                           (new NecroFile(var4)).delete();
                            var3x.close();
                         } catch (Exception var30) {
                            Tools.eLog(var30, 0);
@@ -200,7 +204,7 @@ public class AtcTools {
       File var2 = getCsatInfoFilename("");
       if (var2 != null) {
          try {
-            FileWriter var3 = new FileWriter(var2);
+            FileWriter var3 = new NecroFileWriter(var2);
             StringBuffer var4 = new StringBuffer();
 
             int var5;
@@ -255,7 +259,7 @@ public class AtcTools {
                }
 
                String var5 = AttachementTool.getAtcFilename(var1.cc.getLoadedfile().getAbsolutePath(), var1);
-               if (!(new File(var5)).exists()) {
+               if (!(new NecroFile(var5)).exists()) {
                   GuiUtil.showMessageDialog(MainFrame.thisinstance, "A nyomtatványhoz még nincs állomány csatolva, ezért az XCZ állomány nem készíthető el.", "Figyelmeztetés", 2);
                   return null;
                }
@@ -354,7 +358,7 @@ public class AtcTools {
 
                var2.addChoosableFileFilter(AtcTools.this.new CstFileFilter());
                var2.setDialogTitle("Válasszon egy cst fájlt");
-               File var9 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.saves"));
+               File var9 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.saves"));
                var2.setCurrentDirectory(var9);
                int var4 = var2.showOpenDialog(MainFrame.thisinstance);
                if (var4 == 0) {
@@ -405,14 +409,14 @@ public class AtcTools {
                ((BasicFileChooserUI)((BasicFileChooserUI)var1.getUI())).setFileName(var0.substring(0, var0.toLowerCase().indexOf(".frm.enyk")) + ".xcz");
             } catch (ClassCastException var5) {
                try {
-                  var1.setSelectedFile(new File(var0.substring(0, var0.toLowerCase().indexOf(".frm.enyk")) + ".xcz"));
+                  var1.setSelectedFile(new NecroFile(var0.substring(0, var0.toLowerCase().indexOf(".frm.enyk")) + ".xcz"));
                } catch (Exception var4) {
                   Tools.eLog(var4, 0);
                }
             }
          }
 
-         var2 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+         var2 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
          var1.setCurrentDirectory(var2);
       } catch (Exception var6) {
          Tools.eLog(var6, 0);
@@ -423,7 +427,7 @@ public class AtcTools {
             var2 = var1.getSelectedFile();
             if (var2 != null) {
                if (!var2.getName().endsWith(".xcz")) {
-                  var2 = new File(var2.getPath() + ".xcz");
+                  var2 = new NecroFile(var2.getPath() + ".xcz");
                }
 
                if (var2.exists() && JOptionPane.showConfirmDialog(MainFrame.thisinstance, var2.getName() + " létezik !\nFelülírja ?", "'adatfájl csatolmánnyal' csomag készítése", 0) == 1) {
@@ -448,14 +452,14 @@ public class AtcTools {
                ((BasicFileChooserUI)((BasicFileChooserUI)var1.getUI())).setFileName("csatolmany_parameterek.txt");
             } catch (ClassCastException var5) {
                try {
-                  var1.setSelectedFile(new File("csatolmany_parameterek.txt"));
+                  var1.setSelectedFile(new NecroFile("csatolmany_parameterek.txt"));
                } catch (Exception var4) {
                   Tools.eLog(var4, 0);
                }
             }
          }
 
-         var1.setCurrentDirectory(new File((String)PropertyList.getInstance().get("prop.usr.naplo")));
+         var1.setCurrentDirectory(new NecroFile((String)PropertyList.getInstance().get("prop.usr.naplo")));
       } catch (Exception var6) {
          Tools.eLog(var6, 0);
       }
@@ -465,7 +469,7 @@ public class AtcTools {
             File var2 = var1.getSelectedFile();
             if (var2 != null) {
                if (!var2.getName().endsWith(".txt")) {
-                  var2 = new File(var2.getPath() + ".txt");
+                  var2 = new NecroFile(var2.getPath() + ".txt");
                }
 
                if (var2.exists() && JOptionPane.showConfirmDialog(MainFrame.thisinstance, var2.getName() + " létezik !\nFelülírja ?", "Csatolmány paraméterek", 0) == 1) {

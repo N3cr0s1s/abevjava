@@ -1,5 +1,7 @@
 package hu.piller.enykp.util.trace;
 
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -43,7 +45,7 @@ public class TraceConfig {
    }
 
    private boolean isValidLogDir(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       return var2.exists() && var2.isDirectory();
    }
 

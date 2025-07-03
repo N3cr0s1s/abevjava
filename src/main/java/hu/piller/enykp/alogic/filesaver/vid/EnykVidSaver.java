@@ -19,6 +19,9 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.ErrorDialog;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -142,7 +145,7 @@ public class EnykVidSaver implements ISaveManager {
                var8 = true;
             }
 
-            var7 = new FileOutputStream(this.filename);
+            var7 = new NecroFileOutputStream(this.filename);
             this.saveHeaderInfo(var7);
             this.saveAbevInfo(var7);
             this.saveNyomtatvanyData(var7, this.bookModel.cc, var2, var5);
@@ -183,11 +186,11 @@ public class EnykVidSaver implements ISaveManager {
 
          if (var6.isOk()) {
             var6.errorList.clear();
-            var6.errorList.add(new File(this.filename));
+            var6.errorList.add(new NecroFile(this.filename));
          }
 
          if (!var8) {
-            var6.errorList.add(new File(this.filename));
+            var6.errorList.add(new NecroFile(this.filename));
          }
 
          return var6;
@@ -201,7 +204,7 @@ public class EnykVidSaver implements ISaveManager {
    private void setRightFilename(String var1) {
       if (var1.endsWith(this.getFileNameSuffix())) {
          this.filename = var1;
-         File var2 = new File(var1);
+         File var2 = new NecroFile(var1);
          if (var2.exists()) {
             return;
          }
@@ -209,7 +212,7 @@ public class EnykVidSaver implements ISaveManager {
          this.filename = var1 + this.getFileNameSuffix();
       }
 
-      if ((new File(this.filename)).getParent() == null) {
+      if ((new NecroFile(this.filename)).getParent() == null) {
          this.filename = PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.saves") + File.separator + this.filename;
       }
    }
@@ -339,7 +342,7 @@ public class EnykVidSaver implements ISaveManager {
    }
 
    private void deleteFile() {
-      File var1 = new File(this.filename);
+      File var1 = new NecroFile(this.filename);
       var1.delete();
    }
 

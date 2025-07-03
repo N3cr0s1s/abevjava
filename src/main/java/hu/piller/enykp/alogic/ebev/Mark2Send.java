@@ -15,6 +15,9 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.oshandler.OsFactory;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.Dimension;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
@@ -300,7 +303,7 @@ public class Mark2Send {
                   return var2;
                }
 
-               var4 = this.copyFileWithReader(new File(var3), var2.errorList.size() - 1, (String)this.bookModel.docinfo.get("ver"), EbevTools.getFileEncoding(var3));
+               var4 = this.copyFileWithReader(new NecroFile(var3), var2.errorList.size() - 1, (String)this.bookModel.docinfo.get("ver"), EbevTools.getFileEncoding(var3));
             }
 
             if (this.isProcessCancelled(var2)) {
@@ -363,7 +366,7 @@ public class Mark2Send {
                }
 
                if (var31.size() > 0) {
-                  var31 = EbevTools.createCstFile(this.bookModel, this.bookModel.main_document_id, var31, new File(var3), 0);
+                  var31 = EbevTools.createCstFile(this.bookModel, this.bookModel.main_document_id, var31, new NecroFile(var3), 0);
                }
 
                if (PropertyList.getInstance().get("prop.dynamic.ebev_call_from_menu") != null || PropertyList.getInstance().get("prop.dynamic.ebev_call_from_xmlpost") != null) {
@@ -427,12 +430,12 @@ public class Mark2Send {
             }
 
             String var35 = this.sp.srcPath + var4.substring(0, var4.length() - ".kr".length()) + ".xml";
-            File var36 = new File(var35);
+            File var36 = new NecroFile(var35);
             if (var36.exists()) {
                var36.delete();
             }
 
-            (new File(this.sp.srcPath + var4)).renameTo(var36);
+            (new NecroFile(this.sp.srcPath + var4)).renameTo(var36);
             if (!var2.isOk()) {
                throw new Exception("Hiba a titkosításkor");
             }
@@ -586,7 +589,7 @@ public class Mark2Send {
 
       try {
          var5 = new FileInputStream(var1);
-         var6 = new FileOutputStream(this.sp.srcPath + var7);
+         var6 = new NecroFileOutputStream(this.sp.srcPath + var7);
          byte[] var10 = new byte[1024];
          int var9 = var5.read(var10);
          Mark2Send.ByteAndInt var11 = this.handleTemplateVersion(var10, this.dtv, var4);
@@ -634,7 +637,7 @@ public class Mark2Send {
 
       try {
          InputStreamReader var10 = new InputStreamReader(new FileInputStream(var1), var4);
-         OutputStreamWriter var11 = new OutputStreamWriter(new FileOutputStream(this.sp.srcPath + var7), var4);
+         OutputStreamWriter var11 = new OutputStreamWriter(new NecroFileOutputStream(this.sp.srcPath + var7), var4);
          var5 = new BufferedReader(var10);
          var6 = new BufferedWriter(var11);
          char[] var12 = new char[1024];

@@ -8,6 +8,8 @@ import hu.piller.tools.TableSorter;
 import hu.piller.xml.FinishException;
 import hu.piller.xml.abev.element.DocMetaData;
 import hu.piller.xml.abev.parser.BoritekParser3;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -164,9 +166,9 @@ public class FTitkositas extends JDialog implements KeyWrapperHolder {
             }
 
             String dir = (String)dirs.nextElement();
-            mfFiles = (new File(dir)).listFiles(new FilenameFilter() {
+            mfFiles = (new NecroFile(dir)).listFiles(new FilenameFilter() {
                public boolean accept(File dir, String name) {
-                  return (new File(dir, name)).isFile() && name.endsWith(".mf");
+                  return (new NecroFile(dir, name)).isFile() && name.endsWith(".mf");
                }
             });
          } while(mfFiles == null);
@@ -210,9 +212,9 @@ public class FTitkositas extends JDialog implements KeyWrapperHolder {
                }
 
                String dir = (String)dirs.nextElement();
-               plainFiles = (new File(dir)).listFiles(new FilenameFilter() {
+               plainFiles = (new NecroFile(dir)).listFiles(new FilenameFilter() {
                   public boolean accept(File dir, String name) {
-                     return (new File(dir, name)).isFile() && !name.endsWith(".mf");
+                     return (new NecroFile(dir, name)).isFile() && !name.endsWith(".mf");
                   }
                });
             } while(plainFiles == null);
@@ -230,7 +232,7 @@ public class FTitkositas extends JDialog implements KeyWrapperHolder {
 
    private void BTitkositottFajlUtvonalaActionPerformed(ActionEvent e) {
       JFileChooser fc = new JFileChooser();
-      fc.setCurrentDirectory(new File(this.encryptedFilePath));
+      fc.setCurrentDirectory(new NecroFile(this.encryptedFilePath));
       fc.setFileSelectionMode(1);
       fc.showOpenDialog(this);
       if (fc.getSelectedFile() != null) {
@@ -272,7 +274,7 @@ public class FTitkositas extends JDialog implements KeyWrapperHolder {
          recipients[i] = (KeyWrapper)this.keys.elementAt(i);
       }
 
-      String titkositottFileName = this.encryptedFilePath + File.separator + (new File(this.plainFilePath)).getName() + ".kr";
+      String titkositottFileName = this.encryptedFilePath + File.separator + (new NecroFile(this.plainFilePath)).getName() + ".kr";
 
       try {
          this.metaData.addParam("digitalisalairas", "true");

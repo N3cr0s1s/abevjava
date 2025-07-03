@@ -19,6 +19,9 @@ import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -67,20 +70,20 @@ public class CalculationLoader {
       try {
          URI var11 = new URI(this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
          String var12;
-         if ((new File((new File(var11.getPath())).getParent() + "/temp_pic/bg.gif")).exists()) {
-            var12 = (new File(var11.getPath())).getParent() + "/temp_pic/bg.gif";
+         if ((new NecroFile((new NecroFile(var11.getPath())).getParent() + "/temp_pic/bg.gif")).exists()) {
+            var12 = (new NecroFile(var11.getPath())).getParent() + "/temp_pic/bg.gif";
             var12 = var12.startsWith("/") ? "file:" + var12 : "file:/" + var12;
             PropertyList.getInstance().set("prop.const.db.pdf_gen.bgImage", var12);
          } else {
-            System.out.println("IMAGES - Ezt keresném, de nincs: " + (new File(var11.getPath())).getParent() + "/temp_pic/bg.gif");
+            System.out.println("IMAGES - Ezt keresném, de nincs: " + (new NecroFile(var11.getPath())).getParent() + "/temp_pic/bg.gif");
          }
 
-         if ((new File((new File(var11.getPath())).getParent() + "/temp_pic/navgenfejlec.png")).exists()) {
-            var12 = (new File(var11.getPath())).getParent() + "/temp_pic/navgenfejlec.png";
+         if ((new NecroFile((new NecroFile(var11.getPath())).getParent() + "/temp_pic/navgenfejlec.png")).exists()) {
+            var12 = (new NecroFile(var11.getPath())).getParent() + "/temp_pic/navgenfejlec.png";
             var12 = var12.startsWith("/") ? "file:" + var12 : "file:/" + var12;
             PropertyList.getInstance().set("prop.const.db.pdf_gen.nevGenFejlecImage", var12);
          } else {
-            System.out.println("IMAGES - Ezt keresném, de nincs: " + (new File(var11.getPath())).getParent() + "/temp_pic/navgenfejlec.png");
+            System.out.println("IMAGES - Ezt keresném, de nincs: " + (new NecroFile(var11.getPath())).getParent() + "/temp_pic/navgenfejlec.png");
          }
       } catch (URISyntaxException var25) {
          PropertyList.getInstance().set("prop.const.db.pdf_gen.bgImage", (Object)null);
@@ -288,7 +291,7 @@ public class CalculationLoader {
                return "Nem található megfelelő nyomtatványsablon (1): " + var4;
             }
 
-            var7 = new File(var10);
+            var7 = new NecroFile(var10);
          } catch (Exception var14) {
             this.hiba(var14, "-102");
             return "Nem található megfelelő nyomtatványsablon (2): " + var1;
@@ -512,7 +515,7 @@ public class CalculationLoader {
       FileOutputStream var2 = null;
 
       try {
-         var2 = new FileOutputStream("e:\\temp\\xmlCalculation\\result\\" + this.outputId + "_data.xml");
+         var2 = new NecroFileOutputStream("e:\\temp\\xmlCalculation\\result\\" + this.outputId + "_data.xml");
          var2.write(var1.getCalculatedXMLData());
       } catch (Exception var56) {
          var56.printStackTrace();
@@ -526,7 +529,7 @@ public class CalculationLoader {
       }
 
       try {
-         var2 = new FileOutputStream("e:\\temp\\xmlCalculation\\result\\" + this.outputId + ".pdf");
+         var2 = new NecroFileOutputStream("e:\\temp\\xmlCalculation\\result\\" + this.outputId + ".pdf");
          var2.write(var1.getPdfData());
       } catch (Exception var54) {
          var54.printStackTrace();
@@ -540,7 +543,7 @@ public class CalculationLoader {
       }
 
       try {
-         var2 = new FileOutputStream("e:\\temp\\xmlCalculation\\result\\" + this.outputId + "_errorList.xml");
+         var2 = new NecroFileOutputStream("e:\\temp\\xmlCalculation\\result\\" + this.outputId + "_errorList.xml");
          var2.write(var1.getErrorListXMLData());
       } catch (Exception var52) {
          var52.printStackTrace();

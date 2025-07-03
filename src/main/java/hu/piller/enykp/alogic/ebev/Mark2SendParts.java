@@ -15,6 +15,8 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.oshandler.OsFactory;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Dimension;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
@@ -164,7 +166,7 @@ public class Mark2SendParts {
                      var4 = var4 + var26.elementAt(var9) + "\n";
                   }
 
-                  File var28 = new File(this.sp.srcPath + var26.elementAt(var9));
+                  File var28 = new NecroFile(this.sp.srcPath + var26.elementAt(var9));
 
                   try {
                      if (!var28.delete() && !var28.delete()) {

@@ -4,6 +4,9 @@ import hu.piller.enykp.alogic.primaryaccount.common.DefaultEnvelope;
 import hu.piller.enykp.alogic.primaryaccount.common.DefaultRecordFactory;
 import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.PropertyList;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -18,15 +21,15 @@ public class Tools {
       Object var4;
       if (var0 == null) {
          var4 = PropertyList.getInstance().get("prop.usr.primaryaccounts");
-         var0 = var4 == null ? null : new File(var4.toString());
+         var0 = var4 == null ? null : new NecroFile(var4.toString());
       }
 
       if (var1 == null) {
          var4 = PropertyList.getInstance().get("prop.sys.root");
          Object var5 = PropertyList.getInstance().get("prop.sys.abev");
          if (var4 != null && var5 != null) {
-            var1 = new File(var4.toString(), var5.toString());
-            var1 = new File(var1, "primaryaccounts");
+            var1 = new NecroFile(var4.toString(), var5.toString());
+            var1 = new NecroFile(var1, "primaryaccounts");
          }
       }
 
@@ -74,8 +77,8 @@ public class Tools {
 
    private static int _checkPAFolderContent(File var0, File var1, String var2, DefaultRecordFactory var3) {
       if (var0 != null && var1 != null && var2 != null) {
-         File var4 = new File(var1, var2);
-         File var5 = new File(var0, var2);
+         File var4 = new NecroFile(var1, var2);
+         File var5 = new NecroFile(var0, var2);
          int var6 = 0;
          if (!var5.exists() && var4.exists() && !var5.equals(var4)) {
             if (!var4.exists()) {
@@ -85,8 +88,8 @@ public class Tools {
 
             if (var6 == 0) {
                if (var5.exists()) {
-                  File var7 = new File(var0, var2 + ".old");
-                  File var8 = new File(var5.getParent(), var2 + ".ori");
+                  File var7 = new NecroFile(var0, var2 + ".old");
+                  File var8 = new NecroFile(var5.getParent(), var2 + ".ori");
                   if (var7.exists()) {
                      deleteFile(var7);
                   }
@@ -151,7 +154,7 @@ public class Tools {
 
       try {
          var2 = new FileInputStream(var0);
-         var3 = new FileOutputStream(var1);
+         var3 = new NecroFileOutputStream(var1);
          byte[] var5 = new byte[4096];
 
          int var6;

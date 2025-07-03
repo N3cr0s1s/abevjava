@@ -30,6 +30,9 @@ import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.ErrorDialog;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -182,9 +185,9 @@ public class EnykXmlSaver implements ActionListener, DBXmlSaver {
                if (this.bookModel.dbpkgloader != null) {
                   var7 = new ByteArrayOutputStream();
                } else if (var4 != null && var5 == null) {
-                  var7 = new FileOutputStream(var4.importPath + var1);
+                  var7 = new NecroFileOutputStream(var4.importPath + var1);
                } else {
-                  var7 = new FileOutputStream(this.filename);
+                  var7 = new NecroFileOutputStream(this.filename);
                }
 
                this.saveHeaderInfo((OutputStream)var7);
@@ -204,16 +207,16 @@ public class EnykXmlSaver implements ActionListener, DBXmlSaver {
                   File var9;
                   long var10;
                   if (var4 == null) {
-                     var9 = new File(this.filename);
+                     var9 = new NecroFile(this.filename);
                      var10 = var9.length();
                      this.createHash(this.filename, false);
-                     var9 = new File(this.filename);
+                     var9 = new NecroFile(this.filename);
                      var10 = var9.length();
                   } else {
                      if (var5 == null) {
-                        var9 = new File(var4.importPath + var1);
+                        var9 = new NecroFile(var4.importPath + var1);
                      } else {
-                        var9 = new File(var5);
+                        var9 = new NecroFile(var5);
                      }
 
                      var10 = var9.length();
@@ -224,9 +227,9 @@ public class EnykXmlSaver implements ActionListener, DBXmlSaver {
                      }
 
                      if (var5 == null) {
-                        var9 = new File(var4.importPath + var1);
+                        var9 = new NecroFile(var4.importPath + var1);
                      } else {
-                        var9 = new File(var5);
+                        var9 = new NecroFile(var5);
                      }
 
                      var10 = var9.length();
@@ -274,7 +277,7 @@ public class EnykXmlSaver implements ActionListener, DBXmlSaver {
          this.filename = PropertyList.USER_IN_FILENAME + var1 + this.getFileNameSuffix();
       } else {
          this.filename = var1;
-         File var2 = new File(var1);
+         File var2 = new NecroFile(var1);
          if (var2.exists() && var2.isAbsolute()) {
             return;
          }
@@ -424,7 +427,7 @@ public class EnykXmlSaver implements ActionListener, DBXmlSaver {
    }
 
    private void deleteFile() {
-      File var1 = new File(this.filename);
+      File var1 = new NecroFile(this.filename);
       var1.delete();
    }
 
@@ -556,7 +559,7 @@ public class EnykXmlSaver implements ActionListener, DBXmlSaver {
 
    private String getKRDir() throws Exception {
       String var1 = Tools.fillPath((String)PropertyList.getInstance().get("prop.usr.krdir"));
-      if (!(new File(var1)).isDirectory()) {
+      if (!(new NecroFile(var1)).isDirectory()) {
          throw new FileNotFoundException("nem található krdir");
       } else {
          return var1;

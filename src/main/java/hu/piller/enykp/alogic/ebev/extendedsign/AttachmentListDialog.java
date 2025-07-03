@@ -22,6 +22,9 @@ import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.tabledialog.TooltipTableHeader;
 import hu.piller.enykp.util.icon.ENYKIconSet;
 import hu.piller.enykp.util.oshandler.OsFactory;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -109,7 +112,7 @@ public class AttachmentListDialog extends JDialog implements TableModelListener 
                Object var4 = var2.nextElement();
 
                try {
-                  File var5 = new File((String)AttachmentListDialog.this.pdfFiles.get(var4));
+                  File var5 = new NecroFile((String)AttachmentListDialog.this.pdfFiles.get(var4));
                   var5.delete();
                } catch (Exception var6) {
                   var3 = false;
@@ -325,7 +328,7 @@ public class AttachmentListDialog extends JDialog implements TableModelListener 
             }
 
             if (var2 != null) {
-               AttachmentListDialog.this.execute((new File(var2)).getParentFile(), var2);
+               AttachmentListDialog.this.execute((new NecroFile(var2)).getParentFile(), var2);
             } else {
                GuiUtil.showMessageDialog(AttachmentListDialog.this.getParent(), "A fájl nincs AVDH szolgáltatással aláírva!", "Üzenet", 1);
             }
@@ -394,7 +397,7 @@ public class AttachmentListDialog extends JDialog implements TableModelListener 
 
    private void fillAtcTable() throws Exception {
       String var1 = AttachementTool.getAtcFilename(this.bookModel.cc.getLoadedfile().getAbsolutePath(), this.bookModel);
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       if (var2.exists()) {
          Object var3 = AttachementTool.loadAtcFile(var2, false);
          if (var3 instanceof String) {
@@ -454,7 +457,7 @@ public class AttachmentListDialog extends JDialog implements TableModelListener 
 
             for(int var7 = 0; var7 < var2.size(); ++var7) {
                String[] var8 = (String[])((String[])var2.elementAt(var7));
-               File var9 = new File(var8[0] + ".anyk.ASiC");
+               File var9 = new NecroFile(var8[0] + ".anyk.ASiC");
                if (var9.exists()) {
                   if (this.fileMarked2Sign(var8[0])) {
                      var6.add(var9);
@@ -470,7 +473,7 @@ public class AttachmentListDialog extends JDialog implements TableModelListener 
             if (var4 > 0) {
                String var29 = this.sp.srcPath + this.loadedFileAzon + File.separator + "alairt" + File.separator + this.loadedFileAzon + ".urlap.anyk.ASiC";
                if ((Boolean)this.dataTable.getValueAt(0, 2)) {
-                  var6.add(new File(var29));
+                  var6.add(new NecroFile(var29));
                }
 
                label266: {
@@ -625,7 +628,7 @@ public class AttachmentListDialog extends JDialog implements TableModelListener 
       boolean var2 = true;
 
       for(int var3 = 0; var3 < this.atcTableModel.getRowCount(); ++var3) {
-         File var4 = new File(this.atcTableModel.getValueAt(var3, 0) + ".anyk.ASiC");
+         File var4 = new NecroFile(this.atcTableModel.getValueAt(var3, 0) + ".anyk.ASiC");
          if (var4.exists()) {
             var2 = var2 && var4.delete();
          }
@@ -633,25 +636,25 @@ public class AttachmentListDialog extends JDialog implements TableModelListener 
 
       String var7 = this.sp.srcPath + this.loadedFileAzon;
       String var8 = this.sp.srcPath + this.loadedFileAzon + ".xml";
-      if (!(new File(var8)).delete()) {
+      if (!(new NecroFile(var8)).delete()) {
          var1.add(var8);
          var2 = false;
       }
 
       var8 = this.sp.srcPath + this.loadedFileAzon + File.separator + "alairt" + File.separator + this.loadedFileAzon + ".urlap.anyk.ASiC";
-      if (!(new File(var8)).delete()) {
+      if (!(new NecroFile(var8)).delete()) {
          var1.add(var8);
          var2 = false;
       }
 
       var8 = this.sp.srcPath + this.loadedFileAzon + File.separator + "alairt";
-      if (!(new File(var8)).delete()) {
+      if (!(new NecroFile(var8)).delete()) {
          var1.add(var8);
          var2 = false;
       }
 
       var8 = this.sp.srcPath + this.loadedFileAzon;
-      if (!(new File(var8)).delete()) {
+      if (!(new NecroFile(var8)).delete()) {
          var1.add(var8);
          var2 = false;
       }
@@ -678,7 +681,7 @@ public class AttachmentListDialog extends JDialog implements TableModelListener 
       int var1 = this.checkSignCount();
       String var2 = "";
       if (var1 < 1) {
-         File var3 = new File(this.sp.srcPath + this.loadedFileAzon + File.separator + "alairt");
+         File var3 = new NecroFile(this.sp.srcPath + this.loadedFileAzon + File.separator + "alairt");
          if (var3.exists()) {
             String[] var4 = var3.list();
             if (var4.length < 1) {
@@ -710,37 +713,37 @@ public class AttachmentListDialog extends JDialog implements TableModelListener 
       }
 
       var12 = var12 + this.loadedFileAzon + "_" + this.bookModel.get_formid() + ".atc";
-      FileOutputStream var5 = new FileOutputStream(var12);
+      FileOutputStream var5 = new NecroFileOutputStream(var12);
       var5.write("encoding=\"utf-8\"\n".getBytes("utf-8"));
       File var6;
       if (this.atcTableModel.getRowCount() > 0) {
-         var6 = (new File((String)this.atcTableModel.getValueAt(0, 0))).getParentFile();
+         var6 = (new NecroFile((String)this.atcTableModel.getValueAt(0, 0))).getParentFile();
       } else {
-         var6 = new File(this.sp.root + PropertyList.getInstance().get("prop.usr.attachment") + this.loadedFileAzon + File.separator + this.bookModel.get_formid());
+         var6 = new NecroFile(this.sp.root + PropertyList.getInstance().get("prop.usr.attachment") + this.loadedFileAzon + File.separator + this.bookModel.get_formid());
       }
 
       for(int var9 = 0; var9 < this.atcTableModel.getRowCount(); ++var9) {
          String var10 = (String)this.atcTableModel.getValueAt(var9, 0);
-         File var7 = new File(var10);
+         File var7 = new NecroFile(var10);
          var5.write((var7.getParentFile().getName() + File.separator + var7.getName() + ";" + this.atcTableModel.getValueAt(var9, 1) + ";" + this.atcTableModel.getValueAt(var9, 2) + "\n").getBytes("utf-8"));
          var11.put(var10, var7.getParentFile().getName() + File.separator + var7.getName());
-         File var8 = new File(var10 + ".anyk.ASiC");
+         File var8 = new NecroFile(var10 + ".anyk.ASiC");
          if (var8.exists()) {
             var11.put(var8, var8.getParentFile().getName() + File.separator + var8.getName());
          }
       }
 
       var5.close();
-      var11.put(var12, (new File(var12)).getName());
+      var11.put(var12, (new NecroFile(var12)).getName());
       String var13 = this.sp.srcPath + this.loadedFileAzon + ".xml";
-      var11.put(var13, (new File(var13)).getName());
+      var11.put(var13, (new NecroFile(var13)).getName());
       if ("".equals(var2)) {
          var13 = this.sp.srcPath + this.loadedFileAzon + File.separator + "alairt";
-         File[] var14 = (new File(var13)).listFiles();
+         File[] var14 = (new NecroFile(var13)).listFiles();
          var11.put(var14[0], var6.getName() + File.separator + var14[0].getName());
       }
 
-      File var15 = new File(this.sp.krdir + "fizikai_adathordozo");
+      File var15 = new NecroFile(this.sp.krdir + "fizikai_adathordozo");
       if (!var15.exists()) {
          var15.mkdir();
       }
@@ -750,7 +753,7 @@ public class AttachmentListDialog extends JDialog implements TableModelListener 
 
    private void openSourceFolder(String var1) {
       try {
-         Desktop.getDesktop().open(new File(var1));
+         Desktop.getDesktop().open(new NecroFile(var1));
       } catch (Exception var3) {
          ErrorList.getInstance().writeError(new Long(4009L), "Nem sikerült a " + var1 + " mappa megnyitása!", IErrorList.LEVEL_ERROR, var3, (Object)null);
       }
@@ -920,14 +923,14 @@ public class AttachmentListDialog extends JDialog implements TableModelListener 
                FileOutputStream var3x = null;
 
                try {
-                  var3x = new FileOutputStream(AttachmentListDialog.this.sp.destPath + AttachmentListDialog.this.loadedFileAzon + ".xcz" + "_status");
+                  var3x = new NecroFileOutputStream(AttachmentListDialog.this.sp.destPath + AttachmentListDialog.this.loadedFileAzon + ".xcz" + "_status");
                   var3x.write((AttachmentListDialog.this.sp.krdir + "fizikai_adathordozo" + File.separator + AttachmentListDialog.this.loadedFileAzon + ".xcz").getBytes());
                } catch (Exception var20) {
                   var2x = -4;
                } finally {
                   try {
                      var3x.close();
-                     (new File(var2)).delete();
+                     (new NecroFile(var2)).delete();
                   } catch (Exception var16) {
                   }
 
@@ -943,12 +946,12 @@ public class AttachmentListDialog extends JDialog implements TableModelListener 
                   return "";
                } else {
                   try {
-                     (new File(var1x)).delete();
+                     (new NecroFile(var1x)).delete();
                   } catch (Exception var18) {
                   }
 
                   try {
-                     (new File(AttachmentListDialog.this.sp.destPath + AttachmentListDialog.this.loadedFileAzon + ".xcz" + "_status")).delete();
+                     (new NecroFile(AttachmentListDialog.this.sp.destPath + AttachmentListDialog.this.loadedFileAzon + ".xcz" + "_status")).delete();
                   } catch (Exception var17) {
                   }
 
@@ -1067,11 +1070,11 @@ public class AttachmentListDialog extends JDialog implements TableModelListener 
             if ("atcTable".equals(((JTable)var1.getSource()).getName())) {
                if (AttachmentListDialog.this.atcTable.getSelectedColumn() == 3) {
                   var2 = (String)AttachmentListDialog.this.pdfFiles.get(AttachmentListDialog.this.atcTable.getValueAt(AttachmentListDialog.this.atcTable.getSelectedRow(), 0));
-                  AttachmentListDialog.this.execute((new File(var2)).getParentFile(), var2);
+                  AttachmentListDialog.this.execute((new NecroFile(var2)).getParentFile(), var2);
                }
             } else {
                var2 = (String)AttachmentListDialog.this.pdfFiles.get(AttachmentListDialog.this.dataTable.getValueAt(AttachmentListDialog.this.dataTable.getSelectedRow(), 0));
-               AttachmentListDialog.this.execute((new File(var2)).getParentFile(), var2);
+               AttachmentListDialog.this.execute((new NecroFile(var2)).getParentFile(), var2);
             }
          }
 

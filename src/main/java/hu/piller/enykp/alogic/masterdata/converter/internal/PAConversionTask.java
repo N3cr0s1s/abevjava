@@ -1,6 +1,8 @@
 package hu.piller.enykp.alogic.masterdata.converter.internal;
 
 import hu.piller.enykp.util.base.PropertyList;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 
 public class PAConversionTask {
@@ -31,7 +33,7 @@ public class PAConversionTask {
       var1.append(this.getPath());
       var1.append("/");
       var1.append(this.fileName);
-      return new File(var1.toString());
+      return new NecroFile(var1.toString());
    }
 
    private String getPath() {
@@ -39,7 +41,7 @@ public class PAConversionTask {
    }
 
    public void archiveFile() throws Exception {
-      this.getFile().renameTo(new File(this.getPath() + "/" + this.fileName + ".converted"));
+      this.getFile().renameTo(new NecroFile(this.getPath() + "/" + this.fileName + ".converted"));
    }
 
    public boolean isTaskExecutable() {

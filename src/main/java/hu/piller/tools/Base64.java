@@ -1,5 +1,8 @@
 package hu.piller.tools;
 
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -487,7 +490,7 @@ public class Base64 {
          Base64.OutputStream bos = null;
 
          try {
-            bos = new Base64.OutputStream(new FileOutputStream(filename), 1);
+            bos = new Base64.OutputStream(new NecroFileOutputStream(filename), 1);
             bos.write(dataToEncode);
          } catch (IOException var11) {
             throw var11;
@@ -506,7 +509,7 @@ public class Base64 {
       Base64.OutputStream bos = null;
 
       try {
-         bos = new Base64.OutputStream(new FileOutputStream(filename), 0);
+         bos = new Base64.OutputStream(new NecroFileOutputStream(filename), 0);
          bos.write(dataToDecode.getBytes("US-ASCII"));
       } catch (IOException var11) {
          throw var11;
@@ -524,7 +527,7 @@ public class Base64 {
       Base64.InputStream bis = null;
 
       try {
-         File file = new File(filename);
+         File file = new NecroFile(filename);
          int length = 0;
          if (file.length() > 2147483647L) {
             throw new IOException("File is too big for this convenience method (" + file.length() + " bytes).");
@@ -555,7 +558,7 @@ public class Base64 {
       Base64.InputStream bis = null;
 
       try {
-         File file = new File(filename);
+         File file = new NecroFile(filename);
          byte[] buffer = new byte[Math.max((int)((double)file.length() * 1.4D), 40)];
          int length = 0;
          int numBytes;
@@ -580,7 +583,7 @@ public class Base64 {
       BufferedOutputStream out = null;
 
       try {
-         out = new BufferedOutputStream(new FileOutputStream(outfile));
+         out = new BufferedOutputStream(new NecroFileOutputStream(outfile));
          out.write(encoded.getBytes("US-ASCII"));
       } catch (IOException var12) {
          throw var12;
@@ -599,7 +602,7 @@ public class Base64 {
       BufferedOutputStream out = null;
 
       try {
-         out = new BufferedOutputStream(new FileOutputStream(outfile));
+         out = new BufferedOutputStream(new NecroFileOutputStream(outfile));
          out.write(decoded);
       } catch (IOException var12) {
          throw var12;

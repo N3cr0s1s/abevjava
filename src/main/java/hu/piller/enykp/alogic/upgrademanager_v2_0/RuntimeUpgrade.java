@@ -19,6 +19,8 @@ import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Version;
 import hu.piller.enykp.util.filelist.EnykFileInfo;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -65,7 +67,7 @@ public class RuntimeUpgrade {
       } else if (!this.isAutoUpdateEnabled(var2)) {
          return var1;
       } else {
-         final VersionData var5 = getCurrTemplateVersion(new File(var1));
+         final VersionData var5 = getCurrTemplateVersion(new NecroFile(var1));
          final VersionData var6 = getOrgresourceVersion(var5.getOrganization());
          final VersionData var7 = getUpdateVersion(var5);
          final VersionData var8 = getUpdateVersion(var6);

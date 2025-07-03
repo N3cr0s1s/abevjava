@@ -10,6 +10,8 @@ import java.util.Properties;
 import java.util.Vector;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -121,13 +123,13 @@ public class TemplateNameResolver {
          }
 
          var2 = var2 + "nyomtatvanyinfo" + File.separator;
-         File var4 = new File(var2);
+         File var4 = new NecroFile(var2);
          TemplateNameResolver.TeminfoFilenameFilter var5 = new TemplateNameResolver.TeminfoFilenameFilter();
          String[] var6 = var4.list(var5);
 
          for(int var7 = 0; var7 < var6.length; ++var7) {
             try {
-               this.parseResolvers(new File(var2 + var6[var7]));
+               this.parseResolvers(new NecroFile(var2 + var6[var7]));
             } catch (Exception var9) {
                Tools.eLog(var9, 0);
             }
@@ -143,7 +145,7 @@ public class TemplateNameResolver {
       }
 
       public boolean accept(File var1, String var2) {
-         if ((new File(var1, var2)).isDirectory()) {
+         if ((new NecroFile(var1, var2)).isDirectory()) {
             return false;
          } else {
             try {

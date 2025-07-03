@@ -17,6 +17,8 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.Version;
 import hu.piller.enykp.util.filelist.EnykFileList;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -132,7 +134,7 @@ public class TemplateChecker {
             String var8;
             try {
                if (var5 != null && !var7[0].equals("")) {
-                  var8 = (new File(var7[0])).getPath();
+                  var8 = (new NecroFile(var7[0])).getPath();
                   var7[0] = UpgradeManager.checkUpgrade(var8, var5, var3);
                }
             } catch (Exception var16) {
@@ -486,7 +488,7 @@ public class TemplateChecker {
          File var8;
          String var9;
          if (MainFrame.opmode.equals("1")) {
-            var8 = new File(var7[0]);
+            var8 = new NecroFile(var7[0]);
             if (var8.exists()) {
                var9 = this.getTemplateId4ETD(var1);
                return new ExtendedTemplateData(var9, var3, var8, BlacklistStore.getInstance().isBiztipDisabled(var9, var3));
@@ -504,7 +506,7 @@ public class TemplateChecker {
             String var11;
             if (this.getTemplateIfHavent == 0) {
                if (GuiUtil.showOptionDialog((Component)null, var9, "Nyomtatványverzió választás", 0, 3, (Icon)null, PropertyList.igenNem, PropertyList.igenNem[0]) == 0) {
-                  var8 = new File(var7[0]);
+                  var8 = new NecroFile(var7[0]);
                   if (var8.exists()) {
                      this.iplMaster.set("prop.dynamic.hasNewTemplate", Boolean.TRUE);
                      var11 = this.getTemplateId4ETD(var1);
@@ -517,13 +519,13 @@ public class TemplateChecker {
                   return null;
                } else {
                   var11 = this.getTemplateId4ETD(var1);
-                  return new ExtendedTemplateData(var11, var3, new File(var7[1]), BlacklistStore.getInstance().isBiztipDisabled(var11, var3));
+                  return new ExtendedTemplateData(var11, var3, new NecroFile(var7[1]), BlacklistStore.getInstance().isBiztipDisabled(var11, var3));
                }
             } else {
                if (var10) {
-                  var8 = new File(var7[1]);
+                  var8 = new NecroFile(var7[1]);
                } else {
-                  var8 = new File(var7[0]);
+                  var8 = new NecroFile(var7[0]);
                }
 
                if (var8.exists()) {
@@ -534,7 +536,7 @@ public class TemplateChecker {
                }
             }
          } else {
-            var8 = new File(var7[0]);
+            var8 = new NecroFile(var7[0]);
             if (var8.exists()) {
                var9 = this.getTemplateId4ETD(var1);
                return new ExtendedTemplateData(var9, var3, var8, BlacklistStore.getInstance().isBiztipDisabled(var9, var3));

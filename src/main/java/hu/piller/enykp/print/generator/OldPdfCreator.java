@@ -20,6 +20,8 @@ import hu.piller.enykp.print.simpleprint.PageTitle;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.print.Book;
 import java.awt.print.PageFormat;
 import java.awt.print.Paper;
@@ -478,7 +480,7 @@ public class OldPdfCreator extends APdfCreator {
          this.backgroundImage = (String)PropertyList.getInstance().get("prop.const.db.pdf_gen.bgImage");
       } else {
          URI var9 = new URI(this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
-         this.backgroundImage = (new File(var9.getPath())).getParent() + "/abevjava.jar!/resources/print/bg.gif";
+         this.backgroundImage = (new NecroFile(var9.getPath())).getParent() + "/abevjava.jar!/resources/print/bg.gif";
          this.backgroundImage = this.backgroundImage.startsWith("/") ? "file:" + this.backgroundImage : "file:/" + this.backgroundImage;
          this.backgroundImage = "jar:" + this.backgroundImage;
       }

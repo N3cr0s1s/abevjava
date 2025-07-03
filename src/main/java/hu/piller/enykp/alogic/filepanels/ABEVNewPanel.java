@@ -19,6 +19,8 @@ import hu.piller.enykp.util.base.eventsupport.Event;
 import hu.piller.enykp.util.base.eventsupport.IEventListener;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
 import hu.piller.enykp.util.icon.ENYKIconSet;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -66,7 +68,7 @@ public class ABEVNewPanel extends JDialog implements IEventSupport, IFileChooser
    protected JComboBox cbo_tax_expert;
    protected JPanel extensionPanel;
    protected Hashtable result;
-   protected File path = new File(this.getProperty("prop.dynamic.templates.absolutepath"));
+   protected File path = new NecroFile(this.getProperty("prop.dynamic.templates.absolutepath"));
    protected String[] filters = new String[]{"template_loader_v1"};
    protected String mode = "new";
    protected long lastPArefresh = 0L;
@@ -353,7 +355,7 @@ public class ABEVNewPanel extends JDialog implements IEventSupport, IFileChooser
                         File var2 = null;
 
                         try {
-                           var2 = new File((String)this.get());
+                           var2 = new NecroFile((String)this.get());
                         } catch (InterruptedException var4) {
                            var2 = null;
                         } catch (ExecutionException var5) {

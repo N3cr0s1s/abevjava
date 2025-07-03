@@ -9,6 +9,8 @@ import hu.piller.enykp.alogic.archivemanager.archivemanagerpanel.abevfilechooser
 import hu.piller.enykp.alogic.archivemanager.archivemanagerpanel.archivefilepanel.filepanel.ListItem;
 import hu.piller.enykp.gui.GuiUtil;
 import hu.piller.enykp.util.base.eventsupport.CloseEvent;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -292,7 +294,7 @@ public class ArchiveManagerBusiness implements IReport {
          }
 
          ListItem var7 = (ListItem)var2.clone();
-         var7.setItem(new File(var5));
+         var7.setItem(new NecroFile(var5));
          if (var6.compareTo("archiv") == 0) {
             this.fbcp.removeItem(var2);
             this.fbap.addNewFile(var7);

@@ -127,6 +127,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
+
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -137,7 +140,7 @@ public class MainFrame extends JFrame {
    public static boolean publicmode;
    public static boolean record;
    public static boolean playback;
-   public static File recordfile = new File("d:\\recorded.txt");
+   public static File recordfile = new NecroFile("d:\\recorded.txt");
    public static PrintWriter PW;
    Menubar mb;
    public static InitApplication ia;
@@ -385,7 +388,7 @@ public class MainFrame extends JFrame {
       Thread var8 = new Thread(var7);
       var8.start();
       String var9;
-      if (!(new File(Directories.getSettingsPath() + File.separator + "corr.enyk")).exists()) {
+      if (!(new NecroFile(Directories.getSettingsPath() + File.separator + "corr.enyk")).exists()) {
          try {
             System.out.println("Várakozás a törzsadat konverzió befejezésére");
             var8.join();
@@ -425,7 +428,7 @@ public class MainFrame extends JFrame {
          }
 
          try {
-            (new File(Directories.getSettingsPath() + File.separator + "corr.enyk")).createNewFile();
+            (new NecroFile(Directories.getSettingsPath() + File.separator + "corr.enyk")).createNewFile();
          } catch (IOException var21) {
             System.err.println(var21.getMessage());
          }
@@ -433,8 +436,8 @@ public class MainFrame extends JFrame {
 
       Runtime.getRuntime().addShutdownHook(new Thread() {
          public synchronized void start() {
-            if (MainFrame.masterDataLockCleanUpNeeded && MDRepositoryImpl.getLockPolicy() == 1 && (new File(MDRepositoryImpl.getLockfileName())).exists()) {
-               (new File(MDRepositoryImpl.getLockfileName())).delete();
+            if (MainFrame.masterDataLockCleanUpNeeded && MDRepositoryImpl.getLockPolicy() == 1 && (new NecroFile(MDRepositoryImpl.getLockfileName())).exists()) {
+               (new NecroFile(MDRepositoryImpl.getLockfileName())).delete();
                MainFrame.masterDataLockCleanUpNeeded = false;
             }
 
@@ -454,7 +457,7 @@ public class MainFrame extends JFrame {
                ErrorList.getInstance().writeError("MainFrame - getBL(url)", "ÁNYK kitiltott nyomtatványok megszerzése sikertelen (url)", var20, (Object)null);
 
                try {
-                  BlacklistProviderLocal var27 = new BlacklistProviderLocal(new File(Directories.getSettingsPath() + File.separator + "blacklist.xml"));
+                  BlacklistProviderLocal var27 = new BlacklistProviderLocal(new NecroFile(Directories.getSettingsPath() + File.separator + "blacklist.xml"));
                   var9 = var27.get();
                } catch (Exception var19) {
                   System.out.println("ÁNYK kitiltott nyomtatványok megszerzése sikertelen (file)");
@@ -592,7 +595,7 @@ public class MainFrame extends JFrame {
       SettingsStore.getInstance().set("gui", "mezőszámítás", "true");
       IPropertyList var35 = PropertyList.getInstance();
       String[] var36 = (String[])((String[])var35.get("prop.command"));
-      File var37 = new File((String)var35.get("prop.sys.root") + "/lib");
+      File var37 = new NecroFile((String)var35.get("prop.sys.root") + "/lib");
       removeLog4j(var37);
 
       String var4;
@@ -671,7 +674,7 @@ public class MainFrame extends JFrame {
          if (pid != null) {
             try {
                var4 = var35.get("prop.usr.root") + File.separator + var35.get("prop.usr.tmp") + File.separator + pid + ".run";
-               runfile = new File(var4);
+               runfile = new NecroFile(var4);
                runfile.createNewFile();
                System.out.println("runfile=" + var4);
             } catch (IOException var25) {
@@ -733,7 +736,7 @@ public class MainFrame extends JFrame {
       record = var38 == null ? false : var38;
       if (record) {
          try {
-            PW = new PrintWriter(new FileOutputStream(recordfile));
+            PW = new PrintWriter(new NecroFileOutputStream(recordfile));
             final Robot var39 = new Robot();
             Toolkit.getDefaultToolkit().addAWTEventListener(new AWTEventListener() {
                public void eventDispatched(AWTEvent var1) {
@@ -1069,7 +1072,7 @@ public class MainFrame extends JFrame {
    }
 
    private static void delxmlandatcfromtmpdir() {
-      File var0 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.tmp"));
+      File var0 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.tmp"));
       File[] var1 = var0.listFiles(new FilenameFilter() {
          public boolean accept(File var1, String var2) {
             if (var2.toLowerCase().endsWith(".xml")) {
@@ -1259,7 +1262,7 @@ public class MainFrame extends JFrame {
 
       var1.startService();
       (new Thread(() -> {
-         File var2x = new File("pdfgen.pid");
+         File var2x = new NecroFile("pdfgen.pid");
          System.out.println(TimeStamp.getNow() + " pid file " + var2x.getAbsolutePath());
 
          while(var2x.exists()) {
@@ -1512,7 +1515,7 @@ public class MainFrame extends JFrame {
       try {
          IPropertyList var1 = PropertyList.getInstance();
          String var2 = var1.get("prop.usr.root") + File.separator + var1.get("prop.usr.tmp") + File.separator + pid + ".run";
-         xmlCalculationRunFile = new File(var2);
+         xmlCalculationRunFile = new NecroFile(var2);
          xmlCalculationRunFile.createNewFile();
          System.out.println("xmlCalculationRunFile=" + var2);
       } catch (IOException var3) {
@@ -1539,7 +1542,7 @@ public class MainFrame extends JFrame {
       try {
          IPropertyList var1 = PropertyList.getInstance();
          String var2 = var1.get("prop.usr.root") + File.separator + var1.get("prop.usr.tmp") + File.separator + pid + ".run";
-         xmlCalculationRunFile = new File(var2);
+         xmlCalculationRunFile = new NecroFile(var2);
          xmlCalculationRunFile.createNewFile();
          System.out.println("xmlCheckRunFile=" + var2);
       } catch (IOException var3) {
@@ -1732,7 +1735,7 @@ public class MainFrame extends JFrame {
 
          for(int var3 = 0; var3 < var2; ++var3) {
             String var4 = var1[var3];
-            File var5 = new File(var0, var4);
+            File var5 = new NecroFile(var0, var4);
             removeFile(var5);
          }
       } catch (Exception var6) {
@@ -1920,8 +1923,8 @@ public class MainFrame extends JFrame {
 
    private void saveBlXml(String var1) {
       try {
-         File var2 = new File(Directories.getSettingsPath() + File.separator + "blacklist.xml");
-         BufferedWriter var3 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(var2), "UTF-8"));
+         File var2 = new NecroFile(Directories.getSettingsPath() + File.separator + "blacklist.xml");
+         BufferedWriter var3 = new BufferedWriter(new OutputStreamWriter(new NecroFileOutputStream(var2), "UTF-8"));
          var3.write(var1);
          var3.close();
       } catch (Exception var4) {
@@ -2037,16 +2040,16 @@ public class MainFrame extends JFrame {
 
    private static boolean isKeyFileExsits(String var0) {
       IPropertyList var1 = PropertyList.getInstance();
-      File var2 = new File((new File((String)var1.get("prop.usr.root"), (String)var1.get("prop.usr.settings"))).getAbsolutePath(), var0 + ".info");
+      File var2 = new NecroFile((new NecroFile((String)var1.get("prop.usr.root"), (String)var1.get("prop.usr.settings"))).getAbsolutePath(), var0 + ".info");
       return var2.exists();
    }
 
    private static void createKeyFile(String var0) {
       IPropertyList var1 = PropertyList.getInstance();
-      File var2 = new File((new File((String)var1.get("prop.usr.root"), (String)var1.get("prop.usr.settings"))).getAbsolutePath(), var0 + ".info");
+      File var2 = new NecroFile((new NecroFile((String)var1.get("prop.usr.root"), (String)var1.get("prop.usr.settings"))).getAbsolutePath(), var0 + ".info");
 
       try {
-         FileOutputStream var3 = new FileOutputStream(var2);
+         FileOutputStream var3 = new NecroFileOutputStream(var2);
          var3.write("".getBytes());
          var3.close();
       } catch (Exception var4) {

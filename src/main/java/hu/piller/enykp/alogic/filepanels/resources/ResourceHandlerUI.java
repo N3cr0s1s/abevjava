@@ -7,6 +7,8 @@ import hu.piller.enykp.alogic.orghandler.OrgResource;
 import hu.piller.enykp.gui.GuiUtil;
 import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.SwingWorker;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -195,7 +197,7 @@ public class ResourceHandlerUI extends JDialog {
                            int var3 = JOptionPane.showConfirmDialog(ResourceHandlerUI.this.thisinstance, "Valóban törölni akarja az állományt?", "Megerősítés", 0);
                            if (var3 == 0) {
                               String var4 = OrgInfo.getInstance().getResourcePath() + File.separator + ResourceHandlerUI.this.tblResources.getModel().getValueAt(var2, 3);
-                              if (!(new File(var4)).delete()) {
+                              if (!(new NecroFile(var4)).delete()) {
                                  var1 = "A paraméter állomány törlése sikertelen!";
                               }
 
@@ -251,7 +253,7 @@ public class ResourceHandlerUI extends JDialog {
                               for(int var4 = 0; var4 < ResourceHandlerUI.this.tblResources.getModel().getRowCount(); ++var4) {
                                  if (var2x.equals(ResourceHandlerUI.this.tblResources.getModel().getValueAt(var4, 0))) {
                                     String var5 = OrgInfo.getInstance().getResourcePath() + File.separator + ResourceHandlerUI.this.tblResources.getModel().getValueAt(var4, 3);
-                                    if (!(new File(var5)).delete()) {
+                                    if (!(new NecroFile(var5)).delete()) {
                                        StringBuilder var6 = new StringBuilder();
                                        var6.append((String)ResourceHandlerUI.this.tblResources.getModel().getValueAt(var2, 0)).append(" (").append((String)ResourceHandlerUI.this.tblResources.getModel().getValueAt(var2, 2)).append(") ").append((String)ResourceHandlerUI.this.tblResources.getModel().getValueAt(var2, 1)).append(": ").append((String)ResourceHandlerUI.this.tblResources.getModel().getValueAt(var2, 3));
                                        ErrorList.getInstance().store(ErrorList.LEVEL_SHOW_WARNING, var6.toString(), (Exception)null, (Object)null);

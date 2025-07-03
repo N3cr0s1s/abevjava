@@ -25,7 +25,7 @@ public interface IOsHandler {
 
    String getUserHomeDir();
 
-   String getEnvironmentVariable(String var1);
+   String getEnvironmentVariable(String envKey);
 
    String getDirtyEnvironmentVariable(String var1, String var2);
 

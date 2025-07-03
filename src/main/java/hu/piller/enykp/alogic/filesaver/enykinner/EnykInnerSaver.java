@@ -18,6 +18,9 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.ErrorDialog;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -163,7 +166,7 @@ public class EnykInnerSaver implements ISaveManager {
                var6 = true;
             }
 
-            var5 = new FileOutputStream(this.filename);
+            var5 = new NecroFileOutputStream(this.filename);
             this.saveHeaderInfo(var5);
             this.saveAbevInfo(var5);
             this.saveNyomtatvanyData(var5, this.bookModel.cc, var2);
@@ -204,11 +207,11 @@ public class EnykInnerSaver implements ISaveManager {
 
          if (var4.isOk()) {
             var4.errorList.clear();
-            var4.errorList.add(new File(this.filename));
+            var4.errorList.add(new NecroFile(this.filename));
          }
 
          if (!var6) {
-            var4.errorList.add(new File(this.filename));
+            var4.errorList.add(new NecroFile(this.filename));
          }
 
          return var4;
@@ -223,7 +226,7 @@ public class EnykInnerSaver implements ISaveManager {
       File var2;
       if (var1.endsWith(this.getFileNameSuffix())) {
          this.filename = var1;
-         var2 = new File(var1);
+         var2 = new NecroFile(var1);
          if (var2.exists()) {
             return;
          }
@@ -231,13 +234,13 @@ public class EnykInnerSaver implements ISaveManager {
          this.filename = var1 + this.getFileNameSuffix();
       }
 
-      if ((new File(this.filename)).getParent() == null) {
+      if ((new NecroFile(this.filename)).getParent() == null) {
          this.filename = PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.saves") + File.separator + this.filename;
-         var2 = new File(this.filename);
+         var2 = new NecroFile(this.filename);
 
          for(int var3 = 1; var2.exists(); ++var3) {
             this.filename = PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.saves") + File.separator + var1 + "_" + var3 + this.getFileNameSuffix();
-            var2 = new File(this.filename);
+            var2 = new NecroFile(this.filename);
          }
 
       }
@@ -380,7 +383,7 @@ public class EnykInnerSaver implements ISaveManager {
    }
 
    private void deleteFile() {
-      File var1 = new File(this.filename);
+      File var1 = new NecroFile(this.filename);
       var1.delete();
    }
 

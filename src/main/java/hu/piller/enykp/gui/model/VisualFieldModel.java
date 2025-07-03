@@ -26,6 +26,8 @@ import java.util.Hashtable;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.Attributes;
 
 public class VisualFieldModel {
@@ -786,7 +788,7 @@ public class VisualFieldModel {
       BufferedImage var3 = null;
 
       try {
-         var3 = ImageIO.read(new File("e:\\enykp\\eroforrasok\\pictures\\pattern_02.gif"));
+         var3 = ImageIO.read(new NecroFile("e:\\enykp\\eroforrasok\\pictures\\pattern_02.gif"));
       } catch (IOException var5) {
          var5.printStackTrace();
       }

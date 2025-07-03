@@ -7,6 +7,9 @@ import hu.piller.enykp.alogic.masterdata.sync.ui.maintenance.technicalmd.handler
 import hu.piller.enykp.alogic.masterdata.sync.ui.maintenance.technicalmd.handler.KozossegiAdoszamMdHandler;
 import hu.piller.enykp.alogic.masterdata.sync.ui.maintenance.technicalmd.handler.TitulusVezetekNevMdHandler;
 import hu.piller.enykp.util.base.PropertyList;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -40,7 +43,7 @@ public class ConfigService {
 
    public void storeConfig(String var1, Properties var2) {
       try {
-         var2.store(new FileOutputStream(this.getConfigFileByEntityType(var1)), (String)null);
+         var2.store(new NecroFileOutputStream(this.getConfigFileByEntityType(var1)), (String)null);
       } catch (IOException var4) {
          var4.printStackTrace();
       }
@@ -48,12 +51,12 @@ public class ConfigService {
    }
 
    private File getConfigFileByEntityType(String var1) {
-      File var2 = new File(this.getPathToConfig());
+      File var2 = new NecroFile(this.getPathToConfig());
       if (!var2.exists()) {
          var2.mkdirs();
       }
 
-      return new File(var2, this.getConfigFileNameByEntityType(var1));
+      return new NecroFile(var2, this.getConfigFileNameByEntityType(var1));
    }
 
    private String getConfigFileNameByEntityType(String var1) {

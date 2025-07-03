@@ -18,6 +18,8 @@ import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -279,7 +281,7 @@ public class MDRepositoryMetaImpl implements MDRepositoryMeta {
 
       try {
          SchemaFactory var3 = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
-         var2.setSchema(var3.newSchema(new Source[]{new StreamSource(new File(var1))}));
+         var2.setSchema(var3.newSchema(new Source[]{new StreamSource(new NecroFile(var1))}));
          return var2.newSAXParser().getXMLReader();
       } catch (SAXException var4) {
          this.writeError(var4.getMessage());

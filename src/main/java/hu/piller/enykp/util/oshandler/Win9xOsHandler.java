@@ -1,15 +1,17 @@
 package hu.piller.enykp.util.oshandler;
 
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
 
-public class win9xOsHandler extends defaultWindowsOsHandler {
+public class Win9xOsHandler extends DefaultWindowsOsHandler {
    protected String root_drive = null;
    protected String init_dir = null;
    protected String os_user_profile_name = "AUTOEXEC.BAT";
 
-   public win9xOsHandler() {
+   public Win9xOsHandler() {
       this.showDebugMessage(this.getClass().toString());
    }
 
@@ -45,16 +47,16 @@ public class win9xOsHandler extends defaultWindowsOsHandler {
       return this.root_drive;
    }
 
-   public String getEnvironmentVariable(String var1) {
+   public String getEnvironmentVariable(String envKey) {
       Process var2 = null;
 
       try {
-         String var3 = "%" + var1 + "%";
+         String var3 = "%" + envKey + "%";
          var2 = Runtime.getRuntime().exec(new String[]{this.getOsShell(), this.getOsShellParam(), "echo", var3});
          String var4 = this.getStdInput(var2);
          this.closeProcess(var2);
          var2 = null;
-         this.showDebugMessage(var1 + "=" + var4);
+         this.showDebugMessage(envKey + "=" + var4);
          if (var4.indexOf(var3) == 0) {
             return "";
          } else {
@@ -98,7 +100,7 @@ public class win9xOsHandler extends defaultWindowsOsHandler {
          if (var7 != null && var7.length() > 0 && var7.equalsIgnoreCase(var5)) {
             return true;
          } else {
-            File var8 = new File(this.getRootDrive() + this.os_user_profile_name);
+            File var8 = new NecroFile(this.getRootDrive() + this.os_user_profile_name);
             String var9 = this.getRootDrive() + var6 + ".bat";
             if (!this.searchStrInFile(var8, var9)) {
                Vector var10 = new Vector(1);
@@ -106,7 +108,7 @@ public class win9xOsHandler extends defaultWindowsOsHandler {
                this.addToFile(var8, var10);
             }
 
-            File var14 = new File(var9);
+            File var14 = new NecroFile(var9);
             Vector var11 = new Vector(1);
             String var12 = "SET " + var3 + "=\"" + var5 + "\"";
             var11.add(var12);

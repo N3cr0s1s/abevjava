@@ -22,6 +22,8 @@ import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.EventLog;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -298,7 +300,7 @@ public class Calculator implements ICalculator, IPropertyList, Serializable {
                      Object var40;
                      File var41;
                      if (var50) {
-                        String var37 = (new File(var33)).getName();
+                        String var37 = (new NecroFile(var33)).getName();
                         Object var38 = this.getProperty("prop.usr.root");
                         var39 = this.getProperty("prop.usr.tmp");
                         var40 = this.getProperty("prop.usr.tmp_calc");
@@ -482,7 +484,7 @@ public class Calculator implements ICalculator, IPropertyList, Serializable {
                      }
 
                      if (this.create_dependency_file) {
-                        String var52 = (new File(var33)).getName();
+                        String var52 = (new NecroFile(var33)).getName();
                         var39 = this.getProperty("prop.usr.root");
                         var40 = this.getProperty("prop.usr.saves");
                         var41 = DependencyListFileHelper.getDependencyFile(var39, var40, var52, "." + var34 + ".dep.txt");

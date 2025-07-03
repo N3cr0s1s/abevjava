@@ -7,6 +7,8 @@ import hu.piller.enykp.gui.framework.MainFrame;
 import hu.piller.enykp.interfaces.IOsHandler;
 import hu.piller.enykp.interfaces.IPropertyList;
 import hu.piller.enykp.util.oshandler.OsFactory;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -152,12 +154,12 @@ public class InitApplication {
       }
 
       this.appRoot = var4.getPath();
-      this.appRoot = (new File(this.appRoot)).getParent();
+      this.appRoot = (new NecroFile(this.appRoot)).getParent();
       this.setCmdParameterFileName((String)var3.get("prop.dynamic.cfg"));
-      File var1 = new File(this.appRoot, this.cmdParameterFileName);
+      File var1 = new NecroFile(this.appRoot, this.cmdParameterFileName);
       this.checkExists(var1);
       this.loadConfiguration(var1.getAbsolutePath(), var3);
-      var1 = new File(this.appRoot, "properties.enyk");
+      var1 = new NecroFile(this.appRoot, "properties.enyk");
       this.loadExistingProperties(var1, var3, this.appRoot);
       this.setAppInfo(var3);
       this.populateCommandArgs(args);
@@ -186,7 +188,7 @@ public class InitApplication {
       this.log.info("IATrace - createAppParamFile - start");
       this.createAppParamFile(var2);
       this.log.info("IATrace - createAppParamFile - ok");
-      File var6 = new File((new File((String)var3.get("prop.usr.root"), (String)var3.get("prop.usr.settings"))).getAbsolutePath(), "settings.enyk");
+      File var6 = new NecroFile((new NecroFile((String)var3.get("prop.usr.root"), (String)var3.get("prop.usr.settings"))).getAbsolutePath(), "settings.enyk");
       if (!var6.exists()) {
          this.saveDefaultSettings(var6);
       }
@@ -224,7 +226,7 @@ public class InitApplication {
 
    private void deleteUpgradeFile(IPropertyList var1) {
       try {
-         File var2 = new File(new File((String)var1.get("prop.sys.root"), "upgrade"), "abevjava_install.jar");
+         File var2 = new NecroFile(new NecroFile((String)var1.get("prop.sys.root"), "upgrade"), "abevjava_install.jar");
          if (var2.exists()) {
             System.out.println("Upgrade állomány törlése: " + var2.getAbsolutePath() + ", " + (var2.delete() ? "sikeres" : "sikertelen"));
          }
@@ -241,7 +243,7 @@ public class InitApplication {
 
    public void doCsatOszlopBeallit() {
       IPropertyList var1 = PropertyList.getInstance();
-      File var2 = new File((new File((String)var1.get("prop.usr.root"), (String)var1.get("prop.usr.settings"))).getAbsolutePath(), "csat_oszlop.info");
+      File var2 = new NecroFile((new NecroFile((String)var1.get("prop.usr.root"), (String)var1.get("prop.usr.settings"))).getAbsolutePath(), "csat_oszlop.info");
       if (!var2.exists()) {
          try {
             GuiUtil.check_csatolmany_oszlop();
@@ -265,12 +267,12 @@ public class InitApplication {
             var7 = System.getProperty("user.name") + "_" + var2;
          }
 
-         File var8 = new File((new File((String)var5.get("prop.usr.root"), (String)var5.get("prop.usr.settings"))).getAbsolutePath(), var2);
+         File var8 = new NecroFile((new NecroFile((String)var5.get("prop.usr.root"), (String)var5.get("prop.usr.settings"))).getAbsolutePath(), var2);
          if (var8.exists()) {
             return;
          }
 
-         var8 = new File((new File((String)var5.get("prop.usr.root"), (String)var5.get("prop.usr.settings"))).getAbsolutePath(), var7);
+         var8 = new NecroFile((new NecroFile((String)var5.get("prop.usr.root"), (String)var5.get("prop.usr.settings"))).getAbsolutePath(), var7);
          if (var8.exists()) {
             return;
          }
@@ -280,7 +282,7 @@ public class InitApplication {
 
             try {
                String var10 = (String)PropertyList.getInstance().get("prop.sys.root");
-               var9 = new File(var10);
+               var9 = new NecroFile(var10);
                if (!var9.exists()) {
                   throw new Exception();
                }
@@ -301,13 +303,13 @@ public class InitApplication {
    }
 
    private void createImportScript() {
-      File var1 = new File((String)PropertyList.getInstance().get("prop.sys.root"));
+      File var1 = new NecroFile((String)PropertyList.getInstance().get("prop.sys.root"));
       if (var1.exists()) {
-         File var2 = new File(var1, "abevjava_start_import.bat");
+         File var2 = new NecroFile(var1, "abevjava_start_import.bat");
          if (!var2.exists()) {
-            File var3 = new File(var1, "gen_abevjava_import.vbs");
+            File var3 = new NecroFile(var1, "gen_abevjava_import.vbs");
             if (var3.exists()) {
-               File var4 = new File(var1, "abevjava.jar");
+               File var4 = new NecroFile(var1, "abevjava.jar");
                if (var4.exists()) {
                   String[] var5 = new String[]{"@cscript \"" + var3.getAbsolutePath().replaceAll("\\\\", "/") + "\" %1 \"" + var4.getAbsolutePath().replaceAll("\\\\", "/") + "\""};
                   if (!this.writeFile(var2, var5)) {
@@ -346,7 +348,7 @@ public class InitApplication {
       String var3 = (String)var1.get("prop.dynamic.useroptionfile");
       File var4;
       if (var3 != null && var3.length() != 0) {
-         var4 = new File(var3);
+         var4 = new NecroFile(var3);
          if (var4.exists() && var4.isFile()) {
             return var4;
          } else {
@@ -355,12 +357,12 @@ public class InitApplication {
             return null;
          }
       } else {
-         var4 = new File(var2.getUserHomeDir(), ".abevjava");
+         var4 = new NecroFile(var2.getUserHomeDir(), ".abevjava");
          if (!var4.exists()) {
             var4.mkdirs();
          }
 
-         return new File(var4.getAbsolutePath(), System.getProperty("user.name") + ".enyk");
+         return new NecroFile(var4.getAbsolutePath(), System.getProperty("user.name") + ".enyk");
       }
    }
 
@@ -415,7 +417,7 @@ public class InitApplication {
       if (var4 != null && !var4.trim().equalsIgnoreCase(var3.trim())) {
          return true;
       } else {
-         File var5 = new File((String)var1.get("prop.usr.root"), var3);
+         File var5 = new NecroFile((String)var1.get("prop.usr.root"), var3);
          var1.set(var2, var5.getAbsolutePath());
          if (!var5.exists()) {
             var5.mkdirs();
@@ -470,13 +472,13 @@ public class InitApplication {
       var2.put("prop.usr.ds_src", "KR/digitalis_alairas");
       var2.put("prop.usr.ds_dest", "KR/kuldendo");
       var2.put("prop.usr.ds_sent", "KR/elkuldott");
-      var2.put("prop.usr.root", (new File(var1.getUserHomeDir(), "abevjava")).getAbsolutePath());
-      var2.put("prop.usr.primaryaccounts", (new File((String)var2.get("prop.usr.root"), "torzsadatok")).getAbsolutePath());
+      var2.put("prop.usr.root", (new NecroFile(var1.getUserHomeDir(), "abevjava")).getAbsolutePath());
+      var2.put("prop.usr.primaryaccounts", (new NecroFile((String)var2.get("prop.usr.root"), "torzsadatok")).getAbsolutePath());
       return var2;
    }
 
    private void createUserSubDirs(IPropertyList var1) {
-      File var2 = new File((String)var1.get("prop.usr.root"));
+      File var2 = new NecroFile((String)var1.get("prop.usr.root"));
       System.out.println("usrRoot = " + var2.getAbsolutePath());
       if (!var2.exists() && !var2.mkdirs()) {
          GuiUtil.showMessageDialog((Component)null, "Az alábbi könyvtár létrehozása sikertelen" + this.NL + var2.getAbsolutePath() + this.NL + "Ellenőrizze a jogosultságokat, futtassa újra a telepítőt.", "Hiba", 0);
@@ -498,7 +500,7 @@ public class InitApplication {
    }
 
    private void createDirs(File var1, String var2) {
-      File var3 = new File(var1, var2);
+      File var3 = new NecroFile(var1, var2);
       if (!var3.exists()) {
          var3.mkdirs();
       }
@@ -516,7 +518,7 @@ public class InitApplication {
          this.loadProperties(var1, var2);
       } else {
          this.setAndView(var2, "prop.sys.root", var3);
-         this.setAndView(var2, "prop.sys.helps", "file:///" + (new File(var3, "segitseg")).getAbsolutePath());
+         this.setAndView(var2, "prop.sys.helps", "file:///" + (new NecroFile(var3, "segitseg")).getAbsolutePath());
          this.setAndView(var2, "prop.sys.templates", "nyomtatvanyok");
          this.setAndView(var2, "prop.sys.abev", "abev");
          this.setAndView(var2, "prop.sys.kontroll", "kontroll");
@@ -557,7 +559,7 @@ public class InitApplication {
          var4 = var2.getDirtyEnvironmentVariable("KRDIR", "profabevjava");
          if (var4 == null || var4.length() == 0) {
             String var5 = (String)var1.get("prop.usr.root");
-            var4 = (new File(var5, "eKuldes")).getAbsolutePath();
+            var4 = (new NecroFile(var5, "eKuldes")).getAbsolutePath();
             var2.createEnvironmentVariable(var5, "profabevjava", "KRDIR", var4);
          }
 
@@ -572,7 +574,7 @@ public class InitApplication {
       if (var3 != null && var3.length() != 0) {
          var3 = this.removeWhiteChars(var3);
          var1.set(var2, var3);
-         File var4 = new File(var3);
+         File var4 = new NecroFile(var3);
          if (!var4.exists()) {
             var4.mkdirs();
          }
@@ -580,7 +582,7 @@ public class InitApplication {
          if (var4.exists()) {
             for(int var5 = 0; var5 < KRDIRSUBDIRS.length; ++var5) {
                String var6 = KRDIRSUBDIRS[var5];
-               this.chkAndCreate(new File(var4, var6));
+               this.chkAndCreate(new NecroFile(var4, var6));
             }
          } else {
             GuiUtil.showMessageDialog((Component)null, "Hiba történt az alábbi könyvtár létrehozása során (KRDIR környezeti változó): " + this.NL + var4 + this.NL + "A " + "Megjelölés elektronikus beküldésre, digitális aláírásra" + " funkció nem fog működni.", "Hiba", 0);
@@ -639,14 +641,14 @@ public class InitApplication {
 
          try {
             try {
-               File var5 = new File(var4);
+               File var5 = new NecroFile(var4);
                var3 = new FileInputStream(var5);
             } catch (Exception var10) {
                URI var7;
                try {
                   var7 = new URI(var4);
                } catch (URISyntaxException var9) {
-                  var7 = (new File((new File(var4)).getCanonicalPath())).toURI();
+                  var7 = (new NecroFile((new NecroFile(var4)).getCanonicalPath())).toURI();
                }
 
                if (var7.toString().startsWith("http:") || var7.toString().startsWith("file:")) {
@@ -753,20 +755,20 @@ public class InitApplication {
          this.removeUacAppParamFile(var1);
          this.log.info("IATrace - removeUacAppParamFile - ok");
          this.log.info("IATrace - oh.getInitDir() - start");
-         File var2 = new File(var1.getInitDir());
+         File var2 = new NecroFile(var1.getInitDir());
          this.log.info("IATrace - oh.getInitDir() - ok: " + (var2 == null ? "null" : var2.getAbsolutePath()));
          if (this.isParamExist(var2, "abevjavapath.cfg", "abevjava.path")) {
             this.log.info("IATrace - abevjava.path param exists return");
             return;
          }
 
-         File var3 = new File(var1.getUserHomeDir(), ".abevjava");
+         File var3 = new NecroFile(var1.getUserHomeDir(), ".abevjava");
          if (this.isParamExist(var3, "abevjavapath.cfg", "abevjava.path")) {
             this.log.info("IATrace - abevjava.path param exists return");
             return;
          }
 
-         String var4 = (new File(this.appRoot)).getAbsolutePath();
+         String var4 = (new NecroFile(this.appRoot)).getAbsolutePath();
          System.out.println("rootPath = " + var4);
          this.log.info("IATrace - createParamFile (windir) - start");
          this.createParamFile(var2, "abevjavapath.cfg", "abevjava.path", var4);
@@ -797,7 +799,7 @@ public class InitApplication {
                return;
             }
 
-            File var3 = new File(var2, "abevjavapath.cfg");
+            File var3 = new NecroFile(var2, "abevjavapath.cfg");
             if (var3.exists()) {
                if (var3.delete()) {
                   System.out.println(var3.getAbsolutePath() + " állomány sikeresen törölve.");
@@ -826,7 +828,7 @@ public class InitApplication {
       this.log.info("IATrace - getEnvironmentVariable - ok :" + var2);
       if (var2 != null && var2.length() > 0) {
          var2 = var2 + "\\VirtualStore\\Windows";
-         File var3 = new File(var2);
+         File var3 = new NecroFile(var2);
          if (var3.exists() && var3.isDirectory()) {
             return var3;
          }
@@ -840,7 +842,7 @@ public class InitApplication {
 
       try {
          String var5 = "";
-         File var6 = new File(var1, var2);
+         File var6 = new NecroFile(var1, var2);
          if (var6.exists()) {
             var4 = new BufferedReader(new FileReader(var6));
             var5 = var4.readLine();
@@ -872,7 +874,7 @@ public class InitApplication {
 
       try {
          String var6 = var3 + " = " + var4.replaceAll("\\\\", "\\\\\\\\");
-         File var7 = new File(var1, var2);
+         File var7 = new NecroFile(var1, var2);
          var5 = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(var7), "UTF-8")));
          var5.println(var6);
          var5.flush();
@@ -1002,7 +1004,7 @@ public class InitApplication {
             if (this.getActMonth() > 8) {
                GuiUtil.showMessageDialog((Component)null, var2, "Figyelmeztetés", 0);
             } else {
-               File var3 = new File((new File((String)var1.get("prop.usr.root"), (String)var1.get("prop.usr.settings"))).getAbsolutePath(), "deprecated.info");
+               File var3 = new NecroFile((new NecroFile((String)var1.get("prop.usr.root"), (String)var1.get("prop.usr.settings"))).getAbsolutePath(), "deprecated.info");
                if (var3.exists()) {
                   return;
                }
@@ -1174,7 +1176,7 @@ public class InitApplication {
 
    private boolean existsDir(String var1) {
       if (var1 != null && var1.length() != 0) {
-         File var2 = new File(var1);
+         File var2 = new NecroFile(var1);
          return var2.exists() && var2.isDirectory();
       } else {
          return false;
@@ -1182,7 +1184,7 @@ public class InitApplication {
    }
 
    private void setAdditionalProperties(IPropertyList var1) {
-      File var2 = new File((String)var1.get("prop.sys.root"), (String)var1.get("prop.sys.templates"));
+      File var2 = new NecroFile((String)var1.get("prop.sys.root"), (String)var1.get("prop.sys.templates"));
       var1.set("prop.dynamic.templates.absolutepath", var2.getAbsolutePath());
       System.out.println("Nyomtatvány sablonok teljes elérési útvonala = " + var2);
    }
@@ -1191,7 +1193,7 @@ public class InitApplication {
       var1.set("prop.dynamic.public.mode", Boolean.FALSE);
 
       try {
-         File var2 = new File((String)var1.get("prop.sys.root"), "anyk_nyilvanos_uzemmod.xml");
+         File var2 = new NecroFile((String)var1.get("prop.sys.root"), "anyk_nyilvanos_uzemmod.xml");
          if (var2.exists()) {
             var1.set("prop.dynamic.public.mode", Boolean.TRUE);
             System.out.println("\nPublikus üzemmód bekapcsolva!\n");
@@ -1272,13 +1274,13 @@ public class InitApplication {
 
    private boolean selectionAlreadyDone(String var1) {
       IPropertyList var2 = PropertyList.getInstance();
-      File var3 = new File((new File((String)var2.get("prop.usr.root"), (String)var2.get("prop.usr.settings"))).getAbsolutePath(), var1 + ".info");
+      File var3 = new NecroFile((new NecroFile((String)var2.get("prop.usr.root"), (String)var2.get("prop.usr.settings"))).getAbsolutePath(), var1 + ".info");
       return var3.exists();
    }
 
    private void doSelection(String var1) throws IOException {
       IPropertyList var2 = PropertyList.getInstance();
-      File var3 = new File((new File((String)var2.get("prop.usr.root"), (String)var2.get("prop.usr.settings"))).getAbsolutePath(), var1 + ".info");
+      File var3 = new NecroFile((new NecroFile((String)var2.get("prop.usr.root"), (String)var2.get("prop.usr.settings"))).getAbsolutePath(), var1 + ".info");
       FileOutputStream var4 = new FileOutputStream(var3);
       var4.close();
    }

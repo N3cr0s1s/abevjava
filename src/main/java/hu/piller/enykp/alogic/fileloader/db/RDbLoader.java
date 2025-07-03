@@ -38,6 +38,8 @@ import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.ErrorDialog;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Component;
 import java.awt.Frame;
 import java.awt.HeadlessException;
@@ -1256,7 +1258,7 @@ public class RDbLoader implements IDbConnectQf {
          File var8 = null;
 
          try {
-            var8 = new File(TemplateChecker.getInstance().getTemplateFileNames(var5, var6, (String)var7).getTemplateFileNames()[0]);
+            var8 = new NecroFile(TemplateChecker.getInstance().getTemplateFileNames(var5, var6, (String)var7).getTemplateFileNames()[0]);
          } catch (Exception var11) {
             var11.printStackTrace();
          }
@@ -1507,7 +1509,7 @@ public class RDbLoader implements IDbConnectQf {
                return new int[]{2, 0};
             }
 
-            var8 = new File(var11);
+            var8 = new NecroFile(var11);
          } catch (Exception var17) {
             var17.printStackTrace();
          }

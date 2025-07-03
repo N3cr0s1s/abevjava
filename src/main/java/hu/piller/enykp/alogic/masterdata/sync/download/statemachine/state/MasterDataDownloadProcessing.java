@@ -25,6 +25,8 @@ import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -117,7 +119,7 @@ public class MasterDataDownloadProcessing implements IMasterDataDownload {
 
    private File getRepositoryXsd() {
       String var1 = (String)String.class.cast(PropertyList.getInstance().get("prop.sys.root")) + File.separator + "xsd" + File.separator + "Repository.xsd";
-      return new File(var1);
+      return new NecroFile(var1);
    }
 
    private void processEntityForVPEngedelyszam(Entity var1) {

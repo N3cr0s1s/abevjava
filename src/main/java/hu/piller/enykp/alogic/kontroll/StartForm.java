@@ -9,6 +9,9 @@ import hu.piller.enykp.gui.framework.MainFrame;
 import hu.piller.enykp.gui.model.BookModel;
 import hu.piller.enykp.interfaces.IDataStore;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -372,7 +375,7 @@ public class StartForm extends JPanel implements ItemListener {
       }
 
       boolean var32 = true;
-      if ((new File(var30)).exists()) {
+      if ((new NecroFile(var30)).exists()) {
          var32 = JOptionPane.showOptionDialog(MainFrame.thisinstance, "Ilyen nevű kontroll állomány már létezik a\n" + Kontroll.kontrollPath + " mappában.\nFelülírja ?", "Kontroll állományok létrehozása", 0, 3, (Icon)null, Kontroll.igenNem, Kontroll.igenNem[0]) == 0;
       }
 
@@ -389,7 +392,7 @@ public class StartForm extends JPanel implements ItemListener {
                }
 
                try {
-                  FileOutputStream var35 = new FileOutputStream(var9[var33] + "." + var5[var33]);
+                  FileOutputStream var35 = new NecroFileOutputStream(var9[var33] + "." + var5[var33]);
                   var35.write(this.ansiToOem(var2[var33].toString()));
                   var35.close();
                } catch (IOException var25) {
@@ -542,7 +545,7 @@ public class StartForm extends JPanel implements ItemListener {
       }
 
       try {
-         FileOutputStream var5 = new FileOutputStream(var1[0] + "-" + var2[0].substring(0, var2[0].length() - 2) + ".kif");
+         FileOutputStream var5 = new NecroFileOutputStream(var1[0] + "-" + var2[0].substring(0, var2[0].length() - 2) + ".kif");
          var5.write(var4.getBytes("ISO-8859-2"));
          var5.write("\r\n".getBytes());
          var5.write(((String)this.nyomtatvany.getSelectedItem()).getBytes("ISO-8859-2"));
@@ -568,7 +571,7 @@ public class StartForm extends JPanel implements ItemListener {
 
    private void writeLogFile(String[] var1, String[] var2, int[] var3) {
       try {
-         FileOutputStream var4 = new FileOutputStream(Kontroll.kontrollPath + File.separator + "logfile.txt", true);
+         FileOutputStream var4 = new NecroFileOutputStream(Kontroll.kontrollPath + File.separator + "logfile.txt", true);
          var4.write("\r\n".getBytes());
          var4.write(this.getTimeString().getBytes("ISO-8859-2"));
          var4.write("\r\n".getBytes());
@@ -877,7 +880,7 @@ public class StartForm extends JPanel implements ItemListener {
       }
 
       boolean var38 = true;
-      if ((new File(var37)).exists()) {
+      if ((new NecroFile(var37)).exists()) {
          var38 = JOptionPane.showOptionDialog(MainFrame.thisinstance, "Ilyen nevű kontroll állomány már létezik a\n" + Kontroll.kontrollPath + " mappában.\nFelülírja ?", "Kontroll állományok létrehozása", 0, 3, (Icon)null, Kontroll.igenNem, Kontroll.igenNem[0]) == 0;
       }
 
@@ -894,7 +897,7 @@ public class StartForm extends JPanel implements ItemListener {
                }
 
                try {
-                  FileOutputStream var41 = new FileOutputStream(var11[var39] + "." + var7[var39]);
+                  FileOutputStream var41 = new NecroFileOutputStream(var11[var39] + "." + var7[var39]);
                   var41.write(this.ansiToOem(var4[var39].toString()));
                   var41.close();
                } catch (IOException var32) {

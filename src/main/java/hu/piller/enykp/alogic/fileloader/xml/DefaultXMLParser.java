@@ -11,6 +11,8 @@ import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.ErrorHandler;
@@ -52,7 +54,7 @@ public class DefaultXMLParser implements ContentHandler, ErrorHandler {
    }
 
    private Source[] getSources() {
-      File var1 = new File(PropertyList.getInstance().get("prop.sys.root") + "/xsd");
+      File var1 = new NecroFile(PropertyList.getInstance().get("prop.sys.root") + "/xsd");
       File[] var2 = var1.listFiles(new FileFilter() {
          public boolean accept(File var1) {
             String var2 = var1.getAbsolutePath().toLowerCase();

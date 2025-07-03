@@ -2,6 +2,8 @@ package hu.piller.enykp.datastore;
 
 import hu.piller.enykp.interfaces.IFileMappedListElement;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -39,7 +41,7 @@ public class FileMappedList extends Vector {
       try {
          this.destroy(true);
          this.inmemory = 0;
-         this.file = new File(var1);
+         this.file = new NecroFile(var1);
          this.file.delete();
          this.raf = new RandomAccessFile(this.file, this.mode);
       } catch (FileNotFoundException var3) {

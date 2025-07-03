@@ -5,6 +5,8 @@ import hu.piller.enykp.print.Lap;
 import hu.piller.enykp.print.LapMetaAdat;
 import hu.piller.enykp.print.MainPrinter;
 import hu.piller.enykp.util.base.Sha1Hash;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -476,10 +478,10 @@ public class JEPPrinter implements Printable {
    }
 
    private void writeData2File(byte[] var1, String var2) throws IOException {
-      FileOutputStream var3 = new FileOutputStream("D:\\temp\\zb2d.zip");
+      FileOutputStream var3 = new NecroFileOutputStream("D:\\temp\\zb2d.zip");
       var3.write(var1);
       var3.close();
-      var3 = new FileOutputStream("D:\\temp\\p2d.txt");
+      var3 = new NecroFileOutputStream("D:\\temp\\p2d.txt");
       var3.write(var2.getBytes());
       var3.close();
    }

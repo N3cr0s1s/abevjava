@@ -8,6 +8,8 @@ import hu.piller.enykp.alogic.upgrademanager_v2_0.UpgradeTechnicalException;
 import hu.piller.enykp.alogic.upgrademanager_v2_0.versiondataconverters.VersionData;
 import hu.piller.enykp.alogic.upgrademanager_v2_0.versiondataproviders.downloadablecomponents.DownloadableVersionDataProvider;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -66,7 +68,7 @@ public class OfflineDownloadableComponentsReader implements ComponentsReader {
       URL var1 = null;
 
       try {
-         var1 = (new File(Directories.getDownloadPath() + File.separator + "enyk_gen.xml")).toURL();
+         var1 = (new NecroFile(Directories.getDownloadPath() + File.separator + "enyk_gen.xml")).toURL();
       } catch (MalformedURLException var3) {
          Tools.eLog(var3, 1);
       }

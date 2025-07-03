@@ -1,5 +1,7 @@
 package hu.piller.enykp.util.oshandler;
 
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -7,7 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Vector;
 
-public class defaultWindowsOsHandler extends defaultOsHandler {
+public class DefaultWindowsOsHandler extends DefaultOsHandler {
    public static final String os_shell_env_prefix = "%";
    public static final String os_shell_env_postfix = "%";
    public static final String WIN_VBS = "vbs";
@@ -20,7 +22,7 @@ public class defaultWindowsOsHandler extends defaultOsHandler {
    private String os_programfiles_x86_dir = null;
    private String user_home_dir = null;
    public static final String CHARACTER_ENCODING = "ISO-8859-2";
-   java.util.logging.Logger log = java.util.logging.Logger.getLogger(defaultWindowsOsHandler.class.getName());
+   java.util.logging.Logger log = java.util.logging.Logger.getLogger(DefaultWindowsOsHandler.class.getName());
    private static char[] cv = new char[]{'á', 'Á', 'é', 'É', 'í', 'Í', 'ó', 'Ó', 'ö', 'Ö', 'ő', 'Ő', 'ú', 'Ú', 'ü', 'Ü', 'ű', 'Ű'};
    private static char[] cp852 = new char[]{' ', 'ľ', '\u0082', '\u0090', 'Ą', 'Ö', '˘', 'ŕ', '\u0094', '\u0099', '\u008b', '\u008a', 'Ł', 'é', '\u0081', '\u009a', 'ű', 'ë'};
 
@@ -109,20 +111,20 @@ public class defaultWindowsOsHandler extends defaultOsHandler {
       return var1;
    }
 
-   public String getEnvironmentVariable(String var1) {
+   public String getEnvironmentVariable(String envKey) {
       Process var2 = null;
 
       try {
-         String var3 = "%" + var1 + "%";
-         this.log.info("getEnvironmentVariable " + var1 + " - start");
+         String var3 = "%" + envKey + "%";
+         this.log.info("getEnvironmentVariable " + envKey + " - start");
          var2 = Runtime.getRuntime().exec(new String[]{this.getOsShell(), this.getOsShellParam(), "echo", var3});
          String var4 = this.getStdInput(var2);
-         this.log.info("getEnvironmentVariable " + var1 + " - ok " + var4);
+         this.log.info("getEnvironmentVariable " + envKey + " - ok " + var4);
          this.closeProcess(var2);
          var2 = null;
          return var4.indexOf(var3) == 0 ? "" : this.convCP852(var4);
       } catch (IOException var6) {
-         this.log.info("getEnvironmentVariable " + var1 + " - error");
+         this.log.info("getEnvironmentVariable " + envKey + " - error");
          var6.printStackTrace();
 
          try {
@@ -139,7 +141,7 @@ public class defaultWindowsOsHandler extends defaultOsHandler {
    }
 
    public boolean createEnvironmentVariable(String var1, String var2, String var3, String var4) {
-      File var5 = new File(var1 + File.separator + "createuserenv.vbs");
+      File var5 = new NecroFile(var1 + File.separator + "createuserenv.vbs");
       Vector var6 = new Vector(15);
       var6.add("set WshShell = WScript.CreateObject(\"WScript.Shell\")");
       var6.add("Set colUsrEnvVars = WshShell.Environment(\"USER\")");
@@ -223,7 +225,7 @@ public class defaultWindowsOsHandler extends defaultOsHandler {
    }
 
    public void createDesktopIcon(String var1, String var2, String var3, String var4, String var5, String var6, String var7) {
-      File var8 = new File(var1 + File.separator + "createdesktopshortcut.vbs");
+      File var8 = new NecroFile(var1 + File.separator + "createdesktopshortcut.vbs");
       Vector var9 = new Vector(15);
       var9.add("set WshShell = WScript.CreateObject(\"WScript.Shell\")");
       var9.add("strDest = WshShell.SpecialFolders(\"Desktop\")");
@@ -249,7 +251,7 @@ public class defaultWindowsOsHandler extends defaultOsHandler {
    }
 
    public void createMenuItem(String var1, String var2, String var3, String var4, String var5, String var6, String var7) {
-      File var8 = new File(var1 + File.separator + "createmenushortcut.vbs");
+      File var8 = new NecroFile(var1 + File.separator + "createmenushortcut.vbs");
       Vector var9 = new Vector(15);
       var9.add("set WshShell = WScript.CreateObject(\"WScript.Shell\")");
       var9.add("strDest = WshShell.SpecialFolders(\"StartMenu\")");
@@ -276,22 +278,22 @@ public class defaultWindowsOsHandler extends defaultOsHandler {
 
    public String getSystemBrowserPath() {
       String var1 = this.getProgramFilesDir();
-      File var2 = new File(var1 + "\\Microsoft\\Edge\\Application\\msedge.exe");
+      File var2 = new NecroFile(var1 + "\\Microsoft\\Edge\\Application\\msedge.exe");
       if (var2.exists()) {
          return var2.getAbsolutePath();
       } else {
          var1 = this.getProgramFilesx86Dir();
-         var2 = new File(var1 + "\\Microsoft\\Edge\\Application\\msedge.exe");
+         var2 = new NecroFile(var1 + "\\Microsoft\\Edge\\Application\\msedge.exe");
          if (var2.exists()) {
             return var2.getAbsolutePath();
          } else {
             var1 = this.getProgramFilesDir();
-            var2 = new File(var1 + "\\Internet Explorer\\iexplore.exe");
+            var2 = new NecroFile(var1 + "\\Internet Explorer\\iexplore.exe");
             if (var2.exists()) {
                return var2.getAbsolutePath();
             } else {
                var1 = this.getProgramFilesx86Dir();
-               var2 = new File(var1 + "\\Internet Explorer\\iexplore.exe");
+               var2 = new NecroFile(var1 + "\\Internet Explorer\\iexplore.exe");
                return var2.getAbsolutePath();
             }
          }

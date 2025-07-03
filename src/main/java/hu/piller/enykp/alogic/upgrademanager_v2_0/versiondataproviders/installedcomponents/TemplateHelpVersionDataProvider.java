@@ -2,6 +2,8 @@ package hu.piller.enykp.alogic.upgrademanager_v2_0.versiondataproviders.installe
 
 import hu.piller.enykp.alogic.fileloader.docinfo.DocInfoLoader;
 import hu.piller.enykp.alogic.upgrademanager_v2_0.Directories;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 
 public class TemplateHelpVersionDataProvider extends InstalledVersionDataProvider {
@@ -9,7 +11,7 @@ public class TemplateHelpVersionDataProvider extends InstalledVersionDataProvide
 
    public TemplateHelpVersionDataProvider() {
       super("Help");
-      this.path = new File(Directories.getHelpsPath());
+      this.path = new NecroFile(Directories.getHelpsPath());
       this.filters = new Object[]{new DocInfoLoader()};
    }
 }

@@ -33,6 +33,8 @@ import java.util.Vector;
 import java.util.Map.Entry;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.InputSource;
 
 public class OnyaDbLoader {
@@ -261,7 +263,7 @@ public class OnyaDbLoader {
                return "Nem talĂˇlhatĂł megfelelĹ‘ nyomtatvĂˇnysablon (1): " + var2;
             }
 
-            var5 = new File(var7);
+            var5 = new NecroFile(var7);
          } catch (Exception var9) {
             Tools.exception2SOut(var9);
             return "Nem talĂˇlhatĂł megfelelĹ‘ nyomtatvĂˇnysablon (2): " + var1;

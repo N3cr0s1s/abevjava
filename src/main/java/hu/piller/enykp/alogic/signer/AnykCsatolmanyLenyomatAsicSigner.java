@@ -7,6 +7,9 @@ import hu.piller.enykp.niszws.obhservice.ObhServiceResponseType;
 import hu.piller.enykp.niszws.obhservice.ObjectFactory;
 import hu.piller.enykp.niszws.obhservice.SignedDocument;
 import hu.piller.enykp.niszws.obhservice.SignerTypeEnum;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -155,7 +158,7 @@ public class AnykCsatolmanyLenyomatAsicSigner implements ISigner {
             File var4 = (File)var3.next();
             AnykCsatolmanyLenyomat var5 = AnykCsatolmanyLenyomat.create(var4);
             File var6 = var4.getParentFile();
-            File var7 = new File(var6, var5.getFileName() + ".anyk");
+            File var7 = new NecroFile(var6, var5.getFileName() + ".anyk");
             this.writeFile(var7, var5.toXml().getBytes(Charset.forName("UTF-8")));
             var2.add(var7);
          }
@@ -210,7 +213,7 @@ public class AnykCsatolmanyLenyomatAsicSigner implements ISigner {
             if (var8.equals(var9)) {
                var5 = true;
                File var10 = var7.getParentFile();
-               File var11 = new File(var10, var4.getFileName());
+               File var11 = new NecroFile(var10, var4.getFileName());
 
                try {
                   this.writeFile(var11, var4.getDocBytes());
@@ -246,7 +249,7 @@ public class AnykCsatolmanyLenyomatAsicSigner implements ISigner {
             if (var8.equals(var4.getOriginalFileName())) {
                var5 = true;
                File var9 = var7.getParentFile();
-               File var10 = new File(var9, var4.getOriginalFileName());
+               File var10 = new NecroFile(var9, var4.getOriginalFileName());
 
                try {
                   if (var7.exists()) {
@@ -287,7 +290,7 @@ public class AnykCsatolmanyLenyomatAsicSigner implements ISigner {
       FileOutputStream var3 = null;
 
       try {
-         var3 = new FileOutputStream(var1);
+         var3 = new NecroFileOutputStream(var1);
          var3.write(var2);
          var3.flush();
       } finally {
