@@ -4,6 +4,8 @@ import hu.piller.kripto.keys.StoreFilter;
 import hu.piller.kripto.keys.StoreManager;
 import hu.piller.kripto.keys.StoreWrapper;
 import hu.piller.tools.TableSorter;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -124,7 +126,7 @@ public class FKulcsTarak extends JDialog {
 
    private void listStores() {
       try {
-         File[] stores = (new File(this.helyTextField.getText())).listFiles(this.sf);
+         File[] stores = (new NecroFile(this.helyTextField.getText())).listFiles(this.sf);
          Vector dataVector = new Vector();
 
          for(int i = 0; i < stores.length; ++i) {

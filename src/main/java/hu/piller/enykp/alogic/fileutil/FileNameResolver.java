@@ -6,6 +6,8 @@ import hu.piller.enykp.gui.model.BookModel;
 import hu.piller.enykp.interfaces.IDataStore;
 import hu.piller.enykp.interfaces.IPropertyList;
 import hu.piller.enykp.util.base.PropertyList;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 
 public class FileNameResolver {
@@ -33,7 +35,7 @@ public class FileNameResolver {
 
       try {
          if (this.checkOriginalFilenameBySettings()) {
-            File var3 = new File(var2);
+            File var3 = new NecroFile(var2);
             if (!var3.exists()) {
                this.sourceFilename = null;
             } else {

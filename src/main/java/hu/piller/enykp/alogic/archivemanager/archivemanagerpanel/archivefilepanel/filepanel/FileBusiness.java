@@ -15,6 +15,8 @@ import hu.piller.enykp.util.base.eventsupport.Event;
 import hu.piller.enykp.util.base.eventsupport.IEventListener;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
 import hu.piller.enykp.util.filelist.EnykFileList;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -299,7 +301,7 @@ public class FileBusiness extends DefaultFileBusiness implements IFileChooser, I
       if (var5 != null) {
          for(int var6 = 0; var6 < var5.length; ++var6) {
             Object[] var7 = (Object[])((Object[])var5[var6]);
-            this.vct_files.add(new ListItem(new File((String)var7[0]), (Icon)null, var7[1], var7[2]));
+            this.vct_files.add(new ListItem(new NecroFile((String)var7[0]), (Icon)null, var7[1], var7[2]));
          }
       }
 
@@ -431,7 +433,7 @@ public class FileBusiness extends DefaultFileBusiness implements IFileChooser, I
       if (this.isArchivPanel()) {
          File var3 = var1.getParentFile();
          String var4 = Archiver.getOriginalFileName(var1);
-         File var5 = new File(var3, var4);
+         File var5 = new NecroFile(var3, var4);
          return this.filter_business.getFileState(var5, var2);
       } else {
          return this.filter_business.getFileState(var1, var2);

@@ -7,6 +7,9 @@ import hu.piller.enykp.alogic.settingspanel.SettingsStore;
 import hu.piller.enykp.gui.GuiUtil;
 import hu.piller.enykp.gui.framework.MainFrame;
 import hu.piller.enykp.util.base.PropertyList;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -219,9 +222,9 @@ public class XMLMergePanel extends JPanel {
             var3 = SettingsStore.getInstance().get("userpaths", "prop.dynamic.userlastpath.1");
          }
 
-         File var4 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+         File var4 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
          if (var3 != null) {
-            var4 = new File(var3.toString());
+            var4 = new NecroFile(var3.toString());
          }
 
          var2.setCurrentDirectory(var4);
@@ -306,7 +309,7 @@ public class XMLMergePanel extends JPanel {
    private void done_ok() {
       String var1 = this.source.getText();
       if (var1 != null && var1.trim().length() != 0) {
-         final File var2 = new File(var1);
+         final File var2 = new NecroFile(var1);
          if (!var2.exists()) {
             GuiUtil.showMessageDialog(MainFrame.thisinstance, "A forrás file nem található! ( " + var2 + " )", "Hiba", 0);
          } else {
@@ -319,9 +322,9 @@ public class XMLMergePanel extends JPanel {
 
                File var3 = null;
                if (var3.getParentFile() == null) {
-                  var3 = new File(var2.getParent(), var1);
+                  var3 = new NecroFile(var2.getParent(), var1);
                } else {
-                   var3 = new File(var1);
+                   var3 = new NecroFile(var1);
                }
 
                 if (var2.equals(var3)) {
@@ -393,7 +396,7 @@ public class XMLMergePanel extends JPanel {
             this.idstart = var7.substring(0, var7.length() - 1);
             String var17 = XMLPost.getEncoding(var1);
             BufferedReader var9 = new BufferedReader(new InputStreamReader(new FileInputStream(var1), var17));
-            FileOutputStream var10 = new FileOutputStream(var2);
+            FileOutputStream var10 = new NecroFileOutputStream(var2);
             OutputStreamWriter var11 = new OutputStreamWriter(var10, var17);
 
             while(true) {

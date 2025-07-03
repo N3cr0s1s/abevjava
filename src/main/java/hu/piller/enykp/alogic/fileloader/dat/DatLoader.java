@@ -8,6 +8,8 @@ import hu.piller.enykp.gui.model.FormModel;
 import hu.piller.enykp.interfaces.IDataStore;
 import hu.piller.enykp.interfaces.ILoadManager;
 import hu.piller.enykp.util.base.Result;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FilenameFilter;
@@ -56,10 +58,10 @@ public class DatLoader implements ILoadManager {
    public String[] getFileList(String var1) {
       File var2;
       try {
-         var2 = new File(var1);
+         var2 = new NecroFile(var1);
       } catch (Exception var8) {
          try {
-            var2 = new File(new URI(var1));
+            var2 = new NecroFile(new URI(var1));
          } catch (Exception var7) {
             var2 = null;
          }
@@ -77,7 +79,7 @@ public class DatLoader implements ILoadManager {
 
    public synchronized boolean isLoadableFile(String var1, String var2) {
       try {
-         return var1.toLowerCase().startsWith("file") ? this.isLoadableFile(new File(new URI(var1)), var2) : this.isLoadableFile(new File(var1), var2);
+         return var1.toLowerCase().startsWith("file") ? this.isLoadableFile(new NecroFile(new URI(var1)), var2) : this.isLoadableFile(new NecroFile(var1), var2);
       } catch (Exception var4) {
          return false;
       }
@@ -137,9 +139,9 @@ public class DatLoader implements ILoadManager {
          return false;
       } else {
          try {
-            File var3 = new File(var2);
+            File var3 = new NecroFile(var2);
             if (!var3.exists()) {
-               var3 = new File(var1.toString() + "\\" + var2);
+               var3 = new NecroFile(var1.toString() + "\\" + var2);
             }
 
             FileInputStream var4 = new FileInputStream(var3);
@@ -156,7 +158,7 @@ public class DatLoader implements ILoadManager {
    private Result loadDat(String var1, String var2, String var3, String var4, boolean var5, boolean var6) throws IOException {
       Result var9 = new Result();
       var9.setOk(true);
-      File var10 = new File(var1);
+      File var10 = new NecroFile(var1);
       FileInputStream var11 = new FileInputStream(var10);
 
       try {
@@ -175,8 +177,8 @@ public class DatLoader implements ILoadManager {
 
          String[] var12 = TemplateChecker.getInstance().getTemplateFileNames(var2, var3, var4).getTemplateFileNames();
          String var13 = var12[0];
-         File var14 = new File(var13);
-         File var15 = new File(var1);
+         File var14 = new NecroFile(var13);
+         File var15 = new NecroFile(var1);
          if (!var14.exists()) {
             var9.setOk(false);
             var9.errorList.add(var12[2] + " : " + var13);

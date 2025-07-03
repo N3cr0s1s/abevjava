@@ -3,6 +3,8 @@ package hu.piller.krtitok.gui;
 import hu.piller.kripto.keys.StoreManager;
 import hu.piller.krtitok.IniReadAndWrite;
 import hu.piller.krtitok.KriptoApp;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -82,10 +84,10 @@ public class FBeallitasok extends JDialog {
       String cur = this.tFMyPublicKey.getText();
       File startDir = null;
       if (cur != null) {
-         File curDir = new File(cur);
+         File curDir = new NecroFile(cur);
          if (curDir.exists()) {
             if (curDir.isFile()) {
-               startDir = new File(curDir.getParent());
+               startDir = new NecroFile(curDir.getParent());
             } else {
                startDir = curDir;
             }
@@ -119,10 +121,10 @@ public class FBeallitasok extends JDialog {
       String cur = this.tFMyPrivateKey.getText();
       File startDir = null;
       if (cur != null) {
-         File curDir = new File(cur);
+         File curDir = new NecroFile(cur);
          if (curDir.exists()) {
             if (curDir.isFile()) {
-               startDir = new File(curDir.getParent());
+               startDir = new NecroFile(curDir.getParent());
             } else {
                startDir = curDir;
             }
@@ -162,7 +164,7 @@ public class FBeallitasok extends JDialog {
    }
 
    private JFileChooser getStoreChooser(boolean priv) {
-      JFileChooser fc = new JFileChooser(new File(""));
+      JFileChooser fc = new JFileChooser(new NecroFile(""));
       fc.setFileSelectionMode(0);
       fc.addChoosableFileFilter(new FileFilter() {
          public boolean accept(File f) {

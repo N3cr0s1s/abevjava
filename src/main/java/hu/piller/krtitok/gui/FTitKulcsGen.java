@@ -1,6 +1,8 @@
 package hu.piller.krtitok.gui;
 
 import hu.piller.krtitok.KriptoApp;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -102,7 +104,7 @@ public class FTitKulcsGen extends JDialog {
    }
 
    public JFileChooser createFileChooser(String currentDir) {
-      JFileChooser fc = new JFileChooser(new File(currentDir));
+      JFileChooser fc = new JFileChooser(new NecroFile(currentDir));
       fc.setFileSelectionMode(1);
       fc.showOpenDialog((Component)null);
       return fc;

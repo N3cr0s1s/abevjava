@@ -3,6 +3,8 @@ package hu.piller.enykp.alogic.fileloader.xml;
 import hu.piller.enykp.gui.model.BookModel;
 import hu.piller.enykp.interfaces.ILoadManager;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -37,13 +39,13 @@ public class PackedDataLoader implements ILoadManager {
             Hashtable var3;
             if (var2.toLowerCase().endsWith(".xkr")) {
                XkrLoader var6 = new XkrLoader();
-               var3 = var6.getHeadData(new File(var2));
-               (new File(var2)).delete();
+               var3 = var6.getHeadData(new NecroFile(var2));
+               (new NecroFile(var2)).delete();
                return var3;
             } else {
                XmlLoader var4 = new XmlLoader();
-               var3 = var4.getHeadData(new File(var2));
-               (new File(var2)).delete();
+               var3 = var4.getHeadData(new NecroFile(var2));
+               (new NecroFile(var2)).delete();
                return var3;
             }
          }

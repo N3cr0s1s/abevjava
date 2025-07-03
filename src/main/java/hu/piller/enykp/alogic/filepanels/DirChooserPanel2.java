@@ -1,5 +1,7 @@
 package hu.piller.enykp.alogic.filepanels;
 
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -55,7 +57,7 @@ public class DirChooserPanel2 extends JPanel {
             if (var2 != null) {
                DefaultMutableTreeNode var3 = (DefaultMutableTreeNode)var2.getLastPathComponent();
                DirChooserPanel2.Entity var4 = (DirChooserPanel2.Entity)var3.getUserObject();
-               File var5 = new File(var4.f, DirChooserPanel2.this.tf.getText());
+               File var5 = new NecroFile(var4.f, DirChooserPanel2.this.tf.getText());
                var5.mkdir();
                DirChooserPanel2.this.setRootdir(DirChooserPanel2.this.rootdir, var5);
             }
@@ -281,7 +283,7 @@ public class DirChooserPanel2 extends JPanel {
       ((DirChooserPanel2.Entity)var2.getUserObject()).db = var3.length;
 
       for(int var7 = 0; var7 < var3.length; ++var7) {
-         File var5 = new File(var1, var3[var7]);
+         File var5 = new NecroFile(var1, var3[var7]);
          if (var5.isDirectory()) {
             DefaultMutableTreeNode var6 = new DefaultMutableTreeNode(new DirChooserPanel2.Entity(var5));
             var2.add(var6);

@@ -1,5 +1,7 @@
 package hu.piller.enykp.util.oshandler;
 
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -9,21 +11,21 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Vector;
 
-public class winMeOsHandler extends win9xOsHandler {
+public class WinMeOsHandler extends Win9xOsHandler {
    public static final char FILE_EXT_CHAR = '.';
 
    public boolean createEnvironmentVariable(String var1, String var2, String var3, String var4) {
       try {
          String var5 = var4.replace('/', '\\');
          String var6 = this.getRootDrive() + this.os_user_profile_name;
-         File var7 = new File(var6);
+         File var7 = new NecroFile(var6);
          String var8 = "SET " + var3 + "=" + var5;
          if (!this.searchStrInFile(var7, var3)) {
             Vector var9 = new Vector(1);
             var9.add(var8);
             this.addToFile(var7, var9);
          } else if (!this.searchStrInFile(var7, var8)) {
-            File var11 = new File(this.replaceFileExtension(var6, "BAK"));
+            File var11 = new NecroFile(this.replaceFileExtension(var6, "BAK"));
             this.replaceInFile(var7, var11, (String)null, (String)null);
             this.replaceInFile(var11, var7, var3, var8);
          }

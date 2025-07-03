@@ -21,6 +21,8 @@ import hu.piller.enykp.print.simpleprint.PageTitle;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.print.Book;
 import java.awt.print.PageFormat;
 import java.awt.print.Paper;
@@ -476,7 +478,7 @@ public class ExtendedPdfCreator extends APdfCreator {
          this.backgroundImage = (String)PropertyList.getInstance().get("prop.const.db.pdf_gen.bgImage");
       } else {
          URI var11 = new URI(this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
-         this.backgroundImage = (new File(var11.getPath())).getParent() + "/abevjava.jar!/resources/print/bg.gif";
+         this.backgroundImage = (new NecroFile(var11.getPath())).getParent() + "/abevjava.jar!/resources/print/bg.gif";
          this.backgroundImage = this.backgroundImage.startsWith("/") ? "file:" + this.backgroundImage : "file:/" + this.backgroundImage;
          this.backgroundImage = "jar:" + this.backgroundImage;
       }

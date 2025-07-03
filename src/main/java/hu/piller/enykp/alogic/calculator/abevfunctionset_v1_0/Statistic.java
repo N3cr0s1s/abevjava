@@ -1,6 +1,8 @@
 package hu.piller.enykp.alogic.calculator.abevfunctionset_v1_0;
 
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -53,7 +55,7 @@ public class Statistic {
       BufferedWriter var2 = null;
 
       try {
-         FileOutputStream var3 = new FileOutputStream(var1);
+         FileOutputStream var3 = new NecroFileOutputStream(var1);
          var2 = new BufferedWriter(new OutputStreamWriter(var3));
          Enumeration var4 = this.datas.keys();
          var2.write("name;count;min;max;sum;avrg");

@@ -49,6 +49,8 @@ import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.messageinfo.MessageInfo;
 import hu.piller.enykp.util.icon.ENYKIconSet;
 import hu.piller.krtitok.KriptoApp;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
@@ -497,7 +499,7 @@ public class ServiceMenuItem {
             if (var1 != null) {
                ABEVSavePanel var2 = new ABEVSavePanel(var1.bm);
                var2.setMode("export");
-               var2.setPath(new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import")));
+               var2.setPath(new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import")));
                var2.setFilters(new String[]{"imp_data_saver_v1"});
                Hashtable var3 = var2.showDialog();
                if (var3 != null && var3.size() != 0) {
@@ -970,10 +972,10 @@ public class ServiceMenuItem {
       this.cmdNyomtatvanyokVisszaAzArchivbol = new ICommandObject() {
          public void execute() {
             EJFileChooser var1 = new EJFileChooser();
-            File var2 = new File((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
+            File var2 = new NecroFile((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
             String var3 = SettingsStore.getInstance().get("userpaths", "prop.dynamic.userlastpath.fa");
             if (var3 != null) {
-               var2 = new File(var3.toString());
+               var2 = new NecroFile(var3.toString());
             }
 
             var1.setCurrentDirectory(var2);
@@ -1024,7 +1026,7 @@ public class ServiceMenuItem {
                      SettingsStore.getInstance().set("userpaths", "prop.dynamic.userlastpath.fa", var11);
                      FileFilter var12 = var1.getFileFilter();
                      SettingsStore.getInstance().set("userpaths", "prop.dynamic.userlastfilter.fa", var12.getDescription());
-                     File var13 = new File(ServiceMenuItem.this.getProperty("prop.dynamic.templates.absolutepath"));
+                     File var13 = new NecroFile(ServiceMenuItem.this.getProperty("prop.dynamic.templates.absolutepath"));
 
                      try {
                         String var14 = Tools.unzipFile(var10.getAbsolutePath(), var13.getAbsolutePath(), (Set)null, true, false);
@@ -1186,10 +1188,10 @@ public class ServiceMenuItem {
       this.cmdEgyediImport = new ICommandObject() {
          public void execute() {
             EJFileChooser var1 = new EJFileChooser();
-            File var2 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+            File var2 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
             String var3 = SettingsStore.getInstance().get("userpaths", "prop.dynamic.userlastpath.0");
             if (var3 != null) {
-               var2 = new File(var3.toString());
+               var2 = new NecroFile(var3.toString());
             }
 
             var1.setCurrentDirectory(var2);

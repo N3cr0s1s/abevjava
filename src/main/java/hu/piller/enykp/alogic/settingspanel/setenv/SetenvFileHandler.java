@@ -1,6 +1,8 @@
 package hu.piller.enykp.alogic.settingspanel.setenv;
 
 import hu.piller.enykp.util.base.PropertyList;
+import me.necrocore.abevjava.NecroFileWriter;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -56,7 +58,7 @@ public class SetenvFileHandler {
       BufferedWriter var2 = null;
 
       try {
-         var2 = new BufferedWriter(new FileWriter(this.getAbevrootPath() + File.separator + "setenv" + this.postfix));
+         var2 = new BufferedWriter(new NecroFileWriter(this.getAbevrootPath() + File.separator + "setenv" + this.postfix));
          if (!"".equals(this.HEADER)) {
             var2.write(this.HEADER);
             var2.newLine();

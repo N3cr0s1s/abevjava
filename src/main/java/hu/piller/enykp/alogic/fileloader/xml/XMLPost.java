@@ -26,6 +26,8 @@ import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.ErrorDialog;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -50,9 +52,9 @@ public class XMLPost {
    public static void done() {
       EJFileChooser var0 = new EJFileChooser();
       String var1 = SettingsStore.getInstance().get("userpaths", "prop.dynamic.userlastpath.2");
-      File var2 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+      File var2 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
       if (var1 != null) {
-         var2 = new File(var1.toString());
+         var2 = new NecroFile(var1.toString());
       }
 
       var0.setCurrentDirectory(var2);
@@ -377,12 +379,12 @@ public class XMLPost {
 
          for(int var1 = 0; var1 < var0.size(); ++var1) {
             String var2 = (String)var0.get(var1);
-            File var3 = new File(var2);
+            File var3 = new NecroFile(var2);
             var3.delete();
          }
 
          String var6 = (String)PropertyList.getInstance().get("prop.usr.xcz.dir");
-         File var7 = new File(var6);
+         File var7 = new NecroFile(var6);
          Tools.deleteDir(var7);
       } catch (Exception var5) {
       }
@@ -398,9 +400,9 @@ public class XMLPost {
    public static void display() {
       EJFileChooser var0 = new EJFileChooser();
       String var1 = SettingsStore.getInstance().get("userpaths", "prop.dynamic.userlastpath.3");
-      File var2 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+      File var2 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
       if (var1 != null) {
-         var2 = new File(var1.toString());
+         var2 = new NecroFile(var1.toString());
       }
 
       var0.setCurrentDirectory(var2);
@@ -701,9 +703,9 @@ public class XMLPost {
    public static void edit() {
       EJFileChooser var0 = new EJFileChooser();
       String var1 = SettingsStore.getInstance().get("userpaths", "prop.dynamic.userlastpath.4");
-      File var2 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+      File var2 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
       if (var1 != null) {
-         var2 = new File(var1.toString());
+         var2 = new NecroFile(var1.toString());
       }
 
       var0.setCurrentDirectory(var2);
@@ -750,9 +752,9 @@ public class XMLPost {
    public static void edit_nem_jo() {
       EJFileChooser var0 = new EJFileChooser();
       String var1 = SettingsStore.getInstance().get("userpaths", "prop.dynamic.userlastpath.5");
-      File var2 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+      File var2 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
       if (var1 != null) {
-         var2 = new File(var1.toString());
+         var2 = new NecroFile(var1.toString());
       }
 
       var0.setCurrentDirectory(var2);
@@ -780,7 +782,7 @@ public class XMLPost {
             String var6;
             if (!var5.exists()) {
                var6 = var5.getAbsolutePath() + ".xml";
-               var5 = new File(var6);
+               var5 = new NecroFile(var6);
             }
 
             if (var5.exists()) {
@@ -812,9 +814,9 @@ public class XMLPost {
    public static void save() {
       EJFileChooser var0 = new EJFileChooser();
       String var1 = SettingsStore.getInstance().get("userpaths", "prop.dynamic.userlastpath.6");
-      File var2 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+      File var2 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
       if (var1 != null) {
-         var2 = new File(var1.toString());
+         var2 = new NecroFile(var1.toString());
       }
 
       var0.setCurrentDirectory(var2);
@@ -946,9 +948,9 @@ public class XMLPost {
    public static void save2() {
       EJFileChooser var0 = new EJFileChooser();
       String var1 = SettingsStore.getInstance().get("userpaths", "prop.dynamic.userlastpath.6");
-      File var2 = new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
+      File var2 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.import"));
       if (var1 != null) {
-         var2 = new File(var1.toString());
+         var2 = new NecroFile(var1.toString());
       }
 
       var0.setCurrentDirectory(var2);
@@ -1010,7 +1012,7 @@ public class XMLPost {
       } else {
          Result var1 = Tools.parseXCZFile2(var0.getAbsolutePath(), "" + System.currentTimeMillis());
          if (var1.isOk()) {
-            return new File(var1.errorList.elementAt(0).toString());
+            return new NecroFile(var1.errorList.elementAt(0).toString());
          } else {
             throw new Exception(var1.errorList.elementAt(0).toString());
          }
@@ -1023,13 +1025,13 @@ public class XMLPost {
       } else if (var0.indexOf(">") > -1) {
          return false;
       } else {
-         File var1 = new File(var0);
+         File var1 = new NecroFile(var0);
          return var1.getParentFile().exists();
       }
    }
 
    public void doneCMD(String var1, FileWriter var2, String var3) throws IOException {
-      File var4 = new File(var1);
+      File var4 = new NecroFile(var1);
       if (!var4.exists()) {
          this.wl(var2, "RESULT:ERROR:A " + var1 + " fájl nem létezik!");
       } else if (!var1.toLowerCase().endsWith(".xcz")) {
@@ -1050,8 +1052,8 @@ public class XMLPost {
             }
 
             this.wl(var2, var4.getAbsolutePath());
-            String var19 = Tools.clearFileName((new File(var1)).getName());
-            if (!(new File(var1)).getName().equals(var19)) {
+            String var19 = Tools.clearFileName((new NecroFile(var1)).getName());
+            if (!(new NecroFile(var1)).getName().equals(var19)) {
                deltmpfiles();
                this.wl(var2, "RESULT:ERROR:A " + var1 + " fájlnév problémát okozhat az Ügyfélkapus feladásnál.");
                return;

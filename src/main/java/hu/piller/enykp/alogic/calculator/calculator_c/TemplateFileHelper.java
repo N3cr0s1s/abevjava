@@ -1,6 +1,9 @@
 package hu.piller.enykp.alogic.calculator.calculator_c;
 
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -39,7 +42,7 @@ public class TemplateFileHelper {
          var10 = var10 + File.separator + var8 + var9;
       }
 
-      return new File(var10);
+      return new NecroFile(var10);
    }
 
    static boolean isPreparedTemplateExist(File var0) {
@@ -53,7 +56,7 @@ public class TemplateFileHelper {
    static void saveToFile(File var0, Object var1) throws IOException {
       var0.getParentFile().mkdirs();
       var0.createNewFile();
-      FileOutputStream var2 = new FileOutputStream(var0);
+      FileOutputStream var2 = new NecroFileOutputStream(var0);
       ObjectOutputStream var3 = new ObjectOutputStream(var2);
 
       try {

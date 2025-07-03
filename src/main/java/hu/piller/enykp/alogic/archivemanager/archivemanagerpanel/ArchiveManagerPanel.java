@@ -9,6 +9,8 @@ import hu.piller.enykp.alogic.masterdata.sync.ui.entityfilter.SizeableCBRenderer
 import hu.piller.enykp.gui.GuiUtil;
 import hu.piller.enykp.interfaces.IPropertyList;
 import hu.piller.enykp.util.base.PropertyList;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Dimension;
 import java.io.File;
 import javax.swing.Box;
@@ -85,7 +87,7 @@ public class ArchiveManagerPanel extends JPanel {
          BrowserPanel var6 = var1.getFileChooser();
          BrowserPanel var7 = (BrowserPanel)var6;
          var7.setFileSystemBrowserVisible(false);
-         var7.getFolderPanel().getBusiness().setSelectedPath(new File(var2));
+         var7.getFolderPanel().getBusiness().setSelectedPath(new NecroFile(var2));
          ((JLabel)((JLabel)var1.getFileChooser().getFilePanel().getFPComponent("filter_title_lbl"))).setText(var3);
          ((JLabel)((JLabel)var1.getFileChooser().getFilePanel().getFPComponent("lbl_file_list"))).setText(var4);
          var1.getFileChooser().getFilePanel().getBusiness().setTask(2);

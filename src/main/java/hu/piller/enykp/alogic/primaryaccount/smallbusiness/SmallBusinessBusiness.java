@@ -34,6 +34,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.SAXException;
 
 public class SmallBusinessBusiness implements IBusiness {
@@ -404,8 +406,8 @@ public class SmallBusinessBusiness implements IBusiness {
       Object var0 = getProperty("prop.usr.primaryaccounts");
       if (var0 instanceof String) {
          try {
-            File var1 = new File((String)var0);
-            return new File(var1, "pa_smallbusinesses.xml");
+            File var1 = new NecroFile((String)var0);
+            return new NecroFile(var1, "pa_smallbusinesses.xml");
          } catch (Exception var2) {
             writeLog(var2);
          }

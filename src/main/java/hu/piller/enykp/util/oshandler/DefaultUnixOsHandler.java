@@ -3,13 +3,15 @@ package hu.piller.enykp.util.oshandler;
 import hu.piller.enykp.util.oshandler.linuxdesktop.GnomeDesktop;
 import hu.piller.enykp.util.oshandler.linuxdesktop.ILinuxDesktopHandler;
 import hu.piller.enykp.util.oshandler.linuxdesktop.KdeDesktop;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Vector;
 
-public class defaultUnixOsHandler extends defaultOsHandler {
+public class DefaultUnixOsHandler extends DefaultOsHandler {
    private static final String os_shell = "/bin/bash";
    private static final String os_shell_param = "-c";
    private static final String os_shell_env_prefix = "$";
@@ -47,9 +49,9 @@ public class defaultUnixOsHandler extends defaultOsHandler {
       return "/usr/share";
    }
 
-   public String getEnvironmentVariable(String var1) {
+   public String getEnvironmentVariable(String envKey) {
       Process var2 = null;
-      String var3 = "$" + var1;
+      String var3 = "$" + envKey;
       BufferedReader var4 = null;
 
       try {
@@ -59,7 +61,7 @@ public class defaultUnixOsHandler extends defaultOsHandler {
          var4.close();
          this.closeProcess(var2);
          var2 = null;
-         this.showDebugMessage(var1 + "=" + var10);
+         this.showDebugMessage(envKey + "=" + var10);
          return var10;
       } catch (Exception var9) {
          Exception var5 = var9;
@@ -89,13 +91,13 @@ public class defaultUnixOsHandler extends defaultOsHandler {
    public boolean createEnvironmentVariable(String var1, String var2, String var3, String var4) {
       try {
          this.setUserProfileName();
-         File var5 = new File(this.getUserHomeDir() + File.separator + this.os_user_profile_name);
+         File var5 = new NecroFile(this.getUserHomeDir() + File.separator + this.os_user_profile_name);
          if (!this.createExecFile(var5, false)) {
             return false;
          } else if (!this.includeFile(var5, this.getUserHomeDir() + File.separator + "." + var2)) {
             return false;
          } else {
-            File var6 = new File(this.getUserHomeDir() + File.separator + "." + var2);
+            File var6 = new NecroFile(this.getUserHomeDir() + File.separator + "." + var2);
             if (!this.createExecFile(var6, false)) {
                return false;
             } else {
@@ -121,7 +123,7 @@ public class defaultUnixOsHandler extends defaultOsHandler {
    }
 
    private boolean isFileExists(String var1) {
-      return (new File(var1)).exists();
+      return (new NecroFile(var1)).exists();
    }
 
    private boolean createExecFile(File var1, boolean var2) {
@@ -209,14 +211,14 @@ public class defaultUnixOsHandler extends defaultOsHandler {
    public void createItem(ILinuxDesktopHandler var1, File var2, String var3, String var4, String var5, String var6, String var7, String var8, String var9) {
       if (var2 != null) {
          Vector var10 = var1.buildItem(var4, var5, var6, var7, var8, var9);
-         File var11 = new File(var3 + File.separator + "createdesktopshortcut.lin");
+         File var11 = new NecroFile(var3 + File.separator + "createdesktopshortcut.lin");
          if (!this.writeFile(var11, var10, "UTF-8", false)) {
             this.showMessage("Indító ikon létrehozása sikertelen");
             return;
          }
 
          try {
-            File var12 = new File(var2.getAbsolutePath() + File.separator + var4 + ".desktop");
+            File var12 = new NecroFile(var2.getAbsolutePath() + File.separator + var4 + ".desktop");
             this.execute("cat \"" + var11.getAbsolutePath() + "\"" + " > " + "\"" + var12.getAbsolutePath() + "\"");
             this.setExecuteFlag("\"" + var12.getAbsolutePath() + "\"");
          } catch (Exception var13) {

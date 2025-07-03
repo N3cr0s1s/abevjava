@@ -18,6 +18,8 @@ import hu.piller.enykp.interfaces.ICommandObject;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.icon.ENYKIconSet;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.util.Hashtable;
@@ -634,7 +636,7 @@ public class CegkapuMenuItem {
                         SendParams var2 = new SendParams(PropertyList.getInstance());
                         String var3 = var1.bm.cc.getLoadedfile().getName();
                         var3 = var3.substring(0, var3.length() - ".frm.enyk".length());
-                        File var4 = new File(var2.srcPath + var3 + File.separator + "alairt");
+                        File var4 = new NecroFile(var2.srcPath + var3 + File.separator + "alairt");
                         if (!var4.exists()) {
                            GuiUtil.showMessageDialog(MainFrame.thisinstance, "Nincs meg az aláírt nyomtatvány kivonatot tartalmazó mappa:\n" + var2.srcPath + var3 + File.separator + "alairt", "Hiba", 0);
                            return;

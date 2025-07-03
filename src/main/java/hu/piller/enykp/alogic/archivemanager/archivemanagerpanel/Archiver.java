@@ -6,6 +6,9 @@ import hu.piller.enykp.alogic.archivemanager.archivemanagerpanel.archivefilepane
 import hu.piller.enykp.alogic.ebev.SendParams;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -105,7 +108,7 @@ public class Archiver extends DefaultExecHandler {
    public void clean(Object var1) {
       try {
          if (var1 != null) {
-            File var2 = new File(this.destPath + getPath(((File)((IListItem)var1).getItem()).getPath(), File.separator));
+            File var2 = new NecroFile(this.destPath + getPath(((File)((IListItem)var1).getItem()).getPath(), File.separator));
             removeFile(var2);
          }
       } catch (Exception var3) {
@@ -141,7 +144,7 @@ public class Archiver extends DefaultExecHandler {
    }
 
    private void readUniqId() {
-      File var1 = new File(this.destPath);
+      File var1 = new NecroFile(this.destPath);
       this.uniqId = var1.listFiles().length + 1;
    }
 
@@ -237,7 +240,7 @@ public class Archiver extends DefaultExecHandler {
             var2.append(getOriginalFileName(var1));
          }
 
-         return new File(var2.toString());
+         return new NecroFile(var2.toString());
       } catch (Exception var5) {
          throw new Exception("Hibás állománynév: " + var1);
       }
@@ -290,7 +293,7 @@ public class Archiver extends DefaultExecHandler {
 
       try {
          var4 = new BufferedInputStream(new FileInputStream(var1));
-         var3 = new BufferedOutputStream(new FileOutputStream(var2));
+         var3 = new BufferedOutputStream(new NecroFileOutputStream(var2));
          byte[] var5 = new byte[65536];
 
          int var6;
@@ -392,7 +395,7 @@ public class Archiver extends DefaultExecHandler {
          return false;
       } else {
          try {
-            File var2 = new File(this.destPath);
+            File var2 = new NecroFile(this.destPath);
             return var2.exists() && var2.isDirectory();
          } catch (Exception var3) {
             return false;

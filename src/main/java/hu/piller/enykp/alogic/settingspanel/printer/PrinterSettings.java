@@ -5,6 +5,8 @@ import hu.piller.enykp.alogic.settingspanel.SettingsStore;
 import hu.piller.enykp.gui.GuiUtil;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.LayoutManager;
@@ -302,12 +304,12 @@ public class PrinterSettings extends JPanel implements ChangeListener {
 
    private void initDialog(String var1, String var2) {
       this.fc.setDialogTitle(var1);
-      File var3 = new File(var2);
+      File var3 = new NecroFile(var2);
       if (var3.exists()) {
          if (var3.isDirectory()) {
             this.fc.setCurrentDirectory(var3);
          } else {
-            this.fc.setCurrentDirectory(new File(var3.getParent()));
+            this.fc.setCurrentDirectory(new NecroFile(var3.getParent()));
          }
       }
 
@@ -315,7 +317,7 @@ public class PrinterSettings extends JPanel implements ChangeListener {
          ((BasicFileChooserUI)this.fc.getUI()).setFileName("");
       } catch (ClassCastException var7) {
          try {
-            this.fc.setSelectedFile(new File(""));
+            this.fc.setSelectedFile(new NecroFile(""));
          } catch (Exception var6) {
             Tools.eLog(var6, 0);
          }

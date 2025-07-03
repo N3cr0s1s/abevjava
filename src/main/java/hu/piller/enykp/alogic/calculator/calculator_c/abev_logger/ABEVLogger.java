@@ -1,6 +1,8 @@
 package hu.piller.enykp.alogic.calculator.calculator_c.abev_logger;
 
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -36,7 +38,7 @@ class ABEVLogger {
 
    public static void open(File var0) {
       try {
-         bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(var0, true), "ISO-8859-2"));
+         bw = new BufferedWriter(new OutputStreamWriter(new NecroFileOutputStream(var0, true), "ISO-8859-2"));
          StringBuffer var1 = new StringBuffer();
          var1.append(HEAD_FIELDS[0]);
          var1.append('§');

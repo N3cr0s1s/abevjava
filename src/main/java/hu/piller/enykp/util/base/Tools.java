@@ -29,6 +29,9 @@ import hu.piller.enykp.interfaces.IErrorList;
 import hu.piller.enykp.interfaces.IResult;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -119,7 +122,7 @@ public class Tools {
          throw new Exception();
       } else {
          if (var1) {
-            File var3 = new File(var2);
+            File var3 = new NecroFile(var2);
             if (!var3.exists() || !var3.isDirectory()) {
                throw new Exception();
             }
@@ -397,7 +400,7 @@ public class Tools {
 
    public static File clearFileName(File var0) {
       String var1 = clearFileName(var0.getName());
-      File var2 = new File(var0.getParent() + File.separator + var1);
+      File var2 = new NecroFile(var0.getParent() + File.separator + var1);
       boolean var3 = true;
       if (!var1.equals(var0.getName())) {
          var3 = JOptionPane.showOptionDialog(MainFrame.thisinstance, "A " + var0.getName() + " fájlnév problémát okozhat az Ügyfélkapus feladásnál. Átnevezzük " + var1 + " -re?\nAmennyiben a Nem-et választja, Önnek kell átneveznie a fájlt.", "Fájl átnevezés", 0, 3, (Icon)null, PropertyList.igenNem, PropertyList.igenNem[0]) == 0;
@@ -426,7 +429,7 @@ public class Tools {
 
             for(int var6 = 0; var6 < var5.length; ++var6) {
                String var7 = clearFileName(var5[var6].getName());
-               File var8 = new File(var0.getParent() + File.separator + var7);
+               File var8 = new NecroFile(var0.getParent() + File.separator + var7);
                var3 &= var5[var6].renameTo(var8);
 
                try {
@@ -716,7 +719,7 @@ public class Tools {
       String var10 = null;
 
       try {
-         (new File(var7)).mkdir();
+         (new NecroFile(var7)).mkdir();
       } catch (Exception var29) {
          eLog(var29, 0);
       }
@@ -746,17 +749,17 @@ public class Tools {
 
                   String var15 = var17.substring(0, var18);
                   if (checkDirName(var15, var1)) {
-                     (new File(var7 + File.separator + var15)).mkdir();
+                     (new NecroFile(var7 + File.separator + var15)).mkdir();
                      var4.setOk(true);
                   } else {
                      var4.errorList.add("a tömörített állományban lévő " + var15 + " mappa nem megfelelő, mert nincs ilyen azonosítójú nyomtatvány");
                   }
 
-                  if (!(new File(var7 + File.separator + var17)).isDirectory()) {
+                  if (!(new NecroFile(var7 + File.separator + var17)).isDirectory()) {
                      copyInputStream(var6.getInputStream(var16), new BufferedOutputStream(new FileOutputStream(var7 + File.separator + var17)), true);
                   }
 
-                  File var19 = new File(beautyPath(var7 + File.separator + var17));
+                  File var19 = new NecroFile(beautyPath(var7 + File.separator + var17));
                   var12.add(var15);
                   var11.put(var19.getParentFile().getName() + File.separator + var19.getName(), "");
                }
@@ -806,7 +809,7 @@ public class Tools {
       String var8 = null;
 
       try {
-         (new File(var5)).mkdir();
+         (new NecroFile(var5)).mkdir();
       } catch (Exception var29) {
          eLog(var29, 0);
       }
@@ -848,12 +851,12 @@ public class Tools {
                }
 
                String var13 = var15.substring(0, var16);
-               (new File(var5 + File.separator + var13)).mkdir();
-               if (!(new File(var5 + File.separator + var15)).isDirectory()) {
+               (new NecroFile(var5 + File.separator + var13)).mkdir();
+               if (!(new NecroFile(var5 + File.separator + var15)).isDirectory()) {
                   copyInputStream(var4.getInputStream(var14), new BufferedOutputStream(new FileOutputStream(var5 + File.separator + var15)), true);
                }
 
-               File var17 = new File(beautyPath(var5 + File.separator + var15));
+               File var17 = new NecroFile(beautyPath(var5 + File.separator + var15));
                var10.add(var13);
                var9.put(var17.getParentFile().getName() + File.separator + var17.getName(), "");
             }
@@ -912,7 +915,7 @@ public class Tools {
                while(var14.hasMoreElements() && !var16) {
                   var17 = (ZipEntry)var14.nextElement();
                   if (var17.getName().indexOf("\\") > -1 || var17.getName().indexOf("/") > -1) {
-                     var15 = (new File(var17.getName())).getParent();
+                     var15 = (new NecroFile(var17.getName())).getParent();
                      if (var15 == null) {
                         var15 = var17.getName();
                      }
@@ -924,13 +927,13 @@ public class Tools {
                      if (var4) {
                         if (var7 != null) {
                            if (checkDirName(var15, var7)) {
-                              (new File(var1 + File.separator + var15)).mkdir();
+                              (new NecroFile(var1 + File.separator + var15)).mkdir();
                               var8.setOk(true);
                            } else {
                               var8.errorList.add("a tömörített állományban lévő " + var15 + " mappa nem megfelelő, mert nincs ilyen azonosítójú nyomtatvány");
                            }
                         } else {
-                           (new File(var1 + File.separator + var15)).mkdir();
+                           (new NecroFile(var1 + File.separator + var15)).mkdir();
                         }
                      }
                   }
@@ -941,7 +944,7 @@ public class Tools {
                }
 
                if (var5 != null) {
-                  String var27 = var5 + (new File(var9)).getName();
+                  String var27 = var5 + (new NecroFile(var9)).getName();
                   var27 = var27.substring(0, var6.length() - 4) + ".atc";
                }
                break label244;
@@ -1081,15 +1084,15 @@ public class Tools {
             }
 
             if (var5) {
-               if ((new File(var12)).delete()) {
+               if ((new NecroFile(var12)).delete()) {
                   log("A törlés sikerült " + var12);
                } else {
                   log("A törlés nem sikerült " + var12);
                }
 
-               var7 = new File(var12);
+               var7 = new NecroFile(var12);
             } else {
-               var7 = new File(var3 + "_" + var9 + ".atc");
+               var7 = new NecroFile(var3 + "_" + var9 + ".atc");
             }
 
             if (var10.size() > 0) {
@@ -1145,7 +1148,7 @@ public class Tools {
 
       while(var4.hasMoreElements()) {
          Object var7 = var4.nextElement();
-         if ((new File(var3 + File.separator + var7.toString())).isFile() && !var7.toString().toLowerCase().endsWith(".anyk.ASiC".toLowerCase()) && !var7.toString().toLowerCase().endsWith("_lenyomat.xml") && !var2.containsKey(var7)) {
+         if ((new NecroFile(var3 + File.separator + var7.toString())).isFile() && !var7.toString().toLowerCase().endsWith(".anyk.ASiC".toLowerCase()) && !var7.toString().toLowerCase().endsWith("_lenyomat.xml") && !var2.containsKey(var7)) {
             var6.add((String)var7);
          }
       }
@@ -1160,7 +1163,7 @@ public class Tools {
       for(int var7 = 0; var7 < var0.size(); ++var7) {
          String var8 = (String)var0.elementAt(var7);
          if (var8.toLowerCase().endsWith(var4.toLowerCase() + ".atc")) {
-            File var9 = new File(var8);
+            File var9 = new NecroFile(var8);
             if (var9.exists()) {
                Object var10 = AttachementTool.loadAtcFile(var9, false);
                if (var10 instanceof String) {
@@ -1182,7 +1185,7 @@ public class Tools {
                for(var12 = 0; var12 < var11.size(); ++var12) {
                   String[] var13 = (String[])((String[])var11.elementAt(var12));
                   String var14 = beautyPath(var3 + File.separator + var13[0]);
-                  File var15 = new File(var14);
+                  File var15 = new NecroFile(var14);
                   var14 = var15.getParentFile().getName() + File.separator + var15.getName();
                   if (var1.containsKey(var14) && var14.indexOf(var4) > -1) {
                      var2.put(var14, var13);
@@ -1211,14 +1214,14 @@ public class Tools {
          var2 = ".zip";
       }
 
-      if (!(new File(var1)).isDirectory()) {
+      if (!(new NecroFile(var1)).isDirectory()) {
          return -1;
       } else {
          if (!var1.endsWith("\\") && !var1.endsWith("/")) {
             var1 = var1 + File.separator;
          }
 
-         String var3 = var1 + (new File(var0[0])).getName() + var2;
+         String var3 = var1 + (new NecroFile(var0[0])).getName() + var2;
          ZipOutputStream var4 = null;
 
          byte var6;
@@ -1226,7 +1229,7 @@ public class Tools {
             var4 = new ZipOutputStream(new FileOutputStream(var3));
 
             for(int var5 = 0; var5 < var0.length; ++var5) {
-               var4.putNextEntry(new ZipEntry((new File(var0[var5])).getName()));
+               var4.putNextEntry(new ZipEntry((new NecroFile(var0[var5])).getName()));
                copyInputStream(new FileInputStream(var0[var5]), var4, false);
                var4.closeEntry();
             }
@@ -1340,7 +1343,7 @@ public class Tools {
       HashSet var3 = new HashSet();
 
       try {
-         File var4 = new File(var1);
+         File var4 = new NecroFile(var1);
          if (!var4.exists() && !var4.mkdir()) {
             return -1;
          } else {
@@ -1355,7 +1358,7 @@ public class Tools {
                if (var0[var8] instanceof Object[]) {
                   var9 = (File)((Object[])((Object[])var0[var8]))[0];
                } else {
-                  var9 = new File((String)var0[var8]);
+                  var9 = new NecroFile((String)var0[var8]);
                }
 
                if (var9.exists()) {
@@ -1376,7 +1379,7 @@ public class Tools {
                               continue;
                            }
 
-                           File var14 = new File(new File(var5, var10), var13);
+                           File var14 = new NecroFile(new NecroFile(var5, var10), var13);
                            if (var14.exists()) {
                               var7.add(var6 + atcFiles[var12]);
                               copyInputStream(new FileInputStream(var6 + atcFiles[var12]), new FileOutputStream(var1 + atcFiles[var12]), true);
@@ -1386,9 +1389,9 @@ public class Tools {
                      }
 
                      readAtc(var7);
-                     File var17 = new File(var5 + var10);
+                     File var17 = new NecroFile(var5 + var10);
                      if (var17.exists()) {
-                        copyWholeDir(var17, new File(var1 + var10), true);
+                        copyWholeDir(var17, new NecroFile(var1 + var10), true);
                      }
 
                      var3.add(var1 + var10);
@@ -1408,18 +1411,18 @@ public class Tools {
 
    public static int copyDSIGFolder(SendParams var0, String var1, String var2) {
       HashSet var3 = new HashSet();
-      File var4 = new File(var2 + File.separator + "_dsig");
+      File var4 = new NecroFile(var2 + File.separator + "_dsig");
       var4.mkdir();
-      var4 = new File(var2 + File.separator + "_dsig" + File.separator + var1);
+      var4 = new NecroFile(var2 + File.separator + "_dsig" + File.separator + var1);
       var4.mkdir();
-      File var5 = new File(var0.srcPath + var1 + ".xml");
+      File var5 = new NecroFile(var0.srcPath + var1 + ".xml");
 
       try {
-         var4 = new File(var2 + File.separator + "_dsig" + File.separator + var1 + ".xml");
+         var4 = new NecroFile(var2 + File.separator + "_dsig" + File.separator + var1 + ".xml");
          copyInputStream(new FileInputStream(var5), new FileOutputStream(var4), true);
          var3.add(var4);
-         new File(var2 + File.separator + "_dsig" + File.separator + var1 + File.separator + var1 + ".xml");
-         copyWholeDir(new File(var0.srcPath + var1), new File(var2 + File.separator + "_dsig" + File.separator + var1), false);
+         new NecroFile(var2 + File.separator + "_dsig" + File.separator + var1 + File.separator + var1 + ".xml");
+         copyWholeDir(new NecroFile(var0.srcPath + var1), new NecroFile(var2 + File.separator + "_dsig" + File.separator + var1), false);
          return 0;
       } catch (IOException var7) {
          deleteFiles(var3);
@@ -1429,10 +1432,10 @@ public class Tools {
    }
 
    public static int _copyDSIGFolder(SendParams var0, String var1, String var2) {
-      File var3 = new File(var0.srcPath + var1);
+      File var3 = new NecroFile(var0.srcPath + var1);
       var3.mkdir();
-      File var4 = new File(var2 + File.separator + "_dsig");
-      var3 = new File(var0.srcPath);
+      File var4 = new NecroFile(var2 + File.separator + "_dsig");
+      var3 = new NecroFile(var0.srcPath);
 
       try {
          copyWholeDir(var4, var3, false);
@@ -1451,9 +1454,9 @@ public class Tools {
          String var5 = var4.getName().substring(0, var4.getName().length() - ".frm.enyk".length());
 
          try {
-            File var6 = new File(var0.srcPath + var5 + ".xml");
+            File var6 = new NecroFile(var0.srcPath + var5 + ".xml");
             var6.delete();
-            var6 = new File(var0.srcPath + var5);
+            var6 = new NecroFile(var0.srcPath + var5);
             deleteDir(var6);
          } catch (Exception var7) {
             var2 = -2;
@@ -1471,9 +1474,9 @@ public class Tools {
          String var5 = var4.getName().substring(0, var4.getName().length() - ".frm.enyk".length());
 
          try {
-            File var6 = new File(var0.destPath + var5 + ".xcz_status");
+            File var6 = new NecroFile(var0.destPath + var5 + ".xcz_status");
             var6.delete();
-            var6 = new File(var0.srcPath + var5);
+            var6 = new NecroFile(var0.srcPath + var5);
             deleteDir(var6);
          } catch (Exception var7) {
             var2 = -2;
@@ -1502,13 +1505,13 @@ public class Tools {
             if (var0[var6] instanceof Object[]) {
                var7 = (File)((Object[])((Object[])var0[var6]))[0];
             } else {
-               var7 = new File((String)var0[var6]);
+               var7 = new NecroFile((String)var0[var6]);
             }
 
             if (!var2) {
                var4 = var7.getParent();
                var5 = var7.getParent();
-               AttachementTool.fillFileList(new File(var5));
+               AttachementTool.fillFileList(new NecroFile(var5));
                atcFiles = AttachementTool.getAtcs();
             }
 
@@ -1528,16 +1531,16 @@ public class Tools {
                if (atcFiles[var11].indexOf(var8) == 0) {
                   String var12 = atcFiles[var11].substring(var8.length() + 1);
                   var12 = var12.substring(0, var12.length() - ".atc".length());
-                  File var13 = new File(new File(var4, var8), var12);
+                  File var13 = new NecroFile(new NecroFile(var4, var8), var12);
                   if (var13.exists()) {
-                     File var14 = new File(var5, var10 + atcFiles[var11].substring(var8.length()));
-                     (new File(var5, atcFiles[var11])).renameTo(var14);
+                     File var14 = new NecroFile(var5, var10 + atcFiles[var11].substring(var8.length()));
+                     (new NecroFile(var5, atcFiles[var11])).renameTo(var14);
                      readAndWriteAtcFile(var14.getAbsolutePath(), var8, var10);
                   }
                }
             }
 
-            (new File(var4, var8)).renameTo(new File(var4, var10));
+            (new NecroFile(var4, var8)).renameTo(new NecroFile(var4, var10));
          }
 
          return 0;
@@ -1566,13 +1569,13 @@ public class Tools {
             if (var0[var4] instanceof Object[]) {
                var5 = (File)((Object[])((Object[])var0[var4]))[0];
             } else {
-               var5 = new File((String)var0[var4]);
+               var5 = new NecroFile((String)var0[var4]);
             }
 
             if (!var1) {
                var2 = var5.getParent();
                var18 = var5.getParent();
-               AttachementTool.fillFileList(new File(var18));
+               AttachementTool.fillFileList(new NecroFile(var18));
                atcFiles = AttachementTool.getAtcs();
             }
 
@@ -1593,20 +1596,20 @@ public class Tools {
                      continue;
                   }
 
-                  File var10 = new File(new File(var2, var6), var9);
+                  File var10 = new NecroFile(new NecroFile(var2, var6), var9);
                   if (var10.exists()) {
-                     (new File(var18, atcFiles[var8])).delete();
+                     (new NecroFile(var18, atcFiles[var8])).delete();
                   }
                }
             }
 
             for(var8 = 0; var8 < cstFiles.length; ++var8) {
                if (cstFiles[var8].indexOf(var6) == 0) {
-                  (new File(var18, cstFiles[var8])).delete();
+                  (new NecroFile(var18, cstFiles[var8])).delete();
                }
             }
 
-            File var19 = new File(var2, var6);
+            File var19 = new NecroFile(var2, var6);
             if (var19.exists()) {
                deleteDir(var19);
             }
@@ -1627,7 +1630,7 @@ public class Tools {
       attachments.clear();
 
       for(int var1 = 0; var1 < var0.size(); ++var1) {
-         Object var2 = AttachementTool.loadAtcFile(new File((String)var0.elementAt(var1)), false);
+         Object var2 = AttachementTool.loadAtcFile(new NecroFile((String)var0.elementAt(var1)), false);
          if (var2 instanceof Vector) {
             for(int var3 = 0; var3 < ((Vector)var2).size(); ++var3) {
                String var4 = ((String[])((String[])((Vector)var2).elementAt(var3)))[0];
@@ -1650,8 +1653,8 @@ public class Tools {
 
          for(int var6 = 0; var6 < var5; ++var6) {
             String var7 = var4[var6];
-            File var8 = new File(var0, var7);
-            File var9 = new File(var1, var7);
+            File var8 = new NecroFile(var0, var7);
+            File var9 = new NecroFile(var1, var7);
             copyWholeDir(var8, var9, var2);
          }
       } else {
@@ -1660,7 +1663,7 @@ public class Tools {
          }
 
          FileInputStream var10 = new FileInputStream(var0);
-         FileOutputStream var11 = new FileOutputStream(var1);
+         FileOutputStream var11 = new NecroFileOutputStream(var1);
          copyInputStream(var10, var11, true);
       }
 
@@ -1673,7 +1676,7 @@ public class Tools {
          Object var2 = var1.next();
          File var3;
          if (var2 instanceof String) {
-            var3 = new File((String)var2);
+            var3 = new NecroFile((String)var2);
          } else {
             var3 = (File)var2;
          }
@@ -1695,7 +1698,7 @@ public class Tools {
 
          for(int var4 = 0; var4 < var3; ++var4) {
             String var5 = var2[var4];
-            File var6 = new File(var0, var5);
+            File var6 = new NecroFile(var0, var5);
             deleteDir(var6);
          }
 
@@ -1714,7 +1717,7 @@ public class Tools {
          HashSet var4 = new HashSet();
 
          try {
-            File var5 = new File(var1);
+            File var5 = new NecroFile(var1);
             if (!var5.exists() && !var5.mkdir()) {
                return -1;
             } else {
@@ -1722,7 +1725,7 @@ public class Tools {
                String var6 = PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.attachment") + File.separator;
                String var7 = PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.saves") + File.separator;
                Vector var8 = new Vector();
-               File var9 = new File(var0);
+               File var9 = new NecroFile(var0);
                String var10 = var9.getName();
                int var11 = var10.toLowerCase().indexOf(".frm.enyk");
                if (var11 > -1) {
@@ -1744,16 +1747,16 @@ public class Tools {
                      }
 
                      var8.add(var7 + atcFiles[var13]);
-                     copyInputStream(new FileInputStream(var7 + atcFiles[var13]), new FileOutputStream(var1 + var14), true);
+                     copyInputStream(new FileInputStream(var7 + atcFiles[var13]), new NecroFileOutputStream(var1 + var14), true);
                      var4.add(var1 + var14);
                      var3.add(var7 + atcFiles[var13]);
                   }
                }
 
                readAtc(var8);
-               File var16 = new File(var6 + var10);
+               File var16 = new NecroFile(var6 + var10);
                if (var16.exists()) {
-                  copyWholeDir(var16, new File(var1 + var10 + var12), true);
+                  copyWholeDir(var16, new NecroFile(var1 + var10 + var12), true);
                }
 
                var4.add(var1 + var10 + var12);
@@ -1772,18 +1775,18 @@ public class Tools {
    public static void archiveDSIG(SendParams var0, String var1, String var2, String var3) {
       HashSet var4 = new HashSet();
       HashSet var5 = new HashSet();
-      File var6 = new File(var1);
+      File var6 = new NecroFile(var1);
       String var7 = var6.getName().substring(0, var6.getName().length() - ".frm.enyk".length());
-      var6 = new File(var3);
+      var6 = new NecroFile(var3);
       String var8 = var6.getName().substring(0, var6.getName().length() - ".frm.enyk".length());
-      var6 = new File(var2 + File.separator + var8 + File.separator + "_dsig");
+      var6 = new NecroFile(var2 + File.separator + var8 + File.separator + "_dsig");
       var6.mkdir();
 
       try {
          copyInputStream(new FileInputStream(var0.srcPath + var7 + ".xml"), new FileOutputStream(var6.getAbsolutePath() + File.separator + var7 + ".xml"), true);
          var4.add(var0.srcPath + var7 + ".xml");
          var5.add(var6.getAbsolutePath() + File.separator + var7 + ".xml");
-         copyWholeDir(new File(var0.srcPath + var7), new File(var2 + File.separator + var8 + File.separator + "_dsig" + File.separator + var7), false);
+         copyWholeDir(new NecroFile(var0.srcPath + var7), new NecroFile(var2 + File.separator + var8 + File.separator + "_dsig" + File.separator + var7), false);
          var4.add(var0.srcPath + var7);
          var5.add(var2 + File.separator + var8 + File.separator + "_dsig" + File.separator + var7);
          deleteFiles(var4);
@@ -1819,11 +1822,11 @@ public class Tools {
             var0 = var0.substring(0, var8);
          }
 
-         File var9 = new File(var6 + getModAtcFilename(var0, var3, false));
+         File var9 = new NecroFile(var6 + getModAtcFilename(var0, var3, false));
          if (!var9.exists() && !var9.mkdir()) {
             return -1;
          } else {
-            String[] var10 = (new File(var1)).list(new Tools.ATCFilenameFilter());
+            String[] var10 = (new NecroFile(var1)).list(new Tools.ATCFilenameFilter());
             Vector var11 = new Vector();
 
             for(int var12 = 0; var12 < var10.length; ++var12) {
@@ -1840,9 +1843,9 @@ public class Tools {
                }
             }
 
-            File var15 = new File(var1 + var0);
+            File var15 = new NecroFile(var1 + var0);
             if (var15.exists()) {
-               copyWholeDir(var15, new File(var6 + getModAtcFilename(var0, var3, false)), false);
+               copyWholeDir(var15, new NecroFile(var6 + getModAtcFilename(var0, var3, false)), false);
             }
 
             var5.add(var6 + var0);
@@ -1862,8 +1865,8 @@ public class Tools {
 
    public static int resetDSIG(SendParams var0, String var1, String var2, boolean var3, String var4) {
       var1 = var1.substring(0, var1.length() - ".frm.enyk".length());
-      File var5 = new File(var2 + var1 + File.separator + "_dsig");
-      File var6 = new File(var0.srcPath);
+      File var5 = new NecroFile(var2 + var1 + File.separator + "_dsig");
+      File var6 = new NecroFile(var0.srcPath);
 
       try {
          copyWholeDir(var5, var6, false);
@@ -1966,13 +1969,13 @@ public class Tools {
    }
 
    public static int readAndWriteAtcFile(String var0, String var1, String var2) throws Exception {
-      Object var3 = AttachementTool.loadAtcFile(new File(var0), false);
+      Object var3 = AttachementTool.loadAtcFile(new NecroFile(var0), false);
       if (var3 instanceof Vector) {
          Vector var4 = (Vector)var3;
 
          for(int var5 = 0; var5 < ((Vector)var3).size(); ++var5) {
             String[] var6 = (String[])((String[])var4.elementAt(var5));
-            String var7 = (new File(var6[0])).getAbsolutePath();
+            String var7 = (new NecroFile(var6[0])).getAbsolutePath();
             var7 = var7.replaceFirst(var1, var2);
             var6[0] = var7;
          }
@@ -2068,11 +2071,11 @@ public class Tools {
          String var10;
          String var11;
          if (var6 != null) {
-            var9 = new File(var6);
+            var9 = new NecroFile(var6);
             var10 = var9.getName().substring(0, var9.getName().length() - ".urlap.anyk.ASiC".length());
-            (new File(var12.srcPath + var10)).mkdir();
-            (new File(var12.srcPath + var10 + File.separator + "alairt")).mkdir();
-            (new File(var6)).renameTo(new File(var12.srcPath + var10 + File.separator + "alairt" + File.separator + var9.getName()));
+            (new NecroFile(var12.srcPath + var10)).mkdir();
+            (new NecroFile(var12.srcPath + var10 + File.separator + "alairt")).mkdir();
+            (new NecroFile(var6)).renameTo(new NecroFile(var12.srcPath + var10 + File.separator + "alairt" + File.separator + var9.getName()));
             var11 = var12.root + "";
             if (!var11.endsWith(File.separator)) {
                var11 = var11 + File.separator;
@@ -2083,17 +2086,17 @@ public class Tools {
                var11 = var11 + File.separator;
             }
 
-            (new File(var11 + var10 + ".xml")).renameTo(new File(var12.srcPath + var10 + ".xml"));
+            (new NecroFile(var11 + var10 + ".xml")).renameTo(new NecroFile(var12.srcPath + var10 + ".xml"));
          } else {
-            var9 = new File(var7);
+            var9 = new NecroFile(var7);
             var10 = var9.getName().substring(0, var9.getName().indexOf("_lenyomat"));
-            (new File(var12.srcPath + var10)).mkdir();
+            (new NecroFile(var12.srcPath + var10)).mkdir();
             if (var7.toLowerCase().endsWith(".xml")) {
-               (new File(var12.srcPath + var10 + File.separator + "alairando")).mkdir();
-               (new File(var7)).renameTo(new File(var12.srcPath + var10 + File.separator + "alairando" + File.separator + var9.getName()));
+               (new NecroFile(var12.srcPath + var10 + File.separator + "alairando")).mkdir();
+               (new NecroFile(var7)).renameTo(new NecroFile(var12.srcPath + var10 + File.separator + "alairando" + File.separator + var9.getName()));
             } else {
-               (new File(var12.srcPath + var10 + File.separator + "alairando")).mkdir();
-               (new File(var7)).renameTo(new File(var12.srcPath + var10 + File.separator + "alairt" + File.separator + var9.getName()));
+               (new NecroFile(var12.srcPath + var10 + File.separator + "alairando")).mkdir();
+               (new NecroFile(var7)).renameTo(new NecroFile(var12.srcPath + var10 + File.separator + "alairt" + File.separator + var9.getName()));
             }
 
             var11 = var12.root + "";
@@ -2106,7 +2109,7 @@ public class Tools {
                var11 = var11 + File.separator;
             }
 
-            (new File(var11 + var10 + ".xml")).renameTo(new File(var12.srcPath + var10 + ".xml"));
+            (new NecroFile(var11 + var10 + ".xml")).renameTo(new NecroFile(var12.srcPath + var10 + ".xml"));
          }
 
       }
@@ -2128,7 +2131,7 @@ public class Tools {
                return 2;
             } else {
                var6 = var3[0].substring(0, var3[0].lastIndexOf(";"));
-               return !var1.toLowerCase().equalsIgnoreCase((new File(var6)).getName().toLowerCase()) ? 4 : 2;
+               return !var1.toLowerCase().equalsIgnoreCase((new NecroFile(var6)).getName().toLowerCase()) ? 4 : 2;
             }
          } else {
             try {

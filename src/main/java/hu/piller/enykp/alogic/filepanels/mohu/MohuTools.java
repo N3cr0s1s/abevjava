@@ -12,6 +12,9 @@ import hu.piller.enykp.niszws.util.KauSessionTimeoutHandler;
 import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -42,14 +45,14 @@ public class MohuTools {
       if (disableCopyToSentDir() == 1) {
          return true;
       } else {
-         File var2 = new File(var1);
-         File var3 = new File(this.sp.sentPath + var2.getName());
+         File var2 = new NecroFile(var1);
+         File var3 = new NecroFile(this.sp.sentPath + var2.getName());
          BufferedOutputStream var4 = null;
          BufferedInputStream var5 = null;
 
          try {
             var5 = new BufferedInputStream(new FileInputStream(var2));
-            var4 = new BufferedOutputStream(new FileOutputStream(var3));
+            var4 = new BufferedOutputStream(new NecroFileOutputStream(var3));
             byte[] var6 = new byte[65536];
 
             int var7;
@@ -98,7 +101,7 @@ public class MohuTools {
       long[] var4 = new long[var1.length];
 
       for(int var5 = 0; var5 < var1.length; ++var5) {
-         File var6 = new File(var1[var5]);
+         File var6 = new NecroFile(var1[var5]);
          var4[var5] = var6.length();
          var1[var5] = var6.getName();
       }
@@ -199,12 +202,12 @@ public class MohuTools {
             var2 = var2.substring(0, var2.length() - 4);
          }
 
-         String[] var3 = (new File(this.sp.srcPath)).list();
+         String[] var3 = (new NecroFile(this.sp.srcPath)).list();
 
          for(int var4 = 0; var4 < var3.length; ++var4) {
             String var5 = var3[var4].toLowerCase();
             if (var5.toLowerCase().endsWith(".xml") && var2.startsWith(var5.substring(0, var5.length() - 4))) {
-               (new File(this.sp.srcPath + var5)).delete();
+               (new NecroFile(this.sp.srcPath + var5)).delete();
                return;
             }
          }

@@ -7,6 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
+
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
 import org.apache.commons.codec.binary.Base64InputStream;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -96,8 +99,8 @@ public class CstHandler extends DefaultHandler {
 
             try {
                if (this.needDecodeB64) {
-                  File var4 = new File(this.cstPath + this.cstFileData.get(this.currentFileId) + "_b64");
-                  this.decodeB64WithApache(new FileInputStream(var4), new FileOutputStream(this.cstPath + this.cstFileData.get(this.currentFileId)));
+                  File var4 = new NecroFile(this.cstPath + this.cstFileData.get(this.currentFileId) + "_b64");
+                  this.decodeB64WithApache(new FileInputStream(var4), new NecroFileOutputStream(this.cstPath + this.cstFileData.get(this.currentFileId)));
                   var4.delete();
                }
             } catch (Exception var5) {
@@ -136,7 +139,7 @@ public class CstHandler extends DefaultHandler {
    }
 
    private FileOutputStream openFile(String var1) throws Exception {
-      FileOutputStream var2 = new FileOutputStream(this.cstPath + var1 + "_b64");
+      FileOutputStream var2 = new NecroFileOutputStream(this.cstPath + var1 + "_b64");
       return var2;
    }
 

@@ -3,6 +3,9 @@ package hu.piller.enykp.util.base.errordialog;
 import hu.piller.enykp.gui.GuiUtil;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -209,7 +212,7 @@ public class ErrorDialog extends JDialog implements ActionListener {
       }
 
       try {
-         var2.setCurrentDirectory(new File((String)PropertyList.getInstance().get("prop.usr.naplo")));
+         var2.setCurrentDirectory(new NecroFile((String)PropertyList.getInstance().get("prop.usr.naplo")));
       } catch (Exception var14) {
          Tools.eLog(var14, 0);
       }
@@ -220,14 +223,14 @@ public class ErrorDialog extends JDialog implements ActionListener {
          var12.printStackTrace();
 
          try {
-            var2.setSelectedFile(new File(var3));
+            var2.setSelectedFile(new NecroFile(var3));
          } catch (Exception var11) {
          }
       } catch (Exception var13) {
          var13.printStackTrace();
 
          try {
-            var2.setSelectedFile(new File(var3));
+            var2.setSelectedFile(new NecroFile(var3));
          } catch (Exception var10) {
          }
       }
@@ -238,7 +241,7 @@ public class ErrorDialog extends JDialog implements ActionListener {
          FileOutputStream var6 = null;
 
          try {
-            var6 = new FileOutputStream(var5);
+            var6 = new NecroFileOutputStream(var5);
             int var7;
             if (var1 instanceof EJList) {
                for(var7 = 0; var7 < var1.getModel().getSize(); ++var7) {

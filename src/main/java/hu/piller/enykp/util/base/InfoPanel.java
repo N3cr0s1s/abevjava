@@ -12,6 +12,8 @@ import hu.piller.enykp.gui.framework.MainFrame;
 import hu.piller.enykp.interfaces.IOsHandler;
 import hu.piller.enykp.interfaces.IPropertyList;
 import hu.piller.enykp.util.oshandler.OsFactory;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -185,12 +187,12 @@ public class InfoPanel extends JDialog implements HyperlinkListener {
       try {
          File var3;
          try {
-            var3 = new File(SettingsStore.getInstance().get("gui", "internet_browser"));
+            var3 = new NecroFile(SettingsStore.getInstance().get("gui", "internet_browser"));
             if (!var3.exists()) {
                throw new Exception();
             }
          } catch (Exception var6) {
-            var3 = new File(var2.getSystemBrowserPath());
+            var3 = new NecroFile(var2.getSystemBrowserPath());
          }
 
          var2.execute(var3.getName() + " " + var1, (String[])null, var3.getParentFile());
@@ -514,7 +516,7 @@ public class InfoPanel extends JDialog implements HyperlinkListener {
       File var6 = null;
 
       try {
-         var4 = new File(var1.getInitDir() + File.separator + this.filename);
+         var4 = new NecroFile(var1.getInitDir() + File.separator + this.filename);
          if (var4.exists()) {
             var2.append(this.b).append(var4.getParent()).append(this.bv).append("<hr>");
 
@@ -529,7 +531,7 @@ public class InfoPanel extends JDialog implements HyperlinkListener {
       }
 
       try {
-         var5 = new File(var1.getUserHomeDir(), ".abevjava" + File.separator + this.filename);
+         var5 = new NecroFile(var1.getUserHomeDir(), ".abevjava" + File.separator + this.filename);
          if (!var4.equals(var5) && var5.exists()) {
             var2.append(this.b).append(var5.getParent()).append(this.bv).append("<hr>");
 
@@ -567,7 +569,7 @@ public class InfoPanel extends JDialog implements HyperlinkListener {
       String var2 = var1.getEnvironmentVariable("LOCALAPPDATA");
       if (var2 != null && var2.length() > 0) {
          var2 = var2 + "\\VirtualStore\\Windows";
-         File var3 = new File(var2 + File.separator + this.filename);
+         File var3 = new NecroFile(var2 + File.separator + this.filename);
          if (var3.exists()) {
             return var3;
          }
@@ -592,9 +594,9 @@ public class InfoPanel extends JDialog implements HyperlinkListener {
       OrgInfo var1 = OrgInfo.getInstance();
       Hashtable var2 = (Hashtable)var1.getOrgList();
       EJFileChooser var3 = new EJFileChooser();
-      File var4 = new File((String)PropertyList.getInstance().get("prop.usr.naplo"));
+      File var4 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.naplo"));
       var3.setCurrentDirectory(var4);
-      var3.setSelectedFile(new File((String)PropertyList.getInstance().get("prop.usr.naplo") + File.separator + "nevjegy.txt"));
+      var3.setSelectedFile(new NecroFile((String)PropertyList.getInstance().get("prop.usr.naplo") + File.separator + "nevjegy.txt"));
       var3.setDialogTitle("Információk mentése - fájl választás");
       int var5 = var3.showSaveDialog(MainFrame.thisinstance);
       if (var5 == 0) {

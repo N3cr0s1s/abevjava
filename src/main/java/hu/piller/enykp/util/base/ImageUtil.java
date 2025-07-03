@@ -1,6 +1,8 @@
 package hu.piller.enykp.util.base;
 
 import hu.piller.enykp.interfaces.IImageUtil;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.URL;
@@ -32,7 +34,7 @@ public class ImageUtil implements IImageUtil {
          FileInputStream var2 = null;
 
          try {
-            File var3 = new File(this.getClass().getProtectionDomain().getClassLoader().getResource(var1).getFile());
+            File var3 = new NecroFile(this.getClass().getProtectionDomain().getClassLoader().getResource(var1).getFile());
             if (!var3.exists()) {
                return null;
             } else {

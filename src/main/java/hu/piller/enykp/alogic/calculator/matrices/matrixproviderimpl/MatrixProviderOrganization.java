@@ -3,12 +3,14 @@ package hu.piller.enykp.alogic.calculator.matrices.matrixproviderimpl;
 import hu.piller.enykp.alogic.calculator.matrices.MREF;
 import hu.piller.enykp.alogic.orghandler.OrgInfo;
 import hu.piller.enykp.util.base.Version;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.io.FilenameFilter;
 
 public class MatrixProviderOrganization extends MatrixProviderFile {
    protected String getPath(final MREF var1) {
-      File[] var2 = (new File(OrgInfo.getInstance().getResourcePath())).listFiles(new FilenameFilter() {
+      File[] var2 = (new NecroFile(OrgInfo.getInstance().getResourcePath())).listFiles(new FilenameFilter() {
          public boolean accept(File var1x, String var2) {
             String var3 = var2.substring(0, var1.getScope().length());
             return var3.equals(var1.getScope());

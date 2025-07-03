@@ -8,6 +8,8 @@ import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -136,7 +138,7 @@ public class AttachementTool {
                return var3;
             }
 
-            File var13 = new File(var16);
+            File var13 = new NecroFile(var16);
             if (var13.length() == 0L) {
                var3.errorList.add("A " + var13.getName() + " csatolmány 0 hosszú!");
                return var3;
@@ -270,7 +272,7 @@ public class AttachementTool {
             var5 = var5.substring(0, var5.length() - ".xml".length()) + ".cst";
          }
 
-         File var6 = new File(var5);
+         File var6 = new NecroFile(var5);
          var4.setFileNev(var6.getName());
          var4.setFileURI(DatastoreKeyToXml.htmlConvert(var6.toURI().toString()));
          var2.add(var4);
@@ -338,7 +340,7 @@ public class AttachementTool {
                   return var17[2] + " típusú csatolmány nem csatolható ehhez a nyomtatványhoz!";
                }
 
-               File var18 = new File(var17[0]);
+               File var18 = new NecroFile(var17[0]);
                if (var23 > 0 && var18.length() > (long)var23) {
                   var25.append(var17[0]).append(" mérete nagyobb a megengedettnél (").append(var18.length()).append(" > ").append(var23).append("\n");
                } else {
@@ -416,7 +418,7 @@ public class AttachementTool {
                } else {
                   try {
                      var9 = var7.split(";");
-                     var10 = new File(var9[0]);
+                     var10 = new NecroFile(var9[0]);
                      if (var1 && !var10.exists()) {
                         var2 = "A " + var7 + " sor csatolmánya nem található!\nAz \"Adatok/Csatolmányok kezelése\" menüpont segítségével javíthatja a hibát!";
                         var11 = var2;
@@ -442,7 +444,7 @@ public class AttachementTool {
             while((var7 = var6.readLine()) != null) {
                try {
                   var9 = var7.split(";");
-                  var10 = new File(var9[0]);
+                  var10 = new NecroFile(var9[0]);
                   if (var1 && !var10.exists()) {
                      var2 = "A " + var7 + " sor csatolmánya nem található!\nAz \"Adatok/Csatolmányok kezelése\" menüpont segítségével javíthatja a hibát!";
                      var11 = var2;
@@ -488,7 +490,7 @@ public class AttachementTool {
          Vector var2 = getAtcFilenames(var1.getAbsolutePath(), var0);
 
          for(int var3 = 0; var3 < var2.size(); ++var3) {
-            File var4 = new File((String)var2.elementAt(var3));
+            File var4 = new NecroFile((String)var2.elementAt(var3));
             if (var4.exists()) {
                return true;
             }
@@ -521,9 +523,9 @@ public class AttachementTool {
 
          while(var4.hasNext()) {
             String var5 = var4.next().toString();
-            File var6 = new File(var5);
+            File var6 = new NecroFile(var5);
             if (var6.exists()) {
-               var3 += loadAndCountAtcFile(new File(var5));
+               var3 += loadAndCountAtcFile(new NecroFile(var5));
             }
          }
 
@@ -550,8 +552,8 @@ public class AttachementTool {
 
       try {
          String var2 = getAtcFilename(var1, var0);
-         File var3 = new File(var2);
-         return !var3.exists() ? 0 : loadAndCountAtcFile(new File(var2));
+         File var3 = new NecroFile(var2);
+         return !var3.exists() ? 0 : loadAndCountAtcFile(new NecroFile(var2));
       } catch (Exception var4) {
          ErrorList.getInstance().writeError(new Long(4001L), "Hiba a csatolmányok számolásakor", (Exception)null, (Object)null);
          return 0;
@@ -568,7 +570,7 @@ public class AttachementTool {
             if (!var3.toLowerCase().startsWith("encoding")) {
                String var4 = var3.substring(0, var3.indexOf(";"));
                if (!var4.endsWith(".anyk.ASiC")) {
-                  File var5 = new File(var4);
+                  File var5 = new NecroFile(var4);
                   if (var5.exists()) {
                      ++var1;
                   }
@@ -596,7 +598,7 @@ public class AttachementTool {
          }
       }
 
-      File var5 = new File(var2);
+      File var5 = new NecroFile(var2);
       if (!var5.exists()) {
          String var4 = Tools.getTempDir();
          if (!var4.endsWith("\\") && !var4.endsWith("/")) {
@@ -626,7 +628,7 @@ public class AttachementTool {
             }
          }
 
-         File var8 = new File(var5);
+         File var8 = new NecroFile(var5);
          if (!var8.exists()) {
             String var7 = Tools.getTempDir();
             if (!var7.endsWith("\\") && !var7.endsWith("/")) {
@@ -666,7 +668,7 @@ public class AttachementTool {
             for(int var10 = 0; var10 < var9; ++var10) {
                String var11 = var8[var10];
                if (var6 != null && var11.startsWith(var6)) {
-                  Object var12 = loadAtcFile(new File(mentesekPath.getAbsolutePath() + File.separator + var11));
+                  Object var12 = loadAtcFile(new NecroFile(mentesekPath.getAbsolutePath() + File.separator + var11));
                   if (!(var12 instanceof String)) {
                      String var13 = var11.replaceAll(var6, "").replaceAll(".atc", "");
                      var7.put(var13, (Vector)var12);
@@ -739,13 +741,13 @@ public class AttachementTool {
             return "";
          }
 
-         String[] var5 = (new File(var1 + var4[0])).list();
+         String[] var5 = (new NecroFile(var1 + var4[0])).list();
          if (var5 == null) {
             return "";
          }
 
          for(int var6 = 1; var6 < var4.length; ++var6) {
-            String[] var7 = (new File(var1 + var4[var6])).list();
+            String[] var7 = (new NecroFile(var1 + var4[var6])).list();
             if (var7 != null) {
                for(int var8 = 0; var8 < var7.length; ++var8) {
                   for(int var9 = 0; var9 < var5.length; ++var9) {
@@ -781,7 +783,7 @@ public class AttachementTool {
 
       for(int var3 = 0; var3 < var0.size(); ++var3) {
          String[] var4 = (String[])((String[])var0.elementAt(var3));
-         File var5 = new File(var4[0]);
+         File var5 = new NecroFile(var4[0]);
          if (var2.contains(var5.getName())) {
             var1 = var1 + var5.getName() + "\n";
          }
@@ -846,7 +848,7 @@ public class AttachementTool {
             }
          }
 
-         return (new File(var1)).exists() ? var1 : null;
+         return (new NecroFile(var1)).exists() ? var1 : null;
       } catch (Exception var3) {
          return null;
       }
@@ -858,7 +860,7 @@ public class AttachementTool {
       String var5 = var4.substring(0, var4.toLowerCase().indexOf(".frm.enyk")) + "_" + var2 + ".atc";
       String var6 = this.getPath();
       boolean var7 = true;
-      File var8 = new File(var5);
+      File var8 = new NecroFile(var5);
       if (var8.exists()) {
          try {
             var7 = this.deleteAllAttachement(var6, var1);
@@ -924,7 +926,7 @@ public class AttachementTool {
          }
       }
 
-      File var9 = new File(var4);
+      File var9 = new NecroFile(var4);
       var9.delete();
 
       try {
@@ -937,7 +939,7 @@ public class AttachementTool {
    }
 
    private File[] getDirList(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       return var2.exists() && var2.isDirectory() ? var2.listFiles() : null;
    }
 
@@ -947,7 +949,7 @@ public class AttachementTool {
    }
 
    static {
-      mentesekPath = new File(PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.saves"));
+      mentesekPath = new NecroFile(PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.saves"));
    }
 
    static class ATCFilenameFilter implements FilenameFilter {

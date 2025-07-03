@@ -1,5 +1,7 @@
 package hu.piller.enykp.alogic.filepanels;
 
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Rectangle;
@@ -57,7 +59,7 @@ public class DirChooserPanel3 extends JPanel {
             DirChooserPanel3.Entity var2 = (DirChooserPanel3.Entity)DirChooserPanel3.this.l.getSelectedValue();
             if (var2 != null) {
                if (DirChooserPanel3.this.tf.getText().trim().length() != 0) {
-                  File var3 = new File(var2.f.getParentFile(), DirChooserPanel3.this.tf.getText());
+                  File var3 = new NecroFile(var2.f.getParentFile(), DirChooserPanel3.this.tf.getText());
                   boolean var4 = var3.mkdir();
                   if (var4) {
                      DirChooserPanel3.this.refresh(var3);
@@ -269,7 +271,7 @@ public class DirChooserPanel3 extends JPanel {
       }
 
       for(int var4 = 0; var4 < var3.length; ++var4) {
-         File var5 = new File(var1, var3[var4]);
+         File var5 = new NecroFile(var1, var3[var4]);
          if (var5.isDirectory()) {
             var2.addElement(new DirChooserPanel3.Entity(var5));
          }

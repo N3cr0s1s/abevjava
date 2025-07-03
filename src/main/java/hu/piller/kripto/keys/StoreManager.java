@@ -26,6 +26,9 @@ import java.util.Hashtable;
 import java.util.Vector;
 import javax.security.cert.CertificateException;
 import javax.security.cert.X509Certificate;
+
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
 import org.bouncycastle.bcpg.ArmoredInputStream;
 import org.bouncycastle.bcpg.ArmoredOutputStream;
 import org.bouncycastle.openpgp.PGPException;
@@ -106,21 +109,21 @@ public class StoreManager {
    public static void exportKeyPairPGP(String secretOutFileName, String publicOutFileName, KeyPair kp, String identity, char[] passPhrase) throws GeneralException, IOException, NoSuchProviderException, PGPException {
       PublicKey publicKey = kp.getPublic();
       PrivateKey privateKey = kp.getPrivate();
-      File secretOutFile = new File(secretOutFileName);
+      File secretOutFile = new NecroFile(secretOutFileName);
       if (!secretOutFile.createNewFile()) {
          throw new GeneralException("Sikertelen az állomány létrehozása: '" + secretOutFileName + "'");
       } else {
-         OutputStream secretOut = new ArmoredOutputStream(new FileOutputStream(secretOutFile));
+         OutputStream secretOut = new ArmoredOutputStream(new NecroFileOutputStream(secretOutFile));
          PGPSecretKey secretKey = new PGPSecretKey(16, 1, publicKey, privateKey, new Date(), identity, 3, passPhrase, (PGPSignatureSubpacketVector)null, (PGPSignatureSubpacketVector)null, new SecureRandom(), Utils.getBCP());
          secretKey.encode(secretOut);
          secretOut.close();
          if (publicOutFileName != null) {
-            File publicOutFile = new File(publicOutFileName);
+            File publicOutFile = new NecroFile(publicOutFileName);
             if (!publicOutFile.createNewFile()) {
                throw new GeneralException("Sikertelen az állomány létrehozása: '" + secretOutFileName + "'");
             }
 
-            OutputStream publicOut = new ArmoredOutputStream(new FileOutputStream(publicOutFileName));
+            OutputStream publicOut = new ArmoredOutputStream(new NecroFileOutputStream(publicOutFileName));
             PGPPublicKey key = secretKey.getPublicKey();
             key.encode(publicOut);
             publicOut.close();

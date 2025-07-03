@@ -26,6 +26,8 @@ import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -120,20 +122,20 @@ public class DbCalculationLoader {
       try {
          URI var8 = new URI(this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
          String var9;
-         if ((new File((new File(var8.getPath())).getParent() + "/temp_pic/bg.gif")).exists()) {
-            var9 = (new File(var8.getPath())).getParent() + "/temp_pic/bg.gif";
+         if ((new NecroFile((new NecroFile(var8.getPath())).getParent() + "/temp_pic/bg.gif")).exists()) {
+            var9 = (new NecroFile(var8.getPath())).getParent() + "/temp_pic/bg.gif";
             var9 = var9.startsWith("/") ? "file:" + var9 : "file:/" + var9;
             PropertyList.getInstance().set("prop.const.db.pdf_gen.bgImage", var9);
          } else {
-            System.out.println("IMAGES - Ezt keresném, de nincs: " + (new File(var8.getPath())).getParent() + "/temp_pic/bg.gif");
+            System.out.println("IMAGES - Ezt keresném, de nincs: " + (new NecroFile(var8.getPath())).getParent() + "/temp_pic/bg.gif");
          }
 
-         if ((new File((new File(var8.getPath())).getParent() + "/temp_pic/navgenfejlec.png")).exists()) {
-            var9 = (new File(var8.getPath())).getParent() + "/temp_pic/navgenfejlec.png";
+         if ((new NecroFile((new NecroFile(var8.getPath())).getParent() + "/temp_pic/navgenfejlec.png")).exists()) {
+            var9 = (new NecroFile(var8.getPath())).getParent() + "/temp_pic/navgenfejlec.png";
             var9 = var9.startsWith("/") ? "file:" + var9 : "file:/" + var9;
             PropertyList.getInstance().set("prop.const.db.pdf_gen.nevGenFejlecImage", var9);
          } else {
-            System.out.println("IMAGES - Ezt keresném, de nincs: " + (new File(var8.getPath())).getParent() + "/temp_pic/navgenfejlec.png");
+            System.out.println("IMAGES - Ezt keresném, de nincs: " + (new NecroFile(var8.getPath())).getParent() + "/temp_pic/navgenfejlec.png");
          }
       } catch (URISyntaxException var23) {
          PropertyList.getInstance().set("prop.const.db.pdf_gen.bgImage", (Object)null);
@@ -420,7 +422,7 @@ public class DbCalculationLoader {
                return "Nem található megfelelő nyomtatványsablon (1): " + var4;
             }
 
-            var7 = new File(var10);
+            var7 = new NecroFile(var10);
          } catch (Exception var15) {
             Tools.exception2SOut(var15);
             return "Nem található megfelelő nyomtatványsablon (2): " + var1;

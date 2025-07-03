@@ -29,6 +29,9 @@ import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.xml.abev.element.CsatolmanyInfo;
 import hu.piller.xml.abev.element.DocMetaData;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -95,12 +98,12 @@ public class EbevTools {
          var6 = "";
       }
 
-      File var9 = new File(var6);
+      File var9 = new NecroFile(var6);
       if (!var9.exists()) {
-         var9 = new File(var7);
+         var9 = new NecroFile(var7);
          if (!var9.exists()) {
-            String var8 = Tools.getTempDir() + File.separator + (new File(var7)).getName();
-            var9 = new File(var8);
+            String var8 = Tools.getTempDir() + File.separator + (new NecroFile(var7)).getName();
+            var9 = new NecroFile(var8);
             if (!var9.exists()) {
                if (var5.get("attachment").equals("1")) {
                   if (var0.isAvdhModel()) {
@@ -177,7 +180,7 @@ public class EbevTools {
                var6 = var6.substring(0, var6.toLowerCase().indexOf(".frm.enyk")) + var2;
             }
 
-            var6 = PropertyList.USER_IN_FILENAME + (new File(var6)).getName();
+            var6 = PropertyList.USER_IN_FILENAME + (new NecroFile(var6)).getName();
             var7 = var9.save(var6, var3, true, var4, var5);
             if (!var7.isOk()) {
                return var7;
@@ -188,7 +191,7 @@ public class EbevTools {
                var6 = var6.substring(0, var6.toLowerCase().indexOf(".frm.enyk")) + var2;
             }
 
-            var6 = PropertyList.USER_IN_FILENAME + (new File(var6)).getName();
+            var6 = PropertyList.USER_IN_FILENAME + (new NecroFile(var6)).getName();
             var7 = var10.save(var6, var3, true, var4, var5);
             if (!var7.isOk()) {
                return var7;
@@ -382,15 +385,15 @@ public class EbevTools {
             var0 = var0.substring(0, var0.length() - ".frm.enyk".length());
 
             for(int var2 = 0; var2 < 3; ++var2) {
-               var1 = new File(var0 + "_" + var2 + "_p" + ".kr");
+               var1 = new NecroFile(var0 + "_" + var2 + "_p" + ".kr");
                var1.delete();
-               var1 = new File(var0 + "_" + var2 + "_p" + ".xml");
+               var1 = new NecroFile(var0 + "_" + var2 + "_p" + ".xml");
                var1.delete();
-               var1 = new File(var0 + "_" + var2 + "_p" + ".mf");
+               var1 = new NecroFile(var0 + "_" + var2 + "_p" + ".mf");
                var1.delete();
             }
          } else {
-            var1 = new File(var0);
+            var1 = new NecroFile(var0);
             var1.delete();
          }
       } catch (Exception var3) {
@@ -500,7 +503,7 @@ public class EbevTools {
 
       try {
          XsdChecker var11 = new XsdChecker();
-         File var4 = new File(var0);
+         File var4 = new NecroFile(var0);
          String var5 = var11.getEncoding(var4);
          var2 = var11._load(new FileInputStream(var4), var5);
          if (!var2.isOk()) {
@@ -539,7 +542,7 @@ public class EbevTools {
    public static String getFileEncoding(String var0) {
       try {
          XsdChecker var1 = new XsdChecker();
-         File var2 = new File(var0);
+         File var2 = new NecroFile(var0);
          return var1.getEncoding(var2);
       } catch (Exception var3) {
          return "utf-8";
@@ -631,7 +634,7 @@ public class EbevTools {
       try {
          String var1 = var0.cc.getLoadedfile().getAbsolutePath();
          var1 = var1.substring(0, var1.length() - ".frm.enyk".length());
-         File var2 = new File(var1);
+         File var2 = new NecroFile(var1);
          File[] var3 = var2.listFiles(new EbevTools.CSTFilenameFilter());
 
          for(int var4 = 0; var4 < var3.length; ++var4) {
@@ -679,12 +682,12 @@ public class EbevTools {
             var6 = "";
          }
 
-         File var9 = new File(var6);
+         File var9 = new NecroFile(var6);
          if (!var9.exists()) {
-            var9 = new File(var7);
+            var9 = new NecroFile(var7);
             if (!var9.exists()) {
-               String var8 = Tools.getTempDir() + File.separator + (new File(var7)).getName();
-               var9 = new File(var8);
+               String var8 = Tools.getTempDir() + File.separator + (new NecroFile(var7)).getName();
+               var9 = new NecroFile(var8);
                if (!var9.exists()) {
                   boolean var10 = checkRequiredAttrib(var0, var2);
                   if (var5.get("attachment").equals("1") && !var10) {
@@ -834,7 +837,7 @@ public class EbevTools {
             throw new Exception();
          }
 
-         if (!(new File(var1)).exists()) {
+         if (!(new NecroFile(var1)).exists()) {
             throw new Exception();
          }
 
@@ -847,9 +850,9 @@ public class EbevTools {
    }
 
    public static void copyFile(String var0, String var1, boolean var2) throws IOException {
-      File var3 = new File(var0);
+      File var3 = new NecroFile(var0);
       FileInputStream var4 = new FileInputStream(var3);
-      FileOutputStream var5 = new FileOutputStream(var1);
+      FileOutputStream var5 = new NecroFileOutputStream(var1);
       byte[] var6 = new byte[2048];
       boolean var7 = false;
 
@@ -907,12 +910,12 @@ public class EbevTools {
          var5 = "";
       }
 
-      File var8 = new File(var5);
+      File var8 = new NecroFile(var5);
       if (!var8.exists()) {
-         var8 = new File(var6);
+         var8 = new NecroFile(var6);
          if (!var8.exists()) {
-            String var7 = Tools.getTempDir() + File.separator + (new File(var6)).getName();
-            var8 = new File(var7);
+            String var7 = Tools.getTempDir() + File.separator + (new NecroFile(var6)).getName();
+            var8 = new NecroFile(var7);
             if (!var8.exists()) {
                try {
                   if (var4.get("attachment").equals("2")) {

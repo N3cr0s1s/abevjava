@@ -1,5 +1,7 @@
 package hu.piller.enykp.util.content;
 
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -201,7 +203,7 @@ public class ContentUtil {
       FileOutputStream var2 = null;
 
       try {
-         var2 = new FileOutputStream(var1);
+         var2 = new NecroFileOutputStream(var1);
          writeBytesToStream(var0, var2);
       } catch (IOException var11) {
          throw new ContentUtilException(var11.getMessage());
@@ -242,7 +244,7 @@ public class ContentUtil {
       FileOutputStream var2 = null;
 
       try {
-         var2 = new FileOutputStream(var1);
+         var2 = new NecroFileOutputStream(var1);
          writeBytesToStream(var0.getBytes(), var2);
       } catch (IOException var11) {
          throw new ContentUtilException(var11.getMessage());
@@ -263,7 +265,7 @@ public class ContentUtil {
       FileOutputStream var3 = null;
 
       try {
-         var3 = new FileOutputStream(var1);
+         var3 = new NecroFileOutputStream(var1);
          writeBytesToStream(var0.getBytes(var2), var3);
       } catch (UnsupportedEncodingException var13) {
          throw new ContentUtilException(var13.getMessage());

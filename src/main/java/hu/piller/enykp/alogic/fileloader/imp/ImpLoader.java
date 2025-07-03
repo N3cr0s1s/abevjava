@@ -22,6 +22,8 @@ import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -106,7 +108,7 @@ public class ImpLoader implements ILoadManager {
          if (this.load_type == 0) {
             ExtendedTemplateData var6 = TemplateChecker.getInstance().getTemplateFileNames(var2, var3, var4, PropertyList.getInstance().get("prop.dynamic.xml_loader_call") == null ? null : UpgradeFunction.CUST_IMP);
             String[] var7 = var6.getTemplateFileNames();
-            File var8 = new File(var7[0]);
+            File var8 = new NecroFile(var7[0]);
             var5 = new BookModel(var8);
             var5.setDisabledTemplate(var6.isTemplateDisaled());
             if (var5.errormsg == null) {
@@ -150,7 +152,7 @@ public class ImpLoader implements ILoadManager {
 
       try {
          if (this.load_type == 0) {
-            File var9 = new File(TemplateChecker.getInstance().getTemplateFileNames(var2, var3, var4).getTemplateFileNames()[0]);
+            File var9 = new NecroFile(TemplateChecker.getInstance().getTemplateFileNames(var2, var3, var4).getTemplateFileNames()[0]);
             var7 = new BookModel(var9);
             var8 = BlacklistStore.getInstance().isBiztipDisabled(this.getTemplateName(var7.getTemplateId()), var7.getOrgId());
             if (var7.errormsg == null) {
@@ -175,7 +177,7 @@ public class ImpLoader implements ILoadManager {
             this.loadImpFile(var1, var7);
             if (!this.getFormId().equals(var7.main_document_id)) {
                var7.addForm(var7.get(var7.main_document_id));
-               var5.insertElementAt(new File(var1), 0);
+               var5.insertElementAt(new NecroFile(var1), 0);
                var6.add(var1);
                var6.add(new TextWithIcon("    Nem megfelelő típusú állomány! Üres fő nyomtatvány létrehozása!", 4));
                var7.setDisabledTemplate(var8);

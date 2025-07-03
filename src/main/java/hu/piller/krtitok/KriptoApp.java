@@ -36,6 +36,9 @@ import java.util.List;
 import java.util.Properties;
 import java.util.PropertyResourceBundle;
 import java.util.Vector;
+
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
 import org.bouncycastle.crypto.BadPaddingException;
 import org.bouncycastle.crypto.Cipher;
 import org.bouncycastle.crypto.IllegalBlockSizeException;
@@ -357,7 +360,7 @@ public class KriptoApp {
 
                   String filePath = (String)args.get(index + 1);
                   if (!params[i].equals("-dest")) {
-                     if (!(new File(filePath)).exists()) {
+                     if (!(new NecroFile(filePath)).exists()) {
                         return exitCodes[i];
                      }
 
@@ -489,7 +492,7 @@ public class KriptoApp {
             bb.setPlainSrc(pin);
          }
 
-         fout = new FileOutputStream(destFile);
+         fout = new NecroFileOutputStream(destFile);
          bb.setDest(fout);
          if (zip) {
             deflator.start();
@@ -540,7 +543,7 @@ public class KriptoApp {
             bb.setPlainSrc(pin);
          }
 
-         fout = new FileOutputStream(destFile);
+         fout = new NecroFileOutputStream(destFile);
          bb.setDest(fout);
          if (recipients != null) {
             for(int k = 0; k < recipients.length; ++k) {
@@ -616,7 +619,7 @@ public class KriptoApp {
    public void decrypt(Key key, String srcFile, String destFile) throws GeneralException {
       try {
          FileInputStream fin = new FileInputStream(srcFile);
-         FileOutputStream fout = new FileOutputStream(destFile);
+         FileOutputStream fout = new NecroFileOutputStream(destFile);
          BoritekParser3 bp = new BoritekParser3(fin, fout, true);
          bp.setPrivateKey((PrivateKey)key);
 

@@ -23,6 +23,9 @@ import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.EJList;
 import hu.piller.enykp.util.base.errordialog.ErrorDialog;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
@@ -224,7 +227,7 @@ public class EperMainMohuPanel extends JDialog implements ActionListener, TableM
       this.jl.setPreferredSize(new Dimension(300, 30));
       this.openPanel.setFilters(new String[]{this.resFilter[this.filters.getSelectedIndex()]});
       this.rowMatch.put(6, "Küldésre megjelölt");
-      this.openPanel.setSelectedPath((new File(this.sp.dataPath)).toURI());
+      this.openPanel.setSelectedPath((new NecroFile(this.sp.dataPath)).toURI());
       this.openPanel.setMode("open_import", this.rowMatch);
       this.openPanel.setTitle("Nyomtatvány hozzáadása " + this.beauty(this.sp.dataPath));
       this.getContentPane().add(var9, "South");
@@ -260,7 +263,7 @@ public class EperMainMohuPanel extends JDialog implements ActionListener, TableM
          ((BasicFileChooserUI)this.fc.getUI()).setFileName("");
       } catch (ClassCastException var6) {
          try {
-            this.fc.setSelectedFile(new File(""));
+            this.fc.setSelectedFile(new NecroFile(""));
          } catch (Exception var5) {
             Tools.eLog(var5, 0);
          }
@@ -272,7 +275,7 @@ public class EperMainMohuPanel extends JDialog implements ActionListener, TableM
          ((BasicFileChooserUI)this.fc4Save.getUI()).setFileName("csoportos_muveletek_uzenetek.txt");
       } catch (ClassCastException var4) {
          try {
-            this.fc4Save.setSelectedFile(new File("csoportos_muveletek_uzenetek.txt"));
+            this.fc4Save.setSelectedFile(new NecroFile("csoportos_muveletek_uzenetek.txt"));
          } catch (Exception var3) {
             Tools.eLog(var3, 0);
          }
@@ -547,7 +550,7 @@ public class EperMainMohuPanel extends JDialog implements ActionListener, TableM
                   this.postHibaLista.add(new TextWithIcon("A nyomtatvány a " + var2[0].getFilingNumber() + " érkeztetési számot kapta. A továbbiakban ezen a számon hivatkozhat rá.\n", 3));
 
                   try {
-                     Ebev.log(4, new File(this.sp.sentPath + var2[0].getFileName()), "Érkeztetési szám: " + var2[0].getFilingNumber());
+                     Ebev.log(4, new NecroFile(this.sp.sentPath + var2[0].getFileName()), "Érkeztetési szám: " + var2[0].getFilingNumber());
                   } catch (Exception var8) {
                      try {
                         System.out.println("Figyelmeztetés! Nem sikerült a feladás naplózása. A nyomtatvány a " + var2[0].getFilingNumber() + " érkeztetési számot kapta");
@@ -666,7 +669,7 @@ public class EperMainMohuPanel extends JDialog implements ActionListener, TableM
             if (var15 != null && var15 instanceof Map) {
                var16 = (String)((Map)var15).get("krfilename");
                if (var16 != null && var16.trim().length() > 0) {
-                  var17 = new File(this.sp.destPath + var16);
+                  var17 = new NecroFile(this.sp.destPath + var16);
                   if (var17.exists()) {
                      var14.add(this.sp.destPath + var16);
                   }
@@ -716,7 +719,7 @@ public class EperMainMohuPanel extends JDialog implements ActionListener, TableM
 
          for(int var24 = 0; var24 < var14.size(); ++var24) {
             var16 = (String)var14.elementAt(var24);
-            var17 = new File(var16);
+            var17 = new NecroFile(var16);
             if (var17.length() > var10) {
                var3.add(((File)var13[0]).getAbsolutePath());
                var3.add(" - A dokumentum mérete meghaladja az " + var9 + "-ot. Ekkora állományt a Perkapu nem tud fogadni!");
@@ -904,7 +907,7 @@ public class EperMainMohuPanel extends JDialog implements ActionListener, TableM
                FileOutputStream var4 = null;
 
                try {
-                  var4 = new FileOutputStream(var3);
+                  var4 = new NecroFileOutputStream(var3);
 
                   for(int var5 = 0; var5 < this.logLista.getModel().getSize(); ++var5) {
                      if (this.logLista.getModel().getElementAt(var5) instanceof TextWithIcon) {
@@ -1002,25 +1005,25 @@ public class EperMainMohuPanel extends JDialog implements ActionListener, TableM
       Vector var2 = new Vector();
       String var3 = var1.getName().substring(0, var1.getName().toLowerCase().indexOf(".frm.enyk"));
       String var4 = this.sp.destPath + var3 + ".kr";
-      var1 = new File(var4);
+      var1 = new NecroFile(var4);
       if (var1.exists()) {
          var2.add(var4);
          return var2;
       } else {
          var4 = this.sp.destPath + var3 + "_0" + "_p" + ".kr";
-         var1 = new File(var4);
+         var1 = new NecroFile(var4);
          if (var1.exists()) {
             var2.add(var4);
          }
 
          var4 = this.sp.destPath + var3 + "_1" + "_p" + ".kr";
-         var1 = new File(var4);
+         var1 = new NecroFile(var4);
          if (var1.exists()) {
             var2.add(var4);
          }
 
          var4 = this.sp.destPath + var3 + "_2" + "_p" + ".kr";
-         var1 = new File(var4);
+         var1 = new NecroFile(var4);
          if (var1.exists()) {
             var2.add(var4);
          }
@@ -1096,7 +1099,7 @@ public class EperMainMohuPanel extends JDialog implements ActionListener, TableM
 
    private void initFcs() {
       this.fc = new EJFileChooser("MetalFileChooserUI$1");
-      this.fc.setCurrentDirectory(new File(this.sp.destPath));
+      this.fc.setCurrentDirectory(new NecroFile(this.sp.destPath));
       FileFilter[] var1 = this.fc.getChoosableFileFilters();
 
       for(int var2 = 0; var2 < var1.length; ++var2) {
@@ -1106,14 +1109,14 @@ public class EperMainMohuPanel extends JDialog implements ActionListener, TableM
       this.fc.setDialogTitle("kr fájl hozzáadás");
       this.fc4Save = new EJFileChooser();
       this.fc4Save.setDialogTitle("Lista mentése");
-      this.fc.setCurrentDirectory(new File(this.sp.destPath));
+      this.fc.setCurrentDirectory(new NecroFile(this.sp.destPath));
       this.fc.setMultiSelectionEnabled(true);
       this.fc.addChoosableFileFilter(this.krff);
       this.fc.setFileSelectionMode(0);
       enableChangeFolderButton(this.fc);
 
       try {
-         this.fc4Save.setCurrentDirectory(new File((String)PropertyList.getInstance().get("prop.usr.naplo")));
+         this.fc4Save.setCurrentDirectory(new NecroFile((String)PropertyList.getInstance().get("prop.usr.naplo")));
       } catch (Exception var6) {
          Tools.eLog(var6, 0);
       }
@@ -1122,7 +1125,7 @@ public class EperMainMohuPanel extends JDialog implements ActionListener, TableM
          ((BasicFileChooserUI)this.fc4Save.getUI()).setFileName("csoportos_muveletek_uzenetek.txt");
       } catch (ClassCastException var5) {
          try {
-            this.fc4Save.setSelectedFile(new File("csoportos_muveletek_uzenetek.txt"));
+            this.fc4Save.setSelectedFile(new NecroFile("csoportos_muveletek_uzenetek.txt"));
          } catch (Exception var4) {
             Tools.eLog(var4, 0);
          }

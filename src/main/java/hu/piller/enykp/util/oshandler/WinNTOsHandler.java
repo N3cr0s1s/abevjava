@@ -1,10 +1,10 @@
 package hu.piller.enykp.util.oshandler;
 
-public class winNTOsHandler extends defaultWindowsOsHandler {
+public class WinNTOsHandler extends DefaultWindowsOsHandler {
    protected String root_drive = null;
    protected String init_dir = null;
 
-   public winNTOsHandler() {
+   public WinNTOsHandler() {
       this.showDebugMessage(this.getClass().toString());
    }
 

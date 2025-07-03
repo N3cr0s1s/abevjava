@@ -1,6 +1,8 @@
 package hu.piller.enykp.alogic.templateutils.blacklist.provider;
 
 import hu.piller.enykp.util.base.ErrorList;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.net.URL;
 
@@ -11,7 +13,7 @@ public final class BlacklistProviderFactory {
       String var0 = System.getProperty("blacklist.path");
       Object var1 = null;
       if (var0 != null) {
-         var1 = new BlacklistProviderLocal(new File(var0));
+         var1 = new BlacklistProviderLocal(new NecroFile(var0));
       } else {
          try {
             URL var2 = new URL("https://nav.gov.hu/pfile/file?path=/nyomtatvanyok/letoltesek/blacklist.xml");

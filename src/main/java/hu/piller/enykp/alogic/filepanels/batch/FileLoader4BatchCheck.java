@@ -2,6 +2,8 @@ package hu.piller.enykp.alogic.filepanels.batch;
 
 import hu.piller.enykp.alogic.fileloader.xml.XmlLoader;
 import hu.piller.enykp.gui.model.BookModel;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -20,7 +22,7 @@ public class FileLoader4BatchCheck implements Loader4BatchCheck {
 
    public BookModel superLoad(BookModel var1, String var2) {
       XmlLoader var3 = new XmlLoader();
-      Hashtable var4 = this.loadHeadData(new File(var2), var3);
+      Hashtable var4 = this.loadHeadData(new NecroFile(var2), var3);
 
       Hashtable var5;
       try {
@@ -60,7 +62,7 @@ public class FileLoader4BatchCheck implements Loader4BatchCheck {
    }
 
    public int createList(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       if (!var2.exists()) {
          return 1;
       } else {

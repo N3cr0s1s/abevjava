@@ -11,6 +11,8 @@ import hu.piller.enykp.gui.model.FormModel;
 import hu.piller.enykp.gui.model.PageModel;
 import hu.piller.enykp.interfaces.IErrorList;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.util.Arrays;
@@ -49,7 +51,7 @@ public class ABEVLoggerBusiness {
             acquireDynamicInfos(var0.getBookModel());
             Object var2 = var0.getProperty("prop.usr.root");
             Object var3 = var0.getProperty("prop.usr.saves");
-            var4 = new File(var2 == null ? "." : var2.toString(), var3 == null ? "" : var3.toString());
+            var4 = new NecroFile(var2 == null ? "." : var2.toString(), var3 == null ? "" : var3.toString());
             var2 = var0.getProperty("prop.dynamic.opened_file");
             if (var2 == null) {
                try {
@@ -59,9 +61,9 @@ public class ABEVLoggerBusiness {
                }
             }
 
-            File var5 = new File(var2 == null ? "." + File.separator + form_id : var2.toString());
+            File var5 = new NecroFile(var2 == null ? "." + File.separator + form_id : var2.toString());
             if (!var4.getPath().equalsIgnoreCase(var5.getParent())) {
-               var1 = new File(var4, var5.getName());
+               var1 = new NecroFile(var4, var5.getName());
             } else {
                var1 = var5.getPath();
             }
@@ -74,7 +76,7 @@ public class ABEVLoggerBusiness {
             String var7 = var6 + "_";
             var6 = var7 + "1" + ".txt";
             log_file_filter.setFileNameStart(var7);
-            File[] var8 = (new File(var4 == null ? "." : var4.getPath())).listFiles(log_file_filter);
+            File[] var8 = (new NecroFile(var4 == null ? "." : var4.getPath())).listFiles(log_file_filter);
             if (var8.length > 0) {
                log_file_comparator.setFileNameStart(var7);
                Arrays.sort(var8, log_file_comparator);
@@ -91,7 +93,7 @@ public class ABEVLoggerBusiness {
             var6 = var6 + ".txt";
          }
 
-         ABEVLogger.open(new File(var6));
+         ABEVLogger.open(new NecroFile(var6));
          System.out.println(">ABEVLog: " + var6);
          opened = new Object();
          return opened;

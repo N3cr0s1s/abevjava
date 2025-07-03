@@ -6,6 +6,8 @@ import hu.piller.enykp.interfaces.IOsHandler;
 import hu.piller.enykp.niszws.util.KauAuthHelper;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.oshandler.OsFactory;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -167,12 +169,12 @@ public class AVDHQuestionDialog extends JDialog implements ActionListener, Windo
       try {
          File var3;
          try {
-            var3 = new File(SettingsStore.getInstance().get("gui", "internet_browser"));
+            var3 = new NecroFile(SettingsStore.getInstance().get("gui", "internet_browser"));
             if (!var3.exists()) {
                throw new Exception();
             }
          } catch (Exception var5) {
-            var3 = new File(var2.getSystemBrowserPath());
+            var3 = new NecroFile(var2.getSystemBrowserPath());
          }
 
          var2.execute(var3.getName() + " " + var1, (String[])null, var3.getParentFile());

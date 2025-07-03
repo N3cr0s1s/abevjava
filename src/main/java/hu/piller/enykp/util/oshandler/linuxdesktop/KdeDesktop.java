@@ -1,12 +1,14 @@
 package hu.piller.enykp.util.oshandler.linuxdesktop;
 
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.util.Vector;
 
-public class KdeDesktop extends defaultLinuxDesktopHandler {
+public class KdeDesktop extends DefaultLinuxDesktopHandler {
    public File getDesktopPath() {
       try {
-         File var1 = new File(System.getProperty("user.home") + File.separator + ".local/share/applications");
+         File var1 = new NecroFile(System.getProperty("user.home") + File.separator + ".local/share/applications");
          if (var1.exists() && var1.isDirectory() && var1.canWrite()) {
             return var1;
          }

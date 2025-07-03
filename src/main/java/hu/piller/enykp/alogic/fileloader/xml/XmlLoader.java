@@ -36,6 +36,8 @@ import java.util.Hashtable;
 import java.util.Vector;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.InputSource;
@@ -335,14 +337,14 @@ public class XmlLoader implements ILoadManager {
          ExtendedTemplateData var7 = new ExtendedTemplateData(var2, var4);
 
          try {
-            File var8 = new File(var1);
+            File var8 = new NecroFile(var1);
             if (var2 == null) {
                var6.errormsg = "Nincs nyomtatványazonosító az xml állományban!";
                return var6;
             } else {
                var7 = TemplateChecker.getInstance().getTemplateFileNames(var2, var3, var4);
                String[] var9 = var7.getTemplateFileNames();
-               File var10 = new File(var9[0]);
+               File var10 = new NecroFile(var9[0]);
                if (!var10.exists()) {
                   var6.errormsg = var9[2];
                   return var6;
@@ -486,7 +488,7 @@ public class XmlLoader implements ILoadManager {
       ExtendedTemplateData var7 = new ExtendedTemplateData(var2, var4);
 
       try {
-         File var8 = new File(var1);
+         File var8 = new NecroFile(var1);
          if (var2 == null) {
             var6.errormsg = "Nincs nyomtatványazonosító az xml állományban!";
             return var6;
@@ -499,7 +501,7 @@ public class XmlLoader implements ILoadManager {
             if (var5 && PropertyList.getInstance().get("prop.dynamic.importOne") == null) {
                var7 = TemplateChecker.getInstance().getTemplateFileNames(var2, var3, var4, PropertyList.getInstance().get("prop.dynamic.xml_loader_call") == null ? null : (UpgradeFunction)PropertyList.getInstance().get("prop.dynamic.xml_loader_call"));
                String[] var10 = var7.getTemplateFileNames();
-               var9 = new File(var10[0]);
+               var9 = new NecroFile(var10[0]);
             } else {
                TemplateChecker.getInstance().setGetTemplateIfHavent(0);
                var7 = TemplateChecker.getInstance().getTemplateFilenameWithDialog(var2, var3, var4, UpgradeFunction.OPEN);
@@ -544,6 +546,7 @@ public class XmlLoader implements ILoadManager {
             }
          }
       } catch (Exception var11) {
+         var11.printStackTrace();
          var6.errormsg = var11.getMessage();
          if (var7.isTemplateDisaled()) {
             TemplateUtils.getInstance().handleDisabledTemplates(var7.getTemplateId(), var7.getOrgId());

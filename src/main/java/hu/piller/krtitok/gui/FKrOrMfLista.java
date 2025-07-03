@@ -5,6 +5,8 @@ import hu.piller.tools.TableSorter;
 import hu.piller.xml.FinishException;
 import hu.piller.xml.abev.element.DocMetaData;
 import hu.piller.xml.abev.parser.BoritekParser3;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -69,17 +71,17 @@ public class FKrOrMfLista extends JDialog {
       this.initComponents();
       if (krOrMf.equalsIgnoreCase("kr")) {
          this.setTitle("Titkosított állományok");
-         this.setPath(new File(this.path = KriptoApp.getKRDIR_LETOLTOTT()));
+         this.setPath(new NecroFile(this.path = KriptoApp.getKRDIR_LETOLTOTT()));
       } else {
          this.setTitle("Metaállományok");
-         this.setPath(new File(this.path = KriptoApp.getKRDIR_TITKOSITATLAN()));
+         this.setPath(new NecroFile(this.path = KriptoApp.getKRDIR_TITKOSITATLAN()));
       }
 
    }
 
    private void setPath(File file) {
       if (!file.exists()) {
-         file = new File(file.getParent());
+         file = new NecroFile(file.getParent());
       }
 
       this.path = file.getPath();
@@ -89,8 +91,8 @@ public class FKrOrMfLista extends JDialog {
    }
 
    private void loadFiles(String fileName) {
-      this.files = new File[0];
-      File file = new File(fileName);
+      this.files = new NecroFile[0];
+      File file = new NecroFile(fileName);
       if (file.isDirectory()) {
          this.files = file.listFiles(new FilenameFilter() {
             public boolean accept(File dir, String name) {
@@ -102,7 +104,7 @@ public class FKrOrMfLista extends JDialog {
             }
          });
       } else if (this.mukodesiMod.equalsIgnoreCase("kr") && fileName.endsWith(".kr") || this.mukodesiMod.equalsIgnoreCase("mf") && fileName.endsWith(".mf")) {
-         this.files = new File[1];
+         this.files = new NecroFile[1];
          this.files[0] = file;
       }
 

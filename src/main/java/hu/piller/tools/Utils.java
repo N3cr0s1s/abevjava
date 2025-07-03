@@ -28,6 +28,9 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.StringTokenizer;
 import java.util.Vector;
+
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 public class Utils {
@@ -50,7 +53,7 @@ public class Utils {
 
    public static long writeBlobToFile(Blob blob, String outFile) throws IOException, SQLException {
       long wrote = 0L;
-      OutputStream fwriter = new FileOutputStream(outFile);
+      OutputStream fwriter = new NecroFileOutputStream(outFile);
       wrote = readFromBlob(blob, fwriter);
       fwriter.close();
       return wrote;
@@ -144,7 +147,7 @@ public class Utils {
    }
 
    public static int testFile(String fileName, boolean has2write) {
-      File f = new File(fileName);
+      File f = new NecroFile(fileName);
       if (has2write) {
          if (!f.exists()) {
             try {
@@ -391,7 +394,7 @@ public class Utils {
       byte[] buffer = null;
       if ((long)size <= maxFileSize) {
          Random rand = new Random();
-         FileOutputStream fos = new FileOutputStream(destName);
+         FileOutputStream fos = new NecroFileOutputStream(destName);
          if (size <= bufSize) {
             buffer = new byte[size];
             rand.nextBytes(buffer);

@@ -12,6 +12,9 @@ import hu.piller.tools.Utils;
 import hu.piller.tools.bzip2.DeflatorThread;
 import hu.piller.xml.abev.BoritekBuilder;
 import hu.piller.xml.abev.element.DocMetaData;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -106,7 +109,7 @@ public class Enigma {
             var12.setPlainSrc(var9);
          }
 
-         var11 = new FileOutputStream(var3);
+         var11 = new NecroFileOutputStream(var3);
          var12.setDest(var11);
          if (var5) {
             var7.start();
@@ -188,7 +191,7 @@ public class Enigma {
 
    private StoreWrapper getUserPKIData() throws Exception {
       String var1 = System.getProperty("user.home") + File.separator + ".krtitok.ini";
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       if (!var2.exists()) {
          ErrorList.getInstance().writeError(new Long(4001L), "A .krtitok.ini fájl nem létezik. A titkosítást csak a szervezet publikus kulcsával végezzük el!", IErrorList.LEVEL_WARNING, (Exception)null, (Object)null);
          return null;
@@ -197,7 +200,7 @@ public class Enigma {
          if (var3 == null) {
             return null;
          } else {
-            var2 = new File(var3);
+            var2 = new NecroFile(var3);
             if (!var2.exists()) {
                ErrorList.getInstance().writeError(new Long(4001L), "A .krtitok.ini fájlban megadott publikus kulcsot tartalmazó fájl nem létezik: " + var3, (Exception)null, (Object)null);
                throw new Exception("A .krtitok.ini fájlban megadott publikus kulcsot tartalmazó fájl nem létezik: " + var3);

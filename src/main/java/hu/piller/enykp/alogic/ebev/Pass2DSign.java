@@ -13,6 +13,9 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.xml.abev.element.DocMetaData;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -92,7 +95,7 @@ public class Pass2DSign {
                   }
 
                   if (var5.size() > 0) {
-                     var5 = EbevTools.createCstFile(this.bookModel, this.bookModel.main_document_id, var5, new File(var3), 0);
+                     var5 = EbevTools.createCstFile(this.bookModel, this.bookModel.main_document_id, var5, new NecroFile(var3), 0);
                   }
                }
 
@@ -234,7 +237,7 @@ public class Pass2DSign {
          throw new Exception();
       } else {
          byte[] var7 = EbevTools.getCertBytes((String)var1.docinfo.get("org"));
-         FileOutputStream var8 = new FileOutputStream(var2);
+         FileOutputStream var8 = new NecroFileOutputStream(var2);
 
          try {
             var8.write(("<?xml version=\"1.0\" encoding=\"ISO-8859-2\"?>\n<abev:Boritek xmlns:abev='http://iop.gov.hu/2006/01/boritek'>\n<abev:Fejlec>\n  <abev:Cimzett>" + var6 + "</abev:Cimzett>\n" + "  <abev:DokTipusAzonosito>" + var3.getDokTipusAzonosito() + "</abev:DokTipusAzonosito>\n" + "  <abev:DokTipusLeiras>" + var3.getDokTipusLeiras() + "</abev:DokTipusLeiras>\n" + "  <abev:DokTipusVerzio>" + var3.getDokTipusVerzio() + "</abev:DokTipusVerzio>\n" + "  <abev:FileNev>" + PropertyList.USER_IN_FILENAME + var3.getFileNev() + "</abev:FileNev>\n" + "  <abev:Megjegyzes>" + var3.getMegjegyzes() + "</abev:Megjegyzes>\n" + this.getParamLista(var3.getParamList()) + this.getCsatolmanyInfo(var4) + "\n</abev:Fejlec>\n" + "<abev:CimzettNyilvanosKulcs>\n").getBytes("ISO-8859-2"));
@@ -295,7 +298,7 @@ public class Pass2DSign {
          if (var2.isOk()) {
             if (this.bookModel.splitesaver.equals("true")) {
                for(int var3 = 0; var3 < var2.errorList.size(); ++var3) {
-                  Result var4 = EbevTools.checkXSD((new File(var1)).getParent() + File.separator + var2.errorList.elementAt(var3));
+                  Result var4 = EbevTools.checkXSD((new NecroFile(var1)).getParent() + File.separator + var2.errorList.elementAt(var3));
                   var2.setOk(var2.isOk() && var4.isOk());
                }
             } else {

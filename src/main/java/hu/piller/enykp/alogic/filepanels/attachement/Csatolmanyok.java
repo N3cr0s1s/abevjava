@@ -19,6 +19,9 @@ import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.oshandler.OsFactory;
 import hu.piller.tools.TableSorter;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -147,7 +150,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
                Object var4 = var2.nextElement();
 
                try {
-                  File var5 = new File((String)Csatolmanyok.this.pdf4Signers.get(var4));
+                  File var5 = new NecroFile((String)Csatolmanyok.this.pdf4Signers.get(var4));
                   var5.delete();
                } catch (Exception var6) {
                   var3 = false;
@@ -325,7 +328,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
             var2 = var3.substring(var3.lastIndexOf(".") + 1);
             var3 = "\"" + var3 + "\"";
             if (Csatolmanyok.this.setAttachment != null && Csatolmanyok.this.setAttachment.containsKey(var2)) {
-               File var4 = new File((String)Csatolmanyok.this.setAttachment.get(var2));
+               File var4 = new NecroFile((String)Csatolmanyok.this.setAttachment.get(var2));
                Csatolmanyok.this.execute(var4.getParentFile(), var4.getName() + " " + var3);
             } else {
                Csatolmanyok.this.execute((File)null, var3);
@@ -359,7 +362,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
                   return;
                }
 
-               Csatolmanyok.this.execute((new File(var4)).getParentFile(), var4);
+               Csatolmanyok.this.execute((new NecroFile(var4)).getParentFile(), var4);
             } catch (Exception var5) {
                GuiUtil.showMessageDialog(Csatolmanyok.this.getParent(), "Nem sikerült megjeleníteni az aláírókat.", "Csatolmányok kezelése", 1);
             }
@@ -602,7 +605,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
 
                var2 = var5.save(var2, -1).getAbsolutePath();
                if (var2 != null) {
-                  this.bookModel.cc.setLoadedfile(new File(var2));
+                  this.bookModel.cc.setLoadedfile(new NecroFile(var2));
                }
 
                var4 = true;
@@ -614,7 +617,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
                      EnykInnerSaver var9 = new EnykInnerSaver(this.bookModel);
                      var2 = var9.save(var2, -1).getAbsolutePath();
                      if (var2 != null) {
-                        this.bookModel.cc.setLoadedfile(new File(var2));
+                        this.bookModel.cc.setLoadedfile(new NecroFile(var2));
                      }
 
                      var4 = true;
@@ -626,7 +629,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
                }
             }
 
-            if (var2 != null && (new File(var2)).exists()) {
+            if (var2 != null && (new NecroFile(var2)).exists()) {
                return var2;
             } else {
                throw new IOException("A nyomtatvány mentése sikertelen !");
@@ -714,7 +717,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
          ((BasicFileChooserUI)this.fc.getUI()).setFileName("");
       } catch (ClassCastException var11) {
          try {
-            this.fc.setSelectedFile(new File(""));
+            this.fc.setSelectedFile(new NecroFile(""));
          } catch (Exception var10) {
             Tools.eLog(var10, 0);
          }
@@ -845,10 +848,10 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
       while(var3.hasNext()) {
          var4 = (File)var3.next();
          var5 = var4.getAbsolutePath().substring(0, var4.getAbsolutePath().length() - ".anyk.ASiC".length()) + ".ASiC";
-         if (!var4.renameTo(new File(var5))) {
+         if (!var4.renameTo(new NecroFile(var5))) {
             var1 = false;
          } else {
-            var2.add(new File(var5));
+            var2.add(new NecroFile(var5));
          }
       }
 
@@ -858,7 +861,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
          while(var3.hasNext()) {
             var4 = (File)var3.next();
             var5 = var4.getAbsolutePath().substring(0, var4.getAbsolutePath().length() - ".asic".length()) + ".anyk.ASiC";
-            var4.renameTo(new File(var5));
+            var4.renameTo(new NecroFile(var5));
          }
       } else {
          for(var3 = var2.iterator(); var3.hasNext(); this.attachedFileSize += var4.length()) {
@@ -885,10 +888,10 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
       while(var3.hasNext()) {
          var4 = (File)var3.next();
          var5 = var4.getAbsolutePath().substring(0, var4.getAbsolutePath().length() - ".urlap.anyk.xml".length()) + ".xml";
-         if (!var4.renameTo(new File(var5))) {
+         if (!var4.renameTo(new NecroFile(var5))) {
             var1 = false;
          } else {
-            var2.add(new File(var5));
+            var2.add(new NecroFile(var5));
          }
       }
 
@@ -898,7 +901,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
          while(var3.hasNext()) {
             var4 = (File)var3.next();
             var5 = var4.getAbsolutePath().substring(0, var4.getAbsolutePath().length() - ".xml".length()) + ".urlap.anyk.xml";
-            var4.renameTo(new File(var5));
+            var4.renameTo(new NecroFile(var5));
          }
       } else {
          for(var3 = var2.iterator(); var3.hasNext(); this.attachedFileSize += var4.length()) {
@@ -930,7 +933,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
          if (this.fileTable.getSelectedRows().length > 0) {
             if (JOptionPane.showOptionDialog(this, "Biztosan törli a kijelölt fájlokat a listából?", "Csatolmányok kezelése", 0, 3, (Icon)null, PropertyList.igenNem, PropertyList.igenNem[0]) == 0) {
                for(int var1 = this.fileTable.getSelectedRows().length; var1 > 0; --var1) {
-                  this.deleteCountAndLength((String)this.fileTableModel.getValueAt(this.fileTable.getSelectedRows()[var1 - 1], 2), new File((String)this.fileTableModel.getValueAt(this.fileTable.getSelectedRows()[var1 - 1], 0)));
+                  this.deleteCountAndLength((String)this.fileTableModel.getValueAt(this.fileTable.getSelectedRows()[var1 - 1], 2), new NecroFile((String)this.fileTableModel.getValueAt(this.fileTable.getSelectedRows()[var1 - 1], 0)));
                   this.fileTableModel.removeRow(this.fileTable.getSelectedRows()[var1 - 1]);
                }
 
@@ -940,7 +943,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
             GuiUtil.showMessageDialog(this, "Nincs kijelölt fájl.", "Csatolmányok kezelése", 1);
          }
       } else if (JOptionPane.showOptionDialog(this, "Biztosan törli a fájlt a listából?", "Csatolmányok kezelése", 0, 3, (Icon)null, PropertyList.igenNem, PropertyList.igenNem[0]) == 0) {
-         this.deleteCountAndLength((String)this.fileTableModel.getValueAt(0, 2), new File((String)this.fileTableModel.getValueAt(0, 0)));
+         this.deleteCountAndLength((String)this.fileTableModel.getValueAt(0, 2), new NecroFile((String)this.fileTableModel.getValueAt(0, 0)));
          this.fileTableModel.removeRow(0);
          this.allAttachementSize = 0L;
       }
@@ -985,7 +988,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
          String[] var4 = ((String)var1.get(var3)).split(";");
 
          try {
-            File var5 = new File(var4[0]);
+            File var5 = new NecroFile(var4[0]);
             if (var5.exists()) {
                try {
                   if (!this.AVDH || !var4[0].toLowerCase().endsWith(".anyk.ASiC".toLowerCase()) && !"Hitelesített csatolmány lenyomat".equalsIgnoreCase(var4[2])) {
@@ -1055,7 +1058,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
       if (var3 == null) {
          return var1;
       } else {
-         File var4 = new File(var3);
+         File var4 = new NecroFile(var3);
          BufferedReader var5 = null;
          boolean var6 = true;
 
@@ -1119,7 +1122,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
          if (var3.length() <= 0 || JOptionPane.showOptionDialog(this, "Az alábbi hibák miatt a nyomtatványt így nem fogja tudni feladni!\nFolytassuk a műveletet?\n\n" + var3.toString(), "Csatolmányok kezelése", 0, 3, (Icon)null, PropertyList.igenNem, PropertyList.igenNem[0]) != 1) {
             if (this.fileTable.getRowCount() == 0) {
                boolean var13 = true;
-               File var14 = new File(var1);
+               File var14 = new NecroFile(var1);
                if (var14.exists()) {
                   try {
                      if (!this.deleteAllAttachement()) {
@@ -1136,7 +1139,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
                   }
                }
 
-               var14 = new File(var2);
+               var14 = new NecroFile(var2);
                if (var14.exists() && !var14.delete()) {
                   GuiUtil.showMessageDialog(this, "Nem sikerült a " + var2 + " fájl törlése, kérem törölje más módon!", "Csatolmányok kezelése", 0);
                   var13 = false;
@@ -1195,7 +1198,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
                FileOutputStream var6 = null;
 
                try {
-                  var6 = new FileOutputStream(var1);
+                  var6 = new NecroFileOutputStream(var1);
                   var6.write("encoding=utf-8\n".getBytes("utf-8"));
                   int var7 = 0;
 
@@ -1226,7 +1229,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
                   Tools.eLog(var11, 0);
                }
 
-               this.simpleLoadAtcFile(new File(var1));
+               this.simpleLoadAtcFile(new NecroFile(var1));
                this.innerSaveAfterAttach();
                GuiUtil.showMessageDialog(this, "A csatolást sikeresen befejeztük.", "Csatolmányok kezelése", 1);
                this.closeThis();
@@ -1263,7 +1266,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
          for(int var4 = 0; var4 < this.bookModel.forms.size(); ++var4) {
             FormModel var5 = (FormModel)this.bookModel.forms.get(var4);
             String var6 = var3 + "_" + var5.name + ".atc";
-            File var7 = new File(var6);
+            File var7 = new NecroFile(var6);
             int var8 = 0;
 
             try {
@@ -1315,12 +1318,12 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
       }
 
       if (!this.isTheSameFile(var6 + var4, var1)) {
-         File var7 = new File("");
+         File var7 = new NecroFile("");
 
          while(this.fileAlreadyAttached(var4) && !this.overwrite) {
             var4 = this.showRenameDialog(var4);
             if (var4 != null) {
-               var7 = new File(var6 + var4);
+               var7 = new NecroFile(var6 + var4);
             } else {
                var7 = null;
             }
@@ -1333,10 +1336,10 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
          }
 
          FileInputStream var8 = new FileInputStream(var1);
-         File var9 = new File(var6 + var4);
+         File var9 = new NecroFile(var6 + var4);
          var9.getParentFile().mkdirs();
          System.out.println("csatolmány másolása ide: " + var9);
-         FileOutputStream var10 = new FileOutputStream(var9);
+         FileOutputStream var10 = new NecroFileOutputStream(var9);
          byte[] var11 = new byte[2048];
 
          int var12;
@@ -1379,14 +1382,14 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
    }
 
    private boolean isTheSameFile(String var1, String var2) {
-      return (new File(var1)).getAbsolutePath().equalsIgnoreCase((new File(var2)).getAbsolutePath());
+      return (new NecroFile(var1)).getAbsolutePath().equalsIgnoreCase((new NecroFile(var2)).getAbsolutePath());
    }
 
    private boolean fileAlreadyAttached(String var1) {
       String[] var2 = AttachementTool.getAtcPaths(this.bookModel);
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
-         File var4 = new File(attachPath + var2[var3] + var1);
+         File var4 = new NecroFile(attachPath + var2[var3] + var1);
          if (var4.exists()) {
             return true;
          }
@@ -1524,48 +1527,48 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
 
    private String getRightATCFilename(String var1) {
       String var2 = fileNev.substring(0, fileNev.toLowerCase().indexOf(var1)) + "_" + this.bookModel.get_formid() + ".atc";
-      File var3 = new File(var2);
+      File var3 = new NecroFile(var2);
       if (var3.exists()) {
          return var2;
       } else {
          var2 = attachPath + "tmp" + File.separator + var3.getName();
-         var3 = new File(var2);
+         var3 = new NecroFile(var2);
          if (var3.exists()) {
             return var2;
          } else {
             var2 = fileNev.substring(0, fileNev.toLowerCase().indexOf(var1)) + ".atc";
-            var3 = new File(var2);
+            var3 = new NecroFile(var2);
             if (var3.exists()) {
                return var2;
             } else {
                var2 = attachPath + "tmp" + File.separator + var3.getName();
-               var3 = new File(var2);
+               var3 = new NecroFile(var2);
                if (var3.exists()) {
                   return var2;
                } else {
                   var2 = fileNev.substring(0, fileNev.toLowerCase().indexOf(var1)) + "_" + (this.bookModel.splitesaver.equals("true") ? this.bookModel.get_formid() : this.bookModel.get_main_formmodel().name) + ".xml_csatolmanyai" + File.separator + var3.getName();
-                  var3 = new File(var2);
+                  var3 = new NecroFile(var2);
                   if (var3.exists()) {
                      return var2;
                   } else {
                      var2 = attachPath + "tmp" + File.separator + var3.getName().substring(0, var3.getName().toLowerCase().indexOf(".atc")) + "_" + this.bookModel.get(((Elem)this.bookModel.cc.getActiveObject()).getType()).name;
-                     var3 = new File(var2);
+                     var3 = new NecroFile(var2);
                      var2 = var2 + ".xml_csatolmanyai" + File.separator + var3.getName() + ".atc";
-                     var3 = new File(var2);
+                     var3 = new NecroFile(var2);
                      if (var3.exists()) {
                         return var2;
                      } else {
                         var2 = fileNev.substring(0, fileNev.toLowerCase().indexOf(var1));
-                        var3 = new File(var2);
+                        var3 = new NecroFile(var2);
                         var2 = var2 + ".xml_csatolmanyai" + File.separator + var3.getName() + ".atc";
-                        var3 = new File(var2);
+                        var3 = new NecroFile(var2);
                         if (var3.exists()) {
                            return var2;
                         } else {
                            var2 = attachPath + "tmp" + File.separator + var3.getName();
-                           var3 = new File(var2);
+                           var3 = new NecroFile(var2);
                            var2 = var2 + ".xml_csatolmanyai" + File.separator + var3.getName();
-                           var3 = new File(var2);
+                           var3 = new NecroFile(var2);
                            return var3.exists() ? var2 : null;
                         }
                      }
@@ -1588,7 +1591,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
    }
 
    private File[] getDirList(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       return var2.exists() && var2.isDirectory() ? var2.listFiles() : null;
    }
 
@@ -1683,7 +1686,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
          }
       }
 
-      File var7 = new File(var2);
+      File var7 = new NecroFile(var2);
       var7.delete();
 
       try {
@@ -1711,7 +1714,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
 
    private void handleAvdhColorsInInnerfile() {
       for(int var1 = 0; var1 < this.fileTableModel.getRowCount(); ++var1) {
-         File var2 = new File(this.fileTableModel.getValueAt(var1, 0).toString() + ".anyk.ASiC");
+         File var2 = new NecroFile(this.fileTableModel.getValueAt(var1, 0).toString() + ".anyk.ASiC");
          if (var2.exists()) {
             ((DefaultTableCellRenderer)this.fileTable.getCellRenderer(var1, 0)).setForeground(Color.BLUE);
             this.hasAVDHFile = true;
@@ -1735,7 +1738,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
    private void handleSigners(String var1, int var2) {
       AsicPdfHandler var3 = new AsicPdfHandler();
       String var4 = var1 + ".anyk.ASiC";
-      if ((new File(var4)).exists()) {
+      if ((new NecroFile(var4)).exists()) {
          Result var5 = var3.getSigners(var4);
          String var6 = "-";
          if (var5.isOk()) {
@@ -1901,7 +1904,7 @@ public class Csatolmanyok extends JDialog implements TableModelListener, ItemLis
          if (var1.getClickCount() == 2 && !Csatolmanyok.this.readOnly) {
             if (Csatolmanyok.this.fileTable.getSelectedColumn() == 3) {
                String var2 = (String)Csatolmanyok.this.pdf4Signers.get(Csatolmanyok.this.fileTable.getValueAt(Csatolmanyok.this.fileTable.getSelectedRow(), 0));
-               Csatolmanyok.this.execute((new File(var2)).getParentFile(), var2);
+               Csatolmanyok.this.execute((new NecroFile(var2)).getParentFile(), var2);
             } else {
                Csatolmanyok.this.showNoteInputDialog();
             }

@@ -11,6 +11,8 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.Version;
 import hu.piller.enykp.util.base.eventsupport.CloseEvent;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -112,7 +114,7 @@ public class FormArchiver implements ICommandObject {
    private void prepare() {
       this.be = new FormArchiver.ButtonActions(this.file_panel);
       this.business.setButtonExecutor(this.be);
-      this.business.setSelectedPath(new File(this.getProperty("prop.dynamic.templates.absolutepath")));
+      this.business.setSelectedPath(new NecroFile(this.getProperty("prop.dynamic.templates.absolutepath")));
       this.update_skin[4] = this.file_panel;
    }
 
@@ -276,7 +278,7 @@ public class FormArchiver implements ICommandObject {
             Thread var6 = new Thread(new Runnable() {
                public void run() {
                   int var1x = 0;
-                  File var2x = new File((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
+                  File var2x = new NecroFile((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
 
                   for(int var3 = 0; var3 < var1.size(); ++var3) {
                      try {
@@ -358,7 +360,7 @@ public class FormArchiver implements ICommandObject {
 
                      ListItem var2 = (ListItem)var1.get(var1x);
                      File var3 = (File)var2.getItem();
-                     File var4 = new File((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
+                     File var4 = new NecroFile((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
                      boolean var5 = Tools.zipFile(var3.getAbsolutePath(), var4.getAbsolutePath(), ".tem_enyk_zip") == 0;
                      if (var5) {
                         var3.delete();
@@ -479,7 +481,7 @@ public class FormArchiver implements ICommandObject {
                      var10 = (String)var7x.get("id");
                      var11 = (String)var7x.get("ver");
                      if (var8.equals(var5) && var10.equals(var7) && var9.equals(var6) && !var3.equals(var11)) {
-                        File var12 = new File((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
+                        File var12 = new NecroFile((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
                         boolean var13 = Tools.zipFile(var6x.getAbsolutePath(), var12.getAbsolutePath(), ".tem_enyk_zip") == 0;
                         if (var13) {
                            var6x.delete();
@@ -564,7 +566,7 @@ public class FormArchiver implements ICommandObject {
                      String var7x = (String)var5x.get("name");
                      String var8 = (String)var5x.get("id");
                      if (var6x.equals(var5) && var8.equals(var7) && var7x.equals(var6)) {
-                        File var9 = new File((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
+                        File var9 = new NecroFile((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
                         boolean var10 = Tools.zipFile(var4.getAbsolutePath(), var9.getAbsolutePath(), ".tem_enyk_zip") == 0;
                         if (var10) {
                            var4.delete();
@@ -621,7 +623,7 @@ public class FormArchiver implements ICommandObject {
    }
 
    private boolean check_dir() {
-      File var1 = new File((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
+      File var1 = new NecroFile((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
       if (!var1.exists()) {
          try {
             boolean var2 = var1.mkdir();
@@ -687,7 +689,7 @@ public class FormArchiver implements ICommandObject {
          this.business.rescan();
          Vector var1 = this.business.getVct_files();
          Vector var2 = this.getfilteredlist(var1);
-         File var3 = new File((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
+         File var3 = new NecroFile((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
 
          for(int var4 = 0; var4 < var1.size(); ++var4) {
             try {
@@ -779,7 +781,7 @@ public class FormArchiver implements ICommandObject {
                      var20 = (String)var17.get("id");
                      var21 = (String)var17.get("ver");
                      if (var18.equals(var5) && var20.equals(var7) && var19.equals(var6) && !var13.equals(var21)) {
-                        File var22 = new File((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
+                        File var22 = new NecroFile((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
                         boolean var23 = Tools.zipFile(var16.getAbsolutePath(), var22.getAbsolutePath(), ".tem_enyk_zip") == 0;
                         if (var23) {
                            var16.delete();
@@ -847,7 +849,7 @@ public class FormArchiver implements ICommandObject {
                      String var17 = (String)var15.get("name");
                      String var18 = (String)var15.get("id");
                      if (var16.equals(var5) && var18.equals(var7) && var17.equals(var6)) {
-                        File var19 = new File((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
+                        File var19 = new NecroFile((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
                         boolean var20 = Tools.zipFile(var14.getAbsolutePath(), var19.getAbsolutePath(), ".tem_enyk_zip") == 0;
                         if (var20) {
                            var14.delete();
@@ -877,7 +879,7 @@ public class FormArchiver implements ICommandObject {
          int var5 = JOptionPane.showOptionDialog(MainFrame.thisinstance, "Az összes nyomtatványsablon kivéve az utolsó verziók archiválásra kerül!\n" + var3 + " db. állomány", "Nyomtatványok archiválása", 0, 3, (Icon)null, var4, var4[0]);
          if (var5 == 0) {
             int var6 = 0;
-            File var7 = new File((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
+            File var7 = new NecroFile((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
 
             for(int var8 = 0; var8 < var1.size(); ++var8) {
                try {
@@ -919,7 +921,7 @@ public class FormArchiver implements ICommandObject {
                      try {
                         ListItem var3 = (ListItem)var1.get(var2);
                         File var4 = (File)var3.getItem();
-                        File var5 = new File((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
+                        File var5 = new NecroFile((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
                         boolean var6 = Tools.zipFile(var4.getAbsolutePath(), var5.getAbsolutePath(), ".tem_enyk_zip") == 0;
                         if (var6) {
                            var4.delete();
@@ -977,7 +979,7 @@ public class FormArchiver implements ICommandObject {
             if (var3.exists()) {
                String var9 = var5 + " szervezet " + var6 + " nevű " + var8 + " verziójú nyomtatványát akarja archiválni! Folytatja?";
                if (0 == JOptionPane.showConfirmDialog(MainFrame.thisinstance, var9, "Telepített nyomtatvány archiválása", 0)) {
-                  File var10 = new File((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
+                  File var10 = new NecroFile((String)PropertyList.getInstance().get("prop.sys.root"), "nyomtatvanyok_archivum");
                   boolean var11 = Tools.zipFile(var3.getAbsolutePath(), var10.getAbsolutePath(), ".tem_enyk_zip") == 0;
                   if (var11) {
                      var3.delete();

@@ -11,6 +11,8 @@ import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.ErrorDialog;
 import hu.piller.enykp.util.icon.ENYKIconSet;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -129,7 +131,7 @@ public class PrintPreviewPanel extends JDialog implements ActionListener, Change
          this.fc.setDialogTitle("A képfájl-ok mentési könyvtárának kijelölése");
 
          try {
-            this.fc.setCurrentDirectory(new File((String)PropertyList.getInstance().get("prop.usr.naplo")));
+            this.fc.setCurrentDirectory(new NecroFile((String)PropertyList.getInstance().get("prop.usr.naplo")));
          } catch (Exception var11) {
             Tools.eLog(var11, 0);
          }
@@ -438,12 +440,12 @@ public class PrintPreviewPanel extends JDialog implements ActionListener, Change
             if (var11 == 0) {
                File var12 = this.fc.getSelectedFile();
                if (var1) {
-                  var12 = new File((String)PropertyList.getInstance().get("prop.usr.naplo"));
+                  var12 = new NecroFile((String)PropertyList.getInstance().get("prop.usr.naplo"));
                }
 
                if (var12.exists()) {
                   var10 = var12 + File.separator + var4 + File.separator;
-                  var12 = new File(var10);
+                  var12 = new NecroFile(var10);
                   if (!var12.exists()) {
                      if (!var12.mkdir()) {
                         GuiUtil.showMessageDialog(MainFrame.thisinstance, "Nem sikerült létrehozni a szükséges könyvtárat", "Nyomtatás", 0);
@@ -485,7 +487,7 @@ public class PrintPreviewPanel extends JDialog implements ActionListener, Change
                         String var15 = var6.getLma().lapNev.replaceAll("/", "_");
                         var15 = var15.replaceAll("\\\\", "_");
                         var7 = var10 + var14 + "_" + var15 + "_" + var6.getLma().lapSzam + "_" + var5 + ".jpg";
-                        this.printToImage(new File(var7), var6);
+                        this.printToImage(new NecroFile(var7), var6);
                         var8.add(var7);
                      } catch (Exception var22) {
                         ErrorList.getInstance().store(MainPrinter.PRINT_EXCEPTION_CODE, "Hiba az oldalkép készítésekor", var22, (Object)null);
@@ -507,7 +509,7 @@ public class PrintPreviewPanel extends JDialog implements ActionListener, Change
                            String var17 = var6.getLma().lapNev.replaceAll("/", "_");
                            var17 = var17.replaceAll("\\\\", "_");
                            var7 = var10 + var16 + "_" + var17 + "_" + var6.getLma().lapSzam + "_" + var5 + ".jpg";
-                           this.printToImage(new File(var7), var6);
+                           this.printToImage(new NecroFile(var7), var6);
                            var8.add(var7);
                         } catch (Exception var20) {
                            ErrorList.getInstance().store(MainPrinter.PRINT_EXCEPTION_CODE, "Hiba az oldalkép készítésekor", var20, (Object)null);

@@ -27,6 +27,8 @@ import hu.piller.enykp.interfaces.IDataField;
 import hu.piller.enykp.interfaces.IDataStore;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.icon.ENYKIconSet;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -495,7 +497,7 @@ public class DefaultMultiFormViewer extends JPanel implements ActionListener {
                try {
                   ABEVSavePanel var2 = new ABEVSavePanel(DefaultMultiFormViewer.this.bm);
                   var2.setMode("multi1");
-                  var2.setPath(new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.saves")));
+                  var2.setPath(new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.saves")));
                   var2.setFilters(new String[]{"inner_data_saver_v1"});
                   Hashtable var3 = var2.showDialog();
                   if (var3 != null && var3.size() != 0) {

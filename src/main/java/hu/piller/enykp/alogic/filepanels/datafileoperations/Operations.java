@@ -11,6 +11,9 @@ import hu.piller.enykp.interfaces.ISaveManager;
 import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -50,7 +53,7 @@ public class Operations {
       if (var0 == null) {
          return null;
       } else {
-         File[] var1 = new File[var0.length];
+         File[] var1 = new NecroFile[var0.length];
          int var2 = 0;
 
          for(int var3 = var1.length; var2 < var3; ++var2) {
@@ -88,7 +91,7 @@ public class Operations {
                   return null;
                }
 
-               File var4 = new File(var1.getParent(), var3);
+               File var4 = new NecroFile(var1.getParent(), var3);
                if (var4.exists()) {
                   GuiUtil.showMessageDialog(var0, var4.getName() + " állomány létezik, válasszon másik nevet !", "Átnevezés", 0);
                   return null;
@@ -106,7 +109,7 @@ public class Operations {
                   IPropertyList var6 = PropertyList.getInstance();
                   if (var6 != null) {
                      Object var7 = var6.get("prop.dynamic.opened_file");
-                     File var8 = new File(getSavePath(), (new File(var7 == null ? "" : var7.toString())).getName());
+                     File var8 = new NecroFile(getSavePath(), (new NecroFile(var7 == null ? "" : var7.toString())).getName());
                      if (var1.equals(var8)) {
                         var6.set("prop.dynamic.opened_file", var4);
                      }
@@ -263,7 +266,7 @@ public class Operations {
 
    private static int copyFile_(Component var0, File var1, File var2) {
       if (var1 != null && var2 != null && !var1.getParent().equalsIgnoreCase(var2.getPath())) {
-         File var3 = new File(var2.getPath(), var1.getName());
+         File var3 = new NecroFile(var2.getPath(), var1.getName());
          if (var3.exists() && JOptionPane.showConfirmDialog(var0, var1.getName() + " állomány létezik !\nFelülírja?", "Állomány másolása", 0) == 1) {
             userCancelledFiles.add(var1.getName());
             return 0;
@@ -281,7 +284,7 @@ public class Operations {
 
       try {
          var2 = new FileInputStream(var0);
-         var3 = new FileOutputStream(var1);
+         var3 = new NecroFileOutputStream(var1);
          byte[] var4 = new byte[4096];
 
          int var5;
@@ -333,7 +336,7 @@ public class Operations {
       }
 
       if (var4 != null) {
-         var5.setSelectedFile(new File(var4));
+         var5.setSelectedFile(new NecroFile(var4));
       }
 
       if (var5.showDialog(var0, "OK") == 0) {
@@ -351,8 +354,8 @@ public class Operations {
    public static String getSavePath() {
       try {
          IPropertyList var0 = PropertyList.getInstance();
-         String var1 = (new File((String)var0.get("prop.usr.root"), (String)var0.get("prop.usr.saves"))).toString();
-         return var1 == null ? (new File(".")).getCanonicalPath() : var1;
+         String var1 = (new NecroFile((String)var0.get("prop.usr.root"), (String)var0.get("prop.usr.saves"))).toString();
+         return var1 == null ? (new NecroFile(".")).getCanonicalPath() : var1;
       } catch (IOException var2) {
          ErrorList.getInstance().writeError(new Long(0L), "Sikertelen mentés mappa megszerzési művelet !", var2, (Object)null);
          return ".";
@@ -362,8 +365,8 @@ public class Operations {
    public static boolean before_copyWithAtc(File var0, File var1) {
       String var2 = var0.getName();
       String var3 = var2.substring(0, var2.length() - ".frm.enyk".length());
-      File var4 = new File(var1, var2);
-      File var5 = new File(var1, var3);
+      File var4 = new NecroFile(var1, var2);
+      File var5 = new NecroFile(var1, var3);
       AttachementTool.fillFileList(var1);
       String[] var6 = AttachementTool.getAtcs();
       Vector var7 = new Vector();
@@ -375,9 +378,9 @@ public class Operations {
          if (var6[var8].indexOf(var3) == 0) {
             String var9 = var6[var8].substring(var3.length() + 1);
             var9 = var9.substring(0, var9.length() - ".atc".length());
-            File var10 = new File(new File(var1, var3), var9);
+            File var10 = new NecroFile(new NecroFile(var1, var3), var9);
             if (var10.exists()) {
-               var7.add(new File(var1, var6[var8]));
+               var7.add(new NecroFile(var1, var6[var8]));
             }
          }
       }

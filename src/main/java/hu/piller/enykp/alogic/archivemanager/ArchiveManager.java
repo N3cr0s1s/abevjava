@@ -10,6 +10,8 @@ import hu.piller.enykp.interfaces.IPropertyList;
 import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.EventLog;
 import hu.piller.enykp.util.base.PropertyList;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Hashtable;
@@ -56,8 +58,8 @@ public class ArchiveManager {
          IPropertyList var2 = getMasterPropertyList();
          if (var2 != null) {
             try {
-               String var3 = (new File((String)var2.get("prop.usr.root"), (String)var2.get(var0))).toString();
-               return var3 == null ? (new File(".")).getCanonicalPath() : var3;
+               String var3 = (new NecroFile((String)var2.get("prop.usr.root"), (String)var2.get(var0))).toString();
+               return var3 == null ? (new NecroFile(".")).getCanonicalPath() : var3;
             } catch (Exception var4) {
                writeError(var1, var4);
             }

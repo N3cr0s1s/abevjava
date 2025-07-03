@@ -11,6 +11,8 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.SizeAndPositonSaveDialog;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.eventsupport.CloseEvent;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Container;
 import java.io.File;
 import java.util.Arrays;
@@ -49,8 +51,8 @@ public class CopyToSaveFolder implements ICommandObject {
 
    private void prepare() {
       CopyToSaveFolder.ButtonActions var1 = new CopyToSaveFolder.ButtonActions(this.file_panel);
-      this.enyk_path = new File(this.getProperty("prop.usr.root"), this.getProperty("prop.usr.saves"));
-      this.outer_path = new File("");
+      this.enyk_path = new NecroFile(this.getProperty("prop.usr.root"), this.getProperty("prop.usr.saves"));
+      this.outer_path = new NecroFile("");
       var1.b11Clicked();
       this.business.setButtonExecutor(var1);
    }
@@ -216,11 +218,11 @@ public class CopyToSaveFolder implements ICommandObject {
 
             for(int var4 = 0; var4 < var2.length; ++var4) {
                File var5 = var2[var4];
-               File var6 = new File(CopyToSaveFolder.this.other_path, var5.getName());
+               File var6 = new NecroFile(CopyToSaveFolder.this.other_path, var5.getName());
                if (var6.exists()) {
                   GuiUtil.showMessageDialog(CopyToSaveFolder.this.dlg, "A cél állomány már létezik, nem írható felül.\n" + var6.getName(), "Másolás", 0);
                } else {
-                  Operations.copyFile__(var5, new File(CopyToSaveFolder.this.other_path, var5.getName()));
+                  Operations.copyFile__(var5, new NecroFile(CopyToSaveFolder.this.other_path, var5.getName()));
                   ++var3;
                   Vector var7 = new Vector();
 

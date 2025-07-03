@@ -2,6 +2,8 @@ package hu.piller.enykp.alogic.filepanels;
 
 import hu.piller.enykp.gui.framework.MainFrame;
 import hu.piller.enykp.util.base.PropertyList;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.LayoutManager;
@@ -66,7 +68,7 @@ public class ABEVSaveAsPanel {
          }
       });
       var1.add(var3, "South");
-      File var8 = new File(PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.saves"));
+      File var8 = new NecroFile(PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.saves"));
       var2.setRootdir(var8);
       return var1;
    }

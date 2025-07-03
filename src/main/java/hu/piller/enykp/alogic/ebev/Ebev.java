@@ -18,6 +18,9 @@ import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.ErrorDialog;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileWriter;
+
 import java.awt.Component;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -232,7 +235,7 @@ public class Ebev {
    }
 
    public Result export(String var1) {
-      if (var1 != null && (new File(var1)).exists() && GuiUtil.showOptionDialog((Component)null, "Fájl már létezik. Felülírjuk?", "XML mentés", 0, 3, (Icon)null, PropertyList.igenNem, PropertyList.igenNem[0]) == 1) {
+      if (var1 != null && (new NecroFile(var1)).exists() && GuiUtil.showOptionDialog((Component)null, "Fájl már létezik. Felülírjuk?", "XML mentés", 0, 3, (Icon)null, PropertyList.igenNem, PropertyList.igenNem[0]) == 1) {
          return new Result();
       } else {
          Pass2DSign var3 = new Pass2DSign(this.bm, this.sp, this.mpl);
@@ -384,7 +387,7 @@ public class Ebev {
 
    private boolean checkPath(String var1, boolean var2) {
       try {
-         File var3 = new File(var1);
+         File var3 = new NecroFile(var1);
          if (!var3.exists()) {
             return false;
          } else {
@@ -425,7 +428,7 @@ public class Ebev {
             var3 = var3 + File.separator;
          }
 
-         if (!(new File(var3)).isDirectory()) {
+         if (!(new NecroFile(var3)).isDirectory()) {
             throw new FileNotFoundException("nem található krdir");
          } else {
             String var4 = sdf.format(Calendar.getInstance().getTime()) + ";" + var1.getAbsolutePath() + ";" + System.getProperty("user.name") + ";";
@@ -475,14 +478,14 @@ public class Ebev {
                var4 = var4 + "XCZ fájl visszavonása";
             }
 
-            File var5 = new File(var3 + "feladas_naplo.log");
+            File var5 = new NecroFile(var3 + "feladas_naplo.log");
             PrintWriter var6 = null;
             if (var2 != null) {
                var4 = var4 + ";" + var2;
             }
 
             try {
-               var6 = new PrintWriter(new FileWriter(var5, true));
+               var6 = new PrintWriter(new NecroFileWriter(var5, true));
                var6.println(var4);
                var6.close();
             } catch (Exception var10) {
@@ -577,7 +580,7 @@ public class Ebev {
 
       for(int var13 = 0; var13 < var1.size(); ++var13) {
          var9 = (String)var1.elementAt(var13);
-         File var10 = new File(var9);
+         File var10 = new NecroFile(var9);
          if (var10.length() > var4) {
             var3.add(var9);
             var3.add(" - A dokumentum mérete meghaladja az " + var6 + "-ot. Ekkora állományt " + var7 + " nem tud fogadni!");

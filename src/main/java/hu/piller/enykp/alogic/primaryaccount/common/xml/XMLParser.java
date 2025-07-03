@@ -3,6 +3,8 @@ package hu.piller.enykp.alogic.primaryaccount.common.xml;
 import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
@@ -21,7 +23,7 @@ public class XMLParser extends DefaultXMLParser {
    }
 
    public void parse(String var1) throws IOException, SAXException {
-      super.parse((new File(var1)).toURI().toString());
+      super.parse((new NecroFile(var1)).toURI().toString());
    }
 
    public void startElement(String var1, String var2, String var3, Attributes var4) throws SAXException {

@@ -6,6 +6,9 @@ import hu.piller.enykp.interfaces.IPropertyList;
 import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.Component;
 import java.io.File;
 import java.io.FileInputStream;
@@ -55,7 +58,7 @@ public class SettingsStore {
       boolean var1 = false;
       this.store = new Hashtable();
       IPropertyList var2 = PropertyList.getInstance();
-      this.settingsFile = new File((new File((String)var2.get("prop.usr.root"), (String)var2.get("prop.usr.settings"))).getAbsolutePath(), "settings.enyk");
+      this.settingsFile = new NecroFile((new NecroFile((String)var2.get("prop.usr.root"), (String)var2.get("prop.usr.settings"))).getAbsolutePath(), "settings.enyk");
 
       try {
          Properties var3 = this.loadPropertyFile(this.settingsFile);
@@ -146,7 +149,7 @@ public class SettingsStore {
             }
          }
 
-         FileOutputStream var9 = new FileOutputStream(this.settingsFile);
+         FileOutputStream var9 = new NecroFileOutputStream(this.settingsFile);
          var1.store(var9, "AbevJava beállítások");
          return true;
       } catch (IOException var8) {

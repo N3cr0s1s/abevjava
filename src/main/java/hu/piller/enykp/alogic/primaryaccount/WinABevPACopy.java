@@ -20,6 +20,8 @@ import hu.piller.enykp.util.base.errordialog.ErrorDialog;
 import hu.piller.enykp.util.base.eventsupport.Event;
 import hu.piller.enykp.util.base.eventsupport.IEventListener;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -150,7 +152,7 @@ public class WinABevPACopy implements IEventListener {
 
    private File[] getABevPAFile(int var1) {
       final String var2 = var1 < 0 ? ".dtt" : (var1 == 0 ? "torzs.dtt" : (var1 == 1 ? "atan.dtt" : ".dtt"));
-      File[] var3 = new File[]{new File("C:\\Program Files\\Abev 2008\\"), new File("C:\\Program Files\\Abev 2006\\"), new File("D:\\Program Files\\Abev 2008\\"), new File("d:\\Program Files\\Abev 2006\\")};
+      File[] var3 = new File[]{new NecroFile("C:\\Program Files\\Abev 2008\\"), new NecroFile("C:\\Program Files\\Abev 2006\\"), new NecroFile("D:\\Program Files\\Abev 2008\\"), new NecroFile("d:\\Program Files\\Abev 2006\\")};
       File[] var4 = null;
       int var5 = 0;
 
@@ -187,7 +189,7 @@ public class WinABevPACopy implements IEventListener {
          JFileChooser var10 = new JFileChooser();
          var10.setDialogTitle(var9);
          var10.setDialogType(0);
-         var10.setCurrentDirectory(new File("." + File.separator));
+         var10.setCurrentDirectory(new NecroFile("." + File.separator));
          var10.setFileSelectionMode(0);
          var10.setMultiSelectionEnabled(true);
          var10.setAcceptAllFileFilterUsed(false);

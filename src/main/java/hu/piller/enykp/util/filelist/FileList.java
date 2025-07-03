@@ -2,6 +2,10 @@ package hu.piller.enykp.util.filelist;
 
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+import me.necrocore.abevjava.NecroFileWriter;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -56,7 +60,7 @@ public class FileList {
    private static String getWorkingDirectory() {
       try {
          if (workingDirectory == null) {
-            workingDirectory = (new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.tmp"))).getPath();
+            workingDirectory = (new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.tmp"))).getPath();
          }
 
          return workingDirectory;
@@ -110,7 +114,7 @@ public class FileList {
    }
 
    private File getIndexFile(String var1, String var2) {
-      String var3 = (new File(var1)).getPath();
+      String var3 = (new NecroFile(var1)).getPath();
       int var4 = var3.indexOf(":");
       if (var4 > -1) {
          var3 = var3.substring(var4 + 1);
@@ -134,7 +138,7 @@ public class FileList {
 
       var5.append(USER == null ? "" : "_" + USER);
       var5.append(PID == null ? "" : "_" + PID);
-      return new File(getWorkingDirectory(), var5.toString());
+      return new NecroFile(getWorkingDirectory(), var5.toString());
    }
 
    public void setFileInfos(IFileInfo[] var1) {
@@ -143,7 +147,7 @@ public class FileList {
 
    private File getFileDir(String var1) {
       try {
-         File var2 = new File(var1);
+         File var2 = new NecroFile(var1);
          return var2.exists() && var2.isDirectory() ? var2 : null;
       } catch (Exception var3) {
          return null;
@@ -191,7 +195,7 @@ public class FileList {
 
       try {
          long var4 = System.currentTimeMillis();
-         var3 = new ObjectOutputStream(new FileOutputStream(var1));
+         var3 = new ObjectOutputStream(new NecroFileOutputStream(var1));
          this.writeByWalkAlong(var2, var3);
          var3.flush();
          var3.close();
@@ -352,12 +356,12 @@ public class FileList {
    }
 
    private void writeTxtFile(File var1, Hashtable var2) {
-      File var3 = new File(var1.getPath() + "_txt");
+      File var3 = new NecroFile(var1.getPath() + "_txt");
       PrintWriter var4 = null;
       int var5 = 1;
 
       try {
-         var4 = new PrintWriter(new FileWriter(var3));
+         var4 = new PrintWriter(new NecroFileWriter(var3));
          var4.println("lastmoddate:" + var2.get("lastmoddate"));
          Hashtable var6 = (Hashtable)var2.get("filelist");
          Enumeration var7 = var6.keys();
@@ -437,7 +441,7 @@ public class FileList {
    }
 
    private Long getLastModified(String var1) {
-      return (new File(var1)).lastModified();
+      return (new NecroFile(var1)).lastModified();
    }
 
    private boolean isDirModified(Hashtable var1, String var2) {
@@ -445,7 +449,7 @@ public class FileList {
    }
 
    private File[] getDirList(String var1) {
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       return var2.exists() && var2.isDirectory() ? var2.listFiles() : null;
    }
 
@@ -532,7 +536,7 @@ public class FileList {
          FileItem var6 = (FileItem)var1.get(var5);
          IFileInfo var7 = this.matchType(var2, var6);
          if (var7 != null) {
-            var3.add(new Object[]{(new File(this.actPath, var5)).toString(), var6.getFileInfo(), var7.getFileInfoObject()});
+            var3.add(new Object[]{(new NecroFile(this.actPath, var5)).toString(), var6.getFileInfo(), var7.getFileInfoObject()});
          }
       }
 

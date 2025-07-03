@@ -14,6 +14,8 @@ import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.SwingWorker;
 import hu.piller.enykp.util.icon.ENYKIconSet;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Point;
@@ -177,7 +179,7 @@ public class MyABEVNewPanel extends ABEVNewPanel {
                         MyABEVNewPanel.this.setResult(true);
                         String var2 = (String)this.get();
                         if (var2 != null) {
-                           File var3 = new File(var2);
+                           File var3 = new NecroFile(var2);
                            MyABEVNewPanel.this.result.put("selected_file", new Object[]{var3});
                            ABEVNewPanel.lastselectedfile = var3;
                            MyABEVNewPanel.this.btn_ok.setEnabled(false);

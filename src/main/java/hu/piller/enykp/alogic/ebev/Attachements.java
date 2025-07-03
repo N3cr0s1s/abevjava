@@ -44,6 +44,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingWorker;
 import javax.swing.border.BevelBorder;
+
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
 import org.apache.commons.codec.binary.Base64InputStream;
 
 public class Attachements {
@@ -91,7 +94,7 @@ public class Attachements {
             var72 = var72.substring(0, var72.length() - ".xml".length());
          }
 
-         this.cstFile = new File(var72 + ".cst");
+         this.cstFile = new NecroFile(var72 + ".cst");
 
          try {
             var6 = SettingsStore.getInstance().get("attachments", "attachment.temporary.directory");
@@ -99,7 +102,7 @@ public class Attachements {
                throw new Exception();
             }
 
-            if (!(new File(var6)).exists()) {
+            if (!(new NecroFile(var6)).exists()) {
                throw new Exception();
             }
 
@@ -108,7 +111,7 @@ public class Attachements {
             var6 = null;
          }
 
-         File var9 = new File(var6 == null ? var72 + ".cst" : var6);
+         File var9 = new NecroFile(var6 == null ? var72 + ".cst" : var6);
          if (PropertyList.getInstance().get("batch.kr.pass2dsign") == null) {
             var9.deleteOnExit();
             this.cstFile.deleteOnExit();
@@ -133,10 +136,10 @@ public class Attachements {
 
          this.handleIfExternalSignedXmlHash(var3);
          Mark2Send.nyomtatvanyCim.setText("Csatolmányok előkészítése a titkosításhoz");
-         var5 = new BufferedOutputStream(new FileOutputStream(var9), 524288);
+         var5 = new BufferedOutputStream(new NecroFileOutputStream(var9), 524288);
          var5.write("BZ".getBytes("ISO-8859-2"));
          this.tempCstFile = new CBZip2OutputStream(var5);
-         this.createCsXmlHead(var3.size(), (new File(var72 + ".cst")).getName());
+         this.createCsXmlHead(var3.size(), (new NecroFile(var72 + ".cst")).getName());
          this.createCstInfoData(var3);
          this.createCstFileData(var3);
       } catch (SignerException var65) {
@@ -247,7 +250,7 @@ public class Attachements {
       for(int var2 = 0; var2 < var1.size(); ++var2) {
          String[] var3 = (String[])((String[])var1.elementAt(var2));
          this.tempCstFile.write(("      <fileinformacio azonosito=\"" + (var2 + 1) + "\">\n").getBytes("ISO-8859-2"));
-         this.tempCstFile.write(("        <filenev>" + DatastoreKeyToXml.htmlConvert((new File(var3[0])).getName()) + "</filenev>\n").getBytes("ISO-8859-2"));
+         this.tempCstFile.write(("        <filenev>" + DatastoreKeyToXml.htmlConvert((new NecroFile(var3[0])).getName()) + "</filenev>\n").getBytes("ISO-8859-2"));
          this.tempCstFile.write(("        <megjegyzes>" + DatastoreKeyToXml.htmlConvert(var3[1]) + "</megjegyzes>\n").getBytes("ISO-8859-2"));
          this.tempCstFile.write(("        <tipus>" + DatastoreKeyToXml.htmlConvert(var3[2]) + "</tipus>\n").getBytes("ISO-8859-2"));
          this.tempCstFile.write("      </fileinformacio>\n".getBytes("ISO-8859-2"));
@@ -341,7 +344,7 @@ public class Attachements {
             for(int var8 = 0; var8 < var1.size(); ++var8) {
                String[] var9 = (String[])((String[])var1.elementAt(var8));
                var6.add(var9);
-               var7.add(new File(var9[0]));
+               var7.add(new NecroFile(var9[0]));
             }
 
             String var14 = this.bookModel.cc.getLoadedfile().getName();
@@ -353,7 +356,7 @@ public class Attachements {
 
             var14 = this.changeFileExtension(this.sp.srcPath + var14, "kr", "xml");
             if (var3) {
-               var7.add(new File(var14));
+               var7.add(new NecroFile(var14));
             }
 
             var1.clear();
@@ -450,7 +453,7 @@ public class Attachements {
          var4 = var4.substring(0, var4.length() - ".frm.enyk".length());
          String var5 = this.sp.srcPath + var4 + File.separator + "alairt" + File.separator;
          var5 = Tools.beautyPath(var5);
-         String[] var6 = (new File(var5)).list();
+         String[] var6 = (new NecroFile(var5)).list();
          if (var6.length > 1) {
             throw new Exception("A(z) " + var5 + " mappában egynél több fájl található.\nÍgy nem dönthető el, melyik a nyomtatványhoz tartozó aláírt lenyomat. A művelet nem folytatható!");
          } else if (!this.checkUniqueAttachmentName(var1, var6[0])) {
@@ -490,7 +493,7 @@ public class Attachements {
             var3 = false;
          }
 
-         if ((new File(var5[0] + ".anyk.ASiC")).exists()) {
+         if ((new NecroFile(var5[0] + ".anyk.ASiC")).exists()) {
             var2.add(new String[]{var5[0] + ".anyk.ASiC", ".ASiC", "Hitelesített csatolmány lenyomat"});
          }
       }
@@ -502,25 +505,25 @@ public class Attachements {
    }
 
    private void removeTempXmlFromAVDHFiles(ArrayList<File> var1, String var2) {
-      File var3 = new File(var2);
+      File var3 = new NecroFile(var2);
       var1.remove(var3);
    }
 
    private void addTempXml2AVDHFiles(Vector var1, String var2, String var3) throws Exception {
-      File var4 = new File(var2 + ".anyk.ASiC");
+      File var4 = new NecroFile(var2 + ".anyk.ASiC");
       String var5 = this.bookModel.cc.getLoadedfile().getName();
       var5 = var5.substring(0, var5.length() - ".frm.enyk".length());
-      File var6 = new File(this.sp.srcPath + var5 + File.separator);
+      File var6 = new NecroFile(this.sp.srcPath + var5 + File.separator);
       if (!var6.exists()) {
          var6.mkdir();
       }
 
-      var6 = new File(var6.getAbsolutePath() + File.separator + "alairt");
+      var6 = new NecroFile(var6.getAbsolutePath() + File.separator + "alairt");
       if (!var6.exists()) {
          var6.mkdir();
       }
 
-      var6 = new File(var6.getAbsolutePath() + File.separator + var5 + ".urlap.anyk.ASiC");
+      var6 = new NecroFile(var6.getAbsolutePath() + File.separator + var5 + ".urlap.anyk.ASiC");
       if (var6.exists()) {
          var6.delete();
       }
@@ -534,8 +537,8 @@ public class Attachements {
 
    private void dummyAvdhSign(ArrayList<File> var1, String var2) throws IOException {
       for(int var3 = 0; var3 < var1.size(); ++var3) {
-         File var4 = new File(((File)var1.get(var3)).getAbsolutePath() + ".anyk.ASiC");
-         FileOutputStream var5 = new FileOutputStream(var4);
+         File var4 = new NecroFile(((File)var1.get(var3)).getAbsolutePath() + ".anyk.ASiC");
+         FileOutputStream var5 = new NecroFileOutputStream(var4);
          FileInputStream var6 = new FileInputStream(var2 + "\\1signer.asic");
          byte[] var7 = new byte[2048];
 
@@ -554,7 +557,7 @@ public class Attachements {
       for(int var3 = 0; var3 < var1.size(); ++var3) {
          try {
             File var4 = (File)var1.get(var3);
-            FileOutputStream var5 = new FileOutputStream(var4);
+            FileOutputStream var5 = new NecroFileOutputStream(var4);
             FileInputStream var6 = new FileInputStream(var2 + "\\2signer.asic");
             byte[] var7 = new byte[2048];
 
@@ -594,7 +597,7 @@ public class Attachements {
       }
 
       var3 = var3 + var4 + File.separator + var1.get_formid();
-      File var5 = new File(var3);
+      File var5 = new NecroFile(var3);
       if (var5.exists()) {
          return Tools.beautyPath(var3 + File.separator);
       } else if (!var5.mkdirs()) {
@@ -607,12 +610,12 @@ public class Attachements {
    private String changeFileExtension(String var1, String var2, String var3) {
       if (var1.endsWith(var2)) {
          String var4 = var1.substring(0, var1.length() - var2.length()) + var3;
-         File var5 = new File(var4);
+         File var5 = new NecroFile(var4);
          if (var5.exists()) {
             var5.delete();
          }
 
-         File var6 = new File(var1);
+         File var6 = new NecroFile(var1);
          return var6.renameTo(var5) ? var4 : var1;
       } else {
          return var1;
@@ -792,12 +795,12 @@ public class Attachements {
 
    private void handleIfExternalSignedXmlHash(Vector<String[]> var1) {
       if (var1.size() >= 1) {
-         File var2 = (new File(((String[])var1.get(0))[0])).getParentFile();
+         File var2 = (new NecroFile(((String[])var1.get(0))[0])).getParentFile();
          HashSet var3 = new HashSet();
 
          for(int var4 = 0; var4 < var1.size(); ++var4) {
             String[] var5 = (String[])var1.elementAt(var4);
-            var3.add((new File(var5[0])).getName().toLowerCase());
+            var3.add((new NecroFile(var5[0])).getName().toLowerCase());
          }
 
          String[] var7 = var2.list();

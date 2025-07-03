@@ -1,5 +1,8 @@
 package hu.piller.krtitok;
 
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -25,7 +28,7 @@ public class IniReadAndWrite {
 
    public void writeIni(String myPrivateKey, String myPublicKey, boolean myKeyAutomaticUse, String myKrDir, String myTitkositatlan, String myLetoltott, String myKuldendo, String myElkuldott) {
       try {
-         FileOutputStream outstr = new FileOutputStream(INI_PATH + ".krtitok.ini");
+         FileOutputStream outstr = new NecroFileOutputStream(INI_PATH + ".krtitok.ini");
          Properties prop = new Properties();
 
          try {
@@ -54,7 +57,7 @@ public class IniReadAndWrite {
 
    public void readIni() {
       try {
-         File f = new File(INI_PATH + ".krtitok.ini");
+         File f = new NecroFile(INI_PATH + ".krtitok.ini");
          if (f.exists()) {
             FileInputStream inpstr = new FileInputStream(INI_PATH + ".krtitok.ini");
             prop = new Properties();

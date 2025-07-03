@@ -11,6 +11,8 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.Version;
 import hu.piller.enykp.util.base.eventsupport.CloseEvent;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Container;
 import java.io.File;
 import java.util.Arrays;
@@ -44,7 +46,7 @@ public class InstalledForms implements ICommandObject {
 
    private void prepare() {
       this.business.setButtonExecutor(new InstalledForms.ButtonActions(this.file_panel));
-      this.business.setSelectedPath(new File(this.getProperty("prop.dynamic.templates.absolutepath")));
+      this.business.setSelectedPath(new NecroFile(this.getProperty("prop.dynamic.templates.absolutepath")));
       this.update_skin[4] = this.file_panel;
    }
 

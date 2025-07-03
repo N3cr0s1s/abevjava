@@ -8,6 +8,8 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.content.ContentUtil;
 import hu.piller.enykp.util.content.ContentUtilException;
 import hu.piller.enykp.util.oshandler.OsFactory;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FilenameFilter;
@@ -21,7 +23,7 @@ import java.util.zip.ZipInputStream;
 
 public class SyncDirHandler {
    public static void checkSyncDirExists() {
-      File var0 = new File(getSyncFolderPath());
+      File var0 = new NecroFile(getSyncFolderPath());
       if (!var0.exists()) {
          var0.mkdirs();
       }
@@ -29,7 +31,7 @@ public class SyncDirHandler {
    }
 
    public static void checkSyncArchiveDirExists() {
-      File var0 = new File(getSyncFolderPath() + File.separator + "archive");
+      File var0 = new NecroFile(getSyncFolderPath() + File.separator + "archive");
       if (!var0.exists()) {
          var0.mkdirs();
       }
@@ -37,7 +39,7 @@ public class SyncDirHandler {
    }
 
    public static void createFolderForRequest(String var0) {
-      File var1 = new File(getSyncFolderPath() + File.separator + var0);
+      File var1 = new NecroFile(getSyncFolderPath() + File.separator + var0);
       var1.mkdirs();
    }
 
@@ -105,7 +107,7 @@ public class SyncDirHandler {
          for(int var8 = 0; var8 < var26; ++var8) {
             String var9 = var25[var8];
             if (var9.startsWith("TERR")) {
-               (new File(var1, var9)).renameTo(new File(var1, var9.replaceAll("TERR", "ERR")));
+               (new NecroFile(var1, var9)).renameTo(new NecroFile(var1, var9.replaceAll("TERR", "ERR")));
             }
          }
       } catch (IOException var21) {
@@ -185,9 +187,9 @@ public class SyncDirHandler {
       String var0 = getQueryId();
       String var1 = getSyncFolderPath() + File.separator + "archive" + File.separator + var0;
       String var2 = getSyncFolderPath() + File.separator + var0;
-      File var3 = new File(var1);
+      File var3 = new NecroFile(var1);
       var3.mkdirs();
-      File var4 = new File(var2);
+      File var4 = new NecroFile(var2);
       File[] var5 = var4.listFiles();
       if (var5 == null) {
          var3.delete();
@@ -198,7 +200,7 @@ public class SyncDirHandler {
 
          for(int var8 = 0; var8 < var7; ++var8) {
             File var9 = var6[var8];
-            var9.renameTo(new File(var3.getPath(), var9.getName()));
+            var9.renameTo(new NecroFile(var3.getPath(), var9.getName()));
          }
 
          deleteDir(var4);
@@ -243,7 +245,7 @@ public class SyncDirHandler {
    }
 
    private static final String[] entriesInFolder(String var0, final String... var1) throws SyncDirException {
-      File var2 = new File(var0);
+      File var2 = new NecroFile(var0);
       if (!var2.exists()) {
          throw new SyncDirException("A(z) " + var0 + " könyvtár nem létezik!");
       } else if (!var2.isDirectory()) {

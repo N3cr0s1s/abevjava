@@ -8,6 +8,8 @@ import hu.piller.enykp.interfaces.IPropertyList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.filelist.EnykFileList;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Frame;
 import java.io.BufferedReader;
 import java.io.File;
@@ -270,7 +272,7 @@ public class Kontroll {
    private CBTableModel fillKontrollFilesToModel() throws Exception {
       CBTableModel var1 = new CBTableModel();
       KontrollFilenameFilter var2 = new KontrollFilenameFilter("kif");
-      File var3 = new File(kontrollPath);
+      File var3 = new NecroFile(kontrollPath);
       String[] var4 = var3.list(var2);
       if (var4 == null) {
          throw new Exception("*Nem található megfelelő nyomtatvány");

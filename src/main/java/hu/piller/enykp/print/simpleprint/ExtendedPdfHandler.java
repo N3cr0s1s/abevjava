@@ -16,6 +16,9 @@ import hu.piller.enykp.print.MainPrinter;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -113,7 +116,7 @@ public class ExtendedPdfHandler {
             if (this.batchPrint2OnePdf) {
                if (var2 == this.ciklusEleje) {
                   this.document = new Document();
-                  this.writer = PdfWriter.getInstance(this.document, new FileOutputStream(var3));
+                  this.writer = PdfWriter.getInstance(this.document, new NecroFileOutputStream(var3));
                   this.document.open();
                }
 
@@ -129,7 +132,7 @@ public class ExtendedPdfHandler {
             } else {
                ByteArrayOutputStream var13 = new ByteArrayOutputStream();
                this.document = new Document();
-               this.writer = PdfWriter.getInstance(this.document, new FileOutputStream(var3));
+               this.writer = PdfWriter.getInstance(this.document, new NecroFileOutputStream(var3));
                this.document.open();
                this.doPdfPrintLoop(var12, var7, var8[1]);
                this.document.close();
@@ -352,7 +355,7 @@ public class ExtendedPdfHandler {
 
       try {
          URI var10 = new URI(this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
-         this.backgroundImage = (new File(var10.getPath())).getParent() + "/abevjava.jar!/resources/print/bg.gif";
+         this.backgroundImage = (new NecroFile(var10.getPath())).getParent() + "/abevjava.jar!/resources/print/bg.gif";
          this.backgroundImage = this.backgroundImage.startsWith("/") ? "file:" + this.backgroundImage : "file:/" + this.backgroundImage;
          this.backgroundImage = "jar:" + this.backgroundImage;
       } catch (URISyntaxException var25) {

@@ -67,6 +67,8 @@ import javax.swing.event.HyperlinkListener;
 import javax.swing.event.HyperlinkEvent.EventType;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.Attributes;
 
 public class GuiUtil {
@@ -898,12 +900,12 @@ public class GuiUtil {
       try {
          File var2;
          try {
-            var2 = new File(SettingsStore.getInstance().get("gui", "internet_browser"));
+            var2 = new NecroFile(SettingsStore.getInstance().get("gui", "internet_browser"));
             if (!var2.exists()) {
                throw new Exception();
             }
          } catch (Exception var4) {
-            var2 = new File(var1.getSystemBrowserPath());
+            var2 = new NecroFile(var1.getSystemBrowserPath());
          }
 
          var1.execute(var2.getName() + " " + var0, (String[])null, var2.getParentFile());

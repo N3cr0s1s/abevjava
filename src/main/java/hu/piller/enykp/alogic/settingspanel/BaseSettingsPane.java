@@ -14,6 +14,8 @@ import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.oshandler.OsFactory;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Insets;
@@ -253,7 +255,7 @@ public class BaseSettingsPane extends JPanel {
             var2.setFileFilter(BaseSettingsPane.this.exeFilter);
             var2.setDialogTitle("Megnyitás");
             if (BaseSettingsPane.this.browserpath.getText() == null || BaseSettingsPane.this.browserpath.getText().length() == 0) {
-               var2.setCurrentDirectory(new File(OsFactory.getOsHandler().getProgramFilesDir()));
+               var2.setCurrentDirectory(new NecroFile(OsFactory.getOsHandler().getProgramFilesDir()));
             }
 
             int var3 = var2.showOpenDialog(BaseSettingsPane.thisinstance);
@@ -302,7 +304,7 @@ public class BaseSettingsPane extends JPanel {
             var2.setFileFilter(BaseSettingsPane.this.exeFilter);
             var2.setDialogTitle("Megnyitás");
             if (BaseSettingsPane.this.pdfPath.getText() == null || BaseSettingsPane.this.pdfPath.getText().length() == 0) {
-               var2.setCurrentDirectory(new File(OsFactory.getOsHandler().getProgramFilesDir()));
+               var2.setCurrentDirectory(new NecroFile(OsFactory.getOsHandler().getProgramFilesDir()));
             }
 
             int var3 = var2.showOpenDialog(BaseSettingsPane.thisinstance);
@@ -355,7 +357,7 @@ public class BaseSettingsPane extends JPanel {
             var2.setDialogTitle("Kiválasztás");
             var2.setFileSelectionMode(1);
             if (BaseSettingsPane.this.dsigpath.getText() == null || BaseSettingsPane.this.dsigpath.getText().length() == 0) {
-               var2.setCurrentDirectory(new File(OsFactory.getOsHandler().getUserHomeDir()));
+               var2.setCurrentDirectory(new NecroFile(OsFactory.getOsHandler().getUserHomeDir()));
             }
 
             int var3 = var2.showOpenDialog(BaseSettingsPane.thisinstance);
@@ -407,7 +409,7 @@ public class BaseSettingsPane extends JPanel {
             JFileChooser var2 = new JFileChooser(BaseSettingsPane.this.calcPath.getText());
             var2.setDialogTitle("Megnyitás");
             if (BaseSettingsPane.this.calcPath.getText() == null || BaseSettingsPane.this.calcPath.getText().length() == 0) {
-               var2.setCurrentDirectory(new File(OsFactory.getOsHandler().getProgramFilesDir()));
+               var2.setCurrentDirectory(new NecroFile(OsFactory.getOsHandler().getProgramFilesDir()));
             }
 
             int var3 = var2.showOpenDialog(BaseSettingsPane.thisinstance);

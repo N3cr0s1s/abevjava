@@ -14,6 +14,8 @@ import hu.piller.enykp.gui.framework.MainFrame;
 import hu.piller.enykp.gui.model.BookModel;
 import hu.piller.enykp.interfaces.ILoadManager;
 import hu.piller.enykp.util.base.Result;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.util.Hashtable;
@@ -76,7 +78,7 @@ public class DbPkgLoader implements ILoadManager {
          if ("1".equals(var4)) {
             try {
                String var20 = (String)var2.get("formData");
-               File var23 = new File(TemplateChecker.getInstance().getTemplateFileNames(var20).getTemplateFileNames()[0]);
+               File var23 = new NecroFile(TemplateChecker.getInstance().getTemplateFileNames(var20).getTemplateFileNames()[0]);
                BookModel var24 = new BookModel(var23);
                return var24;
             } catch (Exception var17) {

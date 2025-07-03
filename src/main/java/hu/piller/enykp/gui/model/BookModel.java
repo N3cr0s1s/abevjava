@@ -75,6 +75,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+
+import me.necrocore.abevjava.NecroFile;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.Locator;
@@ -1700,7 +1702,7 @@ public class BookModel implements ILoadManager {
                var3.add(new TextWithIcon(" Hiba az importáláskor!", 0));
                return var3;
             } else {
-               File var7 = new File(var6);
+               File var7 = new NecroFile(var6);
                Vector var8 = this.add2_0(var7, var2);
                var7.delete();
                return var8;

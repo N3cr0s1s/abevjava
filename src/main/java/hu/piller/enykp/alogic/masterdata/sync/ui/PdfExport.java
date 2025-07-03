@@ -18,6 +18,9 @@ import com.lowagie.text.pdf.PdfWriter;
 import hu.piller.enykp.gui.GuiUtil;
 import hu.piller.enykp.gui.framework.MainFrame;
 import hu.piller.enykp.util.base.PropertyList;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -43,12 +46,12 @@ public class PdfExport {
       boolean var3 = true;
       JFileChooser var4 = new JFileChooser(PropertyList.getInstance().get("prop.usr.root") + File.separator + "naplo");
       var4.setDialogTitle("Nyomtatás pdf-be");
-      var4.setSelectedFile(new File(var1 + ".pdf"));
+      var4.setSelectedFile(new NecroFile(var1 + ".pdf"));
       int var5 = var4.showSaveDialog(MainFrame.thisinstance);
       FileOutputStream var6 = null;
       if (var5 == 0) {
          try {
-            var6 = new FileOutputStream(var4.getSelectedFile());
+            var6 = new NecroFileOutputStream(var4.getSelectedFile());
             this.printHtmlToPdfStream(var2, var6);
             GuiUtil.showMessageDialog(MainFrame.thisinstance, "A(z) " + var4.getSelectedFile() + " pdf fájl elkészült!", "Tájékoztatás", 1);
          } catch (Exception var16) {
@@ -72,12 +75,12 @@ public class PdfExport {
    public void openPdfForHtml(String var1) {
       JFileChooser var2 = new JFileChooser(PropertyList.getInstance().get("prop.usr.root") + File.separator + "naplo");
       var2.setDialogTitle("Nyomtatás pdf-be");
-      var2.setSelectedFile(new File(var1 + ".pdf"));
+      var2.setSelectedFile(new NecroFile(var1 + ".pdf"));
       int var3 = var2.showSaveDialog(MainFrame.thisinstance);
       FileOutputStream var4 = null;
       if (var3 == 0) {
          try {
-            var4 = new FileOutputStream(var2.getSelectedFile());
+            var4 = new NecroFileOutputStream(var2.getSelectedFile());
             this.document = new Document();
             PdfWriter var5 = PdfWriter.getInstance(this.document, var4);
             var5.setPageEvent(new PdfExport.TableHeader());
@@ -103,12 +106,12 @@ public class PdfExport {
       JFileChooser var2 = new JFileChooser(PropertyList.getInstance().get("prop.usr.root") + File.separator + "naplo");
       var2.setMultiSelectionEnabled(false);
       var2.setDialogTitle("Nyomtatás pdf-be");
-      var2.setSelectedFile(new File(var1 + ".pdf"));
+      var2.setSelectedFile(new NecroFile(var1 + ".pdf"));
       int var3 = var2.showSaveDialog(MainFrame.thisinstance);
       FileOutputStream var4 = null;
       if (var3 == 0) {
          try {
-            var4 = new FileOutputStream(var2.getSelectedFile());
+            var4 = new NecroFileOutputStream(var2.getSelectedFile());
          } catch (Exception var6) {
             this.errMsg = var6.getMessage();
             GuiUtil.showMessageDialog(MainFrame.thisinstance, "Pdf fájl készítési hiba!\n" + this.errMsg, "Hiba", 0);

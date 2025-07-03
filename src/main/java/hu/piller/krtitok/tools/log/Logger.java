@@ -1,5 +1,7 @@
 package hu.piller.krtitok.tools.log;
 
+import me.necrocore.abevjava.NecroFileWriter;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.MissingResourceException;
@@ -44,7 +46,7 @@ public class Logger {
 
    public Logger(String logFileName) {
       try {
-         this.fw = new FileWriter(logFileName, true);
+         this.fw = new NecroFileWriter(logFileName, true);
          this.formatter = new LogFormatter();
       } catch (SecurityException var3) {
          var3.printStackTrace();

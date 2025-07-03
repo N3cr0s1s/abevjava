@@ -7,6 +7,8 @@ import hu.piller.enykp.interfaces.IPropertyList;
 import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Version;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.net.MalformedURLException;
@@ -57,7 +59,7 @@ public class OrgInfo {
    public void mountDir(String var1) {
       this.org_names = null;
       this.orgList = new Hashtable();
-      File var2 = new File(var1);
+      File var2 = new NecroFile(var1);
       if (var2.exists()) {
          File[] var3 = var2.listFiles(new FileFilter() {
             public boolean accept(File var1) throws PatternSyntaxException {
@@ -81,7 +83,7 @@ public class OrgInfo {
 
    public void mountType(String var1) {
       this.orgList.remove(var1);
-      File var2 = new File(this.getResourcePath());
+      File var2 = new NecroFile(this.getResourcePath());
       if (var2.exists()) {
          this.typedFileMask = var1 + "Resources.*\\.jar";
          File[] var3 = var2.listFiles(new FileFilter() {
@@ -151,7 +153,7 @@ public class OrgInfo {
 
    public Set<OrgResource> readAllResourceFiles() {
       TreeSet var1 = new TreeSet();
-      File var2 = new File(this.getResourcePath());
+      File var2 = new NecroFile(this.getResourcePath());
       if (var2.exists()) {
          File[] var3 = var2.listFiles(new FileFilter() {
             public boolean accept(File var1) throws PatternSyntaxException {

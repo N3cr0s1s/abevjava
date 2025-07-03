@@ -1,10 +1,13 @@
 package hu.piller.enykp.util.oshandler;
 
 import hu.piller.enykp.interfaces.IOsHandler;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,8 +16,10 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Vector;
 
-public abstract class defaultOsHandler implements IOsHandler {
-   java.util.logging.Logger log = java.util.logging.Logger.getLogger(defaultOsHandler.class.getName());
+public abstract class DefaultOsHandler implements IOsHandler {
+
+   private static final org.slf4j.Logger logger = LoggerFactory.getLogger(DefaultOsHandler.class);
+
    public static final boolean onDebug = true;
 
    public String getOsShell() {
@@ -50,16 +55,19 @@ public abstract class defaultOsHandler implements IOsHandler {
 
    public String getUserHomeDir() {
       this.showDebugMessage("user.home=" + System.getProperty("user.home"));
-      String var1 = System.getProperty("user.home");
-      if (var1 == null || var1.length() == 0) {
-         var1 = this.getEnvironmentVariable("USERPROFILE");
+
+      String userProfile = this.getEnvironmentVariable("USERPROFILE");
+
+      if(userProfile == null) {
+         return System.getProperty("user.home");
       }
 
-      return var1;
+      this.showDebugMessage("user.home.dir=" + userProfile);
+      return userProfile;
    }
 
-   public void showDebugMessage(String var1) {
-      System.out.println("message = " + var1);
+   public void showDebugMessage(String debugMessage) {
+      System.out.println("message = " + debugMessage);
    }
 
    public String getDebugInfo(String[] var1) {
@@ -110,106 +118,113 @@ public abstract class defaultOsHandler implements IOsHandler {
       }
    }
 
-   public void closeProcess(Process var1) {
+   public void closeProcess(Process process) {
       try {
-         var1.getOutputStream().close();
-         var1.getInputStream().close();
-         var1.getErrorStream().close();
-      } catch (IOException var3) {
-         Logger.log(var3);
+         process.getOutputStream().close();
+         process.getInputStream().close();
+         process.getErrorStream().close();
+      } catch (IOException e) {
+         logger.error("Error while closing process: ", e);
+         Logger.log(e);
       }
 
    }
 
    public String executeShowResult(String var1) {
-      Process var2 = null;
+      Process process = null;
 
       try {
-         this.log.info("defaultOSH : " + var1 + " start");
-         var2 = Runtime.getRuntime().exec(new String[]{this.getOsShell(), this.getOsShellParam(), var1});
-         String var3 = this.getStdInput(var2);
-         this.closeProcess(var2);
-         var2 = null;
-         this.log.info("defaultOSH : " + var1 + " ok");
-         return var3;
-      } catch (IOException var6) {
-         this.log.info("defaultOSH : " + var1 + " error");
-         var6.printStackTrace();
+         logger.info("defaultOSH : {} start", var1);
+         process = Runtime.getRuntime().exec(new String[]{this.getOsShell(), this.getOsShellParam(), var1});
+         String stdInput = this.getStdInput(process);
+         this.closeProcess(process);
+         process = null;
+         logger.info("defaultOSH : {} ok", var1);
+         return stdInput;
+      } catch (IOException ioException) {
+         logger.error("defaultOSH : {} error", var1);
 
          try {
-            if (var2 != null) {
-               this.closeProcess(var2);
-               var2 = null;
+            if (process != null) {
+               this.closeProcess(process);
+               process = null;
             }
-         } catch (Exception var5) {
-            Logger.log(var6);
+         } catch (Exception e) {
+            logger.error("Error while closing process: ", e);
+            Logger.log(e);
          }
 
          return "";
       }
    }
 
-   public boolean writeFile(File var1, Vector var2, String var3, boolean var4) {
-      PrintWriter var5 = null;
+   public boolean writeFile(File var1, Vector<?> var2, String var3, boolean var4) {
+      PrintWriter printWriter = null;
 
       try {
-         var5 = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(var1, var4), var3)));
+         printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new NecroFileOutputStream(var1, var4), var3)));
 
          for(int var6 = 0; var6 < var2.size(); ++var6) {
-            var5.println(var2.elementAt(var6));
+            printWriter.println(var2.elementAt(var6));
          }
 
-         var5.flush();
-         var5.close();
-         Thread.sleep(500L);
+         printWriter.flush();
+         printWriter.close();
+         Thread.sleep(500L);  // TODO: We really need this?
          return true;
       } catch (Exception var9) {
          try {
-            if (var5 != null) {
-               var5.close();
+            if (printWriter != null) {
+               printWriter.close();
             }
 
             if (!var4 && var1.exists()) {
                var1.delete();
             }
-         } catch (Exception var8) {
-            Logger.log(var9);
+         } catch (Exception e) {
+            logger.error("Error while closing printWriter: ", e);
+            Logger.log(e);
          }
-
+         logger.error("Error while writing file: ", var9);
+         Logger.log(var9);
          this.showMessage("File kiírása sikertelen: " + var1);
          return false;
       }
    }
 
-   public boolean searchStrInFile(File var1, String var2) {
-      if (!var1.exists()) {
+   public boolean searchStrInFile(File file, String var2) {
+      if (!file.exists()) {
          return false;
-      } else {
-         BufferedReader var3 = null;
+      }
 
-         try {
-            var3 = new BufferedReader(new FileReader(var1));
+      BufferedReader bufferedReader = null;
 
-            String var4;
-            do {
-               if ((var4 = var3.readLine()) == null) {
-                  var3.close();
-                  return false;
-               }
-            } while(var4.indexOf(var2) == -1);
+      try {
+         bufferedReader = new BufferedReader(new FileReader(file));
 
-            return true;
-         } catch (Exception var7) {
-            try {
-               if (var3 != null) {
-                  var3.close();
-               }
-            } catch (Exception var6) {
-               Logger.log(var7);
+         String var4;
+         do {
+            if ((var4 = bufferedReader.readLine()) == null) {
+               bufferedReader.close();
+               return false;
             }
+         } while(!var4.contains(var2));
 
-            return false;
+         return true;
+      } catch (Exception e) {
+         try {
+            if (bufferedReader != null) {
+               bufferedReader.close();
+            }
+         } catch (Exception var6) {
+            logger.error("Error while closing bufferedReader: ", var6);
+            Logger.log(var6);
          }
+
+         logger.error("Error while searching str in file: ", e);
+         Logger.log(e);
+
+         return false;
       }
    }
 
@@ -227,7 +242,7 @@ public abstract class defaultOsHandler implements IOsHandler {
 
    public String getEnvFromFile(String var1, String var2) {
       String var3 = "";
-      File var4 = new File(var2);
+      File var4 = new NecroFile(var2);
       if (!var4.exists()) {
          return var3;
       } else {
@@ -237,8 +252,8 @@ public abstract class defaultOsHandler implements IOsHandler {
          try {
             var5 = new BufferedReader(new FileReader(var4));
 
-            while((var6 = var5.readLine()) != null && var3.length() == 0) {
-               if (var6.toLowerCase().indexOf(var1.toLowerCase()) != -1) {
+            while((var6 = var5.readLine()) != null && var3.isEmpty()) {
+               if (var6.toLowerCase().contains(var1.toLowerCase())) {
                   String[] var7 = var6.split("=");
                   if (var7.length > 1) {
                      var3 = var7[1].trim();

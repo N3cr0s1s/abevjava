@@ -59,6 +59,10 @@ import hu.piller.enykp.util.base.errordialog.TextWithIcon;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
 import hu.piller.enykp.util.base.tabledialog.TooltipTableHeader;
 import hu.piller.krtitok.KriptoApp;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+import me.necrocore.abevjava.NecroFileWriter;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -544,9 +548,9 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
       }
 
       if (this.importFunction) {
-         this.fc.setCurrentDirectory(new File(importPath));
+         this.fc.setCurrentDirectory(new NecroFile(importPath));
       } else {
-         this.fc.setCurrentDirectory(new File(dataPath));
+         this.fc.setCurrentDirectory(new NecroFile(dataPath));
       }
 
       defaultDirectory = this.fc.getCurrentDirectory();
@@ -596,7 +600,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
          ((BasicFileChooserUI)this.fc.getUI()).setFileName("");
       } catch (ClassCastException var5) {
          try {
-            this.fc.setSelectedFile(new File(""));
+            this.fc.setSelectedFile(new NecroFile(""));
          } catch (Exception var4) {
             Tools.eLog(var4, 0);
          }
@@ -614,10 +618,10 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
          var1.setFilters(new String[]{this.resFilter[this.filters.getSelectedIndex()]});
          String var2 = "";
          if (this.filters.getItemCount() != 1) {
-            var1.setSelectedPath((new File(importPath)).toURI());
+            var1.setSelectedPath((new NecroFile(importPath)).toURI());
             var2 = importPath;
          } else {
-            var1.setSelectedPath((new File(dataPath)).toURI());
+            var1.setSelectedPath((new NecroFile(dataPath)).toURI());
             var2 = dataPath;
          }
 
@@ -690,7 +694,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
             var3[0] = defaultDirectory.getAbsolutePath() + File.separator + var3[0];
          }
 
-         File var4 = new File(var3[0]);
+         File var4 = new NecroFile(var3[0]);
          if (!var4.exists()) {
             return;
          }
@@ -786,7 +790,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
       this.fc.addChoosableFileFilter(this.tff);
       if (this.importFunction) {
          try {
-            this.fc.setCurrentDirectory(new File(importPath));
+            this.fc.setCurrentDirectory(new NecroFile(importPath));
          } catch (Exception var13) {
             Tools.eLog(var13, 0);
          }
@@ -795,14 +799,14 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
             ((BasicFileChooserUI)this.fc.getUI()).setFileName("import_lista.txt");
          } catch (ClassCastException var12) {
             try {
-               this.fc.setSelectedFile(new File("import_lista.txt"));
+               this.fc.setSelectedFile(new NecroFile("import_lista.txt"));
             } catch (Exception var11) {
                Tools.eLog(var11, 0);
             }
          }
       } else {
          try {
-            this.fc.setCurrentDirectory(new File(dataPath));
+            this.fc.setCurrentDirectory(new NecroFile(dataPath));
          } catch (Exception var10) {
             Tools.eLog(var10, 0);
          }
@@ -811,7 +815,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
             ((BasicFileChooserUI)this.fc.getUI()).setFileName("csoportos_muveletek_lista.txt");
          } catch (ClassCastException var9) {
             try {
-               this.fc.setSelectedFile(new File("csoportos_muveletek_lista.txt"));
+               this.fc.setSelectedFile(new NecroFile("csoportos_muveletek_lista.txt"));
             } catch (Exception var8) {
                Tools.eLog(var8, 0);
             }
@@ -832,7 +836,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
                FileOutputStream var4 = null;
 
                try {
-                  var4 = new FileOutputStream(var3);
+                  var4 = new NecroFileOutputStream(var3);
                   Vector var5 = this.fileTableModel.getDataVector();
 
                   for(int var6 = 0; var6 < var5.size(); ++var6) {
@@ -860,7 +864,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
 
    private void parseFile(String var1, Vector var2, boolean var3) throws Exception {
       var1 = this.beauty(var1);
-      File var4 = new File(var1);
+      File var4 = new NecroFile(var1);
       if (!var4.exists()) {
          if (var3) {
             GuiUtil.showMessageDialog(this.mainFrame, "Nem található a listafájl!", "Hiba", 0);
@@ -905,9 +909,9 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
                         var8[0] = defaultDirectory.getAbsolutePath() + File.separator + var8[0];
                      }
 
-                     File var9 = new File(var8[0]);
+                     File var9 = new NecroFile(var8[0]);
                      if (!var9.exists()) {
-                        var9 = new File(var1.substring(0, var1.lastIndexOf(File.separator) + 1) + var8[0]);
+                        var9 = new NecroFile(var1.substring(0, var1.lastIndexOf(File.separator) + 1) + var8[0]);
                         if (!var9.exists()) {
                            var2.add(new TextWithIcon(var8[0] + " - nem található a fájl", 0));
                            continue;
@@ -932,7 +936,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
 
    private void parseFile2(String var1, Vector var2) throws Exception {
       var1 = this.beauty(var1);
-      File var3 = new File(var1);
+      File var3 = new NecroFile(var1);
       String[] var4 = var3.list();
 
       for(int var6 = 0; var6 < var4.length; ++var6) {
@@ -956,9 +960,9 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
                   var7[0] = defaultDirectory.getAbsolutePath() + File.separator + var7[0];
                }
 
-               File var8 = new File(var7[0]);
+               File var8 = new NecroFile(var7[0]);
                if (!var8.exists()) {
-                  var8 = new File(var1.substring(0, var1.lastIndexOf(File.separator) + 1) + var7[0]);
+                  var8 = new NecroFile(var1.substring(0, var1.lastIndexOf(File.separator) + 1) + var7[0]);
                   if (!var8.exists()) {
                      var2.add(new TextWithIcon(var7[0] + " - nem található a fájl", 0));
                      continue;
@@ -1416,7 +1420,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
 
                                     for(var12 = 0; var12 < var112.size(); ++var12) {
                                        String var116 = (String)var112.get(var12);
-                                       File var119 = new File(var116);
+                                       File var119 = new NecroFile(var116);
                                        var119.delete();
                                     }
                                  } catch (Exception var93) {
@@ -1857,7 +1861,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
 
          try {
             String var3 = dataPath + (cmdMode == 2 ? "bc_" : "") + var1 + (cmdMode == 2 ? "_list" : "") + ".txt";
-            var2 = new FileOutputStream(var3);
+            var2 = new NecroFileOutputStream(var3);
 
             for(int var4 = 0; var4 < this.saveFileList.size(); ++var4) {
                var2.write((this.saveFileList.get(var4) + "\r\n").getBytes());
@@ -1970,7 +1974,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
 
    private boolean doVisszavonas(String var1, String var2, String var3) throws Exception {
       try {
-         File var4 = new File(var1);
+         File var4 = new NecroFile(var1);
 
          try {
             var1 = var1.substring(var1.lastIndexOf(File.separator) + 1);
@@ -1980,9 +1984,9 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
 
          File var5;
          if (var2.equals("")) {
-            var5 = new File(destPath + PropertyList.USER_IN_FILENAME + (var1.endsWith(".frm.enyk") ? var1.substring(0, var1.toLowerCase().indexOf(".frm.enyk")) + ".kr" : var1 + ".kr"));
+            var5 = new NecroFile(destPath + PropertyList.USER_IN_FILENAME + (var1.endsWith(".frm.enyk") ? var1.substring(0, var1.toLowerCase().indexOf(".frm.enyk")) + ".kr" : var1 + ".kr"));
          } else {
-            var5 = new File(destPath + PropertyList.USER_IN_FILENAME + var2);
+            var5 = new NecroFile(destPath + PropertyList.USER_IN_FILENAME + var2);
          }
 
          if (var5.exists()) {
@@ -2419,7 +2423,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
             var2.hasError = true;
             String[] var9 = BlacklistStore.getInstance().getErrorListMessage((String)this.fileTableModel.getValueAt(0, 17), (String)this.fileTableModel.getValueAt(0, 14));
             var2.errormsg = var9[0] + " bl_url " + var9[1];
-            var2.loadedfile = new File("disabled_template");
+            var2.loadedfile = new NecroFile("disabled_template");
             return var2;
          }
 
@@ -2428,17 +2432,17 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
             throw new Exception("*");
          }
 
-         File var5 = new File(var4);
+         File var5 = new NecroFile(var4);
          if (!var5.exists()) {
             throw new Exception();
          }
 
          if (var1 != null && var1.loadedfile.getAbsolutePath().equals(var4)) {
             var1.reempty();
-            var1.reload(new File((String)this.fileTableModel.getValueAt(0, 0)), true);
+            var1.reload(new NecroFile((String)this.fileTableModel.getValueAt(0, 0)), true);
             var2 = var1;
          } else {
-            var2 = new BookModel(var5, new File((String)this.fileTableModel.getValueAt(0, 0)), true);
+            var2 = new BookModel(var5, new NecroFile((String)this.fileTableModel.getValueAt(0, 0)), true);
          }
       } catch (Exception var7) {
          Exception var3 = var7;
@@ -2455,7 +2459,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
             var2.errormsg = "Hiba a sablon betöltésekor";
          }
 
-         var2.loadedfile = new File("hkszcspszv");
+         var2.loadedfile = new NecroFile("hkszcspszv");
       }
 
       return var2;
@@ -2495,7 +2499,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
 
       String var5;
       try {
-         var5 = this.doLoadHeadData(new File(var1), var2);
+         var5 = this.doLoadHeadData(new NecroFile(var1), var2);
       } catch (Exception var9) {
          String var7 = var1.toLowerCase().endsWith(".xcz") ? "A csomag nem tartalmaz megfelelő adatállományt" : "Hiba a fájl betöltésekor";
          GuiUtil.showMessageDialog(MainFrame.thisinstance, var7, "Hiba", 0);
@@ -2540,7 +2544,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
       cmdMode = 0;
       this.fileListaMenteseCB.setEnabled(true);
       this.fileListaMenteseCB.setSelected(true);
-      defaultDirectory = new File((new File(var1)).getParent());
+      defaultDirectory = new NecroFile((new NecroFile(var1)).getParent());
       Result var2 = this.startFromCommandLine(var1);
       if (!var2.isOk()) {
          new ErrorDialog(MainFrame.thisinstance, "Csoportos import", true, true, var2.errorList);
@@ -2554,7 +2558,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
 
    private Result startFromCommandLine(String var1) {
       Result var2 = new Result();
-      File var3 = new File(var1);
+      File var3 = new NecroFile(var1);
       if (!var3.exists()) {
          var2.setOk(false);
          var2.errorList.add(new TextWithIcon("Nem található a fájl", 0));
@@ -2599,7 +2603,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
       this.filters.addItem("Nyomtatványok");
       this.resFilter = new String[]{"inner_data_loader_v1"};
       this.importFunction = false;
-      File var3 = new File(var1);
+      File var3 = new NecroFile(var1);
       if (!var3.isDirectory()) {
          var2.setOk(false);
          var2.errorList.add(new TextWithIcon("A megadott path nem könyvtár", 0));
@@ -2640,7 +2644,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
          FileOutputStream var3 = null;
 
          try {
-            var3 = new FileOutputStream(var2 + "_errors.txt");
+            var3 = new NecroFileOutputStream(var2 + "_errors.txt");
 
             for(int var4 = 0; var4 < var1.errorList.size(); ++var4) {
                if (var1.errorList.elementAt(var4) instanceof TextWithIcon) {
@@ -2675,7 +2679,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
       this.initDialog("Lista mentése");
 
       try {
-         this.fc.setCurrentDirectory(new File((String)PropertyList.getInstance().get("prop.usr.naplo")));
+         this.fc.setCurrentDirectory(new NecroFile((String)PropertyList.getInstance().get("prop.usr.naplo")));
       } catch (Exception var12) {
          Tools.eLog(var12, 0);
       }
@@ -2685,7 +2689,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
             ((BasicFileChooserUI)this.fc.getUI()).setFileName("import_uzenetek.txt");
          } catch (ClassCastException var11) {
             try {
-               this.fc.setSelectedFile(new File("import_uzenetek.txt"));
+               this.fc.setSelectedFile(new NecroFile("import_uzenetek.txt"));
             } catch (Exception var10) {
                Tools.eLog(var10, 0);
             }
@@ -2695,7 +2699,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
             ((BasicFileChooserUI)this.fc.getUI()).setFileName("csoportos_muveletek_uzenetek.txt");
          } catch (ClassCastException var9) {
             try {
-               this.fc.setSelectedFile(new File("csoportos_muveletek_uzenetek.txt"));
+               this.fc.setSelectedFile(new NecroFile("csoportos_muveletek_uzenetek.txt"));
             } catch (Exception var8) {
                Tools.eLog(var8, 0);
             }
@@ -2718,7 +2722,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
                FileOutputStream var4 = null;
 
                try {
-                  var4 = new FileOutputStream(var3);
+                  var4 = new NecroFileOutputStream(var3);
 
                   for(int var5 = 0; var5 < this.logLista.getModel().getSize(); ++var5) {
                      if (this.logLista.getModel().getElementAt(var5) instanceof TextWithIcon) {
@@ -2855,7 +2859,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
       this.filters.addItem("Nyomtatványok");
       this.resFilter = new String[]{"inner_data_loader_v1"};
       this.importFunction = false;
-      File var3 = new File(var1);
+      File var3 = new NecroFile(var1);
       if (!var3.isDirectory()) {
          var2.setOk(false);
          var2.errorList.add(new TextWithIcon("A megadott path nem könyvtár", 0));
@@ -2921,11 +2925,11 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
       this.importFunction = true;
       Vector var6 = new Vector();
       this.loaders.put(".xml", new XmlLoader());
-      defaultDirectory = new File((new File(var1)).getParent());
+      defaultDirectory = new NecroFile((new NecroFile(var1)).getParent());
       switch(var3) {
       case 1:
       case 3:
-         File var7 = new File(var1);
+         File var7 = new NecroFile(var1);
          if (!var7.exists()) {
             var6.add("Nem található a listafájl");
          } else {
@@ -2940,7 +2944,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
       case 2:
       case 4:
          try {
-            this.doLoadHeadData(new File(var1), (String)null);
+            this.doLoadHeadData(new NecroFile(var1), (String)null);
          } catch (Exception var9) {
             var9.printStackTrace();
          }
@@ -3128,8 +3132,8 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
       int var5 = 0;
 
       try {
-         var3 = new OutputStreamWriter(new FileOutputStream(var1), "utf-8");
-         var4 = new OutputStreamWriter(new FileOutputStream(var1 + "_hiba"), "utf-8");
+         var3 = new OutputStreamWriter(new NecroFileOutputStream(var1), "utf-8");
+         var4 = new OutputStreamWriter(new NecroFileOutputStream(var1 + "_hiba"), "utf-8");
 
          for(int var6 = 0; var6 < var2.errorList.size(); ++var6) {
             String var7 = var2.errorList.elementAt(var6).toString();
@@ -3165,7 +3169,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
 
       if (var5 == 0) {
          try {
-            File var24 = new File(var1 + "_hiba");
+            File var24 = new NecroFile(var1 + "_hiba");
             var24.delete();
          } catch (Exception var21) {
             Tools.eLog(var21, 0);
@@ -3176,10 +3180,10 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
 
    private void handleZippedData(String var1, String var2, String var3, BookModel var4, String var5) throws Exception {
       if (var1.toLowerCase().endsWith(".xcz")) {
-         String var6 = (new File(var2)).getName();
+         String var6 = (new NecroFile(var2)).getName();
          var6 = var6.substring(0, var6.lastIndexOf("."));
          var6 = var6.substring(0, var6.lastIndexOf("."));
-         File var7 = new File(this.getAttachPath() + var6);
+         File var7 = new NecroFile(this.getAttachPath() + var6);
          boolean var8 = var7.mkdir();
          if (!var8) {
             throw new Exception("nem sikerült a csatolmányok mappa létrehozása");
@@ -3226,7 +3230,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
          for(int var6 = 0; var6 < var1.forms.size(); ++var6) {
             FormModel var7 = (FormModel)var1.forms.get(var6);
             String var8 = var5 + "_" + var7.name + ".atc";
-            File var9 = new File(var8);
+            File var9 = new NecroFile(var8);
             int var10 = 0;
 
             try {
@@ -3260,8 +3264,8 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
 
    private boolean _deleteAttachmentFiles(String var1) {
       HashSet var2 = new HashSet();
-      File var3 = new File(PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.attachment"));
-      File var4 = new File(PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.attachment") + File.separator + var1);
+      File var3 = new NecroFile(PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.attachment"));
+      File var4 = new NecroFile(PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.attachment") + File.separator + var1);
       if (!var3.equals(var4)) {
          var2.add(PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.attachment") + File.separator + var1);
          Tools.deleteFiles(var2);
@@ -3282,7 +3286,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
          FileLoader4BatchCheck var31 = new FileLoader4BatchCheck();
          var31.setFileToList(var1);
          XmlLoader var7 = new XmlLoader();
-         Hashtable var8 = var31.loadHeadData(new File(var1), var7);
+         Hashtable var8 = var31.loadHeadData(new NecroFile(var1), var7);
 
          Hashtable var9;
          try {
@@ -3414,14 +3418,14 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
       Vector var5 = new Vector();
 
       try {
-         File var6 = new File(var3);
+         File var6 = new NecroFile(var3);
          if (var6.exists()) {
             var5.add("A cél kr fájl (" + var3 + ") már létezik!");
             this.doOutputE(var2, var3, var4, var5);
             return;
          }
 
-         String[] var7 = BlacklistStore.getInstance().isKrTemplateInBlackList(new File(var1));
+         String[] var7 = BlacklistStore.getInstance().isKrTemplateInBlackList(new NecroFile(var1));
          if (var7 != null && BlacklistStore.getInstance().isBiztipDisabled(var7[0], var7[1])) {
             String[] var14 = BlacklistStore.getInstance().getErrorListMessage(var7[0], var7[1]);
             var5.add(var14[0]);
@@ -3438,7 +3442,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
          int var10 = var9.getExitCode();
          Properties var11 = this.getKriptoAppMessages();
          if (var10 == 0) {
-            if ((new File(var3)).exists()) {
+            if ((new NecroFile(var3)).exists()) {
                this.doOutputE(var2, var3, var4, (Vector)null);
             } else {
                var5.add("hiba történt a titkosítás során!");
@@ -3465,7 +3469,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
       Vector var5 = new Vector();
 
       try {
-         File var6 = new File(var3);
+         File var6 = new NecroFile(var3);
          if (var6.exists()) {
             var5.add("A cél kr fájl (" + var3 + ") már létezik!");
             this.doOutputE(var2, var3, var4, var5);
@@ -3477,7 +3481,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
          int var9 = var8.getExitCode();
          Properties var10 = this.getKriptoAppMessages();
          if (var9 == 0) {
-            if ((new File(var3)).exists()) {
+            if ((new NecroFile(var3)).exists()) {
                this.doOutputE(var2, var3, var4, (Vector)null);
             } else {
                var5.add("hiba történt a titkosítás során!");
@@ -3525,19 +3529,19 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
    }
 
    private void doOutputP(String var1, String var2, String var3, String var4, Vector var5, boolean var6) throws IOException {
-      FileOutputStream var7 = new FileOutputStream(var2);
+      FileOutputStream var7 = new NecroFileOutputStream(var2);
       SendParams var8;
       String var9;
       if (var5 == null) {
          var7.write((var1 + ";" + "v.3.44.0" + ";" + var3 + ";" + var4 + "\n").getBytes());
          var8 = new SendParams(PropertyList.getInstance());
-         var9 = (new File(var1)).getName();
+         var9 = (new NecroFile(var1)).getName();
          var7.write((var8.srcPath + var9 + ";" + var8.srcPath + var9.substring(0, var9.length() - 3) + "mf\n").getBytes());
       } else {
          if (var6) {
             var7.write((var1 + ";" + "v.3.44.0" + ";" + var3 + ";" + var4 + "\n").getBytes());
             var8 = new SendParams(PropertyList.getInstance());
-            var9 = (new File(var1)).getName();
+            var9 = (new NecroFile(var1)).getName();
             var7.write((var8.srcPath + var9 + ";" + var8.srcPath + var9.substring(0, var9.length() - 3) + "mf\n").getBytes());
          } else {
             var7.write((var1 + "\n").getBytes());
@@ -3555,7 +3559,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
    }
 
    private void doOutputE(String var1, String var2, String var3, Vector var4) throws IOException {
-      FileOutputStream var5 = new FileOutputStream(var3);
+      FileOutputStream var5 = new NecroFileOutputStream(var3);
       if (var4 == null) {
          var5.write((var1 + ";" + "v.3.44.0" + "\n").getBytes());
          var5.write((var2 + "\n").getBytes());
@@ -3573,7 +3577,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
    }
 
    private void doOutputS(String var1, String var2, Result var3) throws IOException {
-      FileOutputStream var4 = new FileOutputStream(var2);
+      FileOutputStream var4 = new NecroFileOutputStream(var2);
       var4.write((var1 + ";" + "v.3.44.0" + "\n").getBytes());
       int var5;
       if (var3.isOk()) {
@@ -3603,7 +3607,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
 
       try {
          XsdChecker var4 = new XsdChecker();
-         File var5 = new File(var1);
+         File var5 = new NecroFile(var1);
          String var6 = var4.getEncoding(var5);
          var2 = var4._load(new FileInputStream(var5), var6);
       } catch (Exception var7) {
@@ -3648,9 +3652,9 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
       FileWriter var5 = null;
 
       try {
-         File var43 = new File(var1);
+         File var43 = new NecroFile(var1);
          String var7 = var43.getParent();
-         String var8 = (new File(var3)).getParent();
+         String var8 = (new NecroFile(var3)).getParent();
          if (var8 == null) {
             var3 = var7 + File.separator + var3;
          }
@@ -3661,9 +3665,9 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
             throw new IOException("A log fájl felülírná a megadott xcz fájlt!");
          }
 
-         var5 = new FileWriter(var3);
+         var5 = new NecroFileWriter(var3);
          var5.write((new SimpleDateFormat()).format(new Date()) + ";" + var1 + "\n");
-         if ((new File(var10)).exists()) {
+         if ((new NecroFile(var10)).exists()) {
             var5.write("RESULT:ERROR:A létrehozandó kr fájl már létezik (" + var10 + ")\n");
             return;
          }
@@ -3685,10 +3689,10 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
          var44.doneCMD(var1, var5, var2);
          if (PropertyList.getInstance().get("prop.dynamic.kr_filename_4_cmd_send") != null) {
             String var45 = (String)PropertyList.getInstance().get("prop.dynamic.kr_filename_4_cmd_send");
-            File var13 = new File(var45);
-            boolean var14 = var13.renameTo(new File(var10));
+            File var13 = new NecroFile(var45);
+            boolean var14 = var13.renameTo(new NecroFile(var10));
             if (!var14) {
-               var14 = var13.renameTo(new File(var10));
+               var14 = var13.renameTo(new NecroFile(var10));
             }
 
             if (!var14) {
@@ -3746,7 +3750,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
 
       try {
          boolean var4 = false;
-         var3 = new FileWriter(var2);
+         var3 = new NecroFileWriter(var2);
 
          for(int var5 = 0; var5 < var1.size(); ++var5) {
             if (var1.elementAt(var5) instanceof TextWithIcon && ((TextWithIcon)var1.elementAt(var5)).imageType == 1) {
@@ -3772,13 +3776,13 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
    }
 
    private void deleteCstFile(String var1, String var2) {
-      File var3 = new File(var1);
+      File var3 = new NecroFile(var1);
       String var4 = var3.getName();
       String var5 = var4.substring(0, var4.toLowerCase().indexOf(".frm.enyk"));
       String var6 = var3.getParent() + File.separator + var5 + ".cst";
 
       try {
-         (new File(var6)).delete();
+         (new NecroFile(var6)).delete();
       } catch (Exception var15) {
          Tools.eLog(var15, 0);
       }
@@ -3786,14 +3790,14 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
       var6 = var3.getParent() + File.separator + var5 + "_" + var2 + ".cst";
 
       try {
-         (new File(var6)).delete();
+         (new NecroFile(var6)).delete();
       } catch (Exception var14) {
          Tools.eLog(var14, 0);
       }
 
       String var7 = PropertyList.getInstance().get("prop.usr.root") + "/" + PropertyList.getInstance().get("prop.usr.attachment") + "/" + var4;
       var7 = var7.substring(0, var7.toLowerCase().indexOf(".frm.enyk"));
-      File var8 = new File(var7 + "/" + var2);
+      File var8 = new NecroFile(var7 + "/" + var2);
       if (var8.exists()) {
          if (var8.isDirectory()) {
             File[] var9 = var8.listFiles(new FilenameFilter() {
@@ -3806,7 +3810,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
                File var11 = var9[var10];
                if (!var11.delete()) {
                   try {
-                     Ebev.log(1, new File(var1), var11.getAbsolutePath() + " fájl törlése nem sikerült.");
+                     Ebev.log(1, new NecroFile(var1), var11.getAbsolutePath() + " fájl törlése nem sikerült.");
                   } catch (Exception var13) {
                      System.out.println("Nem sikerült a log fájl írása. " + var11.getAbsolutePath() + " fájl törlése nem sikerült.");
                   }
@@ -3820,7 +3824,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
 
    private void deleteUrlapAsic(String var1) {
       String var2 = krdir + PropertyList.getInstance().get("prop.usr.ds_src") + File.separator + var1 + "/alairt";
-      File var3 = new File(var2 + File.separator + var1 + ".urlap.anyk.ASiC");
+      File var3 = new NecroFile(var2 + File.separator + var1 + ".urlap.anyk.ASiC");
       if (!var3.delete()) {
          try {
             Ebev.log(1, var3, var3.getAbsolutePath() + " fájl törlése nem sikerült.");
@@ -3844,7 +3848,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
          if (!"".equals(this.fileTableModel.getValueAt(var4, 16).toString())) {
             String var2 = (String)this.fileTableModel.getValueAt(var4, 0);
             var2 = var2.substring(0, var2.length() - ".frm.enyk".length()) + "_" + this.fileTableModel.getValueAt(var4, 17) + ".atc";
-            File var3 = new File(var2);
+            File var3 = new NecroFile(var2);
             if (!var3.exists()) {
                var1 = var1 + "\n" + this.fileTableModel.getValueAt(var4, 0);
             }
@@ -3879,7 +3883,7 @@ public class BatchFunctions extends JDialog implements ActionListener, ItemListe
          throw new Exception("Hibás a csomag, nem tartalmaz xml fájlt!");
       } else {
          var4 = var4.substring(0, var4.length() - 4);
-         File var6 = new File(PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.saves") + File.separator + var4 + ".frm.enyk");
+         File var6 = new NecroFile(PropertyList.getInstance().get("prop.usr.root") + File.separator + PropertyList.getInstance().get("prop.usr.saves") + File.separator + var4 + ".frm.enyk");
          if (var6.exists()) {
             throw new Exception("Az xcz csomagokat a bennük lévő xml fájl nevén kell kicsomagolni. Ez jelenleg nem lehetséges, mert az alábbi fájl már létezik:\n" + var6.getAbsolutePath() + "\nKérjük nevezze át, majd próbálja újra kicsomagolni az xcz-t!");
          } else {

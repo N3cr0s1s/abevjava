@@ -13,6 +13,9 @@ import hu.piller.enykp.util.base.eventsupport.Event;
 import hu.piller.enykp.util.base.eventsupport.IEventListener;
 import hu.piller.enykp.util.base.eventsupport.IEventSupport;
 import hu.piller.enykp.util.icon.ENYKIconSet;
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
+
 import java.awt.Component;
 import java.awt.Insets;
 import java.awt.Point;
@@ -192,10 +195,10 @@ public class MessageInfoBusiness implements IEventListener {
                UIManager.put("FileChooser.acceptAllFileFilterText", "Minden Állomány");
                var4 = new JFileChooser();
                var4.setDialogTitle("Látható üzenetek állományba mentése");
-               var4.setSelectedFile(new File("Javas_ABev_üzenetek.txt"));
+               var4.setSelectedFile(new NecroFile("Javas_ABev_üzenetek.txt"));
 
                try {
-                  var4.setCurrentDirectory(new File((String)PropertyList.getInstance().get("prop.usr.naplo")));
+                  var4.setCurrentDirectory(new NecroFile((String)PropertyList.getInstance().get("prop.usr.naplo")));
                } catch (Exception var18) {
                   Tools.eLog(var18, 0);
                }
@@ -211,7 +214,7 @@ public class MessageInfoBusiness implements IEventListener {
                File var6 = var4.getSelectedFile();
                if (!var6.exists() || 1 != JOptionPane.showConfirmDialog(SwingUtilities.getRoot(MessageInfoBusiness.this.message_info_panel), var6.getName() + " állomány létezik ! Felülírja ?", "Üzenetek állományba mentése", 0)) {
                   try {
-                     BufferedWriter var7 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(var6), "ISO-8859-2"));
+                     BufferedWriter var7 = new BufferedWriter(new OutputStreamWriter(new NecroFileOutputStream(var6), "ISO-8859-2"));
 
                      try {
                         var7.write("Mentés dátuma: " + var2.format(new Date()));

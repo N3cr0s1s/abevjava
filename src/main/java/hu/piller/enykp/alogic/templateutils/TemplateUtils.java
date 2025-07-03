@@ -20,6 +20,8 @@ import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
 import hu.piller.enykp.util.filelist.EnykFileList;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.util.Arrays;
 import java.util.Enumeration;
@@ -622,7 +624,7 @@ public class TemplateUtils {
 
    public String[] getHelpOrphanOrgids() {
       HashSet var1 = new HashSet();
-      File var2 = new File(Directories.getHelpsPath());
+      File var2 = new NecroFile(Directories.getHelpsPath());
       Object[] var3 = new Object[]{new DocInfoLoader()};
       Object[] var4 = EnykFileList.getInstance().list(var2.toString(), var3);
       if (var4 != null && var4.length > 0) {

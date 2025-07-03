@@ -18,6 +18,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.PrivateKey;
 import java.util.Vector;
+
+import me.necrocore.abevjava.NecroFile;
+import me.necrocore.abevjava.NecroFileOutputStream;
 import org.bouncycastle.crypto.SecretKey;
 import org.bouncycastle.crypto.spec.SecretKeySpec;
 import org.xml.sax.InputSource;
@@ -242,7 +245,7 @@ public class BoritekParser3 extends XESDocumentController implements Runnable {
          }
 
          try {
-            edh.setOutputStream(new FileOutputStream(new File(this.destDir, nyomFileNev)));
+            edh.setOutputStream(new NecroFileOutputStream(new NecroFile(this.destDir, nyomFileNev)));
          } catch (FileNotFoundException var4) {
             var4.printStackTrace();
          }
@@ -268,7 +271,7 @@ public class BoritekParser3 extends XESDocumentController implements Runnable {
                nyomFileNev = this.metaData.getFileNev();
             }
 
-            csatDir = new File(this.destDir, nyomFileNev + "_csatolmanyai");
+            csatDir = new NecroFile(this.destDir, nyomFileNev + "_csatolmanyai");
             if (!csatDir.exists()) {
                csatDir.mkdir();
             } else if (!csatDir.isDirectory() || !csatDir.canWrite()) {
@@ -280,7 +283,7 @@ public class BoritekParser3 extends XESDocumentController implements Runnable {
             }
          }
 
-         csh.setOutputStream(new FileOutputStream(new File(csatDir, csatFileNev)));
+         csh.setOutputStream(new NecroFileOutputStream(new NecroFile(csatDir, csatFileNev)));
          if (this.dt != null) {
             this.dt.restartDispatch();
          }
@@ -327,7 +330,7 @@ public class BoritekParser3 extends XESDocumentController implements Runnable {
    }
 
    public void setDestDir(String dir) throws IOException {
-      this.destDir = new File(dir);
+      this.destDir = new NecroFile(dir);
       if (!this.destDir.exists() && !this.destDir.mkdir()) {
          throw new IOException(dir + " not exist, cannot be created");
       } else if (!this.destDir.isDirectory()) {

@@ -16,6 +16,8 @@ import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Result;
 import hu.piller.enykp.util.base.errordialog.ErrorDialog;
 import hu.piller.enykp.util.base.errordialog.TextWithIcon;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -195,7 +197,7 @@ public class UniversalImportPanel extends JPanel {
       try {
          ABEVOpenPanel var2 = new ABEVOpenPanel();
          var2.setMode("open_multi");
-         var2.setPath(new File((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.saves")));
+         var2.setPath(new NecroFile((String)PropertyList.getInstance().get("prop.usr.root"), (String)PropertyList.getInstance().get("prop.usr.saves")));
          var2.setFilters(new String[]{"inner_data_loader_v1"});
          Hashtable var3 = var2.showDialog();
          if (var3 != null && var3.size() != 0) {
@@ -243,7 +245,7 @@ public class UniversalImportPanel extends JPanel {
       File var4 = null;
 
       try {
-         var4 = new File(TemplateChecker.getInstance().getTemplateFileNames(var1, var2, var3, UpgradeFunction.OPEN).getTemplateFileNames()[0]);
+         var4 = new NecroFile(TemplateChecker.getInstance().getTemplateFileNames(var1, var2, var3, UpgradeFunction.OPEN).getTemplateFileNames()[0]);
       } catch (Exception var19) {
          JOptionPane.showMessageDialog(MainFrame.thisinstance, "Hiba történt!\n" + var19.getMessage());
          MainFrame.thisinstance.glasslock = false;

@@ -9,6 +9,8 @@ import com.lowagie.text.pdf.PdfWriter;
 import hu.piller.enykp.print.AbevFontMapper;
 import hu.piller.enykp.print.Lap;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -365,7 +367,7 @@ public class Jep2Pdf4Calculation {
          InputStream var5 = var4.getInputStream();
          return Font.createFont(0, var5);
       } else {
-         return Font.createFont(0, new File((var1 + "fonts/LiberationSerif-Regular.ttf").substring(6)));
+         return Font.createFont(0, new NecroFile((var1 + "fonts/LiberationSerif-Regular.ttf").substring(6)));
       }
    }
 

@@ -4,6 +4,8 @@ import hu.piller.enykp.alogic.fileutil.TemplateChecker;
 import hu.piller.enykp.gui.model.BookModel;
 import hu.piller.enykp.interfaces.IHelperLoad;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -21,7 +23,7 @@ public class KTools {
    }
 
    public String[] getKontrollNames(DatTableModel var1) throws Exception {
-      File var2 = new File(Kontroll.kontrollKVFPath);
+      File var2 = new NecroFile(Kontroll.kontrollKVFPath);
       KontrollFilenameFilter var3 = new KontrollFilenameFilter(".kvf");
       String[] var4 = var2.list(var3);
       this.parseKvfs(var4);
@@ -81,7 +83,7 @@ public class KTools {
          var3.put("get_form_iterator", "");
       }
 
-      IHelperLoad var4 = (IHelperLoad)Kontroll.xmlLoadManager.getHeadData(new File(var0));
+      IHelperLoad var4 = (IHelperLoad)Kontroll.xmlLoadManager.getHeadData(new NecroFile(var0));
       var4.initialize();
       var4.read();
       var4.getData(var3);
@@ -120,11 +122,11 @@ public class KTools {
    public static BookModel getBookModel(String var0, String var1) throws Exception {
       String var2 = null;
       var2 = getTemplateFilename(var1);
-      File var3 = new File(var2);
+      File var3 = new NecroFile(var2);
       if (!var3.exists()) {
          throw new Exception("*Nem létezik a sablon fájl");
       } else {
-         return new BookModel(var3, new File(var0));
+         return new BookModel(var3, new NecroFile(var0));
       }
    }
 }

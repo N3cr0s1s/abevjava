@@ -4,6 +4,8 @@ import hu.piller.enykp.interfaces.IPropertyList;
 import hu.piller.enykp.util.base.ErrorList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.util.HashSet;
 import java.util.Vector;
@@ -51,9 +53,9 @@ public class FileStatusChecker implements IPropertyList {
 
    private FileStatusChecker() {
       IPropertyList var1 = PropertyList.getInstance();
-      this.destPath = (new File((String)var1.get("prop.usr.krdir"), (String)var1.get("prop.usr.ds_dest"))).getAbsolutePath();
-      this.sentPath = (new File((String)var1.get("prop.usr.krdir"), (String)var1.get("prop.usr.ds_sent"))).getAbsolutePath();
-      this.srcPath = (new File((String)var1.get("prop.usr.krdir"), (String)var1.get("prop.usr.ds_src"))).getAbsolutePath();
+      this.destPath = (new NecroFile((String)var1.get("prop.usr.krdir"), (String)var1.get("prop.usr.ds_dest"))).getAbsolutePath();
+      this.sentPath = (new NecroFile((String)var1.get("prop.usr.krdir"), (String)var1.get("prop.usr.ds_sent"))).getAbsolutePath();
+      this.srcPath = (new NecroFile((String)var1.get("prop.usr.krdir"), (String)var1.get("prop.usr.ds_src"))).getAbsolutePath();
       if (!this.destPath.endsWith("\\") && !this.destPath.endsWith("/")) {
          this.destPath = this.destPath + File.separator;
       }
@@ -212,13 +214,13 @@ public class FileStatusChecker implements IPropertyList {
          if (destFiles == null) {
             File[] var16 = new File[4];
             File[] var18 = new File[4];
-            var4 = (new File(var5)).getName();
-            var16[0] = new File(this.sentPath + PropertyList.USER_IN_FILENAME + (var4.endsWith(".frm.enyk") ? var4.substring(0, var4.indexOf(".frm.enyk")) + ".kr" : var4 + ".kr"));
-            var18[0] = new File(this.destPath + PropertyList.USER_IN_FILENAME + (var4.endsWith(".frm.enyk") ? var4.substring(0, var4.indexOf(".frm.enyk")) + ".kr" : var4 + ".kr"));
+            var4 = (new NecroFile(var5)).getName();
+            var16[0] = new NecroFile(this.sentPath + PropertyList.USER_IN_FILENAME + (var4.endsWith(".frm.enyk") ? var4.substring(0, var4.indexOf(".frm.enyk")) + ".kr" : var4 + ".kr"));
+            var18[0] = new NecroFile(this.destPath + PropertyList.USER_IN_FILENAME + (var4.endsWith(".frm.enyk") ? var4.substring(0, var4.indexOf(".frm.enyk")) + ".kr" : var4 + ".kr"));
 
             for(int var19 = 1; var19 < var16.length; ++var19) {
-               var16[var19] = new File(this.sentPath + PropertyList.USER_IN_FILENAME + (var4.endsWith(".frm.enyk") ? var4.substring(0, var4.indexOf(".frm.enyk")) + "_" + (var19 - 1) + "_p" + ".kr" : var4 + "_" + (var19 - 1) + "_p" + ".kr"));
-               var18[var19] = new File(this.destPath + PropertyList.USER_IN_FILENAME + (var4.endsWith(".frm.enyk") ? var4.substring(0, var4.indexOf(".frm.enyk")) + "_" + (var19 - 1) + "_p" + ".kr" : var4 + "_" + (var19 - 1) + "_p" + ".kr"));
+               var16[var19] = new NecroFile(this.sentPath + PropertyList.USER_IN_FILENAME + (var4.endsWith(".frm.enyk") ? var4.substring(0, var4.indexOf(".frm.enyk")) + "_" + (var19 - 1) + "_p" + ".kr" : var4 + "_" + (var19 - 1) + "_p" + ".kr"));
+               var18[var19] = new NecroFile(this.destPath + PropertyList.USER_IN_FILENAME + (var4.endsWith(".frm.enyk") ? var4.substring(0, var4.indexOf(".frm.enyk")) + "_" + (var19 - 1) + "_p" + ".kr" : var4 + "_" + (var19 - 1) + "_p" + ".kr"));
             }
 
             var9 = false;
@@ -227,14 +229,14 @@ public class FileStatusChecker implements IPropertyList {
             for(int var11 = 0; var11 < var18.length; ++var11) {
                boolean var12 = var18[var11].exists();
                if (!var12) {
-                  File var13 = new File(var18[var11].getParentFile(), var18[var11].getName().toLowerCase());
+                  File var13 = new NecroFile(var18[var11].getParentFile(), var18[var11].getName().toLowerCase());
                   var12 = var13.exists();
                }
 
                var20 = var20 || var12;
                boolean var23 = var16[var11].exists();
                if (!var23) {
-                  File var14 = new File(var16[var11].getParentFile(), var16[var11].getName().toLowerCase());
+                  File var14 = new NecroFile(var16[var11].getParentFile(), var16[var11].getName().toLowerCase());
                   var23 = var14.exists();
                }
 
@@ -246,9 +248,9 @@ public class FileStatusChecker implements IPropertyList {
             } else if (var20) {
                var6 = 1;
             } else if (var1.toLowerCase().startsWith(var4.toLowerCase())) {
-               var6 = this.getExtendedFileInfo((new File(var4)).getName());
+               var6 = this.getExtendedFileInfo((new NecroFile(var4)).getName());
             } else {
-               var6 = this.getExtendedFileInfo((new File(var1.substring(0, var1.length() - ".frm.enyk".length()))).getName());
+               var6 = this.getExtendedFileInfo((new NecroFile(var1.substring(0, var1.length() - ".frm.enyk".length()))).getName());
             }
 
             if (var2 == 0) {
@@ -267,7 +269,7 @@ public class FileStatusChecker implements IPropertyList {
          } else {
             var5 = var5.toLowerCase();
             String[] var7 = new String[4];
-            var4 = (new File(var5)).getName();
+            var4 = (new NecroFile(var5)).getName();
             var7[0] = PropertyList.USER_IN_FILENAME + (var4.endsWith(".frm.enyk") ? var4.substring(0, var4.indexOf(".frm.enyk")) + ".kr" : var4 + ".kr");
 
             for(int var8 = 1; var8 < var7.length; ++var8) {
@@ -302,11 +304,11 @@ public class FileStatusChecker implements IPropertyList {
 
    public int getExtendedFileInfo(String var1) {
       String var2 = this.destPath + var1 + ".xcz" + "_status";
-      if ((new File(var2)).exists()) {
+      if ((new NecroFile(var2)).exists()) {
          return 5;
       } else {
          var2 = this.srcPath + var1 + File.separator + "alairt";
-         if ((new File(var2)).exists()) {
+         if ((new NecroFile(var2)).exists()) {
             if (this.isAvdhSigned(var1)) {
                return 4;
             } else {
@@ -320,12 +322,12 @@ public class FileStatusChecker implements IPropertyList {
 
    private boolean isAvdhSigned(String var1) {
       String var2 = this.srcPath + var1 + File.separator + "alairt" + File.separator + var1 + ".urlap.anyk.ASiC";
-      return (new File(var2)).exists();
+      return (new NecroFile(var2)).exists();
    }
 
    private boolean isExternalSigned(String var1) {
       String var2 = this.srcPath + var1 + File.separator + "alairt";
-      File var3 = new File(var2);
+      File var3 = new NecroFile(var2);
       if (!var3.exists()) {
          return this.isExternalPassed(var1);
       } else {
@@ -336,7 +338,7 @@ public class FileStatusChecker implements IPropertyList {
 
    private boolean isExternalPassed(String var1) {
       String var2 = this.srcPath + var1 + File.separator + "alairando";
-      File var3 = new File(var2);
+      File var3 = new NecroFile(var2);
       if (!var3.exists()) {
          return false;
       } else {
@@ -351,8 +353,8 @@ public class FileStatusChecker implements IPropertyList {
       try {
          destFiles = new HashSet();
          sentFiles = new HashSet();
-         File[] var1 = (new File(this.destPath)).listFiles();
-         File[] var2 = (new File(this.sentPath)).listFiles();
+         File[] var1 = (new NecroFile(this.destPath)).listFiles();
+         File[] var2 = (new NecroFile(this.sentPath)).listFiles();
 
          int var3;
          for(var3 = 0; var3 < var1.length; ++var3) {

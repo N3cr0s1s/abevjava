@@ -10,6 +10,8 @@ import hu.piller.enykp.interfaces.IPropertyList;
 import hu.piller.enykp.util.base.PropertyList;
 import hu.piller.enykp.util.base.Tools;
 import hu.piller.enykp.util.base.eventsupport.CloseEvent;
+import me.necrocore.abevjava.NecroFile;
+
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -68,7 +70,7 @@ public class FormDataListDialog implements ICommandObject {
    private String[] filters = new String[]{"inner_data_loader_v1"};
    public static final String DEFAULT_LIST_FILE_NAME = "nyomtatvany_adatok.txt";
    private final Object[] update_skin = new Object[]{"work_panel", "static", "Nyomtatvány adatok", "tab_close", null};
-   private File path = new File(this.getProperty("prop.usr.root"), this.getProperty("prop.usr.saves"));
+   private File path = new NecroFile(this.getProperty("prop.usr.root"), this.getProperty("prop.usr.saves"));
    private FilePanel file_panel;
    private FileBusiness business;
    private JDialog dlg;
@@ -265,7 +267,7 @@ public class FormDataListDialog implements ICommandObject {
 
       public void b13Clicked() {
          Object var5 = PropertyList.getInstance().get("prop.usr.naplo");
-         File var3 = var5 == null ? null : new File(var5.toString());
+         File var3 = var5 == null ? null : new NecroFile(var5.toString());
          boolean var4 = false;
 
          while(true) {
@@ -282,7 +284,7 @@ public class FormDataListDialog implements ICommandObject {
             }
 
             if (!var1.getName().endsWith(".txt")) {
-               var1 = new File(var1.getParent(), var1.getName() + ".txt");
+               var1 = new NecroFile(var1.getParent(), var1.getName() + ".txt");
             }
 
             if (var1.exists()) {

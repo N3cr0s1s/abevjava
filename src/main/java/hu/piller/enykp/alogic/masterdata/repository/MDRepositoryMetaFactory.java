@@ -3,6 +3,8 @@ package hu.piller.enykp.alogic.masterdata.repository;
 import hu.piller.enykp.alogic.masterdata.repository.xml.MDRepositoryMetaImpl;
 import hu.piller.enykp.alogic.orghandler.OrgInfo;
 import hu.piller.enykp.alogic.upgrademanager_v2_0.Directories;
+import me.necrocore.abevjava.NecroFile;
+
 import java.io.File;
 import java.io.InputStream;
 import java.util.Vector;
@@ -13,7 +15,7 @@ public class MDRepositoryMetaFactory {
    public static synchronized MDRepositoryMeta getMDRepositoryMeta() throws MDRepositoryException {
       if (_meta == null) {
          String var0 = Directories.getSchemasPath() + "/MasterDataDef.xsd";
-         if (!(new File(var0)).exists()) {
+         if (!(new NecroFile(var0)).exists()) {
             throw new MDRepositoryException("Nem található a törzsadat szerkezet leíró: " + var0);
          }
 
@@ -29,7 +31,7 @@ public class MDRepositoryMetaFactory {
          }
 
          String var5 = Directories.getSchemasPath() + "/EntityDef.xsd";
-         if (!(new File(var5)).exists()) {
+         if (!(new NecroFile(var5)).exists()) {
             throw new MDRepositoryException("Nem található az egyed struktúra leíró: " + var5);
          }
 
