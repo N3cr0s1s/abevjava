@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>       
+<selector>
+    <org sn="NAV">
+        <list id="1" type="e">
+            <label>Adózó</label>
+            <labelpadding>52</labelpadding>
+            <entity>
+                <name>Társaság</name>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Adózó neve</mdata>
+                </part>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Adózó adószáma</mdata>
+                </part>
+            </entity>
+            <entity>
+                <name>Magánszemély</name>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Vezetékneve</mdata>
+                </part>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Keresztneve</mdata>
+                </part>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Adózó adóazonosító jele</mdata>
+                </part>
+            </entity>
+            <entity>
+                <name>Egyéni vállalkozó</name>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Vezetékneve</mdata>
+                </part>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Keresztneve</mdata>
+                </part>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Adózó adószáma</mdata>
+                </part>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Adózó adóazonosító jele</mdata>
+                </part>
+            </entity>
+        </list>
+        <list id="2" type="b">
+            <ref>1</ref>
+            <label>Telephely</label>
+            <labelpadding>33</labelpadding>
+            <entity>
+                <name>Társaság</name>
+                <rblock>Telephelyek</rblock>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Irányítószám</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Település</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Közterület neve</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Közterület jellege</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Házszám</mdata>
+                </part>
+            </entity>
+            <entity>
+                <name>Egyéni vállalkozó</name>
+                <rblock>Telephelyek</rblock>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Irányítószám</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Település</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Közterület neve</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Közterület jellege</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Házszám</mdata>
+                </part>
+            </entity>
+            <entity>
+                <name>Magánszemély</name>
+                <rblock>Telephelyek</rblock>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Irányítószám</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Település</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Közterület neve</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Közterület jellege</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Házszám</mdata>
+                </part>
+            </entity>
+        </list>
+        <list id="3" type="e">
+            <label>Adótanácsadó</label>
+            <labelpadding>5</labelpadding>
+            <entity>
+                <name>Adótanácsadó</name>
+                <part>
+                    <block>Név</block>
+                    <mdata>Adótanácsadó neve</mdata>
+                </part>
+            </entity>
+        </list>
+    </org>
+
+   <org sn="VPOP">
+        <list id="1" type="e">
+            <label>Adatszolgáltató</label>
+            <labelpadding>5</labelpadding>
+            <entity>
+                <name>Társaság</name>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Adózó neve</mdata>
+                </part>                
+            </entity>
+            <entity>
+                <name>Magánszemély</name>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Vezetékneve</mdata>
+                </part>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Keresztneve</mdata>
+                </part>                
+            </entity>
+            <entity>
+                <name>Egyéni vállalkozó</name>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Vezetékneve</mdata>
+                </part>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Keresztneve</mdata>
+                </part>                
+            </entity>
+        </list>
+        <list id="2" type="b">
+            <ref>1</ref>
+            <label>Telephely</label>
+            <labelpadding>39</labelpadding>
+            <entity>
+                <name>Társaság</name>
+                <rblock>Telephelyek</rblock>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Irányítószám</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Település</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Közterület neve</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Közterület jellege</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Házszám</mdata>
+                </part>
+            </entity>
+            <entity>
+                <name>Egyéni vállalkozó</name>
+                <rblock>Telephelyek</rblock>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Irányítószám</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Település</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Közterület neve</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Közterület jellege</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Házszám</mdata>
+                </part>
+            </entity>
+            <entity>
+                <name>Magánszemély</name>
+                <rblock>Telephelyek</rblock>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Irányítószám</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Település</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Közterület neve</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Közterület jellege</mdata>
+                </part>
+                <part>
+                    <block>Telephelyek</block>
+                    <mdata>T Házszám</mdata>
+                </part>
+            </entity>
+        </list>
+    </org>
+
+    <org sn="DEFAULT">
+        <list id="1" type="e">
+            <label>Ügyfél</label>
+            <labelpadding>52</labelpadding>
+            <entity>
+                <name>Társaság</name>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Adózó neve</mdata>
+                </part>
+            </entity>
+            <entity>
+                <name>Magánszemély</name>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Vezetékneve</mdata>
+                </part>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Keresztneve</mdata>
+                </part>
+            </entity>
+            <entity>
+                <name>Egyéni vállalkozó</name>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Vezetékneve</mdata>
+                </part>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Keresztneve</mdata>
+                </part>
+                <part>
+                    <block>Törzsadatok</block>
+                    <mdata>Adózó adószáma</mdata>
+                </part>                
+            </entity>
+        </list>
+        <list id="2" type="e">
+            <label>Jogi képviselő</label>
+            <labelpadding>7</labelpadding>
+            <entity>
+                <name>Jogi képviselő</name>
+                <part>
+                    <block>Jogi képviselő</block>
+                    <mdata>J Titulus</mdata>
+                </part>
+                <part>
+                    <block>Jogi képviselő</block>
+                    <mdata>J Családi név</mdata>
+                </part>
+                <part>
+                    <block>Jogi képviselő</block>
+                    <mdata>J Első utónév</mdata>
+                </part>
+            </entity>
+        </list>
+    </org>
+</selector>

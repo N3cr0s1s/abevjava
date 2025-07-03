@@ -1,0 +1,2116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  <meta http-equiv="Content-Type" content="text/htm; charset=utf-8">
+
+
+
+
+
+
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <title>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program S&uacute;g&oacute;</title>
+  <style type="text/css">
+BODY {font-family:verdana; font-size:12pt; margin:5px;}
+H1 {font-size: 15pt;}
+H2 {font-size: 14pt; font-weight:bold; border-bottom: 2px solid;}
+H3 {font-size: 13pt; font-weight:bold; font-style:italic;}
+H4 {font-size: 12pt; font-weight:bold;}
+H5 {font-size: 12pt; font-weight:bold; font-style:italic;}
+H6 {font-size: 11pt; font-weight:bold;}
+TABLE {font-size: 12pt; border-collapse: collapse; clear: both;}
+TD {border: 1px solid #666666; padding: 2px;}
+DT {font-style:italic;}
+.label {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+.path {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+  </style>
+</head>
+
+
+<body lang="hu">
+
+
+
+
+
+
+
+<a name="teteje"></a>
+<h1>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program
+S&uacute;g&oacute;</h1>
+
+
+
+
+
+<small><a href="enyk_tartalom.htm#tartalom">Tartalomjegyz&eacute;k</a>
+| <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></small>
+
+<h1 style="color: rgb(38, 93, 215);">K&ouml;tegelt
+nyomtatv&aacute;nyok kezel&eacute;se&nbsp;a java-s
+nyomtatv&aacute;nykit&ouml;ltő programban<br>
+
+
+(pl.: 1044A &eacute;s 1044T k&ouml;tegelt
+nyomtatv&aacute;ny - HIPA)&nbsp;
+</h1>
+
+
+
+
+
+
+
+<h1>K&ouml;tegelt nyomtatv&aacute;nyok
+&aacute;ltal&aacute;nos jellemzői</h1>
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+  <li>Minden nyomtatv&aacute;nyk&ouml;teg &aacute;ll
+egy
+főnyomtatv&aacute;nyb&oacute;l &eacute;s
+alnyomtatv&aacute;ny(ok)b&oacute;l. Az
+alnyomtatv&aacute;nyok
+sz&aacute;m&aacute;t az adott nyomtatv&aacute;ny jellege
+hat&aacute;rozza meg.</li>
+
+
+
+
+
+
+
+  <li>A kiv&aacute;lasztott nyomtatv&aacute;ny
+l&eacute;trehoz&aacute;sakor a főnyomtatv&aacute;ny
+automatikusan
+l&eacute;trej&ouml;n &eacute;s megjelenik a
+k&eacute;pernyőn.</li>
+
+
+
+
+
+
+
+  <li>Főnyomtatv&aacute;nyt nem lehet
+t&ouml;r&ouml;lni, csak az alnyomtatv&aacute;nyt.</li>
+
+
+
+
+
+
+
+  <li>Az alnyomtatv&aacute;nyok adatainak
+m&oacute;dos&iacute;t&aacute;sakor a program nem
+sz&aacute;molja
+automatikusan &uacute;jra a főnyomtatv&aacute;ny
+&ouml;sszegző mezőit.
+Ha befejezte a nyomtatv&aacute;nyk&ouml;teg
+szerkeszt&eacute;s&eacute;t, akkor
+nyomtatv&aacute;nyk&ouml;teg
+fődokumentum&aacute;b&oacute;l ind&iacute;tsa el az Adatok
+men&uuml;-&gt; Sz&aacute;m&iacute;tott mezők
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa
+men&uuml;pontot
+vagy kattintson a
+nyomtatv&aacute;nyk&ouml;teg men&uuml;sor&aacute;ban a <a href="#foujra">Főnyomtatv&aacute;ny
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa</a>
+gombra.</li>
+
+
+
+
+
+
+
+  <li>Amennyiben erre az adott nyomtatv&aacute;ny
+lehetős&eacute;get
+biztos&iacute;t, k&ouml;tegelt nyomtatv&aacute;nyhoz
+bizonylatt&iacute;pusonk&eacute;nt lehet <a href="#csatol">dokumentumot
+csatolni</a>.</li>
+
+
+
+
+
+
+
+  <li>Ha csak a főnyomtatv&aacute;nyt t&ouml;lti ki
+adatokkal &eacute;s
+alnyomtatv&aacute;nyt nem hoz l&eacute;tre, akkor a
+nyomtatv&aacute;ny
+elektronikus megjel&ouml;l&eacute;s&eacute;n&eacute;l
+csak a
+főnyomtatv&aacute;nyra k&eacute;sz&uuml;l .kr
+kiterjeszt&eacute;sű
+&aacute;llom&aacute;ny, ford&iacute;tva nem
+lehets&eacute;ges.</li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+<ul style="text-align: left;">
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+<div style="text-align: left;">
+<h1>K&ouml;tegelt nyomtatv&aacute;ny megnyit&aacute;sa</h1>
+
+
+
+
+
+
+
+<p>Az <span style="font-weight: bold;">Adatok
+-&gt; &Uacute;j nyomtatv&aacute;ny</span><big><big><big><big><span style="font-weight: bold;" class="label"></span></big></big></big></big>men&uuml;pontban
+v&aacute;lassza ki
+p&eacute;ld&aacute;ul, a
+telep&iacute;tett 1044A &eacute;s 1044T (Bevall&aacute;s a helyi
+iparűz&eacute;si ad&oacute;r&oacute;l m&aacute;s n&eacute;ven HIPA) sablonj&aacute;t, majd nyissa meg. A
+k&ouml;tegelt
+nyomtatv&aacute;ny bet&ouml;lt&eacute;se ut&aacute;n a 1044A t&iacute;pus&uacute; főnyomtatv&aacute;ny jelenik meg.
+
+
+
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<p align="center"><img style="width: 854px; height: 533px;" alt="" title="Megnyitott nyomtatv&aacute;nyk&ouml;teg" src="pics/kep_55a.png"><br>
+
+
+
+
+
+
+
+Megnyitott nyomtatv&aacute;nyk&ouml;teg
+(HIPA)</p>
+
+
+
+
+
+
+
+<h1><small><small><a name="menusor"></a></small></small></h1>
+
+
+
+
+
+
+
+<p>A&nbsp;k&ouml;tegelt
+nyomtatv&aacute;nyokn&aacute;l a
+bet&ouml;lt&ouml;tt főnyomtatv&aacute;ny lapjai
+f&ouml;l&ouml;tti
+sorban egy &uacute;j men&uuml;sor
+tal&aacute;lhat&oacute;:</p>
+
+
+
+
+
+
+
+<p style="text-align: center;"><img style="width: 851px; height: 33px;" alt="" title="K&ouml;tegelt nyomtatv&aacute;nyok men&uuml;sora" src="pics/kiskep_263.png"><br>
+
+
+
+
+
+
+
+K&ouml;tegelt nyomtatv&aacute;nyok men&uuml;sora</p>
+
+
+
+
+
+
+
+<h1>A men&uuml;sor funkci&oacute;gombjai &eacute;s
+ikonjai a k&ouml;vetkez&ouml;ek:</h1>
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+  <li><a href="#letrehozas">Kiv&aacute;lasztott&nbsp;nyomtatv&aacute;ny
+l&eacute;trehoz&aacute;sa </a>
+(&eacute;rt&eacute;klista
+&eacute;s a Kiv&aacute;lasztott nyomtatv&aacute;ny
+l&eacute;trehoz&aacute;sa gomb)</li>
+
+
+
+
+
+
+
+  <li><a href="#betoltes">K&ouml;tegben
+tal&aacute;lhat&oacute; nyomtatv&aacute;ny kiv&aacute;laszt&aacute;sa</a> (Nyomtatv&aacute;nyok gomb
+vagy
+&eacute;rt&eacute;klista)</li>
+
+
+
+
+
+
+
+  <li><a href="#torles">Megjelen&iacute;tett
+nyomtatv&aacute;ny
+t&ouml;rl&eacute;se</a></li>
+
+
+
+
+
+
+
+  <li><a href="#osszes">&Ouml;sszes
+nyomtatv&aacute;ny
+ellenőrz&eacute;se</a></li>
+
+
+
+
+
+
+
+  <li><a href="#osszesujra">&Ouml;sszes
+nyomtatv&aacute;ny
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa</a></li>
+
+
+
+
+
+
+
+  <li><a href="#foujra">Főnyomtatv&aacute;ny
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa</a></li>
+
+
+
+
+
+
+
+  <li><a href="#beemel">&Aacute;llom&aacute;ny
+beemel&eacute;se</a></li>
+
+
+
+
+
+
+
+  <li><a href="#mentes">&Aacute;llom&aacute;ny
+kiment&eacute;se</a></li>
+
+
+
+
+
+
+
+  <li><a href="#masol">&Eacute;rt&eacute;k
+m&aacute;sol&aacute;sa</a></li>
+
+
+
+
+
+
+
+  <li><a href="#kereses">Nyomtatv&aacute;ny
+kiv&aacute;laszt&aacute;sa
+mező&eacute;rt&eacute;k alapj&aacute;n, az
+aktu&aacute;lis ut&aacute;ni
+nyomtatv&aacute;nyt&oacute;l kezdve</a></li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+<h1><small><a name="letrehozas"></a></small>Kiv&aacute;lasztott
+nyomtatv&aacute;ny l&eacute;trehoz&aacute;sa<small>&nbsp;<img style="width: 125px; height: 30px;" alt="" title="Kiv&aacute;lasztott nyomtatv&aacute;ny l&eacute;trehoz&aacute;sa - &eacute;rt&eacute;klista, gomb" src="pics/kiskep_263a.png">&nbsp;</small></h1>
+
+
+A leg&ouml;rd&uuml;lő
+&eacute;rt&eacute;klist&aacute;b&oacute;l
+v&aacute;laszthat&oacute; ki
+a bet&ouml;lt&ouml;tt nyomtatv&aacute;nyk&ouml;teghez
+tartoz&oacute;
+nyomtatv&aacute;nyt&iacute;pusok. A p&eacute;lda
+alapj&aacute;n a 1044A &eacute;s 1044T k&ouml;tegelt
+nyomtatv&aacute;nyhoz k&eacute;tf&eacute;le
+nyomtatv&aacute;nyt&iacute;pus tartozik: 1044A
+t&iacute;pus&uacute; főnyomtatv&aacute;ny,
+&eacute;s a 1044T t&iacute;pus&uacute;
+alnyomtatv&aacute;ny. Főnyomtatv&aacute;nyb&oacute;l csak egyet
+tartalmazhat a k&ouml;teg, amelyet a nyomtatv&aacute;ny
+sablonj&aacute;nak megnyit&aacute;s&aacute;val m&aacute;r l&eacute;tre
+is hozott, a 1044T t&iacute;pus&uacute; alnyomtatv&aacute;nyb&oacute;l
+viszont annyit hozhat l&eacute;tre amennyi sz&uuml;ks&eacute;ges.<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<div style="text-align: center;">
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<img style="width: 856px; height: 73px;" alt="" src="pics/kiskep_263b.png"><br>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<p style="text-align: left;">A k&ouml;tegben
+&uacute;j
+nyomtatv&aacute;ny &uacute;gy hozhat&oacute;
+l&eacute;tre, ha az
+&eacute;rt&eacute;klist&aacute;b&oacute;l
+kiv&aacute;lasztja a
+nyomtatv&aacute;ny t&iacute;pus&aacute;t (pl.:1044T)
+&eacute;s kattint a
+<img src="pics/ikon_19.png"> gombra. A
+l&eacute;trehozott
+nyomtatv&aacute;ny bet&ouml;lt&eacute;sre ker&uuml;l,
+&eacute;s a
+"Nyomtatv&aacute;nyok" list&aacute;ban
+megjelenik.</p>
+
+
+
+
+
+
+<p style="text-align: center;"><img style="width: 856px; height: 370px;" alt="" title="&Uacute;j alnyomtatv&aacute;ny l&eacute;trehoz&aacute;sa" src="pics/kep_55d.png"><br>
+
+
+
+
+
+
+&Uacute;j alnyomtatv&aacute;ny l&eacute;trehoz&aacute;sa</p>
+
+
+A főnyomtatv&aacute;nyb&oacute;l (pl,: 1044A) t&ouml;bb nem hozhat&oacute; l&eacute;tre, akkor erre a program figyelmeztet.<br>
+
+
+
+
+
+<br>
+
+
+
+
+
+<small><a href="#menusor">Vissza a
+men&uuml;sorhoz</a></small><br>
+
+
+
+
+
+
+
+<h1><small><small><a name="betoltes"></a></small></small>K&ouml;tegben
+tal&aacute;lhat&oacute; nyomtatv&aacute;ny kiv&aacute;laszt&aacute;sa<small><small><big><big><small><small><big><big>&nbsp;<img style="width: 321px; height: 32px;" alt="" title="Nyomtatv&aacute;ny kiv&aacute;laszt&aacute;sa" src="pics/kiskep_263d.png"></big></big></small></small></big></big></small></small></h1>
+
+
+
+
+
+
+
+A
+leg&ouml;rd&uuml;lő
+list&aacute;b&oacute;l lehet kiv&aacute;lasztani a
+m&aacute;r megl&eacute;vő &eacute;s szerkeszteni
+k&iacute;v&aacute;nt nyomtatv&aacute;nyt. A
+kiv&aacute;laszt&aacute;shoz seg&iacute;ts&eacute;get
+ad a
+list&aacute;ban a nyomtatv&aacute;nyon szereplő n&eacute;v
+illetve
+m&aacute;s az adott nyomtatv&aacute;nyra jellemző
+azonos&iacute;t&oacute; adat.<br>
+
+
+
+
+
+
+
+<h3 style="text-align: center;"><img style="width: 856px; height: 91px;" alt="" title="K&ouml;tegben tal&aacute;lhat&oacute; nyomtatv&aacute;nyok kiv&aacute;laszt&aacute;sa" src="pics/kiskep_263c.png"><br>
+
+
+
+
+
+
+
+</h3>
+
+
+
+
+
+
+
+<div style="text-align: left;">A
+p&eacute;ld&aacute;ban szereplő 1044A
+t&iacute;pus&uacute;
+főnyomtatv&aacute;nyn&aacute;l az ad&oacute;z&oacute;
+neve,&nbsp;1044T t&iacute;pus&uacute;
+alnyomtatv&aacute;nyn&aacute;l pedig az &ouml;nkorm&aacute;nyzat neve &eacute;s azonos&iacute;t&oacute;ja ker&uuml;l a
+list&aacute;ba.<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+M&aacute;sik lehetős&eacute;g a m&aacute;r
+l&eacute;trehozott nyomtatv&aacute;nyok
+bet&ouml;lt&eacute;s&eacute;re a&nbsp;<span style="font-weight: bold;">Nyomtatv&aacute;nyok</span>
+gomb haszn&aacute;lata. Ha erre a kattintunk egy
+t&aacute;bl&aacute;zat jelenik
+meg azon nyomtatv&aacute;nyok list&aacute;j&aacute;val
+amelyet előzőleg az &eacute;rt&eacute;klist&aacute;ban
+l&aacute;thattunk.<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div style="text-align: center;"><span style="font-style: italic;"><span style="font-weight: bold;"><img style="width: 703px; height: 280px;" alt="" title="Nyomtatv&aacute;nyok gomb haszn&aacute;lata" src="pics/kep_55e.png"></span></span><br>
+
+
+
+
+
+
+
+<span style="font-style: italic;"><span style="font-weight: bold;"></span></span></div>
+
+
+
+
+
+
+
+<p>A megjelenő ablakban hasonl&oacute;an, mint pl.: Adatok
+-&gt; &Uacute;j nyomtatv&aacute;ny
+men&uuml;pontn&aacute;l megjelenő szűrőpanelen,
+be&aacute;ll&iacute;that&oacute;k a
+lev&aacute;logat&aacute;si felt&eacute;telek, &eacute;s
+a t&aacute;bl&aacute;zatban az oszlop
+fejl&eacute;cre val&oacute; kattint&aacute;ssal
+a
+kiv&aacute;lasztott oszlop
+adatai rendezhetőek&nbsp;n&ouml;vekvő vagy cs&ouml;kkenő
+sorrendbe.<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+Az ablakban szereplő gombok &eacute;s
+műk&ouml;d&eacute;s&uuml;k:</p>
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">T&aacute;bl&aacute;zat
+nyomtat&aacute;s:</span> kinyomtathat&oacute;
+a k&eacute;pernyőn is l&aacute;that&oacute;
+form&aacute;tumban a
+t&aacute;bl&aacute;zat sorai.</li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Kiv&aacute;laszt</span>:
+a
+gomb megnyom&aacute;s&aacute;ra vagy dupla
+kattint&aacute;sra bet&ouml;ltődik a kiv&aacute;lasztott
+nyomtatv&aacute;ny.</li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Bez&aacute;r</span>:
+a nyomtatv&aacute;ny bet&ouml;lt&eacute;se
+n&eacute;lk&uuml;l bez&aacute;r&oacute;dik
+az ablak.</li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+<p><small><a href="#menusor">Vissza
+a men&uuml;sorhoz</a></small></p>
+
+
+
+
+
+
+
+<h1><small><small><small><small><a name="torles"></a></small></small></small></small>Megjelen&iacute;tett
+nyomtatv&aacute;ny t&ouml;rl&eacute;se <img style="width: 27px; height: 26px;" alt="" title="Megjelen&iacute;tett nyomtatv&aacute;ny t&ouml;rl&eacute;se" src="pics/ikon_20.png"></h1>
+
+
+
+
+
+
+
+A k&eacute;pernyőn
+l&aacute;that&oacute;
+(aktu&aacute;lis)
+nyomtatv&aacute;nyt lehet kit&ouml;r&ouml;lni a
+bet&ouml;lt&ouml;tt
+nyomtatv&aacute;nyk&ouml;tegből. A t&ouml;rl&eacute;s
+"fizikai t&ouml;rl&eacute;st" jelent, visszavonni nem lehet! A
+t&eacute;nyleges
+t&ouml;rl&eacute;s előtt m&eacute;g egyszer
+megerős&iacute;t&eacute;st
+k&eacute;r a program, hogy biztosan t&ouml;r&ouml;lni
+szeretn&eacute;-e a
+k&eacute;pernyőn l&aacute;that&oacute;
+(aktu&aacute;lis)
+nyomtatv&aacute;nyt.
+<p>A főnyomtatv&aacute;nyt (p&eacute;ld&aacute;ban a 1044A t&iacute;pus&uacute;t) nem lehet
+t&ouml;r&ouml;lni!&nbsp;</p>
+
+
+
+
+
+
+
+<p><small><a href="#menusor">Vissza
+a men&uuml;sorhoz</a></small></p>
+
+
+
+
+
+
+
+<h1><small><small><small><small><small><small><a name="osszes"></a></small></small></small></small></small></small>&Ouml;sszes
+nyomtatv&aacute;ny ellenőrz&eacute;se
+<img style="width: 26px; height: 25px;" alt="" title="&Ouml;sszes nyomtatv&aacute;ny ellenőrz&eacute;se" src="pics/ikon_21.png"></h1>
+<p>A nyomtatv&aacute;nyk&ouml;teg &ouml;sszes
+nyomtatv&aacute;ny&aacute;t leellenőrzi, nem csak az aktu&aacute;lisat.
+Az eredm&eacute;ny&uuml;l adott hibalist&aacute;ban elősz&ouml;r a
+hib&aacute;s nyomtatv&aacute;ny azonos&iacute;t&oacute;i jelennek meg.</p>
+
+
+
+
+
+ 
+<p>Itt is &eacute;l az ellenőrz&eacute;si hibalist&aacute;n&aacute;l
+megszokott "ugr&aacute;s a hib&aacute;ra" tulajdons&aacute;g. A program
+a hib&aacute;hoz tartoz&oacute; nyomtatv&aacute;nyt t&ouml;lti be
+aktu&aacute;lis nyomtatv&aacute;nynak &eacute;s
+"s&aacute;rg&iacute;tja" ki a hib&aacute;s mezőt.</p>
+
+
+
+
+
+ 
+<p>A hibalist&aacute;ban csak azok a nyomtatv&aacute;nyok jelennek meg, amelyekn&eacute;l hiba van!</p>
+
+
+
+
+
+<p>FONTOS!<br>
+
+
+Ha adatt&iacute;pus hib&aacute;t tartalmaz a 
+file, addig nem
+jelennek meg az &ouml;sszef&uuml;gg&eacute;s hib&aacute;k a
+list&aacute;ban, m&iacute;g az adatt&iacute;pus hib&aacute;kat ki nem
+jav&iacute;totta! K&ouml;tegelt
+nyomtatv&aacute;ny (pl: 1008) eset&eacute;ben ha csak az egyik
+alnyomtatv&aacute;nyban (M-en) van adatt&iacute;pus hiba, akkor a
+t&ouml;bbi alnyomtatv&aacute;nyra lefutnak az
+&ouml;sszef&uuml;gg&eacute;s ellenőrz&eacute;sek. </p>
+<p><small><a href="#menusor">Vissza
+a men&uuml;sorhoz</a></small></p>
+
+
+
+
+
+
+
+<h1><a name="osszesujra"></a>&Ouml;sszes
+nyomtatv&aacute;ny
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa <img style="width: 27px; height: 24px;" alt="" title="&Ouml;sszes nyomtatv&aacute;ny &uacute;jrasz&aacute;m&iacute;t&aacute;sa gomb" src="pics/ikon_22.png"></h1>
+
+
+
+
+
+
+
+<p>A nyomtatv&aacute;nyk&ouml;teg &ouml;sszes
+nyomtatv&aacute;ny&aacute;n elv&eacute;gzi a mezők
+&uacute;jrasz&aacute;m&iacute;t&aacute;s&aacute;t.</p>
+
+
+
+
+
+
+
+<p><small><a href="#menusor">Vissza
+a men&uuml;sorhoz</a></small></p>
+
+
+
+
+
+
+
+<h1><a name="foujra"></a>Főnyomtatv&aacute;ny
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa <img style="width: 26px; height: 26px;" alt="" title="Főnyomtatv&aacute;ny &uacute;jrasz&aacute;m&iacute;t&aacute;sa" src="pics/ikon_33.png"></h1>
+
+
+
+
+
+
+
+Az alnyomtatv&aacute;ny
+m&oacute;dos&iacute;t&aacute;sakor a program nem
+sz&aacute;molja
+automatikusan &uacute;jra a főnyomtatv&aacute;ny
+&ouml;sszegző mezőit, ez&eacute;rt c&eacute;lszerű az
+alnyomtatv&aacute;ny szerkeszt&eacute;s&eacute;nek
+befejez&eacute;sekor ezt a funkci&oacute;gombot
+haszn&aacute;lni, vagy ha beh&iacute;vjuk a
+főnyomtatv&aacute;nyt, akkor ugyanez el&eacute;rhető az&nbsp;<span style="font-weight: bold;">Adatok
+men&uuml;-&gt;
+Sz&aacute;m&iacute;tott mezők
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa</span>
+men&uuml;pontb&oacute;l is.
+<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+P&eacute;ld&aacute;nkban, ha befejezte a
+nyomtatv&aacute;nyk&ouml;teg
+szerkeszt&eacute;s&eacute;t, akkor
+nyomtatv&aacute;nyk&ouml;teg
+fődokumentum&aacute;b&oacute;l pl.: 1044A-1044T
+t&iacute;pus&uacute;n&aacute;l a 1044A t&iacute;pus&uacute;
+főnyomtatv&aacute;nyb&oacute;l ind&iacute;tsa el az Adatok
+men&uuml;-&gt;
+Sz&aacute;m&iacute;tott mezők
+&uacute;jrasz&aacute;m&iacute;t&aacute;s&aacute;t,
+vagy
+kattintson erre
+a gombra, majd futtassa le az &Ouml;sszes nyomtatv&aacute;ny
+ellenőrz&eacute;se<big><big><big><big><big><span class="label"></span></big></big></big></big></big>
+műveletet!
+<p><small><a href="#menusor">Vissza
+a men&uuml;sorhoz</a></small></p>
+
+
+
+
+
+
+
+<h1><a name="beemel"></a>&Aacute;llom&aacute;ny
+beemel&eacute;se <img style="width: 28px; height: 26px;" alt="" title="&Aacute;llom&aacute;ny beemel&eacute;se gomb" src="pics/ikon_23.png"></h1>
+
+
+
+
+
+
+
+A&nbsp;funkci&oacute;nak a haszn&aacute;lata
+seg&iacute;ts&eacute;get ad k&uuml;lső (pl.:
+k&ouml;nyvelő,
+nyilv&aacute;ntart&oacute;, b&eacute;r) program
+&aacute;ltal
+gener&aacute;lt .imp &aacute;llom&aacute;nyok
+beemel&eacute;s&eacute;re.
+<p>Az al&aacute;bbi form&aacute;tum&uacute;
+f&aacute;jlokat lehet a
+megnyitott nyomtatv&aacute;nyk&ouml;teghez
+hozz&aacute;adni:</p>
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+  <li>Import &aacute;llom&aacute;nyok (.imp)</li>
+
+
+
+
+
+
+
+  <li>java-s nyomtatv&aacute;nykit&ouml;ltő
+&aacute;llom&aacute;nyai (.frm.enyk)</li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+<p>A funkci&oacute;
+ind&iacute;t&aacute;sa ut&aacute;n a k&ouml;vetkező
+ablak jelenik meg: </p>
+
+
+
+
+
+
+
+<p align="center"><img style="width: 608px; height: 470px;" alt="" title="Csoportos hozz&aacute;ad&aacute;s" src="pics/kep_86.png"><br>
+
+
+
+
+
+
+
+Csoportos hozz&aacute;ad&aacute;s</p>
+
+
+
+
+
+
+
+<p>A Csoportos hozz&aacute;ad&aacute;s ablakban szereplő
+gombok &eacute;s
+műk&ouml;d&eacute;s&uuml;k: <span class="label"></span></p>
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Abevjava
+f&aacute;jl hozz&aacute;ad&aacute;sa:</span>&nbsp;a
+gomb lenyom&aacute;sa ut&aacute;n a szűrőablakban megjelenő
+list&aacute;b&oacute;l
+( \mentesek
+k&ouml;nyvt&aacute;r tartalma szerint)
+v&aacute;laszthat&oacute; ki a java-s
+nyomtatv&aacute;nykit&ouml;ltő
+belső
+form&aacute;tum&aacute;nak megfelelő
+&aacute;llom&aacute;ny. <br>
+
+
+
+
+
+
+
+A
+kiv&aacute;lasztott f&aacute;jl
+megjelen&iacute;t&eacute;sre
+ker&uuml;l a
+list&aacute;ban teljes el&eacute;r&eacute;si
+&uacute;tvonallal
+egy&uuml;tt. <br>
+
+
+
+
+
+
+
+Az Abevjava f&aacute;jl hozz&aacute;ad&aacute;sa gomb
+t&ouml;bbsz&ouml;ri haszn&aacute;lat&aacute;val
+egym&aacute;sut&aacute;n, t&ouml;bb f&aacute;jl
+hozz&aacute;ad&aacute;sa is lehets&eacute;ges a
+list&aacute;hoz, mielőtt&nbsp;a Csoportos
+hozz&aacute;ad&aacute;s ablakban az
+Ind&iacute;t&aacute;s gomb megnyom&aacute;sra
+ker&uuml;l.<br>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Import
+f&aacute;jl hozz&aacute;ad&aacute;sa:
+    </span>a gomb lenyom&aacute;sa
+ut&aacute;n a megjelenő&nbsp;ablakban az \import
+k&ouml;nyvt&aacute;r
+tartalm&aacute;b&oacute;l&nbsp;a megszokott
+m&oacute;don&nbsp;Ctrl&nbsp;vagy Shift billentyűk
+haszn&aacute;lat&aacute;val .imp
+form&aacute;tum&uacute;, egy vagy t&ouml;bb
+f&aacute;jlt
+lehet kijel&ouml;lni.<br>
+
+
+
+
+
+
+
+Az alap&eacute;rtelmezett
+k&ouml;nyvt&aacute;r&nbsp;(Szerviz -&gt;
+N&eacute;vjegy Import
+&aacute;llom&aacute;nyok helye)
+helyett&nbsp;m&aacute;sik k&ouml;nyvt&aacute;r is
+v&aacute;laszthat&oacute;.
+    
+    
+    
+    
+    
+    
+    <p align="center"><img style="width: 512px; height: 284px;" alt="" title="Import &aacute;llom&aacute;ny hozz&aacute;ad&aacute;sa" src="pics/kep_83a.png"><br>
+
+
+
+
+
+
+
+Import &aacute;llom&aacute;ny hozz&aacute;ad&aacute;sa</p>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+
+    <li><span style="font-weight: bold;">Megnyit&aacute;s:</span>
+a kijel&ouml;lt &aacute;llom&aacute;nyt vagy
+&aacute;llom&aacute;nyokat a teljes
+el&eacute;r&eacute;si &uacute;tvonallal egy&uuml;tt
+be&iacute;r&aacute;sra ker&uuml;lnek a&nbsp; Csoportos
+hozz&aacute;ad&aacute;s ablakban megjelenő list&aacute;ba</li>
+
+
+
+
+
+
+
+    <li><span style="font-weight: bold;">M&eacute;gsem:</span>
+műveletv&eacute;gz&eacute;s n&eacute;lk&uuml;l
+visszat&eacute;r a Csoportos hozz&aacute;ad&aacute;s ablakba<br>
+
+
+
+
+
+
+
+      <br>
+
+
+
+
+
+
+
+Az Import f&aacute;jl hozz&aacute;ad&aacute;sa gomb
+t&ouml;bbsz&ouml;ri haszn&aacute;lat&aacute;val
+egym&aacute;sut&aacute;n, t&ouml;bb f&aacute;jl
+hozz&aacute;ad&aacute;sa is lehets&eacute;ges a
+list&aacute;hoz, mielőtt a Csoportos
+hozz&aacute;ad&aacute;s ablakban az
+Ind&iacute;t&aacute;s gomb megnyom&aacute;sra
+ker&uuml;l. </li>
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Lista
+bet&ouml;lt&eacute;se: </span>ha l&eacute;trehozott
+egy sz&ouml;veges f&aacute;jlba&nbsp;(pl.: txt) a
+bet&ouml;ltendő
+&aacute;llom&aacute;nyok
+list&aacute;j&aacute;t
+(el&eacute;r&eacute;si &uacute;ttal egy&uuml;tt, vagy
+an&eacute;lk&uuml;l) vagy az előzőleg m&aacute;r
+&ouml;ssze&aacute;ll&iacute;tott, majd a&nbsp;<span style="font-weight: bold;">Lista ment&eacute;se</span>
+gombbal
+lementette az &aacute;llom&aacute;nyokat (\mentesek
+k&ouml;nyvt&aacute;rba), akkor itt tudja ennek
+a f&aacute;jlnak a tartalm&aacute;t
+hozz&aacute;adni a
+list&aacute;hoz.
+    
+    
+    
+    
+    
+    
+    <p align="center"><img style="width: 508px; height: 360px;" alt="" title="Lista &aacute;llom&aacute;ny kiv&aacute;laszt&aacute;sa" src="pics/kep_89.png"><br>
+
+
+
+
+
+
+
+Lista &aacute;llom&aacute;ny kiv&aacute;laszt&aacute;sa</p>
+
+
+
+
+
+
+
+A megjelenő ablak a telep&iacute;t&eacute;skor megadott import
+k&ouml;nyvt&aacute;rra mutat (Szerviz -&gt;
+N&eacute;vjegy Import
+&aacute;llom&aacute;nyok helye), ahonnan tetsz&eacute;s
+szerint
+elnavig&aacute;lhat. <br>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">T&ouml;r&ouml;l:</span>
+a list&aacute;ban szereplő f&aacute;jlok
+k&ouml;z&uuml;l lehet
+t&ouml;r&ouml;lni. T&ouml;bb elem
+kijel&ouml;l&eacute;se a megszokott m&oacute;don a Ctrl&nbsp;vagy Shift
+billentyűk
+haszn&aacute;lat&aacute;val lehet. A T&ouml;rl&eacute;s
+gomb
+megnyom&aacute;sa ut&aacute;n az alkalmaz&aacute;s
+megerős&iacute;t&eacute;sk&eacute;nt
+r&aacute;k&eacute;rdez, hogy
+biztosan t&ouml;r&ouml;lni szeretn&eacute;-e a
+f&aacute;jlt a
+list&aacute;b&oacute;l vagy nem.</li>
+
+
+
+
+
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Lista ment&eacute;se: </span>az
+&ouml;ssze&aacute;ll&iacute;tott
+&aacute;llom&aacute;nyok list&aacute;ja menthető el vele, a
+\mentesek&nbsp;alap&eacute;rtelmezett
+k&ouml;nyvt&aacute;rba.
+(Szerviz -&gt; N&eacute;vjegy Import
+&aacute;llom&aacute;nyok helye)&nbsp;<br>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Ind&iacute;t&aacute;s:</span>&nbsp;a
+list&aacute;ban szereplő elemek
+alapj&aacute;n a
+program megk&iacute;s&eacute;rli beimport&aacute;lni
+egyenk&eacute;nt
+az &aacute;llom&aacute;nyok tartalm&aacute;t. Ha
+bet&ouml;lt&eacute;skor s&uacute;lyos
+import&aacute;l&aacute;si hiba
+l&eacute;p fel, akkor adott &aacute;llom&aacute;ny
+kihagy&aacute;sra
+ker&uuml;l.&nbsp;<br>
+Fontos!<br>
+
+Ha az import&aacute;land&oacute; &aacute;llom&aacute;ny
+adatt&iacute;pus hib&aacute;kat tartalmaz, akkor is
+megpr&oacute;b&aacute;lja a
+program beimport&aacute;lni. Ha az adatt&iacute;pus hiba az
+import&aacute;l&aacute;s sor&aacute;n lefut&oacute;
+&uacute;jrasz&aacute;m&iacute;t&aacute;sn&aacute;l hib&aacute;t okoz,
+akkor nem keletkezik import&aacute;lt &aacute;llom&aacute;ny.<br>
+Ha az import&aacute;land&oacute;&nbsp;&aacute;llom&aacute;ny olyan
+adatt&iacute;pus hib&aacute;kat tartalmaz, ami a
+lefut&oacute; &uacute;jrasz&aacute;m&iacute;t&aacute;sn&aacute;l nem
+okoz hib&aacute;t, akkor az import&aacute;l&aacute;s
+megt&ouml;rt&eacute;nik.<br>
+A művelet eredm&eacute;ny&eacute;ről a k&ouml;vetkező
+visszajelz&eacute;s &eacute;rkezik:</li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+<p align="center"><img style="width: 677px; height: 265px;" alt="" title="Import&aacute;l&aacute;s log f&aacute;jl" src="pics/kep_87a.png"><br>
+
+
+
+
+
+
+
+Import&aacute;l&aacute;s log f&aacute;jl</p>
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+
+    <li><span style="font-weight: bold;">Rendben:</span><small style="font-weight: bold;"> </small>a sikeresen
+bet&ouml;lt&ouml;tt
+&aacute;llom&aacute;ny adatai
+megjelen&iacute;t&eacute;sre
+ker&uuml;lnek az adott nyomtatv&aacute;nyban</li>
+
+
+
+
+
+
+
+    <li><span style="font-weight: bold;">Lista
+ment&eacute;se:</span><small style="font-weight: bold;">
+      </small>a log
+f&aacute;jt lementhető az alap&eacute;rtelmezett \naplo
+k&ouml;nyvt&aacute;rba. </li>
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">M&eacute;gsem:</span>
+kil&eacute;p&eacute;s műveletv&eacute;gz&eacute;s
+n&eacute;lk&uuml;l</li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+<small><a href="#menusor">Vissza
+a men&uuml;sorhoz</a></small>
+<h1><a name="mentes"></a>&Aacute;llom&aacute;ny
+kiment&eacute;se <img src="pics/ikon_24.png"></h1>
+
+
+
+
+
+
+
+A nyomtatv&aacute;nyk&ouml;tegből az aktu&aacute;lis
+nyomtatv&aacute;ny menthető
+k&uuml;l&ouml;n f&aacute;jlba.<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<div style="text-align: center;"><img style="width: 609px; height: 147px;" alt="" title="&Aacute;llom&aacute;ny kimet&eacute;se - egyedi ment&eacute;s" src="pics/kep_83b.png">&nbsp;<br>
+
+
+
+
+
+
+
+&Aacute;llom&aacute;ny kiment&eacute;se - egyedi
+ment&eacute;s<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<div style="text-align: left;">Az
+&aacute;llom&aacute;ny
+nev&eacute;nek
+felk&iacute;n&aacute;lja a bet&ouml;lt&ouml;tt
+nyomtatv&aacute;nyk&ouml;teg
+nev&eacute;t, de ha a
+nyomtatv&aacute;nyk&ouml;teg m&eacute;g egyszer
+sem&nbsp;ker&uuml;lt kiment&eacute;sre, akkor azt a nevet
+k&iacute;n&aacute;lja
+fel amit ment&eacute;skor adna a program a
+nyomtatv&aacute;nynak. <span class="label"></span><br>
+
+
+
+
+
+
+
+A <span style="font-weight: bold;">Maszk</span>
+gombra kattintva
+Szerviz -&gt;
+Be&aacute;ll&iacute;t&aacute;sok men&uuml;pont
+File maszkol&aacute;s f&uuml;ln&eacute;l&nbsp;<span class="label"></span>be&aacute;ll&iacute;tott
+f&aacute;jlnevet jelen&iacute;ti meg,
+ami&nbsp;tetsz&eacute;s
+szerint m&oacute;dos&iacute;that&oacute;.<br>
+
+
+
+
+
+
+
+A kiment&eacute;sre ker&uuml;lő
+&aacute;llom&aacute;ny kiterjeszt&eacute;se <span style="font-weight: bold;">.frm.enyk</span><span class="path"></span>
+lesz, amit nem kell megadni. Amennyiben m&eacute;gis
+be&iacute;r&aacute;sra ker&uuml;l a kiterjeszt&eacute;s,
+akkor ezt a program
+ment&eacute;skor lev&aacute;gja. A ment&eacute;s helye a
+telep&iacute;t&eacute;skor
+megadott<span class="path"></span> \mentesek
+k&ouml;nyvt&aacute;r lesz.<br>
+
+
+
+
+
+
+
+Az ablakban szereplő gombok &eacute;s
+műk&ouml;d&eacute;s&uuml;k:<br>
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Ment&eacute;s:</span>
+a
+nyomtatv&aacute;nyk&ouml;teg aktu&aacute;lis
+nyomtatv&aacute;nya az
+&aacute;ltalunk meghat&aacute;rozott n&eacute;vvel,
+megjegyz&eacute;ssel kiment&eacute;sre ker&uuml;l</li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">M&eacute;gsem:</span>
+műveletv&eacute;gz&eacute;s n&eacute;lk&uuml;li
+visszat&eacute;r&eacute;s</li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<p><small><a href="#menusor">Vissza
+a men&uuml;sorhoz</a></small></p>
+
+
+
+
+
+
+
+<h1><a name="masol"></a>&Eacute;rt&eacute;k
+m&aacute;sol&aacute;sa <img src="pics/ikon_25.png"></h1>
+
+
+
+
+
+
+
+A&nbsp;funkci&oacute; haszn&aacute;lata akkor
+c&eacute;lszerű, ha a
+nyomtatv&aacute;nyk&ouml;teg&uuml;nk t&ouml;bb azonos
+t&iacute;pus&uacute; alnyomtatv&aacute;nyb&oacute;l
+&aacute;ll, mert
+seg&iacute;ts&eacute;g&eacute;vel b&aacute;rmilyen
+mező
+&eacute;rt&eacute;k&eacute;t az azonos
+t&iacute;pus&uacute; &ouml;sszes
+alnyomtatv&aacute;nyba
+belem&aacute;solhatunk, ezzel megk&ouml;nny&iacute;tve a
+nyomtatv&aacute;ny kit&ouml;lt&eacute;s&eacute;t.<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+Teendők:<br>
+
+
+
+
+
+
+
+- a kurzorral bele kell kattintani, vagy billentyűkkel el kell jutni
+abba a mezőbe, aminek a
+tartalm&aacute;t m&aacute;solni szeretn&eacute;nk (pl.: 1044T időszak kezdete - 20100301),<br>
+
+
+
+
+
+
+
+-&nbsp;az &Eacute;rt&eacute;k
+m&aacute;sol&aacute;sa gomb
+megnyom&aacute;sa ut&aacute;n, kapunk egy figyelmeztető
+&uuml;zenetet:
+A funkci&oacute; haszn&aacute;lata ut&aacute;n az
+&eacute;rt&eacute;k
+&uacute;jrasz&aacute;m&iacute;t&aacute;s le fog
+futni!&nbsp;M&eacute;gsem
+gomb megnyom&aacute;s&aacute;ra
+visszat&eacute;rhet&uuml;nk
+műveletv&eacute;gz&eacute;s n&eacute;lk&uuml;l.<br>
+
+
+
+
+
+
+
+- Tov&aacute;bb gombra egy &uacute;jabb
+k&eacute;rd&eacute;s: Indulhat
+az ... &eacute;rt&eacute;k m&aacute;sol&aacute;sa, az
+&ouml;sszes ...
+nyomtatv&aacute;ny azonos mezőj&eacute;be?<br>
+
+
+
+
+
+
+
+&nbsp;&nbsp;M&eacute;gsem
+gomb megnyom&aacute;s&aacute;ra
+visszat&eacute;rhet&uuml;nk
+műveletv&eacute;gz&eacute;s n&eacute;lk&uuml;l.<br>
+
+
+- Igenre kattintva lefut a
+m&aacute;sol&aacute;s, azaz a kijel&ouml;lt mező tartalma
+minden
+ugyanolyan alnyomtatv&aacute;ny azonos mezőj&eacute;be
+bem&aacute;sol&oacute;dik (a p&eacute;ld&aacute;nkban szereplő 20100301
+be&iacute;r&oacute;dik mindegyik 1044T t&iacute;pus&uacute;
+alnyomtatv&aacute;ny időszak kezdet&eacute;be).<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<small><a href="#menusor">Vissza
+a men&uuml;sorhoz</a></small>
+<h1><a name="kereses"></a>Nyomtatv&aacute;ny
+kiv&aacute;laszt&aacute;sa
+mező&eacute;rt&eacute;k alapj&aacute;n, az
+aktu&aacute;lis ut&aacute;ni
+nyomtatv&aacute;nyt&oacute;l kezdve <img src="pics/ikon_281.png">&nbsp;</h1>
+
+
+
+
+
+
+
+A&nbsp;funkci&oacute; haszn&aacute;lat&aacute;nak
+seg&iacute;ts&eacute;g&eacute;vel, b&aacute;rmilyen
+mező
+&eacute;rt&eacute;ket/sz&oacute;t&ouml;red&eacute;ket
+a
+nyomtatv&aacute;nyk&ouml;teg b&aacute;rmelyik
+mezőj&eacute;ben meg
+lehet keresni.&nbsp;A keres&eacute;s
+megk&uuml;l&ouml;nb&ouml;zteti a kis &eacute;s nagy
+betűket!
+<p>Teendők:&nbsp;<br>
+
+
+
+
+
+
+
+- a nyomtatv&aacute;nyk&ouml;tegben
+v&aacute;lassza ki azt a
+nyomtatv&aacute;nyt, ahonnan a keres&eacute;st
+ind&iacute;tani
+szeretn&eacute;,<br>
+
+
+
+
+
+
+
+- h&iacute;vja meg a
+funkci&oacute;t,
+&eacute;s a megjelenő kereső ablakba &iacute;rja be a keresendő
+&eacute;rt&eacute;ket,<br>
+
+
+
+
+
+
+
+- az OK gomb
+lenyom&aacute;s&aacute;ra az a
+nyomtatv&aacute;ny lesz akt&iacute;v, amelyben elősz&ouml;r
+megtal&aacute;lta a keresett &eacute;rt&eacute;ket, de ha
+nem
+ez a
+keresett nyomtatv&aacute;ny, akkor a funkci&oacute;
+&uacute;jb&oacute;li
+megh&iacute;v&aacute;s&aacute;val tov&aacute;bb
+lehet keresni.
+</p>
+
+
+
+
+
+
+
+<p>Fontos!<br>
+
+
+
+
+
+
+
+Ha a kurzort belehelyezi valamelyik mezőbe (s&aacute;rga a mező),
+akkor
+csak abban a t&iacute;pus&uacute; mezőkben
+t&ouml;rt&eacute;nik a
+keres&eacute;s, ha egyik mezőben sincs benne a kurzor (pl.: kattintson valamelyik mező mell&eacute; a lapon), akkor az
+&ouml;sszes mezőben keres.
+Seg&iacute;ts&eacute;gk&eacute;ppen a kereső
+ablak legfelső sor&aacute;ba ki&iacute;r&aacute;sra
+ker&uuml;l,
+hogy melyik t&iacute;pus&uacute; mezőben
+t&ouml;rt&eacute;nik a
+keres&eacute;s (Keres&eacute;s a kiv&aacute;lasztott
+mezőben/Keres&eacute;s az &ouml;sszes mezőben)</p>
+
+
+
+
+
+
+
+<small><a href="#menusor">Vissza
+a men&uuml;sorhoz</a></small>
+<h1><a name="csatol"></a>Csatolm&aacute;nyok
+kezel&eacute;se</h1>
+
+
+
+
+
+
+
+K&ouml;tegelt nyomtatv&aacute;nyhoz
+bizonylatt&iacute;pusonk&eacute;nt lehet dokumentumot csatolni.
+<br>
+
+
+
+
+
+
+
+Ha a
+k&eacute;pernyőn l&aacute;that&oacute;&nbsp;
+nyomtatv&aacute;nyt&iacute;pushoz lehet
+f&aacute;jlt csatolni, ott megjelenik az Adatok -&gt;
+Csatolm&aacute;nyok
+kezel&eacute;se ablak:<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<div style="text-align: center;"><img style="width: 610px; height: 339px;" alt="" title="Csatolm&aacute;nyok kezel&eacute;se" src="pics/kep_83c.png"><br>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div style="text-align: center;">Csatolm&aacute;nyok
+kezel&eacute;se ablak<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<div style="text-align: left;">
+Az ablakban szereplő gombok &eacute;s
+műk&ouml;d&eacute;s&uuml;k:</div>
+
+
+
+
+
+
+
+<ul style="text-align: left;">
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Hozz&aacute;ad:</span> <span style="font-weight: bold;">File t&iacute;pusok</span> cimk&eacute;vel megjel&ouml;lt form&aacute;tum&uacute;
+f&aacute;jlokat lehet a nyomtatv&aacute;nyhoz csatolni</li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">T&ouml;r&ouml;l:</span>
+a csatolm&aacute;nyok list&aacute;j&aacute;b&oacute;l
+t&ouml;r&ouml;lhető a kijel&ouml;lt f&aacute;jl<br>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Megtekint:</span>
+a csatolm&aacute;nyok list&aacute;j&aacute;b&oacute;l
+megn&eacute;zhető a kijel&ouml;lt f&aacute;jl</li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Megjegyz&eacute;s:</span>
+a kijel&ouml;lt f&aacute;jlhoz megjegyz&eacute;s
+&iacute;rhat&oacute; ami megjelenik a Megjegyz&eacute;s
+oszlopban is<br>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Ok:</span>
+a csatolm&aacute;nyok list&aacute;j&aacute;ban megjelenő
+f&aacute;jlok hozz&aacute;kapcsol&oacute;dnak a
+nyomtatv&aacute;nyhoz</li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">M&eacute;gsem:</span>
+kil&eacute;p&eacute;s műveletv&eacute;gz&eacute;s
+n&eacute;lk&uuml;l</li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+<div style="text-align: left;">Ha
+valamelyik nyomtatv&aacute;nyt&iacute;pushoz nem lehet
+dokumentumot kapcsolni, akkor
+az
+al&aacute;bbi &uuml;zenetet kapja:
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<p align="center"><img style="width: 668px; height: 412px;" alt="" title="Nyomtatv&aacute;nyt&iacute;pushoz csatol&aacute;s - figyelmeztető &uuml;zenet" src="pics/kep_92.png"><br>
+
+
+
+
+
+
+
+Nyomtatv&aacute;nyt&iacute;pushoz csatol&aacute;s -
+figyelmeztető &uuml;zenet
+</p>
+
+
+
+
+
+
+
+<p>A p&eacute;ld&aacute;ban szereplő
+bet&ouml;lt&ouml;tt 1044A t&iacute;pus&uacute;
+főnyomtatv&aacute;nyhoz nem lehet dokumetumot csatolni, viszont a
+1044T t&iacute;pus&uacute; alnyomtatv&aacute;nyhoz igen.</p>
+
+
+
+
+
+
+
+<p><small><a href="#teteje">Lap
+teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalomjegyz&eacute;k</a>
+| <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></small></p>
+
+
+
+
+
+
+
+<p></p>
+
+
+
+
+
+
+
+</body>
+</html>

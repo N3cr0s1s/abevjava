@@ -1,0 +1,4673 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+
+
+  
+  
+  
+  <meta http-equiv="Content-Type" content="text/htm; charset=utf-8">
+
+
+
+  
+
+
+  
+  
+  
+  
+  
+  <title>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program S&uacute;g&oacute;</title>
+  <style type="text/css">
+BODY {font-family:verdana; font-size:12pt; margin:5px;}
+H1 {font-size: 15pt;}
+H2 {font-size: 14pt; font-weight:bold; border-bottom: 2px solid;}
+H3 {font-size: 13pt; font-weight:bold; font-style:italic;}
+H4 {font-size: 12pt; font-weight:bold;}
+H5 {font-size: 12pt; font-weight:bold; font-style:italic;}
+H6 {font-size: 11pt; font-weight:bold;}
+TABLE {font-size: 12pt; border-collapse: collapse; clear: both;}
+TD {border: 1px solid #666666; padding: 2px;}
+DT {font-style:italic;}
+.label {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+.path {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+  </style>
+  
+  
+  
+  <style ="font-family: Verdana;"></style>
+</head>
+
+
+<body lang="hu">
+
+
+
+
+<a name="teteje"></a>
+<h1>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program
+S&uacute;g&oacute;</h1>
+
+
+
+
+<a name="12sor"></a>
+<a name="indit"></a>
+<h2>Program ind&iacute;t&aacute;sa</h2>
+
+
+
+
+<p>A programot h&aacute;rom f&eacute;le m&oacute;don
+lehet elind&iacute;tani:</p>
+
+
+
+
+<ol>
+
+
+
+
+  <li style="font-family: Verdana; font-weight: bold; margin-top: 0px; height: 19px;">
+    
+    
+    
+    <h4><span style="font-family: Verdana;">Start
+men&uuml; -&gt; Programok -&gt;
+Nyomtatv&aacute;nykit&ouml;ltő</span></h4>
+
+
+
+
+  </li>
+
+
+
+
+  <li>Asztalon tal&aacute;lhat&oacute; ikon: <img src="pics/kiskep_3.png"><br>
+
+
+
+
+Megjegyz&eacute;s: Asztalon tal&aacute;lhat&oacute; ikonnal
+abban az
+esetben ind&iacute;that&oacute;, ha a
+telep&iacute;t&eacute;s
+sor&aacute;n a Parancsikon l&eacute;trehoz&aacute;sa az
+Asztalon
+be&aacute;ll&iacute;t&aacute;sra ker&uuml;lt, vagy
+k&eacute;sőbb a
+felhaszn&aacute;l&oacute; l&eacute;trehozott egy
+parancsikont.</li>
+
+
+
+
+  <li>A telep&iacute;t&eacute;si
+k&ouml;nyvt&aacute;rban
+tal&aacute;lhat&oacute;&nbsp;<span class="path"></span><span style="font-weight: bold;">abevjava_start</span>
+parancs&aacute;llom&aacute;nnyal</li>
+
+
+
+
+</ol>
+
+
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+
+
+<a name="13sor"></a>
+<a name="felulet"></a>
+<h2>Program fel&uuml;let</h2>
+
+
+
+
+<p align="center"><img src="pics/kep_14.png"><br>
+
+
+
+
+Kit&ouml;ltő fel&uuml;let
+fel&eacute;p&iacute;t&eacute;se</p>
+
+
+
+
+<p>A st&aacute;tuszsoron az al&aacute;bbi
+funkci&oacute; tal&aacute;lhat&oacute;:</p>
+
+
+
+
+<p align="center"><img src="pics/kiskep_4.png"><br>
+
+
+
+
+Nagy&iacute;t&aacute;s - kicsiny&iacute;t&eacute;s</p>
+
+
+
+
+<p>A cs&uacute;szka mellett tal&aacute;lhat&oacute;
+ikonnal
+alap&eacute;rtelmezett &aacute;llapotba lehet
+vissza&aacute;ll&iacute;tani a kit&ouml;ltő program
+m&eacute;ret&eacute;t.</p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 11pt; font-family: Verdana;">A
+kit&ouml;ltő fel&uuml;leten
+k&uuml;l&ouml;nb&ouml;ző
+komponensek tal&aacute;lhat&oacute;k:</span></p>
+
+
+
+
+<ul>
+
+
+
+
+  <li><b style=""><span style="font-size: 11pt; font-family: Verdana;">egyszerű
+beviteli mezők</span></b><span style="font-size: 11pt; font-family: Verdana;">:
+k&uuml;l&ouml;nb&ouml;ző
+&eacute;rt&eacute;kk&eacute;szlettel rendelkezhetnek</span><span style="font-size: 11pt; font-family: Verdana;"><br>
+
+
+
+
+pl.: csak sz&aacute;m, betű &eacute;s sz&aacute;mok
+egyar&aacute;nt stb.<o:p></o:p></span></li>
+
+
+
+
+</ul>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 27pt; text-align: center;" align="center"><span style="font-size: 11pt; font-family: Verdana;"><o:p></o:p></span><img style="width: 324px; height: 68px;" alt="" title="egyszerű beviteli mezők" src="pics/kiskep_38.png"></p>
+
+
+
+
+<p style="margin-left: 27pt; text-align: justify; text-indent: -8.35pt;"><span style="font-size: 11pt; font-family: Symbol;"><span style=""></span></span><b style=""><span style="font-size: 11pt; font-family: Verdana;"></span></b></p>
+
+
+
+
+<ul>
+
+
+
+
+  <li><b style=""><span style="font-size: 11pt; font-family: Verdana;">d&aacute;tum
+mező</span></b><span style="font-size: 11pt; font-family: Verdana;">:
+dupla kattint&aacute;ssal lenyithat&oacute;, &iacute;gy a
+megfelelő d&aacute;tumot egy napt&aacute;rb&oacute;l lehet
+kiv&aacute;lasztani<o:p></o:p></span></li>
+
+
+
+
+</ul>
+
+
+
+
+<p style="margin-left: 27pt; text-align: center;" align="center"><span style="font-size: 11pt; font-family: Verdana;"><o:p></o:p></span><img style="width: 266px; height: 262px;" alt="" title="d&aacute;tum beviteli mező" src="pics/kiskep_37.png"></p>
+
+
+
+
+<ul>
+
+
+
+
+  <li><b style=""><span style="font-size: 11pt; font-family: Verdana;">jel&ouml;lőn&eacute;gyzet</span></b><span style="font-size: 11pt; font-family: Verdana;">:
+bepip&aacute;l&aacute;skor a jel&ouml;lőn&eacute;gyzet
+melletti sz&ouml;veg/funkci&oacute;
+elfogad&aacute;s&aacute;t
+szolg&aacute;lja.<br>
+
+
+
+
+    </span></li>
+
+
+
+
+  <li><b style=""><span style="font-size: 11pt; font-family: Verdana;">&eacute;rt&eacute;klista</span></b>:
+duplakattint&aacute;ssal, vagy Ctrl+le ny&iacute;l
+hat&aacute;s&aacute;ra lenyithat&oacute;. <span style="font-size: 11pt; font-family: Verdana;"><br>
+
+
+
+
+H&aacute;romf&eacute;le
+&eacute;rt&eacute;klist&aacute;t
+k&uuml;l&ouml;nb&ouml;ztet&uuml;nk meg:<o:p></o:p></span></li>
+
+
+
+
+</ul>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 63.1pt; text-align: justify; text-indent: -18pt;"><span style="font-size: 11pt; font-family: Verdana;"><span style="">1.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><span style="font-size: 11pt; font-family: Verdana;">Csak
+az &eacute;rt&eacute;klist&aacute;ban szereplő
+&eacute;rt&eacute;kek k&ouml;z&uuml;l lehet
+v&aacute;lasztani (a mező jobb felső
+sark&aacute;ban <b style="">piros</b>
+h&aacute;romsz&ouml;g jel&ouml;li):<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 45.1pt; text-align: center;" align="center"><span style="font-size: 11pt; font-family: Verdana;"><span style=""><img style="width: 112px; height: 36px;" alt="" title="&eacute;rt&eacute;klista - teljes egyezős&eacute;g" src="pics/kiskep_35.png">&nbsp; </span><o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 63.1pt; text-align: justify; text-indent: -18pt;"><span style="font-size: 11pt; font-family: Verdana;"><span style="">2.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;</span></span></span><span style="font-size: 11pt; font-family: Verdana;">Nemcsak
+az &eacute;rt&eacute;klist&aacute;ban szereplő
+&eacute;rt&eacute;kek k&ouml;z&uuml;l lehet
+v&aacute;lasztani, hanem tetszőleges
+&eacute;rt&eacute;k is r&ouml;gz&iacute;thető a mezőbe
+(a mező jobb felső sark&aacute;ban <b style="">z&ouml;ld</b>
+h&aacute;romsz&ouml;g jel&ouml;li)<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 54pt; text-align: center;" align="center"><span style="font-size: 11pt; font-family: Verdana;"><o:p></o:p></span><img style="width: 555px; height: 36px;" alt="" title="&eacute;rt&eacute;klista - r&eacute;szleges egyezős&eacute;g" src="pics/kiskep_36.png"></p>
+
+
+
+
+<br>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 63.1pt; text-align: justify; text-indent: -18pt;"><span style="font-size: 11pt; font-family: Verdana;"><span style="">3.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="font-size: 11pt; font-family: Verdana;">Felt&eacute;teles
+&eacute;rt&eacute;klista. Az &eacute;rt&eacute;klista
+tartalma
+valamilyen felt&eacute;tel
+teljes&uuml;l&eacute;s&eacute;hez
+k&ouml;t&ouml;tt. Dinamikusan v&aacute;ltozhat. </span><span style="font-size: 10pt; font-family: &quot;Palatino Linotype&quot;;"></span><span style="font-size: 11pt; font-family: Verdana;">(a mező jobb
+felső
+sark&aacute;ban <span style="font-weight: bold;">k&eacute;k</span>
+h&aacute;romsz&ouml;g jel&ouml;li):<o:p></o:p></span></p>
+
+
+
+
+<span style="font-size: 11pt; font-family: Verdana;"><span style=""><br>
+
+
+
+
+</span></span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: Verdana;"><span style="">&nbsp;<img style="width: 344px; height: 24px;" alt="Felt&eacute;teles &eacute;rt&eacute;klista" src="pics/kiskep_48.png"><br>
+
+
+
+
+</span></span></div>
+
+
+
+
+<p><a href="enyk_lap_1.htm#teteje">Lap teteje</a>
+| <a href="enyk_tartalom.htm#tartalom">Tartalom</a>
+| <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+
+
+<h2><a name="dinamikus"></a>Dinamikus lapok
+kezel&eacute;se</h2>
+
+
+
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: Verdana;">Azokat
+a lapokat, amelyekből t&ouml;bb, azonos
+t&iacute;pus&uacute; hozhat&oacute; l&eacute;tre,
+dinamikus lapnak
+nevezz&uuml;k. <o:p></o:p></span></p>
+
+
+
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: Verdana;">Dinamikus
+lapok kezel&eacute;s&eacute;t az al&aacute;bbi
+men&uuml;sorral tudja vez&eacute;relni:<o:p></o:p></span></p>
+
+
+
+
+<p style="text-align: center;" align="center"><span style="font-size: 11pt; font-family: Verdana;"><o:p></o:p></span><img style="width: 348px; height: 34px;" alt="" title="dinamikus lap - men&uuml;sor" src="pics/kiskep_39.png"></p>
+
+
+
+
+<p class="Cmsor3-verdana-sg" style="margin: 0cm 0cm 0.0001pt;"><span style="font-size: 11pt; font-weight: normal; font-style: normal;">A
+men&uuml;sor
+funkci&oacute;gombjai &eacute;s ikonjai a k&ouml;vetkezőek:</span></p>
+
+
+
+
+<ul>
+
+
+
+
+  <li><img style="width: 77px; height: 29px;" alt="" title="V&aacute;laszt gomb" src="pics/kiskep_46.png">:Mező
+tartalm&aacute;nak szűr&eacute;s&eacute;re
+szolg&aacute;l. Egy dinamikus lapon l&eacute;vő mező
+kiv&aacute;laszt&aacute;sa ut&aacute;n
+megjelen&iacute;ti az &ouml;sszes, ugyanolyan
+t&iacute;pus&uacute; dinamikus lapon l&eacute;vő mező
+tartalm&aacute;t.
+Csak akkor haszn&aacute;lhat&oacute; a funkci&oacute;, ha
+t&ouml;bb dinamikus lap van l&eacute;trehozva, &eacute;s az
+egyik dinamikus lapon ki lett v&aacute;lasztva egy mező.
+(s&aacute;rga a mező tartalma).<span style="">&nbsp;&nbsp;
+    </span><br>
+
+
+
+
+A gomb lenyom&aacute;s&aacute;ra egy
+t&aacute;bl&aacute;zat jelenik meg, az akt&iacute;v
+dinamikus lappal
+megegyező t&iacute;pus&uacute; dinamikus lap
+kiv&aacute;lasztott mezőj&eacute;nek tartalm&aacute;val.<span style="font-size: 11pt; font-family: Verdana;"><br>
+
+
+
+
+Ebben a
+t&aacute;bl&aacute;zatban rendezheti az
+oszlop fejl&eacute;cre val&oacute; kattint&aacute;ssal
+(n&ouml;vekvő/cs&ouml;kkenő) sorrendbe a
+kiv&aacute;lasztott
+oszlop adatait.</span><span style="font-size: 11pt; font-family: Verdana;"><br>
+
+
+
+
+A
+szűr&eacute;si felt&eacute;telek
+haszn&aacute;lat&aacute;val
+a megszokott m&oacute;don kereshet a nyomtatv&aacute;nyok
+k&ouml;z&ouml;tt.</span> <span style="font-size: 11pt; font-family: Verdana;">A
+kiv&aacute;lasztott sorra dupl&aacute;n kattintva
+akt&iacute;vv&aacute; v&aacute;lik
+a mező&eacute;rt&eacute;ket tartalmaz&oacute; dinamikus lap
+vagy haszn&aacute;lhatja a <b style="">Kiv&aacute;laszt</b>
+gombot.</span><span style="font-size: 11pt; font-family: Symbol;"><span style=""></span></span><span style="font-size: 11pt; font-family: Verdana;"></span></li>
+
+
+
+
+  <li><span style="font-size: 11pt; font-family: Verdana;"><img style="width: 68px; height: 33px;" alt="" title="m&aacute;sol&aacute;s adattartalommal" src="pics/kiskep_40.png">:&nbsp;</span><span style="font-size: 11pt; font-family: Verdana;">Az
+aktu&aacute;lis dinamikus lap adattartalm&aacute;val annyi
+dinamikus
+lap hozhat&oacute; l&eacute;tre, mint
+amennyi az ikon előtti sz&ouml;vegmezőben szereplő
+&eacute;rt&eacute;k.
+C&eacute;lszerű az ism&eacute;tlődő
+&eacute;rt&eacute;kekkel kit&ouml;lt&ouml;tt lap
+m&aacute;sol&aacute;s&aacute;ra haszn&aacute;lni. Ha
+csak bizonyos
+mezők adat&aacute;t
+szeretn&eacute; &aacute;tm&aacute;solni, akkor
+l&eacute;tre kell hoznia
+egy olyan lapot, amelyen csak a
+m&aacute;soland&oacute; mezők ki vannak t&ouml;ltve.
+Ezut&aacute;n a
+fent le&iacute;rt m&oacute;don tetszőleges
+sz&aacute;m&uacute;
+lapot hozhat l&eacute;tre a k&iacute;v&aacute;nt
+adattartalommal, de
+csak addig, am&iacute;g a maxim&aacute;lisan
+megadhat&oacute; dinamikus lapok sz&aacute;m&aacute;t el
+nem &eacute;ri.</span></li>
+
+
+
+
+  <li><span style="font-size: 11pt; font-family: Verdana;"></span><img style="width: 22px; height: 30px;" alt="" src="pics/kiskep_41.png"><span style="font-size: 11pt; font-family: Verdana;">:&nbsp;</span><span style="font-size: 11pt; font-family: Verdana;">&Uuml;res
+dinamikus lap l&eacute;trehoz&aacute;sa, de csak addig,
+am&iacute;g a maxim&aacute;lisan megadhat&oacute;
+dinamikus lapok sz&aacute;m&aacute;t el nem &eacute;ri.</span><span style="font-size: 11pt; font-family: Verdana;"></span></li>
+
+
+
+
+  <li><span style="font-size: 11pt; font-family: Verdana;"><img style="width: 23px; height: 29px;" alt="" title="dinamikus lap t&ouml;rl&eacute;se" src="pics/kiskep_42.png">:
+Aktu&aacute;lis dinamikus lap t&ouml;rl&eacute;se.
+T&ouml;rl&eacute;s
+előtt megerős&iacute;t&eacute;st v&aacute;r a
+kit&ouml;ltő program.</span></li>
+
+
+
+
+  <li><span style="font-size: 11pt; font-family: Verdana;"></span>
+    <span style="font-size: 11pt; font-family: Verdana;"><img style="width: 110px; height: 27px;" alt="dinamikus lapok k&ouml;z&ouml;tti mozg&aacute;s" src="pics/kiskep_43.png">:
+Az adatbeviteli mezőben szereplő &eacute;rt&eacute;k
+jelzi, hogy melyik sorsz&aacute;m&uacute; dinamikus lapon
+&aacute;ll. A k&eacute;pen szereplő
+p&eacute;ld&aacute;ban ez
+az első lapot jelenti. A sz&uuml;rke mezőben szereplő
+&eacute;rt&eacute;k k&ouml;z&uuml;l az első
+&eacute;rt&eacute;k
+jelenti, hogy mennyi dinamikus lap van l&eacute;trehozva (1), a
+m&aacute;sodik &eacute;rt&eacute;k a
+maxim&aacute;lisan l&eacute;trehozhat&oacute; dinamikus
+lapok sz&aacute;m&aacute;t jelenti (9).<o:p></o:p></span>
+    <span style="font-size: 11pt; font-family: Verdana;"><br>
+
+
+
+
+A fel /le
+nyilakkal a lapok k&ouml;z&ouml;tt
+mozoghat.</span></li>
+
+
+
+
+  <li><span style="font-size: 11pt; font-family: Verdana;"><img style="width: 27px; height: 29px;" alt="" title="dinamikus lapok k&ouml;z&ouml;tti mozg&aacute;s" src="pics/kiskep_44.png">A
+dinamikus lapok kiv&aacute;laszt&aacute;s&aacute;hoz,
+cs&uacute;szk&aacute;t
+is haszn&aacute;lhat.<o:p></o:p></span> <span style="font-size: 11pt; font-family: Verdana;"><br>
+
+
+
+
+A gomb
+megnyom&aacute;s&aacute;ra, az al&aacute;bbi
+seg&iacute;ts&eacute;get kapja:<o:p></o:p><br>
+
+
+
+
+    </span>
+    
+    
+    
+    <div style="text-align: center;"><span style="font-size: 11pt; font-family: Verdana;"><img style="width: 320px; height: 25px;" alt="" title="dinamikus lapok k&ouml;z&ouml;tti mozg&aacute;s" src="pics/kiskep_45.png"></span><br>
+
+
+
+
+    <span style="font-size: 11pt; font-family: Verdana;"></span></div>
+
+
+
+
+    
+    
+    
+    <p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+
+
+    <a name="141sor"></a> <a name="billentyu"></a>
+    
+    
+    
+    <h2>Billentyű haszn&aacute;lat</h2>
+
+
+
+
+    
+    
+    
+    <p align="center"><img src="pics/billentyuk_hasznalata.png"><br>
+
+
+
+
+Gyors billentyűk, billentyű kombin&aacute;ci&oacute;k
+haszn&aacute;lata</p>
+
+
+
+
+    
+    
+    
+    <p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+
+
+    <a name="142sor"></a> <a name="szur"></a>
+    
+    
+    
+    <h2>Szűr&eacute;si felt&eacute;telek</h2>
+
+
+
+
+    
+    
+    
+    <div>Ezen funkci&oacute;val kereshet a
+nyomtatv&aacute;nyok
+k&ouml;z&ouml;tt. Ez a leny&iacute;l&oacute; ablak
+t&ouml;bb helyen
+(Nyomtatv&aacute;nyok megnyit&aacute;sa stb.)
+el&eacute;rhető a
+programon bel&uuml;l.</div>
+
+
+
+
+    
+    
+    
+    <p align="center"><img src="pics/kep_23.png"><br>
+
+
+
+
+Szűr&eacute;si felt&eacute;telek</p>
+
+
+
+
+    
+    
+    
+    <p>A szűr&eacute;si felt&eacute;telek
+att&oacute;l
+f&uuml;ggően
+v&aacute;ltoznak, hogy az adott k&eacute;pernyőn milyen
+oszlopok
+tal&aacute;lhat&oacute;ak. A szűr&eacute;si
+felt&eacute;telek a
+k&ouml;vetkezők a nyomtatv&aacute;ny megnyit&aacute;sa
+ablakon:</p>
+
+
+
+
+    
+    
+    
+    <ul>
+
+
+
+
+      <li>St&aacute;tusz: nyomtatv&aacute;nyok
+&aacute;llapota
+(M&oacute;dos&iacute;that&oacute; /
+K&uuml;ld&eacute;sre megjel&ouml;lt
+/ Elk&uuml;ld&ouml;tt)</li>
+
+
+
+
+      <li>Nyomtatv&aacute;ny neve: nyomtatv&aacute;ny
+sz&aacute;ma</li>
+
+
+
+
+      <li>Ad&oacute;sz&aacute;m: az elmentett
+nyomtatv&aacute;nyokban szereplő c&eacute;gek
+ad&oacute;sz&aacute;ma</li>
+
+
+
+
+      <li>N&eacute;v: az elmentett
+nyomtatv&aacute;nyokban
+szereplő c&eacute;gek vagy mag&aacute;nszem&eacute;lyek
+nevei</li>
+
+
+
+
+      <li>D&aacute;tumt&oacute;l - D&aacute;tumig: az
+elmentett nyomtatv&aacute;nyokban szereplő időszakok</li>
+
+
+
+
+      <li>Verzi&oacute;: nyomtatv&aacute;ny
+verzi&oacute;
+sz&aacute;ma</li>
+
+
+
+
+      <li>Verzi&oacute;v&aacute;lt&aacute;s oka: a
+verzi&oacute;v&aacute;lt&aacute;s oka sz&ouml;vegesen</li>
+
+
+
+
+      <li>Szervezet: a nyomtatv&aacute;nyt
+haszn&aacute;l&oacute; szervezet neve</li>
+
+
+
+
+      <li>Inform&aacute;ci&oacute;:
+nyomtatv&aacute;nyonk&eacute;nt egyedileg megadott
+inform&aacute;ci&oacute;k</li>
+
+
+
+
+      <li>Ad&oacute;azonos&iacute;t&oacute;:
+nyomtatv&aacute;nyban
+szereplő mag&aacute;nszem&eacute;ly
+ad&oacute;azonos&iacute;t&oacute;
+jele</li>
+
+
+
+
+      <li>Mentve: &aacute;llom&aacute;nyok
+utols&oacute;
+m&oacute;dos&iacute;t&aacute;s&aacute;nak
+d&aacute;tuma</li>
+
+
+
+
+      <li>Megjegyz&eacute;s: a nyomtatv&aacute;nyokhoz
+fűz&ouml;tt megjegyz&eacute;sek</li>
+
+
+
+
+      <li>&Aacute;llom&aacute;ny: f&aacute;jl neve</li>
+
+
+      <li>Kateg&oacute;ria: seg&iacute;ts&eacute;g&eacute;vel csoportos&iacute;that&oacute;ak a szervezet űrlapjai</li>
+
+
+
+
+      <li>Csat.db: Csatolm&aacute;nyok darabsz&aacute;ma</li>
+
+
+
+
+    
+    
+    
+    </ul>
+
+
+
+
+    
+    
+    
+    <p align="center"><img src="pics/szuropanel_hasznalata.png"><br>
+
+
+
+
+Szűrőpanel haszn&aacute;lata</p>
+
+
+
+
+    
+    
+    
+    <p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+
+
+    <a name="200sor"></a> <a name="tetel"></a>
+    
+    
+    
+    <h2>T&eacute;teles
+adatr&ouml;gz&iacute;t&eacute;s</h2>
+
+
+
+
+  </li>
+
+
+
+
+</ul>
+
+
+
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+El&eacute;rhetős&eacute;ge:&nbsp;&nbsp;<br>
+
+
+
+
+<ol>
+
+
+
+
+  
+  
+  
+  <ol>
+
+
+
+
+    <li> Ikon <img style="width: 27px; height: 19px;" alt="T&eacute;teles adatr&ouml;gz&iacute;t&eacute;s" src="pics/ikon_42.png"></li>
+
+
+
+
+    <li>Gyors billentyű: F6</li>
+
+
+
+
+  
+  
+  
+  </ol>
+
+
+
+
+</ol>
+
+
+
+
+<p style="margin-left: 40px;"><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-family: Verdana;">A
+t&eacute;teles adatr&ouml;gz&iacute;t&eacute;s abban
+ny&uacute;jt seg&iacute;ts&eacute;get a
+felhaszn&aacute;l&oacute;nak, hogy ha egy
+nyomtatv&aacute;ny mezőj&eacute;be t&ouml;bb
+&ouml;sszeget kell be&iacute;rni, akkor ne kelljen
+k&uuml;l&ouml;n kisz&aacute;molnia,
+hanem t&eacute;telesen is megadhatja, &eacute;s a program
+kisz&aacute;m&iacute;tja helyette. A t&eacute;teles
+adatr&ouml;gz&iacute;t&eacute;s
+k&eacute;pernyőj&eacute;nek ment&eacute;ssel
+t&ouml;rt&eacute;nő bez&aacute;r&aacute;sa
+ut&aacute;n az &Ouml;sszesen mező
+&eacute;rt&eacute;ke automatikusan beker&uuml;l a
+nyomtatv&aacute;ny mezőj&eacute;be.</span></p>
+
+
+
+
+<p style="margin-left: 40px;"><span style="font-family: Verdana;"> P&eacute;lda a
+lehets&eacute;ges haszn&aacute;lat&aacute;ra: a
+szem&eacute;lyij&ouml;vedelemad&oacute;-bevall&aacute;sban&nbsp;</span><span style="font-family: Verdana;">('53)
+</span><span style="font-family: Verdana;"> ha t&ouml;bb
+munk&aacute;ltat&oacute;t&oacute;l is szerzett ugyanazon a
+jogc&iacute;men j&ouml;vedelmet.</span></p>
+
+
+
+
+<p style="margin-left: 40px;"><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-family: Verdana;">A
+funkci&oacute; csak az Adatok -&gt; &Uacute;j
+nyomtatv&aacute;ny vagy az Adatok -&gt; Nyomtatv&aacute;ny
+megnyit&aacute;sa men&uuml;pontok haszn&aacute;latakor
+&eacute;rhető el.&nbsp;Amennyiben a kit&ouml;lt&ouml;tt
+nyomtatv&aacute;nyt XML-k&eacute;nt menti le, vagy
+titkos&iacute;tja, hogy azt elektronikusan
+bek&uuml;ldje, akkor azokba a f&aacute;jlokba nem
+ker&uuml;lnek bele a t&eacute;teles
+adatr&ouml;gz&iacute;t&eacute;sn&eacute;l
+be&iacute;rt adatok.</span></p>
+
+
+
+
+<p style="margin-left: 40px;"><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-family: Verdana;">
+A
+t&eacute;teles adatr&ouml;gz&iacute;t&eacute;s csak
+azokon a mezők&ouml;n &aacute;llva &eacute;rhető el,
+amelyekbe
+valamilyen &ouml;sszeget lehet be&iacute;rni.
+&nbsp;Ha
+olyan mezőben h&iacute;vja meg a t&eacute;teles
+adatr&ouml;gz&iacute;t&eacute;st, amelyikből nem
+el&eacute;rhető, akkor
+a k&ouml;vetkező &uuml;zenetet kapja: <i style="">&bdquo;A
+funkci&oacute;
+nem el&eacute;rhető!&rdquo;</i><o:p></o:p><br>
+
+
+
+
+Sz&ouml;veges
+mezőkben pl.: n&eacute;v, c&iacute;m nem
+haszn&aacute;lhat&oacute;.<br>
+
+
+
+
+<o:p></o:p><br>
+
+
+
+
+A
+funkci&oacute; megh&iacute;v&aacute;s&aacute;nak
+hat&aacute;s&aacute;ra a k&ouml;vetkező ablak
+jelenik meg:<br>
+
+
+
+
+<br>
+
+
+
+
+</span></p>
+
+
+
+
+<div style="text-align: center;"><big><big><span style="font-size: 11pt; font-family: Verdana;"><big><img style="width: 600px; height: 400px;" alt="t&eacute;teles r&ouml;gz&iacute;t&eacute;s" src="pics/kep_157.png"></big></span></big></big><br>
+
+
+
+
+<big><big><span style="font-size: 11pt; font-family: Verdana;"></span></big></big></div>
+
+
+
+
+<big><big>&nbsp;</big></big><br>
+
+
+
+
+<br>
+
+
+
+
+<p style="margin-left: 40px;"><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-family: Verdana;">A
+k&eacute;pernyőn k&eacute;t oszlop szerepel:
+Megjegyz&eacute;s
+&eacute;s az &Ouml;sszeg. A Megjegyz&eacute;s mező
+kit&ouml;lt&eacute;se nem k&ouml;telező, el&eacute;g az
+&Ouml;sszeg
+mezőbe &eacute;rt&eacute;ket &iacute;rni. Ha a
+Megjegyz&eacute;s
+mezőt kit&ouml;lt&ouml;tte,&nbsp;akkor az &Ouml;sszeg
+mezőt is
+k&ouml;telező kit&ouml;lteni.</span></p>
+
+
+
+
+<p style="margin-left: 40px;"><span style="font-family: Verdana;"> A k&eacute;pernyőn
+szereplő gombok:</span><span style="font-size: 11pt; font-family: Verdana;"><br>
+
+
+
+
+</span>
+</p>
+
+
+
+
+<ul style="margin-left: 40px;">
+
+
+
+
+  <li>
+    
+    
+    
+    <p><span style="font-size: 11pt; font-family: Verdana;"><span style="font-weight: bold;">T&ouml;r&ouml;l</span>
+: </span><span style="font-family: Verdana;">
+Az aktu&aacute;lis sor t&ouml;rl&eacute;s&eacute;re
+szolg&aacute;l. Az
+utols&oacute; sort nem lehet t&ouml;r&ouml;lni, csak a
+tartalm&aacute;t
+&aacute;t&iacute;rni.</span></p>
+
+
+
+
+  </li>
+
+
+
+
+  <li>
+    
+    
+    
+    <p><span style="font-family: Verdana;"></span><span style="font-size: 11pt; font-family: Verdana;"><span style="font-weight: bold;">M&eacute;gsem</span>
+:&nbsp;</span><span style="font-family: Verdana;">Kil&eacute;p&eacute;s
+a k&eacute;pernyőből, ment&eacute;s n&eacute;lk&uuml;l.</span></p>
+
+
+
+
+  </li>
+
+
+
+
+  <li>
+    
+    
+    
+    <p><span style="font-family: Verdana;"></span><span style="font-size: 11pt; font-family: Verdana;"><span style="font-weight: bold;">OK</span> : </span><span style="font-family: Verdana;">A</span><span style="font-family: Verdana;">
+k&eacute;pernyőből val&oacute; kil&eacute;p&eacute;skor
+elmenti az
+adatokat. Ha az &Ouml;sszesen mezőben 0 vagy att&oacute;l
+nagyobb
+&eacute;rt&eacute;k szerepel, akkor ezt az
+&eacute;rt&eacute;ket
+&aacute;t&iacute;rja a nyomtatv&aacute;ny
+mezőj&eacute;be.</span><span style="font-size: 11pt; font-family: Verdana;"></span><br>
+
+
+
+
+    </p>
+
+
+
+
+  </li>
+
+
+
+
+</ul>
+
+
+
+
+<div style="margin-left: 40px;"><span style="font-family: Verdana;">Ha
+a nyomtatv&aacute;ny mezőj&eacute;ben
+&eacute;rt&eacute;k szerepel
+&eacute;s megh&iacute;vja a t&eacute;teles
+adatr&ouml;gz&iacute;t&eacute;st (</span><span style="font-family: Verdana;">a t&eacute;teles
+adatr&ouml;gz&iacute;t&eacute;sn&eacute;l
+m&eacute;g nem szerepel &eacute;rt&eacute;k</span><span style="font-family: Verdana;">),
+akkor a nyomtatv&aacute;ny mezőj&eacute;ben szereplő
+&eacute;rt&eacute;k automatikusan beker&uuml;l a
+t&eacute;teles
+adatr&ouml;gz&iacute;t&eacute;s első sor&aacute;ba,
+seg&iacute;ts&eacute;gk&eacute;ppen.</span><span style="font-size: 11pt; font-family: Verdana;"></span><br>
+
+
+
+
+</div>
+
+
+
+
+<br>
+
+
+
+
+<div style="margin-left: 40px;"><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-family: Verdana;">A
+nyomtatv&aacute;nyban azok a mezők, amelyhez t&eacute;telek
+vannak
+r&ouml;gz&iacute;tve, jel&ouml;lve vannak egy kis
+h&aacute;romsz&ouml;ggel a mező bal felső sark&aacute;ban.</span><span style="font-size: 11pt; font-family: Verdana;"></span><br>
+
+
+
+
+</div>
+
+
+
+
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+
+
+
+
+<div style="text-align: center;"><img style="width: 757px; height: 37px;" alt="k&eacute;k h&aacute;romsz&ouml;g" src="pics/kiskep_49.png"><br>
+
+
+
+
+</div>
+
+
+
+
+<br>
+
+
+
+
+<br>
+
+
+
+
+<div style="margin-left: 40px;"><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-family: Verdana;">Ha
+az egeret a mező fel&eacute; h&uacute;zza, a megjelenő
+megjegyz&eacute;s/seg&iacute;ts&eacute;g ablakban a
+mezőh&ouml;z
+r&ouml;gz&iacute;tett t&eacute;telek is megjelennek.</span><span style="font-size: 11pt; font-family: Verdana;"><br>
+
+
+
+
+<br>
+
+
+
+
+</span></div>
+
+
+
+
+<span style="font-size: 11pt; font-family: Verdana;"></span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: Verdana;"><big>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <img style="width: 948px; height: 191px;" alt="hint" src="pics/kiskep_50.png"></big></span><span style="font-size: 11pt; font-family: Verdana;"></span></div>
+
+
+
+
+<br>
+
+
+
+
+<div style="margin-left: 40px;"><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-family: Verdana;">Ha
+a nyomtatv&aacute;nyon ellenőrz&eacute;st futtat, &eacute;s
+a
+t&eacute;teles
+adatr&ouml;gz&iacute;t&eacute;sn&eacute;l az
+&Ouml;sszesen mezőben szereplő &eacute;rt&eacute;k
+elt&eacute;r a
+nyomtatv&aacute;ny mezőj&eacute;ben szereplő
+&eacute;rt&eacute;ktől,
+akkor figyelmeztet&eacute;s ker&uuml;l az
+ellenőrz&eacute;si
+list&aacute;ba, hogy a k&eacute;t &eacute;rt&eacute;k
+elt&eacute;r
+egym&aacute;st&oacute;l.</span><span style="font-size: 11pt; font-family: Verdana;"></span><br>
+
+
+
+
+<span style="font-size: 11pt; font-family: Verdana;"></span></div>
+
+
+
+
+<span style="font-size: 11pt; font-family: Verdana;"><big><br>
+
+
+
+
+</big></span>
+<div style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &bdquo;Figyelem : a
+nyomtatv&aacute;ny _0B0001C0006DA mezőj&eacute;ben
+l&eacute;vő 2000 &eacute;rt&eacute;k nem egyezik a
+r&eacute;szletezett adatok &ouml;sszeg&eacute;vel.
+(50000)&rdquo;</span><br>
+
+
+
+
+</div>
+
+
+
+
+<br>
+
+
+
+
+<p><a href="enyk_lap_1.htm#teteje">Lap teteje</a>
+| <a href="enyk_tartalom.htm#tartalom">Tartalom</a>
+| <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+
+
+<a name="201sor"></a> <a name="szamol"></a>
+<h2>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+Sz&aacute;mol&oacute;g&eacute;p</h2>
+
+
+
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+El&eacute;rhetős&eacute;ge:&nbsp;&nbsp;<br>
+
+
+
+
+<ol>
+
+
+
+
+  
+  
+  
+  <ol>
+
+
+
+
+    <li> Ikon <img style="width: 26px; height: 23px;" alt="sz&aacute;mol&oacute;g&eacute;p" src="pics/ikon_43.png"></li>
+
+
+
+
+    <li>Gyors billentyű: F7</li>
+
+
+
+
+  
+  
+  
+  </ol>
+
+
+
+
+</ol>
+
+
+
+
+<span style="font-size: 11pt; font-family: Verdana;"><br>
+
+
+
+
+</span>
+<div style="margin-left: 40px;"><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-family: Verdana;">A
+funkci&oacute; megh&iacute;v&aacute;s&aacute;nak
+hat&aacute;s&aacute;ra
+megh&iacute;v&aacute;sra ker&uuml;l az
+opr&aacute;ci&oacute;s rendszer
+sz&aacute;mol&oacute;g&eacute;pe.<br>
+
+
+
+
+<br>
+
+
+
+
+Ha nem el&eacute;rhető a
+sz&aacute;mol&oacute;g&eacute;p vagy nem ezt
+szeretn&eacute; haszn&aacute;lni, akkor a haszn&aacute;lni
+k&iacute;v&aacute;nt
+sz&aacute;mol&oacute;g&eacute;p
+el&eacute;r&eacute;si &uacute;tj&aacute;t be tudja
+&aacute;ll&iacute;tani a&nbsp;</span><span style="font-size: 11pt; font-family: Verdana;"><span style="font-weight: bold;">Szerviz -&gt;
+Be&aacute;ll&iacute;t&aacute;sok -&gt;
+Műk&ouml;d&eacute;s</span>&nbsp;</span><span style="font-family: Verdana;">f&uuml;l&ouml;n.<br>
+
+
+
+
+</span><span style="font-size: 11pt; font-family: Verdana;"></span><br>
+
+
+
+
+<span style="font-size: 11pt; font-family: Verdana;"></span></div>
+
+
+
+
+<span style="font-size: 11pt; font-family: Verdana;"></span>
+<div style="margin-left: 40px;"><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-family: Verdana;">A
+sz&aacute;mol&oacute;g&eacute;p b&aacute;rmikor
+beh&iacute;vhat&oacute;. A
+sz&aacute;mol&oacute;g&eacute;ppel
+kisz&aacute;molt &eacute;rt&eacute;k nem ker&uuml;l
+automatikusan a
+nyomtatv&aacute;ny mezőj&eacute;be, "k&eacute;zzel" vagy a
+Ctrl+C /
+Ctrl+V billentyű kombin&aacute;ci&oacute;val tudja
+be&iacute;rni.<br>
+
+
+
+
+</span><span style="font-size: 11pt; font-family: Verdana;"></span><br>
+
+
+
+
+</div>
+
+
+
+
+<br>
+
+
+
+
+<p><a href="enyk_lap_1.htm#teteje">Lap teteje</a>
+| <a href="enyk_tartalom.htm#tartalom">Tartalom</a>
+| <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+
+
+<a name="144sor"></a> <a name="ujdon"></a><br>
+
+
+
+
+<ul>
+
+
+
+
+  
+  
+  
+  <h2>K&uuml;l&ouml;nbs&eacute;gek az ABEV
+&eacute;s a java-s nyomtatv&aacute;nykit&ouml;ltő program
+k&ouml;z&ouml;tt</h2>
+
+
+
+
+  
+  
+  
+  <h3>Nyomtatv&aacute;nyk&ouml;teg kezel&eacute;se
+(pl.: 0708A &eacute;s 0708M)</h3>
+
+
+
+
+  
+  
+  
+  <ul>
+
+
+
+
+    <li>Az egyik alapvető
+k&uuml;l&ouml;nbs&eacute;g a
+k&eacute;t
+program k&ouml;z&ouml;tt a
+j&aacute;rul&eacute;kbevall&aacute;sok
+elk&eacute;sz&iacute;t&eacute;s&eacute;ben van.
+Am&iacute;g az ABEV
+k&uuml;l&ouml;n &aacute;llom&aacute;nyokban kezeli az
+A-s &eacute;s az
+M-es nyomtatv&aacute;nyokat &eacute;s a
+Nyomtatv&aacute;nyok
+&ouml;sszerendel&eacute;se men&uuml;ponttal lehet az
+&ouml;sszetartoz&oacute; nyomtatv&aacute;nyokat
+&ouml;sszerendelni. A
+java-s nyomtatv&aacute;nykit&ouml;ltőben m&aacute;r
+&ouml;sszerendelve
+vannak kezelve az &ouml;sszetartoz&oacute;
+nyomtatv&aacute;nyok (pl.:
+0708A/0708M)<br>
+
+
+
+
+      <br>
+
+
+
+
+J&aacute;rul&eacute;k bevall&aacute;s
+elk&eacute;sz&iacute;t&eacute;s&eacute;nek
+l&eacute;p&eacute;sei:
+      
+      
+      
+      <ol>
+
+
+
+
+        <li>A Megnyit&aacute;s funkci&oacute;val
+kiv&aacute;lasztja a megfelelő nyomtatv&aacute;nyt pl: 0708AM. </li>
+
+
+
+
+        <li>A megny&iacute;l&oacute;
+nyomtatv&aacute;nyban
+r&ouml;gt&ouml;n keletkezik egy A t&iacute;pus&uacute;
+nyomtatv&aacute;ny, amely ha
+v&aacute;lasztott t&ouml;rzsadatot, akkor azokkal
+felt&ouml;ltve jelenik
+meg. </li>
+
+
+
+
+        <li>Tov&aacute;bbi nyomtatv&aacute;nyokat
+(M-es) a
+nyomtatv&aacute;nyk&ouml;teg ikonsor&aacute;n
+tal&aacute;lhat&oacute;
+ikonnal tud l&eacute;trehozni. Az ikonsoron
+tal&aacute;lhat&oacute;
+funkci&oacute;kr&oacute;l r&eacute;szletes
+le&iacute;r&aacute;st <a href="jarulekbevallasok_kezelese_a_nyomtatvany_kitoltoben.htm">itt</a>
+olvashat. </li>
+
+
+
+
+        <li>Egy-egy M-es nyomtatv&aacute;ny adatainak
+r&ouml;gz&iacute;t&eacute;se ut&aacute;n
+c&eacute;lszerű a
+kit&ouml;lt&eacute;s helyess&eacute;g&eacute;t
+r&ouml;gt&ouml;n
+leellenőrizni (Ellenőrz&eacute;s <img src="pics/ikon_15.png">).
+        </li>
+
+
+
+
+        <li>Az M-es nyomtatv&aacute;nyok
+szerkeszt&eacute;s&eacute;nek
+befejez&eacute;se ut&aacute;n tegye
+akt&iacute;vv&aacute; az A-s
+nyomtatv&aacute;nyt. </li>
+
+
+
+
+        <li>Futtassa az <span style="font-family: Verdana; font-weight: normal;" class="label">Adatok
+-&gt; Sz&aacute;m&iacute;tott mezők
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa</span>
+funkci&oacute;t. Ez a funkci&oacute;
+kisz&aacute;m&iacute;tja az M-es
+nyomtatv&aacute;nyok adataib&oacute;l az A-s
+nyomtatv&aacute;ny
+&ouml;sszegző adatait. </li>
+
+
+
+
+        <li>Utols&oacute;
+l&eacute;p&eacute;sk&eacute;nt &eacute;rdemes az <span style="font-weight: bold;">&ouml;sszes
+nyomtatv&aacute;ny ellenőrz&eacute;se</span><span style="font-weight: bold;" class="label"></span>
+(<img src="pics/ikon_34.png">)
+funkci&oacute;t r&aacute;futtatni. Ez az ellenőrz&eacute;s
+az
+&ouml;sszes nyomtatv&aacute;nyt leellenőrzi. Ugyanez az
+ellenőrz&eacute;s fut le k&ouml;zvetlen&uuml;l a
+felad&aacute;s előtt
+is.</li>
+
+
+
+
+      
+      
+      
+      </ol>
+
+
+
+
+    </li>
+
+
+
+
+  
+  
+  
+  </ul>
+
+
+
+
+  
+  
+  
+  <h3>Nyomtatv&aacute;ny verzi&oacute;kezel&eacute;s</h3>
+
+
+
+
+  
+  
+  
+  <ul>
+
+
+
+
+    <li>A nyomtatv&aacute;nykit&ouml;ltő program
+kezeli,
+hogy a
+kit&ouml;lt&ouml;tt, mentett nyomtatv&aacute;ny milyen
+nyomtatv&aacute;ny verzi&oacute;val k&eacute;sz&uuml;lt.</li>
+
+
+
+
+    <li>Az <span style="font-weight: bold;">Adatok
+-&gt; &Uacute;j nyomtatv&aacute;nyok</span>
+men&uuml;pontban a telep&iacute;tett legfrissebb
+nyomtatv&aacute;nyverzi&oacute; jelenik csak meg.</li>
+
+
+
+
+    <li>Amennyiben olyan kit&ouml;lt&ouml;tt
+nyomtatv&aacute;nyt nyit
+meg, amelyik r&eacute;gebbi verzi&oacute;val
+k&eacute;sz&uuml;lt, akkor
+a program r&aacute;k&eacute;rdez, hogy a melyik
+verzi&oacute;val
+szeretn&eacute; megnyitni. Ha az &uacute;jabbat
+v&aacute;lasztja, akkor
+az &uacute;j nyomtatv&aacute;nyverzi&oacute;ban egy
+&uacute;jrasz&aacute;m&iacute;t&aacute;s
+lefut&aacute;sa ut&aacute;n
+ny&iacute;lik meg a nyomtatv&aacute;ny.<br>
+
+
+
+
+      <br>
+
+
+
+
+Fontos!<br>
+
+
+
+
+Ha elt&aacute;vol&iacute;tott&aacute;k a g&eacute;pről
+azt a
+programverzi&oacute;t (pl. egy &uacute;jra
+telep&iacute;t&eacute;s
+miatt) amivel a nyomtatv&aacute;ny k&eacute;sz&uuml;lt,
+akkor
+automatikusan a legfrissebb verzi&oacute;val nyitja meg.</li>
+
+
+
+
+  
+  
+  
+  </ul>
+
+
+
+
+  
+  
+  
+  <h3>Szervezet kezel&eacute;se&nbsp;</h3>
+
+
+
+
+A java-s nyomtatv&aacute;nykit&ouml;ltő program m&aacute;s
+szervezetek pl: VPOP &aacute;ltal k&eacute;sz&iacute;tett
+nyomtatv&aacute;nyok kezel&eacute;sre is k&eacute;pes. Az<span style="font-weight: bold;"> Adatok -&gt; &Uacute;j
+nyomtatv&aacute;nyok &eacute;s
+nyomtatv&aacute;nyok&nbsp; megnyit&aacute;sa</span>
+men&uuml;potokban szűrni lehet az egyes szervezetek
+nyomtatv&aacute;nyaira.
+  
+  
+  
+  <ul>
+
+
+
+
+  
+  
+  
+  </ul>
+
+
+
+
+  
+  
+  
+  <h3>Csoportos műveletek</h3>
+
+
+
+
+  
+  
+  
+  <ul>
+
+
+
+
+    <li>Itt t&ouml;bb nyomtatv&aacute;nyt tud egyszerre
+leellenőrizni, nyomtatni, feladni vagy visszavonni.</li>
+
+
+
+
+    <li>A funkci&oacute; r&eacute;szletes
+le&iacute;r&aacute;s&aacute;t a <a href="enyk_lap_2.htm#csoport">Csoportos műveletek</a>
+r&eacute;szn&eacute;l olvashatja el.</li>
+
+
+
+
+  
+  
+  
+  </ul>
+
+
+
+
+  
+  
+  
+  <h3>Import&aacute;l&aacute;s</h3>
+
+
+
+
+  
+  
+  
+  <ul>
+
+
+
+
+    <li>Itt t&ouml;bb nyomtatv&aacute;nyt tud egyszerre
+beimport&aacute;lni. Ezek kiterjeszt&eacute;s lehet: <span style="font-weight: bold;">.dat, .abv</span><span style="font-weight: bold;" class="path"></span>
+(ABEV &aacute;ltal k&eacute;sz&iacute;tett
+adat&aacute;llom&aacute;nyok),<span style="font-weight: bold;"> </span><span class="path"></span><span style="font-weight: bold;">.imp</span>,
+      <span style="font-weight: bold;">.xml </span>&eacute;s<span style="font-weight: bold;"> &nbsp;.xkr.</span><span class="path"></span></li>
+
+
+
+
+    <li>A funkci&oacute; r&eacute;szletes
+le&iacute;r&aacute;s&aacute;t az <a href="enyk_lap_3.htm#593sor">Import&aacute;l&aacute;s
+      </a> r&eacute;szn&eacute;l olvashatja el.</li>
+
+
+
+
+  
+  
+  
+  </ul>
+
+
+
+
+  
+  
+  
+  <h3>Adatfile műveletek kezel&eacute;se</h3>
+
+
+
+
+  
+  
+  
+  <p>A funkci&oacute; n&eacute;gy men&uuml;pontban
+tal&aacute;lhat&oacute;, att&oacute;l f&uuml;ggően,
+hogy mit szeretne a
+felhaszn&aacute;l&oacute; csin&aacute;lni:</p>
+
+
+
+
+  
+  
+  
+  <ul>
+
+
+
+
+    <li><a href="enyk_lap_3.htm#masol1">M&aacute;sol&aacute;s
+az import/export k&ouml;nyvt&aacute;rb&oacute;l</a></li>
+
+
+
+
+    <li><a href="enyk_lap_3.htm#masol2">M&aacute;sol&aacute;s
+a ment&eacute;s k&ouml;nyvt&aacute;rb&oacute;l</a></li>
+
+
+
+
+    <li><a href="enyk_lap_3.htm#masol3">M&aacute;sol&aacute;s
+az import/export k&ouml;nyvt&aacute;rba</a></li>
+
+
+
+
+    <li><a href="enyk_lap_3.htm#masol4">M&aacute;sol&aacute;s
+a ment&eacute;s k&ouml;nyvt&aacute;rba</a></li>
+
+
+
+
+  
+  
+  
+  </ul>
+
+
+
+
+  
+  
+  
+  <h3>Archiv&aacute;l&aacute;s</h3>
+
+
+
+
+  
+  
+  
+  <ul>
+
+
+
+
+    <li>Itt a ment&eacute;sek k&ouml;nyvt&aacute;r
+tartalm&aacute;t
+tudja a felhaszn&aacute;l&oacute; lementeni az archivum
+k&ouml;nyvt&aacute;rba. R&eacute;szletes
+le&iacute;r&aacute;s a <a href="enyk_lap_3.htm#archiv">Adatok
+archiv&aacute;l&aacute;sa &eacute;s
+visszat&ouml;lt&eacute;se</a> alatt
+tal&aacute;lhat&oacute;.</li>
+
+
+
+
+  
+  
+  
+  </ul>
+
+
+
+
+  
+  
+  
+  <h3>Friss&iacute;t&eacute;sek kezel&eacute;se</h3>
+
+
+
+
+  
+  
+  
+  <ul>
+
+
+
+
+    <li>L&aacute;sd bővebben a <a href="enyk_lap_4.htm#frissit">Friss&iacute;t&eacute;sek
+kezel&eacute;se</a> fejezetben.</li>
+
+
+
+
+  
+  
+  
+  </ul>
+
+
+
+
+  
+  
+  
+  <h3>Csatolm&aacute;nyok kezel&eacute;se</h3>
+
+
+
+
+  
+  
+  
+  <ul>
+
+
+
+
+    <li>Egyes nyomtatv&aacute;nyokhoz k&eacute;pet,
+sz&ouml;veg
+&aacute;llom&aacute;nyt lehet csatolni. A csatol&aacute;s
+nyomtatv&aacute;ny f&uuml;ggő.</li>
+
+
+
+
+    <li>A funkci&oacute; r&eacute;szletes
+le&iacute;r&aacute;sa a k&ouml;vetkező helyen
+tal&aacute;lhat&oacute;: <a href="enyk_lap_2.htm#csatol">Csatolm&aacute;nyok
+kezel&eacute;se</a></li>
+
+
+
+
+  
+  
+  
+  </ul>
+
+
+
+
+  
+  
+  
+  <h3>Mező&eacute;rz&eacute;keny
+kit&ouml;lt&eacute;si &uacute;tmutat&oacute; a
+nyomtatv&aacute;nyhoz</h3>
+
+
+
+
+  
+  
+  
+  <ul>
+
+
+
+
+    <li>R&eacute;szletes
+haszn&aacute;lat&aacute;r&oacute;l tov&aacute;bbi
+inform&aacute;ci&oacute;kat olvashat a <a href="enyk_lap_4.htm#nysugo">Kit&ouml;lt&eacute;si
+&uacute;tmutat&oacute; s&uacute;g&oacute;</a>j&aacute;n&aacute;l.</li>
+
+
+
+
+  
+  
+  
+  </ul>
+
+
+
+
+  
+  
+  
+  <p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+
+
+</ul>
+
+
+
+
+<a name="szink1"><span style=""><span style=""><span style=""><span style=""><b><span style="font-size: 14pt; font-family: Verdana;"></span></b></span></span></span></span></a><a name="szink2"></a>&nbsp;<br>
+
+
+
+
+<h2>NAV t&ouml;rzsadatok szinkroniz&aacute;l&aacute;sa</h2>
+
+
+
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+El&eacute;rhetős&eacute;ge:&nbsp;&nbsp;<span style="font-weight: bold;"></span>
+<ol>
+
+
+
+
+  
+  
+  
+  <ol>
+
+
+
+
+    <li><span style="font-weight: bold;"></span>Szerviz
+-&gt; NAV t&ouml;rzsadatok szinkroniz&aacute;l&aacute;sa<o:p></o:p></li>
+
+
+
+
+  
+  
+  
+  </ol>
+
+
+
+
+</ol>
+
+
+
+
+<b style=""><span style="font-size: 14pt;"><span style=""></span></span></b>
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 11pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 11pt; font-family: Verdana;"><o:p></o:p></span><span style="font-size: 13pt;">Ebben
+a men&uuml;pontban tetszőleges sz&aacute;m&uacute;
+kiv&aacute;lasztott ad&oacute;z&oacute;ra
+lek&eacute;rheti a NAV
+adatb&aacute;zis&aacute;b&oacute;l az egyes
+t&ouml;rzsadatokn&aacute;l
+szereplő
+&eacute;rt&eacute;keket. A lek&eacute;rt
+&eacute;rt&eacute;kek
+&ouml;sszehasonl&iacute;t&aacute;sra ker&uuml;lnek a
+helyi
+t&ouml;rzsadatt&aacute;r
+adataival, amelyek fel&uuml;l&iacute;rhat&oacute;k a NAV
+adatb&aacute;zis&aacute;b&oacute;l lek&eacute;rt
+&eacute;rt&eacute;kekkel.<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 13pt;">A felhaszn&aacute;l&oacute;
+&uacute;j nyomtatv&aacute;nyok
+l&eacute;trehoz&aacute;sakor a helyi
+t&ouml;rzsadatt&aacute;rban szereplő
+ad&oacute;z&oacute;k k&ouml;z&uuml;l
+v&aacute;laszthat. A kiv&aacute;lasztott adatok
+beker&uuml;lnek a nyomtatv&aacute;nyba,
+ezzel&nbsp;meggyors&iacute;tj<span class="msoDel"></span>a
+a nyomtatv&aacute;ny
+kit&ouml;lt&eacute;s&eacute;t &eacute;s
+cs&ouml;kkentve az adatbeviteli hib&aacute;k
+lehetős&eacute;g&eacute;t.<o:p></o:p></span></p>
+
+
+
+
+<p style="text-align: justify;"><span style="font-size: 13pt;">A szűr&eacute;si
+felt&eacute;telekkel a m&aacute;r meg szokott m&oacute;don
+tud szűrni az
+ad&oacute;z&oacute;k&nbsp;k&ouml;z&ouml;tt.</span></p>
+
+
+
+
+<p style="text-align: center;" align="center"><img style="width: 640px; height: 460px;" alt="T&ouml;rzsadatok szinkroniz&aacute;l&aacute;sa" src="pics/kep82.png" v:shapes="_x0000_i1025"></p>
+
+
+
+
+<p style="text-align: center;" align="center">Szinkroniz&aacute;land&oacute;
+ad&oacute;z&oacute;k kiv&aacute;laszt&aacute;sa</p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt;"><span style="font-size: 13pt;">A
+szinkroniz&aacute;land&oacute; ad&oacute;z&oacute;k
+kiv&aacute;laszt&aacute;sa k&eacute;pernyőn a
+k&ouml;vetkező gombok
+tal&aacute;lhat&oacute;ak:<o:p></o:p></span></p>
+
+
+
+
+<ul type="disc">
+
+
+
+
+  <li class="MsoNormal" style=""><b style=""><span style="font-size: 13pt;">Mind: </span></b><span style="font-size: 13pt;">A list&aacute;ban szereplő
+&ouml;sszes t&ouml;rzsadatot ki lehet egyszerre
+jel&ouml;lni.<o:p></o:p></span></li>
+
+
+
+
+  <li class="MsoNormal" style=""><b style=""><span style="font-size: 13pt;">Egyik sem: </span></b><span style="font-size: 13pt;">Az &ouml;sszes
+t&ouml;rzsadat kijel&ouml;l&eacute;s&eacute;t meg tudja
+egyszerre sz&uuml;ntetni.<o:p></o:p></span></li>
+
+
+
+
+  <li class="MsoNormal" style=""><b style=""><span style="font-size: 13pt;">Bez&aacute;r:</span></b><span style="font-size: 13pt;"> Kil&eacute;p&eacute;s a
+funkci&oacute;b&oacute;l.</span></li>
+
+
+
+
+  <li class="MsoNormal" style=""><span style="font-size: 13pt;"></span><span style="font-size: 13pt;"><o:p></o:p></span>
+    <b><span style="font-size: 13pt;">Kijel&ouml;ltek
+lek&eacute;rdez&eacute;se:</span></b><b style=""><span style="font-size: 13pt;"> </span></b><span style="font-size: 13pt;">A
+gomb lenyom&aacute;s&aacute;ra csatlakozik a NAV-hoz
+&eacute;s
+elk&eacute;ri a NAV-n&aacute;l l&eacute;vő
+t&ouml;rzsadatokat a
+kijel&ouml;lt (bepip&aacute;lt)
+azonos&iacute;t&oacute;kra
+(ad&oacute;sz&aacute;mok,
+ad&oacute;azonos&iacute;t&oacute;k), majd
+&ouml;sszehasonl&iacute;tja a helyi
+t&ouml;rzsadatt&aacute;rral. Azokat
+a t&ouml;rzsadatokat, amelyekn&eacute;l
+elt&eacute;r&eacute;s van,
+megjel&ouml;li. <o:p></o:p></span><span style="font-size: 13pt;"></span></li>
+
+
+
+
+</ul>
+
+
+
+
+<span style="font-size: 13pt;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; Az
+&ouml;sszehasonl&iacute;t&aacute;s csak azokra a
+t&ouml;rzsadat
+elemekre t&ouml;rt&eacute;nik, amelyek enged&eacute;lyezve
+vannak a Szerviz &ndash;&gt;
+Be&aacute;ll&iacute;t&aacute;sok -&gt;
+T&ouml;rzsadatok szinkroniz&aacute;l&aacute;sa
+f&uuml;l&ouml;n.
+(Alap&eacute;rtelmez&eacute;sben
+az &ouml;sszes t&ouml;rzsadat elem enged&eacute;lyezve van)<br>
+
+
+
+
+<br>
+
+
+
+
+<span style="font-weight: bold;">Fontos!<br>
+
+
+
+
+<br>
+
+
+
+
+</span></span><span style="font-size: 13pt;">A
+helyi
+t&ouml;rzsadatt&aacute;rban szerepelhetnek olyan
+ad&oacute;sz&aacute;mok, amelyeknek megegyezik az első
+nyolc&nbsp;jegye. Ezek az ad&oacute;sz&aacute;mok csak
+&aacute;fa
+k&oacute;dban &eacute;s/vagy megyek&oacute;dban
+t&eacute;rnek el
+egym&aacute;st&oacute;l. Ilyen pl.: &nbsp;12345678-1-10
+&nbsp;&eacute;s
+az 12345678-2-10.<br>
+
+
+
+
+Amennyiben &nbsp;ilyen 'egyező'</span>
+&nbsp;ad&oacute;sz&aacute;mok
+&nbsp;ker&uuml;lnek kijel&ouml;l&eacute;sre, azokra
+nem&nbsp;t&ouml;rt&eacute;nik meg a
+lek&eacute;rdez&eacute;s a
+NAV-t&oacute;l, &iacute;gy kihagy&aacute;sra
+ker&uuml;lnek a
+NAV-t&oacute;l visszakapott
+eredm&eacute;nylist&aacute;r&oacute;l is. A
+hib&aacute;r&oacute;l a lek&eacute;rdez&eacute;s
+elk&uuml;ld&eacute;se
+ut&aacute;n &nbsp;a Szerv&iacute;z -&gt;
+&Uuml;zenetek panelen
+tal&aacute;l &eacute;rtes&iacute;t&eacute;st.<br>
+
+
+
+
+<br>
+
+
+
+
+<br>
+
+
+
+
+<span style="font-size: 13pt;"><o:p></o:p></span>
+<ul type="disc">
+
+
+
+
+</ul>
+
+
+
+
+<span style="font-size: 13pt; font-weight: bold;">Csatlakoz&aacute;s
+l&eacute;p&eacute;sei:</span><span style="font-size: 11pt; font-family: Verdana;"><o:p></o:p></span>
+<p class="MsoNormal" style="text-align: center; text-indent: 35.4pt;" align="center"><span style="font-size: 11pt; font-family: Verdana;"><img style="width: 610px; height: 122px;" alt="kapcsol&oacute;d&aacute;s" src="pics/kep83.png" v:shapes="_x0000_i1026"><o:p></o:p></span></p>
+
+
+
+
+<p style="text-align: justify; text-indent: 35.4pt;"><span style="font-size: 13pt;">Az
+&rsquo;Igen&rsquo; gomb lenyom&aacute;s&aacute;ra a
+k&ouml;vetkező ablak jelenik meg:<o:p></o:p></span></p>
+
+
+
+
+<p style="margin-left: 35.4pt; text-align: center;" align="center"><span style="font-family: Verdana;"><img style="width: 500px; height: 194px;" alt="&uuml;gyf&eacute;lkapus azonos&iacute;t&aacute;s" src="pics/kep94.png" v:shapes="_x0000_i1027"><br>
+
+
+
+
+</span>&Uuml;gyf&eacute;lkapu
+azonos&iacute;t&aacute;s<span style="font-size: 9pt; font-family: Verdana;"><o:p></o:p></span></p>
+
+
+
+
+<p style="margin-left: 35.4pt; text-align: justify;"><span style="font-size: 13pt;">Itt
+kell megadni azokat az adatokat
+(felhaszn&aacute;l&oacute;n&eacute;v, jelsz&oacute;),
+amelyeket a
+magyarorszag.hu port&aacute;lon haszn&aacute;l az
+&uuml;gyf&eacute;lkapus bejelentkez&eacute;shez. (az
+&uuml;gyf&eacute;lkapus regisztr&aacute;ci&oacute;kor
+kapott felhaszn&aacute;l&oacute;n&eacute;v &eacute;s
+jelsz&oacute;) <o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 35.4pt;"><span style="font-size: 13pt;">A
+be&iacute;rt azonos&iacute;t&oacute; adatokat az
+&Aacute;NYK egyszeri azonos&iacute;t&aacute;sra
+haszn&aacute;lja fel, nem őrzi
+meg a program. Az azonos&iacute;tott kapcsolat lej&aacute;rta
+ut&aacute;n &uacute;jra meg kell adnia a
+felhaszn&aacute;l&oacute; nev&eacute;t &eacute;s
+jelszav&aacute;t.<o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 35.4pt; text-align: justify;"><span style="font-size: 13pt;">Sikeres
+azonos&iacute;t&aacute;s ut&aacute;n a NAV-os
+t&ouml;rzsadatok lek&eacute;rdez&eacute;se
+elindul. <o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 35.4pt; text-align: justify;"><span style="font-size: 13pt;"><o:p>&nbsp;</o:p>A
+k&eacute;pernyőn az al&aacute;bbi &uuml;zenetablak jelenik
+meg. <o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 70.8pt; text-align: center;"><span style="font-size: 13pt;"><img style="width: 569px; height: 124px;" alt="k&eacute;relem befogadva" src="pics/kep86.png" v:shapes="_x0000_i1029"><o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 35.4pt; text-align: justify;"><span style="font-size: 13pt;">Az
+OK gomb lenyom&aacute;s&aacute;val a
+funkci&oacute;b&oacute;l
+kil&eacute;p, tov&aacute;bb
+dolgozhat az eredm&eacute;ny &aacute;llom&aacute;ny
+meg&eacute;rkez&eacute;s&eacute;ig. Előfordulhat az is,
+hogy
+k&ouml;vetkező nap tudja ellenőrizni, hogy meg&eacute;rkezett-e
+m&aacute;r az eredm&eacute;ny &aacute;llom&aacute;ny.
+Ekkor az &Aacute;NYK ind&iacute;t&aacute;sa ut&aacute;n
+&uacute;jra
+bek&eacute;r&eacute;sre ker&uuml;l az
+&uuml;gyf&eacute;lkapus
+azonos&iacute;t&oacute;ja &eacute;s
+a program ellenőrzi, hogy elk&eacute;sz&uuml;lt-e
+m&aacute;r az
+eredm&eacute;ny&aacute;llom&aacute;ny.<o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 70.8pt; text-align: justify;"><o:p>&nbsp;</o:p><span style="font-size: 13pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+
+
+<p class="MsoNormal"><b><i><span style="font-size: 13pt; font-family: Verdana;">Eredm&eacute;ny
+&aacute;llom&aacute;ny feldolgoz&aacute;sa<o:p></o:p></span></i></b></p>
+
+
+
+
+<p class="MsoNormal"><o:p>&nbsp;&nbsp;&nbsp;&nbsp;
+</o:p><b style=""><span style="font-size: 13pt;">a,
+</span></b><span style="font-size: 13pt;">Ha
+a
+men&uuml;pontot &uacute;jra megh&iacute;vja, &eacute;s
+van olyan
+k&eacute;r&eacute;se, amire a NAV- t&oacute;l
+m&eacute;g nem kapott
+vissza v&aacute;laszt, akkor a v&aacute;lasz
+meg&eacute;rkez&eacute;s&eacute;ig nem ind&iacute;that
+&uacute;j
+lek&eacute;rdez&eacute;st. Erre
+az al&aacute;bbi &uuml;zenet ablak figyelmezteti:<o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal"><span style="font-size: 13pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 11pt; font-family: Verdana;"><img style="width: 569px; height: 124px;" alt="k&eacute;relem befogadva" src="pics/kep86.png" v:shapes="_x0000_i1030"><o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span><o:p></o:p><br>
+
+
+
+
+<span style="font-size: 13pt;">&nbsp;&nbsp;&nbsp;
+Az
+eredm&eacute;ny &aacute;llom&aacute;ny
+meg&eacute;rkez&eacute;s&eacute;ről az &Aacute;NYK
+st&aacute;tuszsor&aacute;ban megjelenő
+t&aacute;j&eacute;koztat&oacute;
+&uuml;zenet az al&aacute;bbi:<o:p></o:p></span></p>
+
+
+
+
+<p style="text-align: center;" class="MsoNormal"><span style="font-size: 13pt;"><o:p>&nbsp;</o:p></span><span style="font-size: 13pt;"><img style="width: 676px; height: 30px;" alt="v&aacute;lasz" src="pics/kep101.png" v:shapes="_x0000_i1031"></span></p>
+
+
+
+
+<o:p></o:p><b style=""><span style="font-size: 13pt;">&nbsp;&nbsp;&nbsp; b,</span></b><span style="font-size: 13pt;">
+Ha a
+men&uuml;pontot &uacute;jra megh&iacute;vja, &eacute;s
+van
+elk&eacute;sz&uuml;lt, m&eacute;g feldolgozatlan
+&aacute;llom&aacute;nya,&nbsp;akkor a k&ouml;vetkező
+k&eacute;rd&eacute;s
+jelenik meg:<o:p></o:p></span>
+<p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 13pt;"><o:p></o:p></span><span style="font-size: 11pt; font-family: Verdana;"><img style="width: 475px; height: 122px;" alt="egyeztet&eacute;s" src="pics/kep80.png" v:shapes="_x0000_i1032"><o:p></o:p></span></p>
+
+
+
+
+<ul>
+
+
+
+
+  <li><span style="font-size: 13pt;"><o:p></o:p></span><span style="font-size: 10pt; font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><b style=""><span style="font-size: 13pt;">M&eacute;gsem</span></b><span style="font-size: 13pt;">: A
+gombra kattintva kil&eacute;p a funkci&oacute;b&oacute;l.<o:p></o:p></span></li>
+
+
+
+
+  <li><span style="font-size: 10pt; font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><b style=""><span style="font-size: 13pt;">Egyeztet&eacute;s
+ind&iacute;t&aacute;sa</span></b><span style="font-size: 13pt;">: A gombra kattintva megjelenik az
+eredm&eacute;nylist&aacute;t tartalmaz&oacute;
+k&eacute;pernyő:<o:p></o:p></span></li>
+
+
+
+
+</ul>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 18pt; text-align: center;"><span style="font-size: 13pt;"><o:p>&nbsp;<img style="width: 880px; height: 460px;" alt="eredm&eacute;ny &aacute;llom&aacute;ny" src="pics/kep87.png"></o:p></span><span style="font-size: 11pt; font-family: Verdana;"><o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt;"><span style="font-size: 11pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span><span style="font-size: 13pt;">A
+k&eacute;pernyőn a k&ouml;vetkező gombok &eacute;s
+jel&ouml;lőn&eacute;gyzet tal&aacute;lhat&oacute;:<o:p></o:p></span></p>
+
+
+
+
+<ul type="disc">
+
+
+
+
+  <li class="MsoNormal" style=""><b style=""><span style="font-size: 13pt;">Lista (pdf):</span></b><span style="font-size: 13pt;"> Az eredm&eacute;ny
+&aacute;llom&aacute;nyban szereplő t&ouml;rzsadatok
+list&aacute;j&aacute;t nyomtathatja pdf
+&aacute;llom&aacute;nyba a k&eacute;pernyőn szereplő
+adattartalommal.<o:p></o:p></span></li>
+
+
+
+
+  <li class="MsoNormal" style=""><b style=""><span style="font-size: 13pt;">Kijel&ouml;ltek
+nyomtat&aacute;sa (r&eacute;szletek):</span></b><span style="font-size: 13pt;"> A kijel&ouml;lt
+t&ouml;rzsadatok list&aacute;j&aacute;t
+k&eacute;sz&iacute;ti el pdf &aacute;llom&aacute;nyba.
+Tartalmazza az adott t&ouml;rzsadathoz tartoz&oacute; adatokat,
+a helyi t&ouml;rzsadatt&aacute;rban szereplő &eacute;s a
+NAV-t&oacute;l lek&eacute;rt &eacute;rt&eacute;keket
+egyar&aacute;nt. Csak azokra a t&ouml;rzsadat elemekre
+t&ouml;rt&eacute;nik a nyomtat&aacute;s, amelyek
+enged&eacute;lyezve vannak a Szerviz &ndash;&gt;
+Be&aacute;ll&iacute;t&aacute;sok -&gt;
+T&ouml;rzsadatok szinkroniz&aacute;l&aacute;sa
+f&uuml;l&ouml;n.<o:p></o:p></span></li>
+
+
+
+
+  <li class="MsoNormal" style=""><b style=""><span style="font-size: 13pt;">Karbantart&aacute;s
+lez&aacute;r&aacute;sa:</span></b><span style="font-size: 13pt;"> Az eredm&eacute;ny
+&aacute;llom&aacute;ny t&ouml;rzsadatainak
+egyeztet&eacute;s&eacute;t z&aacute;rja le a
+funkci&oacute;val. Csak a karbantart&aacute;s
+lez&aacute;r&aacute;sa ut&aacute;n lehet &uacute;j
+lek&eacute;rdez&eacute;st ind&iacute;tani a NAV
+fel&eacute;.<o:p></o:p></span></li>
+
+
+
+
+</ul>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 18pt; text-align: center;" align="center"><span style="font-size: 13pt;"><img style="width: 474px; height: 162px;" alt="befejez&eacute;s" src="pics/kep100.png" v:shapes="_x0000_i1034"><o:p></o:p></span></p>
+
+
+
+
+<ul type="disc">
+
+
+
+
+  <li class="MsoNormal" style=""><b style=""><span style="font-size: 13pt;">Bez&aacute;r</span></b><span style="font-size: 13pt;">: Kil&eacute;p&eacute;s a
+funkci&oacute;b&oacute;l.<o:p></o:p></span></li>
+
+
+
+
+  <li class="MsoNormal" style=""><span style="font-size: 13pt;"><span style="font-weight: bold;">Lek&eacute;rdez&eacute;s
+st&aacute;tusza</span> oszlop: Itt szerepel az adott
+t&ouml;rzsadathoz
+tartoz&oacute; lek&eacute;rdez&eacute;s
+&eacute;rt&eacute;kel&eacute;se. A
+lek&eacute;rdez&eacute;s
+eredm&eacute;nye lehet siker vagy hiba.<o:p></o:p></span></li>
+
+
+
+
+</ul>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 18pt; text-indent: 17.4pt;"><span style="font-size: 13pt;">A&nbsp;<img style="width: 36px; height: 17px;" alt="hiba" src="pics/kep106.png">-ra kattintva megjelenik, hogy mi volt
+a hiba
+oka. P&eacute;ld&aacute;ul:<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: center;" align="center"><span style="font-size: 13pt;"><img style="width: 298px; height: 240px;" alt="hiba" src="pics/kep97.png" v:shapes="_x0000_i1036"><o:p></o:p></span></p>
+
+
+
+
+<ul type="disc">
+
+
+
+
+  <li class="MsoNormal" style=""><span style="font-size: 13pt;"><img style="width: 21px; height: 17px;" alt="pipa" src="pics/kep107.png"><span style="">&nbsp;</span>:
+R&eacute;szletes pdf &aacute;llom&aacute;nyba
+nyomtat&aacute;shoz itt lehet kijel&ouml;lni a
+t&ouml;rzsadatokat.<o:p></o:p></span></li>
+
+
+
+
+  <li class="MsoNormal" style=""><b style=""><span style="font-size: 13pt;">Karbantart&aacute;s:</span></b><span style="font-size: 13pt;">
+Azokn&aacute;l a t&ouml;rzsadatokn&aacute;l szerepel ez a
+gomb, ahol
+elt&eacute;r&eacute;s van a NAV-n&aacute;l szereplő
+t&ouml;rzsadatok
+&eacute;s a helyi t&ouml;rzsadatt&aacute;r
+k&ouml;z&ouml;tt. A
+kiv&aacute;lasztott t&ouml;rzsadathoz tartoz&oacute;
+&rsquo;Karbantart&aacute;s&rsquo; gomb lenyom&aacute;sa
+ut&aacute;n az
+al&aacute;bbi k&eacute;pernyőn megjelenik a
+t&ouml;rzsadathoz
+tartoz&oacute; &eacute;rt&eacute;kek t&eacute;teles
+&ouml;sszehasonl&iacute;t&aacute;sa:</span><span style="font-size: 11pt; font-family: Verdana;"><o:p></o:p></span></li>
+
+
+
+
+</ul>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 18pt; text-align: center;" align="center"><b style=""><img style="height: 460px; width: 1000px;" alt="karbantart&aacute;s" src="pics/kep88.png" v:shapes="_x0000_i1038"><o:p></o:p></b></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 18pt; text-align: center;" align="center">Adategyeztető
+k&eacute;pernyő</p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><span style="font-size: 13pt;">Azok
+a
+sorok, ahol elt&eacute;r&eacute;s van a helyi
+t&ouml;rzsadatt&aacute;r
+&eacute;s a NAV t&ouml;rzsadat
+nyilv&aacute;ntart&aacute;sa
+k&ouml;z&ouml;tt piros sz&iacute;nnel kiemel&eacute;sre
+ker&uuml;lnek.<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><span style="font-size: 13pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><span style="font-size: 13pt;">Az
+&ouml;sszehasonl&iacute;t&aacute;s csak azokra a
+t&ouml;rzsadatokra
+t&ouml;rt&eacute;nik meg, amelyek enged&eacute;lyezve
+vannak a Szerviz &ndash;&gt;
+Be&aacute;ll&iacute;t&aacute;sok -&gt;
+T&ouml;rzsadatok szinkroniz&aacute;l&aacute;sa
+f&uuml;l&ouml;n.
+Ez&eacute;rt azokra a t&ouml;rzsadatokra, amelyek nincsenek
+enged&eacute;lyezve, nem t&ouml;rt&eacute;nik meg
+az &ouml;sszehasonl&iacute;t&aacute;s &eacute;s nem is
+szerepelnek a
+felsorol&aacute;sban!<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><span style="font-size: 13pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><span style="font-size: 13pt;">Az
+&eacute;rv&eacute;nyes&iacute;tő mezőkn&eacute;l az
+alap&eacute;rtelmezett &eacute;rt&eacute;knek a helyi
+t&ouml;rzsadatt&aacute;rban l&eacute;vő
+adat van bejel&ouml;lve.<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><span style="font-size: 13pt;">Ha
+a
+NAV-t&oacute;l lek&eacute;rdezett
+&eacute;rt&eacute;kkel fel&uuml;l
+szeretn&eacute; &iacute;rni a helyi
+t&ouml;rzsadatt&aacute;rban
+szereplő &eacute;rt&eacute;ket, akkor kattintsa be az
+&rsquo;&Eacute;rt&eacute;k a NAV-n&aacute;l&rsquo;
+oszlopban a
+pip&aacute;t.&nbsp;<span style=""></span>Ennek
+hat&aacute;s&aacute;ra az
+&rsquo;&Eacute;rt&eacute;k a NAV-n&aacute;l&rsquo;
+oszlopban
+l&eacute;vő adat be&iacute;r&oacute;dik a
+&rsquo;Ment&eacute;sre ker&uuml;lő
+&eacute;rt&eacute;k&rsquo; oszlopba.<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><span style="font-size: 13pt;">A
+&rsquo;Ment&eacute;sre ker&uuml;lő
+&eacute;rt&eacute;k&rsquo; oszlop
+tartalma tetszőlegesen szerkeszthető. Az
+oszlopban szereplő &eacute;rt&eacute;kek ellenőrz&eacute;se
+&eacute;s
+ment&eacute;se a &rsquo;Ment&eacute;s&rsquo; gomb
+lenyom&aacute;s&aacute;val
+t&ouml;rt&eacute;nik. Ha a ment&eacute;skor
+t&ouml;rt&eacute;nő
+ellenőrz&eacute;s hib&aacute;t tal&aacute;l, akkor annak az
+eredm&eacute;ny&eacute;t ki&iacute;rja egy
+&uuml;zenetablakba. A
+ment&eacute;s csak a hib&aacute;k
+kijav&iacute;t&aacute;sa ut&aacute;n
+lehets&eacute;ges.<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><span style="font-size: 13pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><span style="font-size: 13pt;">Az
+&ouml;sszehasonl&iacute;t&aacute;sban
+enged&eacute;lyezhető
+t&ouml;rzsadatok k&ouml;z&uuml;l t&ouml;bb, logikailag
+&ouml;sszetartoz&oacute; t&ouml;rzsadat
+&ouml;sszevontan ker&uuml;l
+&ouml;sszehasonl&iacute;t&aacute;sra. A
+m&oacute;dos&iacute;that&oacute;
+mezőbe be&iacute;rt &eacute;rt&eacute;ket
+ment&eacute;skor a helyi
+t&ouml;rzsadatt&aacute;rba sz&eacute;tbontva menti el.</span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><span style="font-size: 13pt;"><o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><b style=""><span style="font-size: 13pt;">Logikailag
+&ouml;sszetartoz&oacute; mezők: <o:p></o:p></span></b></p>
+
+
+
+
+<ul>
+
+
+
+
+  <li><span style="font-size: 13pt; font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><span style="font-size: 13pt;">Mag&aacute;nszem&eacute;lyekn&eacute;l
+&eacute;s Egy&eacute;ni
+v&aacute;llalkoz&oacute;kn&aacute;l a
+N&eacute;v titulus &eacute;s a Csal&aacute;dn&eacute;v
+a
+&rsquo;Csal&aacute;dn&eacute;v&rsquo; mezőben. A
+titulus &eacute;rt&eacute;klista elem&eacute;vel megegyező
+r&eacute;szt (kis/nagy betű elt&eacute;r&eacute;s
+megengedett)</span><span style="font-size: 11pt; font-family: Verdana;"></span><span style="font-size: 13pt;">
+a &rsquo;N&eacute;v titulus&rsquo;, a t&ouml;bbit a
+&rsquo;Csal&aacute;dn&eacute;v&rsquo; mezőbe menti el.<o:p></o:p></span></li>
+
+
+
+
+  <li><span style="font-size: 13pt; font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><span style="font-size: 13pt;">Egy&eacute;ni
+v&aacute;llalkoz&oacute;kn&aacute;l &eacute;s
+T&aacute;rsas&aacute;gokn&aacute;l a
+K&ouml;z&ouml;ss&eacute;gi
+ad&oacute;sz&aacute;m orsz&aacute;gk&oacute;dja
+&eacute;s a
+k&ouml;z&ouml;ss&eacute;gi
+ad&oacute;sz&aacute;m
+&rsquo;K&ouml;z&ouml;ss&eacute;gi
+ad&oacute;sz&aacute;m&rsquo; n&eacute;ven.<o:p></o:p></span><span style="font-size: 13pt;"> A szerkeszthető mezőre kattintva a
+k&ouml;vetkező ablak
+jelenik meg:<o:p></o:p></span></li>
+
+
+
+
+</ul>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: center;" align="center"><span style="font-size: 13pt;"><o:p>&nbsp;</o:p><img style="width: 400px; height: 150px;" alt="k&ouml;z&ouml;ss&eacute;gi ad&oacute;sz&aacute;m" src="pics/kep102.png" v:shapes="_x0000_i1039"><o:p></o:p></span></p>
+
+
+
+
+<ul style="margin-left: 80px;">
+
+
+
+
+  <li><span style="font-size: 13pt;"><o:p></o:p></span><span style="font-size: 13pt;"><span style="font-weight: bold;">M&eacute;gsem:</span>
+Kil&eacute;p&eacute;s a funkci&oacute;b&oacute;l.</span></li>
+
+
+
+
+  <li><span style="font-size: 13pt;"><span style="font-weight: bold;">OK:</span> A mezők
+kit&ouml;lt&eacute;se
+ut&aacute;n a gombra kattintva a &rsquo;Ment&eacute;sre
+ker&uuml;lő
+&eacute;rt&eacute;k&rsquo; mezőbe
+vissza&iacute;r&aacute;sra
+ker&uuml;lnek
+a be&iacute;rt &eacute;rt&eacute;kek.<o:p></o:p></span></li>
+
+
+
+
+</ul>
+
+
+
+
+<ul>
+
+
+
+
+  <li><span style="font-size: 13pt;"><o:p>&nbsp;</o:p></span><span style="font-size: 13pt; font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><span style="font-size: 13pt;">Mindegyik
+t&ouml;rzsadat t&iacute;pusn&aacute;l a
+P&eacute;nzint&eacute;zet neve
+&eacute;s a sz&aacute;mlasz&aacute;m
+&rsquo;Banksz&aacute;mlasz&aacute;m&rsquo;
+n&eacute;ven.<o:p></o:p></span></li>
+
+
+
+
+</ul>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: center;" align="center"><span style="font-size: 13pt;"><o:p>&nbsp;</o:p><img style="width: 400px; height: 150px;" alt="banksz&aacute;mlasz&aacute;m" src="pics/kep103.png" v:shapes="_x0000_i1040"><o:p></o:p></span></p>
+
+
+
+
+<ul style="margin-left: 80px;">
+
+
+
+
+  <li><span style="font-size: 13pt;"><o:p></o:p></span><span style="font-size: 13pt;"><span style="font-weight: bold;">M&eacute;gsem:</span>
+Kil&eacute;p&eacute;s a funkci&oacute;b&oacute;l.</span></li>
+
+
+
+
+  <li><span style="font-size: 13pt;"><span style="font-weight: bold;">OK:</span> A mezők
+kit&ouml;lt&eacute;se
+ut&aacute;n a gombra kattintva a &rsquo;Ment&eacute;sre
+ker&uuml;lő
+&eacute;rt&eacute;k&rsquo; mezőbe
+vissza&iacute;r&aacute;sra
+ker&uuml;lnek
+a be&iacute;rt &eacute;rt&eacute;kek.<o:p></o:p></span></li>
+
+
+
+
+</ul>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><span style="font-size: 13pt;"><o:p></o:p>Előfordulnak
+olyan mezők az &rsquo;&Eacute;rt&eacute;k a
+NAV-n&aacute;l&rsquo;
+oszlopban, amelyikn&eacute;l a NAV-t&oacute;l t&ouml;bb
+&eacute;rt&eacute;k
+&eacute;rkezik, viszont a helyi adatt&aacute;rban csak egy
+&eacute;rt&eacute;k t&aacute;rol&aacute;s&aacute;ra
+van
+lehetős&eacute;g.
+Ezekn&eacute;l a mezőkn&eacute;l ilyen esetben egy &rsquo;<span style="color: red;">!<span style="font-weight: bold; color: rgb(0, 0, 0);">&rsquo;</span>
+</span>felki&aacute;lt&oacute;jel
+jelenik meg a mező elej&eacute;n. A &rsquo;<span style="color: red;">!</span>&rsquo;<span style="">&nbsp;</span>-re
+kattintva leny&iacute;lik egy &eacute;rt&eacute;klista,
+amelyből kiv&aacute;laszthat&oacute;, hogy melyik
+&eacute;rt&eacute;k
+ker&uuml;lj&ouml;n t&aacute;rol&aacute;sra a helyi
+t&ouml;rzsadatt&aacute;rba. Ezekn&eacute;l a
+mezőkn&eacute;l, ha
+t&ouml;bb &eacute;rt&eacute;k &eacute;rkezik a
+NAV-t&oacute;l,&nbsp;hi&aacute;ba egyezik meg az egyik
+&eacute;rt&eacute;k a helyi t&ouml;rzsadatt&aacute;rban
+l&eacute;vő
+&eacute;rt&eacute;kkel, mindig megjelenik a
+'Karbantart&aacute;s'
+gomb.&nbsp;</span><span style="font-size: 11pt; font-family: Verdana;"></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><span style="font-size: 13pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt;"><span style="font-size: 13pt;">A k&eacute;pernyőn a
+k&ouml;vetkező
+funkci&oacute;gombok tal&aacute;lhat&oacute;ak:<o:p></o:p></span></p>
+
+
+
+
+<ul>
+
+
+
+
+  <li><span style="font-size: 13pt; font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><b style=""><span style="font-size: 13pt;">Egyeztető
+&iacute;v (pdf):</span></b><span style="font-size: 13pt;">
+A k&eacute;pernyőn l&aacute;that&oacute; adattartalom pdf
+&aacute;llom&aacute;nyba t&ouml;rt&eacute;nő
+nyomtat&aacute;s&aacute;ra
+szolg&aacute;l.<o:p></o:p></span></li>
+
+
+
+
+  <li><span style="font-size: 13pt; font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><b style=""><span style="font-size: 13pt;">Ment&eacute;s:</span></b><span style="font-size: 13pt;">
+A
+v&aacute;ltoz&aacute;sok ment&eacute;sre ker&uuml;lnek
+a helyi
+t&ouml;rzsadatt&aacute;rba &eacute;s a k&eacute;pernyő
+adattartalma
+friss&uuml;l. A ment&eacute;s befejez&eacute;se
+ut&aacute;n egy
+figyelmeztető ablak jelenik meg, hogy a
+ment&eacute;s csak a helyi adatb&aacute;zist
+m&oacute;dos&iacute;totta.
+Menteni csak megfelelő adatokat
+lehet.&nbsp; <o:p></o:p></span></li>
+
+
+
+
+</ul>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 18pt; text-align: center;" align="center"><b style=""><span style="font-size: 13pt;"><img style="width: 366px; height: 122px;" alt="ment&eacute;s" src="pics/kep91.png" v:shapes="_x0000_i1041"></span></b></p>
+
+
+
+
+<span style="font-size: 13pt;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; A
+hib&aacute;s adatokr&oacute;l a k&eacute;pernyőn
+&uuml;zenet jelenik
+meg &eacute;s csak a hib&aacute;k
+jav&iacute;t&aacute;sa ut&aacute;n
+t&ouml;rt&eacute;nik
+meg a ment&eacute;s.</span><span style="font-size: 13pt; font-family: &quot;Times New Roman&quot;;"></span><span style="font-size: 13pt;"></span>
+<p class="MsoNormal" style="margin-left: 36pt; text-indent: -18pt;"><span style="font-size: 13pt;"></span><br>
+
+
+
+
+</p>
+
+
+
+
+<ul>
+
+
+
+
+  <li><b style=""><span style="font-size: 13pt;">Mind:</span></b><span style="font-size: 13pt;"> A k&eacute;pernyőn
+szereplő &ouml;sszes t&ouml;rzsadatot ki lehet egyszerre
+jel&ouml;lni.<b style=""><o:p></o:p></b></span></li>
+
+
+
+
+  <li><b style=""><span style="font-size: 13pt;">Egyik
+sem:</span></b><span style="font-size: 13pt;">
+Az &ouml;sszes t&ouml;rzsadat
+kijel&ouml;l&eacute;s&eacute;t meg tudja egyszerre
+sz&uuml;ntetni.<o:p></o:p></span> </li>
+
+
+
+
+  <li><b style=""><span style="font-size: 13pt;">Bez&aacute;r:</span></b><span style="font-size: 13pt;">
+A
+ment&eacute;s megkezd&eacute;se előtt egy figyelmeztető ablak
+jelenik
+meg, hogy kil&eacute;p&eacute;s előtt
+szeretn&eacute;-e menteni az adatokat. Csak akkor k&eacute;rdez
+r&aacute; a ment&eacute;sre, ha v&aacute;ltoz&aacute;s
+t&ouml;rt&eacute;nik. <o:p></o:p></span></li>
+
+
+
+
+</ul>
+
+
+
+
+<ul>
+
+
+
+
+</ul>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 18pt; text-align: center;" align="center"><b style=""><span style="font-size: 13pt;"><img style="width: 428px; height: 122px;" alt="ment&eacute;s k&eacute;rd&eacute;s" src="pics/kep92.png" v:shapes="_x0000_i1042"></span></b><span style="font-size: 13pt;"><o:p></o:p></span></p>
+
+
+
+
+<ul style="margin-left: 80px;">
+
+
+
+
+  <li><span style="font-size: 13pt;"><span style="font-weight: bold;">Igen:</span> A program
+visszal&eacute;p
+az eredm&eacute;ny &aacute;llom&aacute;nyt
+list&aacute;z&oacute; k&eacute;pernyőre az adatok
+elment&eacute;se ut&aacute;n.<o:p></o:p></span></li>
+
+
+
+
+  <li><span style="font-size: 13pt;"><span style="font-weight: bold;">Nem:</span>
+Kil&eacute;p&eacute;s a funkci&oacute;b&oacute;l
+ment&eacute;s n&eacute;lk&uuml;l.</span></li>
+
+
+
+
+</ul>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><span style="font-size: 13pt;"><o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 18pt; text-align: justify;"><b style=""><span style="font-size: 13pt;">Logikailag
+&ouml;sszetartoz&oacute; mezők: <o:p></o:p></span></b></p>
+
+
+
+
+&nbsp;&nbsp;&nbsp; <span style="font-size: 13pt; font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><span style="font-size: 13pt;"><br>
+
+
+
+
+</span><span style="font-size: 13pt;">&nbsp;&nbsp;&nbsp;
+A NAV t&ouml;rzsadatok szinkroniz&aacute;l&aacute;sa
+men&uuml;pontban lek&eacute;rdezett
+azonos&iacute;t&oacute;khoz
+tartoz&oacute; eredm&eacute;ny f&aacute;jlok a Szerviz
+-&gt;
+N&eacute;vjegy -&gt; K&ouml;rnyezet f&uuml;l&ouml;n
+l&eacute;vő
+'T&ouml;rzsadatok helye&rsquo; el&eacute;r&eacute;si
+&uacute;t <b style="">\sync\</b>&rsquo;aktu&aacute;lis
+lek&eacute;rdez&eacute;s
+azonos&iacute;t&oacute;ja&rsquo;&nbsp;alk&ouml;nyvt&aacute;r&aacute;ba
+ker&uuml;lnek
+let&ouml;lt&eacute;s ut&aacute;n.<o:p></o:p></span>
+<p style="margin: 0cm 0cm 0.0001pt;"><span style="font-size: 13pt;">&nbsp;&nbsp;&nbsp; A
+\sync k&ouml;nyvt&aacute;rban tartalma:<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 36pt; text-indent: -0.6pt;"><span style="font-size: 13pt;">\archive:<span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span> Az adategyeztet&eacute;s befejez&eacute;se
+ut&aacute;n a
+lez&aacute;rt eredm&eacute;ny &aacute;llom&aacute;nyok
+ebben a k&ouml;nyvt&aacute;rban ker&uuml;lnek
+t&aacute;rol&aacute;sra.<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 36pt; text-indent: -36pt;"><span style="font-size: 13pt;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>\filter:<span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Ez a k&ouml;nyvt&aacute;r tartalmazza a Szerviz
+-&gt;
+Be&aacute;ll&iacute;t&aacute;sok -&gt;
+T&ouml;rzsadatok
+szinkroniz&aacute;l&aacute;sa f&uuml;l
+be&aacute;ll&iacute;t&aacute;sait.<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 35.25pt;"><span style="font-size: 13pt;">\&rsquo;aktu&aacute;lis
+lek&eacute;rdez&eacute;s
+azonos&iacute;t&oacute;ja&rsquo;: A
+k&ouml;nyvt&aacute;r neve a
+lek&eacute;rdez&eacute;s azonos&iacute;t&oacute;ja. Itt
+a folyamatban
+l&eacute;vő adategyeztet&eacute;s
+eredm&eacute;ny &aacute;llom&aacute;nyai vannak.<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt;"><span style="font-size: 13pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt;"><span style="font-size: 13pt;">&nbsp;&nbsp;&nbsp;
+Ha
+nincs folyamatban l&eacute;vő adategyeztet&eacute;s, akkor csak
+a
+\filter &eacute;s az \archive k&ouml;nyvt&aacute;rak
+l&eacute;teznek a
+\sync k&ouml;nyvt&aacute;rban.</span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt;"><span style="font-size: 13pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+
+
+<span style="font-size: 13pt;">&nbsp;&nbsp;&nbsp;
+Ha valamilyen okb&oacute;l meg akarja szak&iacute;tani a
+t&ouml;rzsadatok
+lek&eacute;rdez&eacute;s&eacute;nek a
+folyamat&aacute;t, ezt a
+Szerviz-&gt; Be&aacute;ll&iacute;t&aacute;sok -&gt;
+T&ouml;rzsadatok
+szinkroniz&aacute;l&aacute;sa -&gt;
+Le&iacute;r&aacute;s
+f&uuml;l&ouml;n tal&aacute;lhat&oacute;
+&bdquo;Megszak&iacute;t&rdquo;
+gombbal teheti meg.</span>
+<p style="margin: 0cm 0cm 0.0001pt;"><span style="font-size: 13pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt;"><span style="font-size: 13pt;">&nbsp;&nbsp;&nbsp;
+Hiba
+eset&eacute;n t&ouml;r&ouml;lje le az
+&rsquo;aktu&aacute;lis
+lek&eacute;rdez&eacute;s
+azonos&iacute;t&oacute;ja&rsquo;
+k&ouml;nyvt&aacute;rat. Ha sz&uuml;ks&eacute;ges,
+az eg&eacute;sz \sync k&ouml;nyvt&aacute;r
+tartalm&aacute;t
+let&ouml;r&ouml;lheti, a program l&eacute;trehozza a
+k&ouml;nyvt&aacute;rakat a k&ouml;vetkező
+t&ouml;rzsadat
+szinkroniz&aacute;l&aacute;s
+k&eacute;r&eacute;sn&eacute;l. (Az
+\archive
+k&ouml;nyvt&aacute;r tartalma
+elveszik!)</span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt;"><span style="font-size: 13pt;"><o:p></o:p></span></p>
+
+
+
+
+<p><a href="enyk_lap_1.htm#teteje">Lap teteje</a>
+| <a href="enyk_tartalom.htm#tartalom">Tartalom</a>
+| <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+
+
+<a name="szink3"><span style=""><span style=""><span style=""><span style=""><b><span style="font-size: 14pt; font-family: Verdana;"></span></b></span></span></span></span></a><a name="szink4"></a>&nbsp;
+<p style="margin: 0cm 0cm 0.0001pt 52.8pt; text-indent: 18pt;"><span style="font-size: 13pt;"><o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt 52.8pt; text-indent: 18pt;"><span style="font-size: 13pt;"><o:p></o:p></span></p>
+
+
+
+
+<div style="border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color windowtext; border-width: medium medium 1.5pt; padding: 0cm;">
+<p class="MsoNormal" style="border: medium none ; padding: 0cm;"><b><span style="font-size: 14pt; font-family: Verdana;">NAV
+t&ouml;rzsadatok szinkroniz&aacute;l&aacute;s
+be&aacute;ll&iacute;t&aacute;sa<o:p></o:p></span></b></p>
+
+
+
+
+</div>
+
+
+
+
+<p class="MsoNormal" style="margin: 0cm 7.45pt 0.0001pt 21.75pt;"></p>
+
+
+
+
+<p class="MsoNormal" style="margin: 0cm 7.45pt 0.0001pt 21.75pt;">&nbsp;&nbsp;&nbsp;
+El&eacute;rhetős&eacute;ge:&nbsp;&nbsp;</p>
+
+
+
+
+<ol>
+
+
+
+
+  
+  
+  
+  <ol>
+
+
+
+
+    <li><span style="font-weight: bold;"></span>
+      <span style="font-weight: bold;"></span>Szerviz
+-&gt; Be&aacute;ll&iacute;t&aacute;sok -&gt;
+T&ouml;rzsadatok szinkroniz&aacute;l&aacute;sa<b style=""><span style="font-size: 14pt;"><span style=""><o:p></o:p></span></span></b></li>
+
+
+
+
+  
+  
+  
+  </ol>
+
+
+
+
+</ol>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><o:p></o:p><span style="font-size: 13pt;">Itt
+&aacute;ll&iacute;thatja be a
+felhaszn&aacute;l&oacute;, hogy mely t&ouml;rzsadatok
+vegyenek r&eacute;szt a Szerviz -&gt; NAV t&ouml;rzsadatok
+szinkroniz&aacute;l&aacute;sa men&uuml;pontban
+lek&eacute;rt
+adatok egyeztet&eacute;s&eacute;ben.<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 13pt;">Alap&eacute;rtelmez&eacute;sben
+az &ouml;sszes t&ouml;rzsadat enged&eacute;lyezve
+van, azaz r&eacute;szt vesz a NAV-t&oacute;l lek&eacute;rt
+t&ouml;rzsadatok &eacute;s a helyi adatt&aacute;rban
+t&aacute;rolt
+&eacute;rt&eacute;kek
+&ouml;sszehasonl&iacute;t&aacute;s&aacute;ban.<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 13pt;">&nbsp;<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 13pt;">Az
+enged&eacute;lyez&eacute;s t&ouml;rzsadat
+t&iacute;pusonk&eacute;nt t&ouml;rt&eacute;nik, mert
+nem minden t&ouml;rzsadat mező szerepel mindegyik
+t&iacute;pusn&aacute;l: Mag&aacute;nszem&eacute;ly,
+Egy&eacute;ni
+v&aacute;llalkoz&oacute;, T&aacute;rsas&aacute;g</span></p>
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;">K&eacute;t
+t&ouml;rzsadat t&iacute;pus nem vesz r&eacute;szt a T&ouml;rzsadatok
+szinkroniz&aacute;l&aacute;s&aacute;ban:
+Ad&oacute;tan&aacute;csad&oacute;, Jogi k&eacute;pviselő.<span style="font-size: 13pt;"><o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 13pt;">&Iacute;gy
+lehetős&eacute;ge van r&aacute;, hogy
+p&eacute;ld&aacute;ul csak a t&aacute;rsas&aacute;gok
+k&ouml;z&ouml;ss&eacute;gi ad&oacute;sz&aacute;ma
+maradjon ki az
+&ouml;sszehasonl&iacute;t&aacute;sb&oacute;l.<o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 13pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: center;"><img style="width: 860px; height: 530px;" alt="be&aacute;ll&iacute;t&aacute;s" src="pics/kep98.png" v:shapes="_x0000_i1043"><span style="font-size: 13pt;"><o:p></o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 13pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 13pt;">T&ouml;bb t&ouml;rzsadat
+&ouml;sszevontan ker&uuml;l
+&ouml;sszehasonl&iacute;t&aacute;sra. Ezek
+a k&ouml;vetkez&otilde;k: </span></p>
+
+
+
+
+<ul>
+
+
+
+
+  <li><span style="font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;</span></span></span><span style="font-size: 13pt;">Mag&aacute;nszem&eacute;lyekn&eacute;l
+&eacute;s Egy&eacute;ni
+v&aacute;llalkoz&oacute;kn&aacute;l a
+N&eacute;v titulus &eacute;s a Csal&aacute;dn&eacute;v
+a
+&rsquo;Csal&aacute;dn&eacute;v&rsquo;
+mez&otilde;ben
+jelenik meg.</span></li>
+
+
+
+
+  <li><span style="font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><span style="font-size: 13pt;">Egy&eacute;ni
+v&aacute;llalkoz&oacute;kn&aacute;l &eacute;s a
+T&aacute;rsas&aacute;gokn&aacute;l a
+K&ouml;z&ouml;ss&eacute;gi
+ad&oacute;sz&aacute;m orsz&aacute;gk&oacute;dja
+&eacute;s a
+K&ouml;z&ouml;ss&eacute;gi ad&oacute;sz&aacute;m
+&rsquo;K&ouml;z&ouml;ss&eacute;gi
+ad&oacute;sz&aacute;m&rsquo;
+n&eacute;ven szerepel. </span></li>
+
+
+
+
+  <li><span style="font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><span style="font-size: 13pt;">Mindegyik
+t&ouml;rzsadat t&iacute;pusn&aacute;l szerepel a
+P&eacute;nzint&eacute;zet neve &eacute;s a
+sz&aacute;mlasz&aacute;m&nbsp;
+&rsquo;Banksz&aacute;mlasz&aacute;m&rsquo;
+n&eacute;ven.</span></li>
+
+
+
+
+</ul>
+
+
+
+
+<p class="MsoNormal" style=""><span style="font-size: 13pt;">Az
+&ouml;sszevont t&ouml;rzsadatok
+enged&eacute;lyez&eacute;se csak
+egy&uuml;tt
+t&ouml;rt&eacute;nhet. Pl.: a
+Banksz&aacute;mlasz&aacute;m
+enged&eacute;lyez&eacute;s&eacute;t le lehet tiltani, a
+p&eacute;nzint&eacute;zet
+nev&eacute;t k&uuml;l&ouml;n nem.<br>
+
+
+
+
+<o:p>&nbsp;</o:p></span></p>
+
+
+
+
+<h3 style="margin-left: 0cm; text-indent: 0cm;"><i><span style="font-family: Verdana;">Egyeztet&eacute;sből
+kimarad&oacute;
+t&ouml;rzsadatok<o:p></o:p></span></i></h3>
+
+
+
+
+<p class="MsoNormal" style=""><span style="font-size: 13pt;">Nem k&eacute;rhető
+adategyeztet&eacute;s a helyi t&ouml;rzsadatt&aacute;rban
+l&eacute;vő &eacute;rt&eacute;kek k&ouml;z&uuml;l a
+k&ouml;vetkezőkre:<o:p></o:p></span></p>
+
+
+
+
+<table class="MsoNormalTable" style="border: medium none ; margin-left: 2pt; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+
+
+
+
+  <tbody>
+
+
+
+
+    <tr style="height: 16.5pt;">
+
+
+
+
+      <td style="border: 1pt solid windowtext; padding: 0cm 3.5pt; width: 73.5pt; height: 16.5pt;" valign="top" width="98">
+      
+      
+      
+      <p class="MsoNormal">&nbsp;</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 16.5pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">&nbsp;</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td colspan="3" style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0cm 3.5pt; width: 234pt; height: 16.5pt;" valign="top" width="312">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b>Ad&oacute;z&oacute;
+t&iacute;pus<o:p></o:p></b></p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 32.9pt;">
+
+
+
+
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 2.25pt; padding: 0cm 3.5pt; width: 73.5pt; height: 32.9pt;" valign="top" width="98">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b>T&ouml;rzsadat blokk<o:p></o:p></b></p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 144pt; height: 32.9pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b>T&ouml;rzsadat n&eacute;v<o:p></o:p></b></p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 99pt; height: 32.9pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b>Mag&aacute;nszem&eacute;ly<o:p></o:p></b></p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 72pt; height: 32.9pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b>Egy&eacute;ni
+v&aacute;llalkoz&oacute;<o:p></o:p></b></p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 63pt; height: 32.9pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><b>Szervezet<o:p></o:p></b></p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 16.1pt;">
+
+
+
+
+      <td rowspan="3" style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 2.25pt; padding: 0cm 3.5pt; width: 73.5pt; height: 16.1pt;" valign="top" width="98">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">T&ouml;rzsadatok</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 16.1pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">Ad&oacute;z&oacute; neme</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 99pt; height: 16.1pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 72pt; height: 16.1pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 63pt; height: 16.1pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">-</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 16.55pt;">
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 16.55pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">E-mail c&iacute;me</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 99pt; height: 16.55pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 72pt; height: 16.55pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 63pt; height: 16.55pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 16.4pt;">
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 144pt; height: 16.4pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">Ad&oacute;z&oacute;
+telefonsz&aacute;ma</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 99pt; height: 16.4pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 72pt; height: 16.4pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 63pt; height: 16.4pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 16.9pt;">
+
+
+
+
+      <td rowspan="3" style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 2.25pt; padding: 0cm 3.5pt; width: 73.5pt; height: 16.9pt;" valign="top" width="98">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">Egy&eacute;b adatok</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 16.9pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">&Uuml;gyint&eacute;ző
+neve</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 99pt; height: 16.9pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 72pt; height: 16.9pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 63pt; height: 16.9pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 16.65pt;">
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 16.65pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">&Uuml;gyint&eacute;ző
+telefonsz&aacute;ma</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 99pt; height: 16.65pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 72pt; height: 16.65pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 63pt; height: 16.65pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 15.8pt;">
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 144pt; height: 15.8pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">&Uuml;gyint&eacute;ző
+e-mail c&iacute;me</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 99pt; height: 15.8pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 72pt; height: 15.8pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 63pt; height: 15.8pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 16.3pt;">
+
+
+
+
+      <td rowspan="2" style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 2.25pt; padding: 0cm 3.5pt; width: 73.5pt; height: 16.3pt;" valign="top" width="98">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">VPOP t&ouml;rzsadatok</p>
+
+
+
+
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">&nbsp;</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 16.3pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">Regisztr&aacute;ci&oacute;s
+sz&aacute;m</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 99pt; height: 16.3pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 72pt; height: 16.3pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 63pt; height: 16.3pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 7.5pt;">
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 144pt; height: 7.5pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">Bejelentő
+ad&oacute;azonos&iacute;t&oacute; jele</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 99pt; height: 7.5pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 72pt; height: 7.5pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 2.25pt medium; padding: 0cm 3.5pt; width: 63pt; height: 7.5pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 18.1pt;">
+
+
+
+
+      <td rowspan="9" style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0cm 3.5pt; width: 73.5pt; height: 18.1pt;" valign="top" width="98">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">Telephelyek</p>
+
+
+
+
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><o:p>&nbsp;</o:p></p>
+
+
+
+
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><o:p>&nbsp;</o:p></p>
+
+
+
+
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><o:p>&nbsp;</o:p></p>
+
+
+
+
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><o:p>&nbsp;</o:p></p>
+
+
+
+
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center"><o:p>&nbsp;</o:p></p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 18.1pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">Telephely
+azonos&iacute;t&oacute;</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 99pt; height: 18.1pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 72pt; height: 18.1pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 63pt; height: 18.1pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 17.9pt;">
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 17.9pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">Ir&aacute;ny&iacute;t&oacute;sz&aacute;m</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 99pt; height: 17.9pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 72pt; height: 17.9pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 63pt; height: 17.9pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 16.55pt;">
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 16.55pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">Telep&uuml;l&eacute;s</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 99pt; height: 16.55pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 72pt; height: 16.55pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 63pt; height: 16.55pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 16.5pt;">
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 16.5pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">K&ouml;zter&uuml;let
+megnevez&eacute;s</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 99pt; height: 16.5pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 72pt; height: 16.5pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 63pt; height: 16.5pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 16.5pt;">
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 16.5pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">H&aacute;zsz&aacute;m</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 99pt; height: 16.5pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 72pt; height: 16.5pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 63pt; height: 16.5pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 16.5pt;">
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 16.5pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">&Eacute;p&uuml;let</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 99pt; height: 16.5pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 72pt; height: 16.5pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 63pt; height: 16.5pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 16.5pt;">
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 16.5pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">L&eacute;pcsőh&aacute;z</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 99pt; height: 16.5pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 72pt; height: 16.5pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 63pt; height: 16.5pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 16.5pt;">
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 16.5pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">Emelet</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 99pt; height: 16.5pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 72pt; height: 16.5pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 63pt; height: 16.5pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <tr style="height: 16.5pt;">
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 144pt; height: 16.5pt;" valign="top" width="192">
+      
+      
+      
+      <p class="MsoNormal">Ajt&oacute;</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 99pt; height: 16.5pt;" valign="top" width="132">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 72pt; height: 16.5pt;" valign="top" width="96">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 3.5pt; width: 63pt; height: 16.5pt;" valign="top" width="84">
+      
+      
+      
+      <p class="MsoNormal" style="text-align: center;" align="center">x</p>
+
+
+
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+  
+  
+  
+  </tbody>
+</table>
+
+
+
+
+<p class="MsoNormal" style=""><o:p>&nbsp;</o:p></p>
+
+
+
+
+<p><a href="enyk_lap_1.htm#teteje">Lap teteje</a>
+| <a href="enyk_tartalom.htm#tartalom">Tartalom</a>
+| <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+
+
+<ul>
+
+
+
+
+</ul>
+
+
+
+
+</body>
+</html>

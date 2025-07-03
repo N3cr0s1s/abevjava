@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+    <body onload="document.getElementById('redirectForm').hidden = true; document.getElementById('redirectForm').submit();">           
+        <form id="redirectForm" method="post" action="{sso_auth_url}">
+            <input type="hidden" name="SAMLRequest" value="{saml_request_b64}"/> 
+            <input type="hidden" name="RelayState" value="{relay_state_b64}"/> 
+            <input type="submit" value="submit"/>
+        </form>    
+    </body>
+</html>

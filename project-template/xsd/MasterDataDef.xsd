@@ -1,0 +1,48 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"           targetNamespace="http://www.pillerkft.hu/enyk/md"
+           xmlns:md="http://www.pillerkft.hu/enyk/md"
+	   elementFormDefault="qualified">
+             
+	<xs:element name="MasterDataDefinitions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MasterDataDef" type="md:MasterDataDefType" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+    <xs:complexType name="MasterDataDefType">
+    	<xs:sequence>
+    		<xs:element name="key" type="xs:string"/>
+    		<xs:element name="type" type="md:dataType" minOccurs="1"/>
+            <xs:element name="org" type="xs:string"/>            
+            <xs:element name="constraint" type="xs:string" minOccurs="0"/>
+    	</xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="dataType">
+    	<xs:restriction base="xs:string">
+            <xs:enumeration value="meta"/>
+            <xs:enumeration value="TApehAdoszam"/>
+            <xs:enumeration value="TNev"/>
+            <xs:enumeration value="TApehAdoazonosito"/>
+            <xs:enumeration value="TString"/>
+            <xs:enumeration value="TIranyitoSzam"/>
+            <xs:enumeration value="TKozterulet"/>
+            <xs:enumeration value="TTel"/>
+            <xs:enumeration value="TPenzIntezet"/>
+            <xs:enumeration value="TSzamlaSzam"/>
+            <xs:enumeration value="TVpopId"/>
+            <xs:enumeration value="TVpopRegisztraciosSzam"/>
+            <xs:enumeration value="TVpopEngedelySzam"/>
+            <xs:enumeration value="TOrszagISOLista"/>   
+			<xs:enumeration value="TDatum"/>
+			<xs:enumeration value="TTitulusLista"/>
+            <xs:enumeration value="TAdozoNeme"/>
+            <xs:enumeration value="TNyilvantartoTorvenyszek"/>
+            <xs:enumeration value="TSzervezetTipus"/>
+            <xs:enumeration value="TNyilvantartasiSorszam"/>
+            <xs:enumeration value="TKepviseletTipusa"/>
+            <xs:enumeration value="TKepviseletFormaja"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

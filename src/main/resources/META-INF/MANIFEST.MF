@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.10.5
+Created-By: 1.8.0_181-b13 (Oracle Corporation)
+Built-By: Piller Kft.
+Main-Class: hu.piller.enykp.gui.framework.MainFrame
+Class-Path: lib/iText-2.1.5.jar lib/universalchardet.jar lib/commons-c
+ odec-1.6.jar lib/commons-logging-1.1.1.jar lib/fluent-hc-4.2.5.jar li
+ b/httpclient-4.2.5.jar lib/httpclient-cache-4.2.5.jar lib/httpcore-4.
+ 2.4.jar lib/httpmime-4.2.5.jar lib/jsoup-1.11.2.jar lib/gson-2.8.9.ja
+ r lib/gitsync.jar
+
+Name: hu/
+Implementation-Version: 3.44.0
+

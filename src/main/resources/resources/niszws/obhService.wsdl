@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="obhService" 
+	targetNamespace="http://nisz.hu/obhservice/1.0"
+	xmlns:tns="http://nisz.hu/obhservice/1.0" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://nisz.hu/obhservice/1.0">
+			<xsd:include schemaLocation="obhService.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="ObhServiceRequest">
+		<wsdl:part name="ObhServiceRequest" element="tns:obhServiceRequest" />
+	</wsdl:message>
+	<wsdl:message name="ObhServiceResponse">
+		<wsdl:part name="ObhServiceResponse" element="tns:obhServiceResponse" />
+	</wsdl:message>
+	<wsdl:portType name="ObhServicePortType">
+		<wsdl:operation name="signDocument">
+			<wsdl:input name="ObhServiceRequest" message="tns:ObhServiceRequest" />
+			<wsdl:output name="ObhServiceResponse" message="tns:ObhServiceResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ObhServiceBinding" type="tns:ObhServicePortType">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="signDocument">
+			<soap:operation style="document"
+				soapAction="barmilehet" />
+			<wsdl:input name="ObhServiceRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ObhServiceResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ObhService">
+		<wsdl:port name="ObhServicePort" binding="tns:ObhServiceBinding">
+			<soap:address location="/service/obhService" />
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="ObhService2">
+		<wsdl:port name="ObhServicePort" binding="tns:ObhServiceBinding">
+			<soap:address location="/service/obhService2" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

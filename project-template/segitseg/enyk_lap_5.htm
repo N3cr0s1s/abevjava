@@ -1,0 +1,6586 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta http-equiv="Content-Type" content="text/htm; charset=utf-8">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <title>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program S&uacute;g&oacute;</title>
+  <style type="text/css">
+BODY {font-family:verdana; font-size:12pt; margin:5px;}
+H1 {font-size: 15pt;}
+H2 {font-size: 14pt; font-weight:bold; border-bottom: 2px solid;}
+H3 {font-size: 13pt; font-weight:bold; font-style:italic;}
+H4 {font-size: 12pt; font-weight:bold;}
+H5 {font-size: 12pt; font-weight:bold; font-style:italic;}
+H6 {font-size: 11pt; font-weight:bold;}
+TABLE {font-size: 12pt; border-collapse: collapse; clear: both;}
+TD {border: 1px solid #666666; padding: 2px;}
+DT {font-style:italic;}
+.label {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+.path {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+  </style>
+</head>
+
+
+<body style="margin-left: 35px; width: 1129px;" lang="hu">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="teteje"></a>
+<h1>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program
+S&uacute;g&oacute;</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a name="11sor"></a> <a name="megjelol"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h2>Nyomtatv&aacute;ny megjel&ouml;l&eacute;se
+elektronikus bek&uuml;ld&eacute;sre</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <p>El&eacute;rhetős&eacute;ge:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li><span class="label"></span><span style="font-weight: bold;">Kapcsolat a C&eacute;g/Hivatali kapuval -&gt; Nyomtatv&aacute;ny
+megjel&ouml;l&eacute;se elektronikus
+bek&uuml;ld&eacute;sre</span></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </ol>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="margin-right: 3.75pt; text-align: justify; margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A men&uuml;pont haszn&aacute;lata
+azoknak a felhaszn&aacute;l&oacute;knak c&eacute;lszerű, akiknek nem sz&uuml;ks&eacute;ges a nyomtatv&aacute;nyokat
+&eacute;s/vagy csatolm&aacute;nyaikat AVDH szolg&aacute;ltat&aacute;ssal t&ouml;bbsz&ouml;r j&oacute;v&aacute;hagyni.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A felhaszn&aacute;l&oacute;k elektronikusan is eleget
+tehetnek nyomtatv&aacute;ny bead&aacute;si k&ouml;telezetts&eacute;g&uuml;knek. Ha a <b style="">Nyomtatv&aacute;ny megjel&ouml;l&eacute;se elektronikus bek&uuml;ld&eacute;sre</b>
+men&uuml;pontot
+v&aacute;lasztja, akkor a bet&ouml;lt&ouml;tt nyomtatv&aacute;ny
+ellenőrz&eacute;sre, nyomtatv&aacute;nyt&oacute;l f&uuml;ggően
+AVDH szolg&aacute;ltat&aacute;ssal al&aacute;&iacute;r&aacute;sra,
+t&ouml;m&ouml;r&iacute;t&eacute;sre, majd titkos&iacute;t&aacute;sra
+ker&uuml;l. Az &iacute;gy
+elk&eacute;sz&uuml;lt &aacute;llom&aacute;nyt &Uuml;gyf&eacute;lkapun a
+<b style="">Kapcsolat
+az &Uuml;gyf&eacute;lkapuval/Nyomtatv&aacute;ny k&ouml;zvetlen bek&uuml;ld&eacute;se az &Uuml;gyf&eacute;lkapun kereszt&uuml;l</b>
+men&uuml;ponttal vagy a C&eacute;g/Hivatali kapun a <b style="">Kapcsolat
+a C&eacute;g/Hivatali kapuval/Nyomtatv&aacute;ny k&ouml;zvetlen bek&uuml;ld&eacute;se </b>men&uuml;ponttal lehet
+beny&uacute;jtani.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A men&uuml;pont akkor el&eacute;rhető, ha <b style=""><i style="">M&oacute;dos&iacute;that&oacute;</i>
+</b>&aacute;llapot&uacute; nyomtatv&aacute;ny van bet&ouml;ltve a kit&ouml;ltő programba. <o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A funkci&oacute; megh&iacute;v&aacute;s&aacute;nak
+hat&aacute;s&aacute;ra, ha a nyomtatv&aacute;nyon nincs enged&eacute;lyezve, az AVDH szolg&aacute;ltat&aacute;s
+haszn&aacute;lata, akkor az al&aacute;bbi p&aacute;rbesz&eacute;d ablak lesz l&aacute;that&oacute;:</span></div>
+
+
+
+
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <p style="text-align: center;"><img style="width: 292px; height: 128px;" alt="Indulhat a nyomtatv&aacute;ny megjel&ouml;l&eacute;se?" src="pics/kep_159.png"></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <p>Az&nbsp;<span style="font-weight: bold;">Igen</span> gombra kattintva a nyomtatv&aacute;ny ment&eacute;sre ker&uuml;l,
+el&eacute;r&eacute;si
+&uacute;tja &eacute;s neve megjelenik a k&ouml;vetkező
+&uuml;zenet
+ablakban.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <p align="center"><img src="pics/kiskep_15.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <small>Mentett file el&eacute;r&eacute;si
+&uacute;tja</small></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <p><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az
+OK
+gombra kattintva lefut a nyomtatv&aacute;ny ellenőrz&eacute;s.
+Amennyiben hib&aacute;tlan a
+nyomtatv&aacute;ny, vagy hib&aacute;s nyomtatv&aacute;ny eset&eacute;n
+is a megjel&ouml;l&eacute;st v&aacute;lasztja, akkor az
+elektronikusan feladott nyomtatv&aacute;nyok adatai
+titkos&iacute;t&aacute;sra ker&uuml;lnek. Ezt az &Aacute;NYK
+nyomtatv&aacute;nykit&ouml;ltő programb&oacute;l megh&iacute;vott
+program v&eacute;gzi el. A titkos&iacute;tott
+nyomtatv&aacute;nyadatokat (KR\kuldendo) ezut&aacute;n m&aacute;r csak
+a fogad&oacute; szervezet (pl.: NAV)
+k&eacute;pes olvasni. A titkos&iacute;tott f&aacute;jl az elektronikus
+post&aacute;z&oacute; KR\kuldendo
+k&ouml;nyvt&aacute;r&aacute;ba m&aacute;sol&oacute;dik. Az
+&aacute;tadott nyomtatv&aacute;ny a K&uuml;ld&eacute;sre megjel&ouml;lt
+st&aacute;tusz&uacute;
+nyomtatv&aacute;nyok k&ouml;z&eacute; ker&uuml;l, &eacute;s nem
+m&oacute;dos&iacute;that&oacute; tov&aacute;bb. Az &iacute;gy
+keletkezett
+&aacute;llom&aacute;nyok el&eacute;r&eacute;si &uacute;tja
+l&aacute;that&oacute; a lenti &aacute;br&aacute;n.</span></p>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <p style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 446px; height: 162px;" alt="" title="Megjel&ouml;lt nyomtatv&aacute;ny el&eacute;r&eacute;si &uacute;tja" src="pics/kep_206.png"></span></p>
+
+
+
+
+
+
+
+
+
+
+
+  
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoListParagraphCxSpFirst" style="margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az AVDH al&aacute;&iacute;r&aacute;s tulajdons&aacute;ggal
+rendelkező nyomtatv&aacute;nyok eset&eacute;ben a titkos&iacute;t&aacute;s folyamata a k&ouml;vetkező m&oacute;don
+m&oacute;dosul: <o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoListParagraphCxSpLast" style="margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+funkci&oacute; megh&iacute;v&aacute;s&aacute;nak
+hat&aacute;s&aacute;ra, ha a megjel&ouml;lni
+k&iacute;v&aacute;nt nyomtatv&aacute;ny AVDH
+al&aacute;&iacute;r&aacute;ssal ell&aacute;that&oacute;, akkor az
+al&aacute;bbi p&aacute;rbesz&eacute;d ablak
+lesz l&aacute;that&oacute;:</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <p align="center"><img style="width: 550px; height: 430px;" alt="" title="AVDH" src="pics/kep_161.png"></p>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <p style="text-align: left;">
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  </p>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoListParagraphCxSpFirst" style="margin: 12pt 0cm 12pt 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A p&aacute;rbesz&eacute;dablakban l&aacute;that&oacute; sz&ouml;veges
+inform&aacute;ci&oacute; az AVDH szolg&aacute;ltat&aacute;sr&oacute;l ad t&aacute;j&eacute;koztat&aacute;st. </span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+jel&ouml;lőn&eacute;gyzet &eacute;s a
+hozz&aacute;tartoz&oacute; k&eacute;rd&eacute;s arra vonatkozik, ha a
+felhaszn&aacute;l&oacute; nem k&iacute;v&aacute;nja ig&eacute;nybe
+venni
+a nyomtatv&aacute;ny &eacute;s a csatolm&aacute;nyok elektronikus
+hiteles&iacute;t&eacute;s&eacute;t. A jel&ouml;lőn&eacute;gyzet
+alap&eacute;rtelmez&eacute;sben nincs bejel&ouml;lve.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoListParagraphCxSpLast" style="margin: 12pt 0cm 12pt 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Amennyiben
+a
+felhaszn&aacute;l&oacute; tiltotta az AVDH szolg&aacute;ltat&aacute;s
+ig&eacute;nybev&eacute;tel&eacute;t a jel&ouml;lőn&eacute;gyzet
+bepip&aacute;l&aacute;s&aacute;val, a KR k&eacute;sz&iacute;t&eacute;s
+folyamata v&aacute;ltozatlan, a bet&ouml;lt&ouml;tt nyomtatv&aacute;ny
+ellenőrz&eacute;sre, t&ouml;m&ouml;r&iacute;t&eacute;sre,
+titkos&iacute;t&aacute;sra ker&uuml;l.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ha a felhaszn&aacute;l&oacute; al&aacute;
+akarja &iacute;rni az AVDH szolg&aacute;ltat&aacute;ssal a nyomtatv&aacute;ny &eacute;s a nyomtatv&aacute;nyhoz csatolt
+csatolm&aacute;nyok lenyomatait, akkor a nyomtatv&aacute;ny ellenőrz&eacute;se ut&aacute;n az al&aacute;bbi
+k&eacute;pernyő jelenik meg:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 567px; height: 324px;" alt="" title="Azonos&iacute;t&aacute;s" src="pics/kep_220.png"></span><br>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az
+azonos&iacute;t&aacute;s a K&ouml;zponti Azonos&iacute;t&aacute;si
+&Uuml;gyn&ouml;k (KA&Uuml;) szolg&aacute;ltat&aacute;ssal
+t&ouml;rt&eacute;nik. </span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ha t&ouml;bbsz&ouml;r szeretn&eacute;
+haszn&aacute;lni ugyanazokat az azonos&iacute;t&oacute; adatokat bek&uuml;ld&eacute;sre, akkor &nbsp;jel&ouml;lje be
+az &nbsp;<b>Azonos&iacute;t&oacute; adatok megjegyz&eacute;se </b><span style="">k&eacute;rd&eacute;shez tartoz&oacute; jel&ouml;lőn&eacute;gyzetet</span>. Ha bejel&ouml;li, akkor a
+&nbsp;k&ouml;vetkező &uuml;zenetablak jelenik meg:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 511px; height: 124px;" alt="" src="pics/kep_106.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><br>
+
+
+
+
+
+
+
+
+
+
+
+Ha
+első alkalommal jelentkezik be a KA&Uuml; szolg&aacute;ltat&aacute;s ig&eacute;nybev&eacute;tel&eacute;hez, a program
+&aacute;tir&aacute;ny&iacute;tja az <b style="">OK</b> gomb lenyom&aacute;sa
+ut&aacute;n a szolg&aacute;ltat&aacute;s bejelentkez&eacute;si fel&uuml;let&eacute;re.<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 433px; height: 467px;" alt="" title="KA&Uuml;" src="pics/kep_203.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Amennyiben
+az
+azonos&iacute;t&aacute;si adatok megjegyz&eacute;sre ker&uuml;ltek, az
+azonos&iacute;t&aacute;st a h&aacute;tt&eacute;rben v&eacute;gzi el a
+program. <o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A KA&Uuml; szolg&aacute;ltat&aacute;s
+haszn&aacute;lat&aacute;hoz seg&iacute;ts&eacute;get a bejelentkez&eacute;si fel&uuml;leten tal&aacute;l.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Sikeres
+KA&Uuml; azonos&iacute;t&aacute;s ut&aacute;n a
+nyomtatv&aacute;nyb&oacute;l &eacute;s minden egyes
+csatolm&aacute;nyb&oacute;l lenyomatot
+k&eacute;pez az &Aacute;NYK, melyeket az AVDH
+szolg&aacute;ltat&aacute;ssal al&aacute;&iacute;rat, majd az &iacute;gy
+kapott
+ASIC &aacute;llom&aacute;nyokat, egyes&eacute;vel az eredeti
+csatolm&aacute;nyok mell&eacute; m&aacute;sol.<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ezut&aacute;n
+a nyomtatv&aacute;nyb&oacute;l, csatolm&aacute;nyaib&oacute;l &eacute;s
+az ASIC
+&aacute;llom&aacute;nyokb&oacute;l &ouml;ssze&aacute;ll&iacute;tja a KR
+file-t. Ezzel az inform&aacute;ci&oacute;val a
+titkos&iacute;t&aacute;si
+folyamat v&eacute;g&eacute;n megjelenő p&aacute;rbesz&eacute;d ablak is
+kieg&eacute;sz&iacute;t&eacute;sre ker&uuml;l:</span></div>
+
+
+
+
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <p align="center"><img style="width: 1039px; height: 226px;" alt="" src="pics/kep_170.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <span style="font-size: 9pt; font-family: &quot;Verdana&quot;,sans-serif;">T&aacute;j&eacute;koztat&aacute;s
+a titkos&iacute;t&aacute;s eredm&eacute;ny&eacute;ről &eacute;s a f&aacute;jlok hely&eacute;ről</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <p style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az
+&aacute;tadott nyomtatv&aacute;ny a K&uuml;ld&eacute;sre megjel&ouml;lt
+st&aacute;tusz&uacute; nyomtatv&aacute;nyok k&ouml;z&eacute;
+ker&uuml;l, &eacute;s nem m&oacute;dos&iacute;that&oacute;
+tov&aacute;bb.&nbsp;</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az al&aacute;bbi hiba&uuml;zenet megjelen&eacute;se eset&eacute;n olvassa el
+a Nagy XML-&aacute;llomanyok kezel&eacute;se dokumentumban A program &aacute;ltal felhaszn&aacute;lhat&oacute;
+mem&oacute;ria be&aacute;ll&iacute;t&aacute;sa c&iacute;mű bekezd&eacute;st.</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <p style="text-align: center;"><img style="width: 346px; height: 162px;" alt="kev&eacute;s mem&oacute;ria - hiba&uuml;zenet" title="Nagy  m&eacute;retű &aacute;llom&aacute;ny - kev&eacute;s mem&oacute;ria hiba&uuml;zenet" src="pics/kep_164.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <small>Nagy m&eacute;retű &aacute;llom&aacute;ny -
+kev&eacute;s mem&oacute;ria hiba&uuml;zenet</small></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: center;">
+<div style="text-align: left; margin-left: 47px; width: 1014px;">
+<div style="text-align: center;"><br>
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: left;"><a name="12sor"></a>
+<h2>Nyomtatv&aacute;ny megjel&ouml;l&eacute;s&eacute;nek visszavon&aacute;sa</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Kapcsolat a C&eacute;g/Hivatali kapuval -&gt; Nyomtatv&aacute;ny
+megjel&ouml;l&eacute;s&eacute;nek visszavon&aacute;sa</span></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A t&eacute;nyleges elk&uuml;ld&eacute;st megelőzően lehetős&eacute;g
+van a felad&aacute;si megjel&ouml;l&eacute;s visszavon&aacute;s&aacute;ra. A men&uuml;pont akkor el&eacute;rhető, ha <b style=""><i style="">K&uuml;ld&eacute;sre
+megjel&ouml;lt</i></b> &aacute;llapot&uacute; nyomtatv&aacute;ny van megnyitva. <o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+funkci&oacute; megh&iacute;v&aacute;s&aacute;nak
+hat&aacute;s&aacute;ra a nyomtatv&aacute;ny az elektronikus
+post&aacute;z&oacute; k&ouml;nyvt&aacute;rb&oacute;l t&ouml;rlődik,
+&eacute;s a
+nyomtatv&aacute;ny &uacute;jra <b style=""><i style="">M&oacute;dos&iacute;that&oacute; </i></b>st&aacute;tusz&uacute; lesz.<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 624px; height: 120px;" alt="" title="Visszavon&aacute;s" src="pics/kep_209.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><br>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ha a nyomtatv&aacute;ny m&aacute;r felad&aacute;sra ker&uuml;lt, akkor
+nem vonhat&oacute; vissza a megjel&ouml;l&eacute;s. Ilyenkor a nyomtatv&aacute;ny st&aacute;tusza <b style=""><i style="">Elk&uuml;ld&ouml;tt</i></b>
+&eacute;s a men&uuml;pont nem is &eacute;rhető el.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<a name="13sor"></a>
+<h2>Nyomtatv&aacute;ny k&ouml;zvetlen bek&uuml;ld&eacute;se</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Kapcsolat a C&eacute;g/Hivatali kapuval -&gt; Nyomtatv&aacute;ny k&ouml;zvetlen bek&uuml;ld&eacute;se</span></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="margin: 5pt 3.75pt; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+men&uuml;pont haszn&aacute;lata azoknak a felhaszn&aacute;l&oacute;knak
+c&eacute;lszerű, akik a Nyomtatv&aacute;ny
+megjel&ouml;l&eacute;se elektronikus bek&uuml;ld&eacute;sre vagy
+t&ouml;bbes j&oacute;v&aacute;hagy&aacute;s illetve k&uuml;lső
+al&aacute;&iacute;r&aacute;s ut&aacute;n a Nyomtatv&aacute;ny
+titkos&iacute;t&aacute;sa elektronikus bek&uuml;ld&eacute;sre
+men&uuml;pont
+haszn&aacute;lat&aacute;val elő&aacute;ll&iacute;tott&aacute;k a kr
+f&aacute;jlt, &eacute;s rendelkeznek &Uuml;gyf&eacute;lkapu,
+C&eacute;gkapu
+vagy Hivatali Kapu regisztr&aacute;ci&oacute;val.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="margin: 5pt 3.75pt; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ha
+a bek&uuml;ldendő &aacute;llom&aacute;ny m&eacute;rete meghaladja a 300 Mbyte-ot, akkor haszn&aacute;lja az XCZ
+k&eacute;sz&iacute;t&eacute;s fizikai adathordoz&oacute;n val&oacute; beny&uacute;jt&aacute;shoz men&uuml;pontot!<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+men&uuml;pont csak akkor &eacute;rhető el, ha a bet&ouml;lt&ouml;tt nyomtatv&aacute;ny st&aacute;tusza K&uuml;ld&eacute;sre
+megjel&ouml;lt. <o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+men&uuml;pont seg&iacute;ts&eacute;g&eacute;vel megnyitott,
+K&uuml;ld&eacute;sre megjel&ouml;lt st&aacute;tusz&uacute;
+&aacute;llom&aacute;nyt
+lehet&nbsp; bek&uuml;ldeni a kiv&aacute;lasztott kapun kereszt&uuml;l.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A funkci&oacute; megh&iacute;v&aacute;s&aacute;nak
+hat&aacute;s&aacute;ra a k&ouml;vetkező ablak jelenik meg:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;">
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><img style="width: 567px; height: 414px;" alt="" title="Azonos&iacute;t&aacute;s" src="pics/kep_222.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: left;">
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az
+'Azonos&iacute;t&aacute;s' k&eacute;pernyőn meg kell megadni a
+C&eacute;gkapu vagy a Hivatali Kapu regisztr&aacute;ci&oacute;kor
+kapott azonos&iacute;t&oacute;t (C&eacute;gkapu/Hivatali kapu
+r&ouml;vid n&eacute;v) a C&eacute;gkapun vagy Hivatali
+kapun t&ouml;rt&eacute;nő bek&uuml;ld&eacute;shez.</span></p>
+
+
+
+
+
+
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ha
+a Szerviz/Be&aacute;ll&iacute;t&aacute;sok/Megjelen&eacute;s
+f&uuml;l&ouml;n be&aacute;ll&iacute;t&aacute;sra ker&uuml;lt a
+Nyomtatv&aacute;nyb&oacute;l t&ouml;rt&eacute;nő C&eacute;gkapu azonos&iacute;t&aacute;s, akkor a C&eacute;g/Hivatali kapu
+azonos&iacute;t&oacute; mező &eacute;rt&eacute;klist&aacute;j&aacute;ba
+beker&uuml;l a nyomtatv&aacute;nyban megadott
+ad&oacute;sz&aacute;mb&oacute;l k&eacute;pzett azonos&iacute;t&oacute;
+&eacute;s ez az &eacute;rt&eacute;k lesz l&aacute;that&oacute; a mezőben.
+Ha&nbsp;kit&ouml;lt&ouml;tte a&nbsp;</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Szerviz/Be&aacute;ll&iacute;t&aacute;sok/Megjelen&eacute;s
+f&uuml;l&ouml;n a Meghatalmazott/K&ouml;nyvelőiroda C&eacute;g/Hivatali
+kapu azonos&iacute;t&oacute; mezőt, akkor ez az &eacute;rt&eacute;k
+is v&aacute;laszthat&oacute; az
+&eacute;rt&eacute;klist&aacute;b&oacute;l. A C&eacute;g/Hivatali kapu
+azonos&iacute;t&oacute; mező &eacute;rt&eacute;ke szerkeszthető, az
+&eacute;rt&eacute;klist&aacute;ban szepelő &eacute;rt&eacute;kektől
+elt&eacute;rő kapuazonos&iacute;t&oacute;&nbsp;is megadhat&oacute;.</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ha t&ouml;bbsz&ouml;r szeretn&eacute;
+haszn&aacute;lni ugyanazokat az azonos&iacute;t&oacute; adatokat a bek&uuml;ld&eacute;sre, akkor jel&ouml;lje be a
+&nbsp;Azonos&iacute;t&oacute; adatok megjegyz&eacute;se jel&ouml;lőn&eacute;gyzetet. Ha bejel&ouml;li, akkor a k&ouml;vetkező
+&uuml;zenetablak jelenik meg:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 640px; height: 130px;" alt="" src="pics/kep_106.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">FONTOS!
+Az azonos&iacute;t&aacute;sn&aacute;l megadott
+adatok&nbsp;a program bez&aacute;r&aacute;s&aacute;ig &eacute;lnek! A
+program &uacute;jraind&iacute;t&aacute;sa ut&aacute;n a funkci&oacute;
+&uacute;jra bek&eacute;ri az azonos&iacute;t&aacute;shoz adatokat!<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ha proxy-n kereszt&uuml;l kapcsol&oacute;dik az
+internetre, akkor&nbsp;ez a funkci&oacute; nem haszn&aacute;lhat&oacute;! <o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ha
+első alkalommal
+jelentkezik be a KA&Uuml; szolg&aacute;ltat&aacute;s
+ig&eacute;nybev&eacute;tel&eacute;hez, a program
+&aacute;tir&aacute;ny&iacute;tja az <b style="">OK</b> gomb lenyom&aacute;sa ut&aacute;n a szolg&aacute;ltat&aacute;s
+bejelentkez&eacute;si fel&uuml;let&eacute;re.<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 443px; height: 478px;" alt="" title="KA&Uuml;" src="pics/kep_203.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Amennyiben
+az azonos&iacute;t&aacute;si adatok megjegyz&eacute;sre
+ker&uuml;ltek, az azonos&iacute;t&aacute;st a h&aacute;tt&eacute;rben
+v&eacute;gzi el a program.&nbsp;A KA&Uuml; szolg&aacute;ltat&aacute;s
+haszn&aacute;lat&aacute;hoz seg&iacute;ts&eacute;get a
+bejelentkez&eacute;si fel&uuml;leten tal&aacute;l. &nbsp;</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Sikeres KA&Uuml; azonos&iacute;t&aacute;s ut&aacute;n
+a program megk&iacute;s&eacute;rli bek&uuml;ldeni&nbsp;az &aacute;llom&aacute;nyt. </span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az&nbsp;&aacute;llom&aacute;ny
+bek&uuml;ld&eacute;se&nbsp;ut&aacute;n&nbsp;eredm&eacute;nylist&aacute;t ad a program a&nbsp;bek&uuml;ld&eacute;s
+eredm&eacute;ny&eacute;ről:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="height: 172px; width: 752px;" alt="" title="Bek&uuml;ld&eacute;s eredm&eacute;nye" src="pics/kep_211_1.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A k&eacute;pernyőn szereplő
+gombok &eacute;s műk&ouml;d&eacute;s&uuml;k:<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; text-align: justify; text-indent: 0cm;"><!--[if !supportLists]--><span style="font-size: 10pt; font-family: Symbol;"><span style="">&middot;<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Rendben: </span></b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">az ablak bez&aacute;r&aacute;sa, műveletv&eacute;gz&eacute;s n&eacute;lk&uuml;li
+visszat&eacute;r&eacute;s <o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-align: justify; text-indent: 0cm;"><!--[if !supportLists]--><span style="font-size: 10pt; font-family: Symbol;"><span style="">&middot;<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><b style=""><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Lista ment&eacute;se</span></b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">: a
+magyarorszag_hu_kuldesek_uzenetei.txt sz&ouml;vegf&aacute;jlba (ami tetsz&eacute;s szerint
+&aacute;tnevezhető) lementhető a&nbsp;bek&uuml;ld&eacute;s eredm&eacute;nye. Alap&eacute;rtelmez&eacute;sben a ment&eacute;s
+hely&eacute;nek a \naplo k&ouml;nyvt&aacute;rat k&iacute;n&aacute;lja fel a program.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az &eacute;rkeztet&eacute;si sz&aacute;m bejegyz&eacute;sre ker&uuml;l a
+felad&aacute;s napl&oacute;ba is, amely a <b style="">Szerviz</b> <b style="">-&gt; Megjel&ouml;l&eacute;s, &aacute;tad&aacute;s napl&oacute;</b> men&uuml;pontban tekinthető meg. &nbsp;Amennyiben <b style="">sikertelen</b> az &aacute;llom&aacute;ny bek&uuml;ld&eacute;se, arr&oacute;l is t&aacute;j&eacute;koztat a program.<br>
+
+
+
+
+
+
+
+
+
+
+
+
+A sikertelens&eacute;g oka lehet p&eacute;ld&aacute;ul:<o:p></o:p></span><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p>
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; margin-left: 80px;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">o<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Hib&aacute;s
+proxy be&aacute;ll&iacute;t&aacute;s<o:p></o:p></span><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p>
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; margin-left: 80px;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">o<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">H&aacute;l&oacute;zat
+szakad&aacute;sa<o:p></o:p></span><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p>
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; margin-left: 80px;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">o<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">T&uacute;l
+nagy .kr f&aacute;jl m&eacute;ret<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: left; margin-left: 47px; width: 1014px;">
+<div style="text-align: center;">
+<div style="text-align: left;">
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="22sor"></a>
+<h2>Nyomtatv&aacute;ny csoportos k&ouml;zvetlen bek&uuml;ld&eacute;se</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Kapcsolat a C&eacute;g/Hivatali kapuval -&gt; Nyomtatv&aacute;ny
+    </span><span style="font-weight: bold;">csoportos k&ouml;zvetlen bek&uuml;ld&eacute;se</span></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A funkci&oacute;
+megh&iacute;v&aacute;s&aacute;nak hat&aacute;s&aacute;ra a k&ouml;vetkező ablak jelenik meg:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 793px; height: 465px;" alt="" src="pics/kep_213.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+
+<br>
+
+
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A k&eacute;pernyőn szereplő
+gombok &eacute;s műk&ouml;d&eacute;s&uuml;k:<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--[if !supportLists]-->
+<ul>
+
+
+
+
+
+
+
+
+
+
+
+  <li><span style="font-size: 11pt; font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;</span></span></span><b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Nyomtatv&aacute;ny
+hozz&aacute;ad&aacute;s:</span></b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">
+gomb lenyom&aacute;sa ut&aacute;n a&nbsp; <b>\mentesek</b>
+k&ouml;nyvt&aacute;r tartalma alapj&aacute;n
+megjelenő list&aacute;b&oacute;l kiv&aacute;laszthat&oacute; egy vagy
+t&ouml;bb f&aacute;jl.&nbsp;T&ouml;bb elem kijel&ouml;l&eacute;se
+a megszokott m&oacute;don a Ctrl&nbsp;vagy Shift gombok
+haszn&aacute;lat&aacute;val t&ouml;rt&eacute;nhet.
+Alap&eacute;rtelmezett
+k&ouml;nyvt&aacute;r a \mentesek k&ouml;nyvt&aacute;r (Szerviz -&gt;
+N&eacute;vjegy K&ouml;rnyezet f&uuml;l&ouml;n Adatok
+helye), amelyben az &aacute;llom&aacute;nyok kiterjeszt&eacute;se az
+&Aacute;NYK belső form&aacute;tuma: <b>.frm.enyk</b>,
+&eacute;s st&aacute;tusza <b style=""><i style="">K&uuml;ld&eacute;sre megjel&ouml;lt</i></b>.&nbsp; <o:p></o:p></span></li>
+
+
+
+
+
+
+
+
+
+
+
+  <li><span style="font-size: 11pt; font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">kr f&aacute;jl hozz&aacute;ad&aacute;s:</span></b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"> megjelenő tall&oacute;z&oacute;
+ablakb&oacute;l a <b>\kuldendo</b>&nbsp;k&ouml;nyvt&aacute;r tartalma alapj&aacute;n megjelenő list&aacute;b&oacute;l
+kiv&aacute;laszthat&oacute; egy vagy t&ouml;bb f&aacute;jl. T&ouml;bb elem kijel&ouml;l&eacute;se a megszokott m&oacute;don a
+Ctrl&nbsp;vagy Shift gombok haszn&aacute;lat&aacute;val t&ouml;rt&eacute;nhet.&nbsp;<o:p></o:p>Alap&eacute;rtelmezett
+k&ouml;nyvt&aacute;r a \kuldendo k&ouml;nyvt&aacute;r (Szerviz -&gt; N&eacute;vjegy K&ouml;rnyezet f&uuml;l&ouml;n
+Postak&ouml;nyvt&aacute;r (KRDIR)), amelyben az &aacute;llom&aacute;nyok kiterjeszt&eacute;se <b>.kr</b>.&nbsp;</span><b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></b></li>
+
+
+
+
+
+
+
+
+
+
+
+  <li><b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">T&ouml;r&ouml;l:</span></b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"> a list&aacute;ban kijel&ouml;lt
+elemeket lehet t&ouml;r&ouml;lni.&nbsp;T&ouml;bb elem kijel&ouml;l&eacute;se a megszokott m&oacute;don a
+Ctrl&nbsp;vagy Shift gombok haszn&aacute;lat&aacute;val t&ouml;rt&eacute;nhet</span>. <br>
+
+
+
+
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 508px; height: 360px;" alt="" title="Csoportos k&ouml;zvetlen bek&uuml;ld&eacute;se - kr &aacute;llom&aacute;nyok kiv&aacute;laszt&aacute;sa" src="pics/kep_96.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 12pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><br>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 12pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 12pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="margin-left: 90pt; text-align: justify; text-indent: -18pt;"><!--[if !supportLists]--><span style="font-size: 11pt; font-family: &quot;Courier New&quot;;"><span style="">o<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
+</span></span></span><!--[endif]--><b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Megnyit&aacute;s:</span></b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"> a kiv&aacute;lasztott .kr f&aacute;jl megjelenik a
+Nyomtatv&aacute;nyok csoportos k&ouml;zvetlen bek&uuml;ld&eacute;se ablak list&aacute;j&aacute;ban<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="margin-left: 90pt; text-align: justify; text-indent: -18pt;"><!--[if !supportLists]--><span style="font-size: 11pt; font-family: &quot;Courier New&quot;;"><span style="">o<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
+</span></span></span><!--[endif]--><b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">M&eacute;gsem: </span></b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">műveletv&eacute;gz&eacute;s n&eacute;lk&uuml;l visszat&eacute;r<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+Nyomtatv&aacute;nyok csoportos k&ouml;zvetlen bek&uuml;ld&eacute;se
+C&eacute;g/Hivatali kapun kereszt&uuml;l ablakon a C&eacute;g/Hivatali kapu azonos&iacute;t&oacute; oszlop mezői
+szerkeszthetőek.</span></p>
+
+
+
+
+
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ha
+a Szerviz/Be&aacute;ll&iacute;t&aacute;sok/Megjelen&eacute;s
+f&uuml;l&ouml;n kiv&aacute;lasztotta a
+Nyomtatv&aacute;nyb&oacute;l t&ouml;rt&eacute;nő C&eacute;gkapu azonos&iacute;t&aacute;st, akkor a C&eacute;g/Hivatali kapu
+azonos&iacute;t&oacute; oszlop mezőihez tartoz&oacute;
+&eacute;rt&eacute;klist&aacute;ba
+beker&uuml;l a nyomtatv&aacute;nyban megadott
+ad&oacute;sz&aacute;mb&oacute;l k&eacute;pzett C&eacute;gkapu
+azonos&iacute;t&oacute; &eacute;s ez az &eacute;rt&eacute;k
+l&aacute;that&oacute; lesz a mezőben.
+Ha&nbsp;kit&ouml;lt&ouml;tte a&nbsp;</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Szerviz/Be&aacute;ll&iacute;t&aacute;sok/Megjelen&eacute;s
+f&uuml;l&ouml;n a Meghatalmazott/K&ouml;nyvelőiroda C&eacute;g/Hivatali
+kapu azonos&iacute;t&oacute;&nbsp;mezőt, akkor ez az
+&eacute;rt&eacute;k
+is v&aacute;laszthat&oacute; a mezőh&ouml;z tartoz&oacute;
+&eacute;rt&eacute;klist&aacute;b&oacute;l. A C&eacute;g/Hivatali kapu
+azonos&iacute;t&oacute; oszlop&nbsp; mezőinek &eacute;rt&eacute;ke
+szerkeszthető, az &eacute;rt&eacute;klist&aacute;ban szepelő
+&eacute;rt&eacute;kektől elt&eacute;rő
+kapuazonos&iacute;t&oacute;&nbsp;is megadhat&oacute;.</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: center;"><img style="width: 795px; height: 467px;" alt="" src="pics/kep_212.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><br>
+
+
+
+
+
+
+</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A&nbsp;<b>Nyomtatv&aacute;ny hozz&aacute;ad&aacute;s </b>&eacute;s/vagy a<b>
+kr f&aacute;jl hozz&aacute;ad&aacute;s </b>gombokkal<b> </b>&ouml;ssze&aacute;ll&iacute;tott f&aacute;jlok k&uuml;ld&eacute;s&eacute;t az <b style="">Ind&iacute;t&aacute;s </b>gombbal aktiviz&aacute;lhatjuk.</span><br>
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az
+Ind&iacute;t&aacute;s gomb lenyom&aacute;sa ut&aacute;n az al&aacute;bbi ablak jelenik meg:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 567px; height: 445px;" alt="" title="Azonos&iacute;t&aacute;s" src="pics/kep_218.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span>
+
+
+
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><span style="font-weight: bold;">C&eacute;g/Hivatali
+kapu azonos&iacute;t&oacute;</span>: A
+k&eacute;pernyőn meg kell megadni a C&eacute;gkapu vagy Hivatali Kapu
+regisztr&aacute;ci&oacute;kor kapott
+azonos&iacute;t&oacute;t (C&eacute;gkapu/Hivatali kapu r&ouml;vid
+n&eacute;v) a C&eacute;gkapun vagy Hivatali kapun
+t&ouml;rt&eacute;nő bek&uuml;ld&eacute;shez.&nbsp;<br>
+
+
+
+Az előző k&eacute;pernyőn
+&ouml;ssze&aacute;ll&iacute;tott lista minden eleme az itt megadott
+kapuazonos&iacute;t&oacute;val ker&uuml;l bek&uuml;ld&eacute;sre!</span></p>
+
+
+
+
+
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><span style="font-weight: bold;">&Uuml;gyf&eacute;lkapu</span>:Az
+előző k&eacute;pernyőn &ouml;ssze&aacute;ll&iacute;tott lista minden
+eleme az&nbsp;&Uuml;gyf&eacute;lkapura ker&uuml;l
+bek&uuml;ld&eacute;sre, a
+megadott&nbsp;felhaszn&aacute;l&oacute;n&eacute;v &eacute;s
+jelsz&oacute; p&aacute;rossal.</span></p>
+
+
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><span style="font-weight: bold;">Egyedi
+C&eacute;g/Hivatali kapu azonos&iacute;t&aacute;s</span>:
+Az előző
+k&eacute;pernyőn &ouml;ssze&aacute;ll&iacute;tott lista minden eleme ott az
+adott nyomtatv&aacute;nyn&aacute;l - a 'C&eacute;g/Hivatali kapu
+azonos&iacute;t&oacute;'
+&nbsp;oszlop mezőiben szereplő &eacute;rt&eacute;k -&nbsp;megadott
+C&eacute;g/Hivatali kapu
+azonos&iacute;t&oacute;val
+ker&uuml;l bek&uuml;ld&eacute;sre.</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"> <o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ha t&ouml;bbsz&ouml;r szeretn&eacute;
+haszn&aacute;lni ugyanazokat az azonos&iacute;t&oacute; adatokat a bek&uuml;ld&eacute;sre, akkor jel&ouml;lje be a
+&nbsp;Azonos&iacute;t&oacute; adatok megjegyz&eacute;se jel&ouml;lőn&eacute;gyzetet. Ha bejel&ouml;li, akkor a
+k&ouml;vetkező &uuml;zenetablak jelenik meg:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 511px; height: 124px;" alt="" src="pics/kep_106.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><br>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">FONTOS!
+Az azonos&iacute;t&aacute;sn&aacute;l megadott
+adatok&nbsp;a program bez&aacute;r&aacute;s&aacute;ig &eacute;lnek! A
+program &uacute;jraind&iacute;t&aacute;sa ut&aacute;n a funkci&oacute;
+&uacute;jra bek&eacute;ri az azonos&iacute;t&aacute;shoz adatokat!<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ha proxy-n kereszt&uuml;l kapcsol&oacute;dik az
+internetre, akkor&nbsp;ez a funkci&oacute; nem haszn&aacute;lhat&oacute;! <o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ha
+első alkalommal
+jelentkezik be a KA&Uuml; szolg&aacute;ltat&aacute;s
+ig&eacute;nybev&eacute;tel&eacute;hez, a program
+&aacute;tir&aacute;ny&iacute;tja az OK
+gomb lenyom&aacute;sa ut&aacute;n a szolg&aacute;ltat&aacute;s
+bejelentkez&eacute;si fel&uuml;let&eacute;re.<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 429px; height: 463px;" alt="" title="KA&Uuml;" src="pics/kep_203.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><br>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Amennyiben
+az azonos&iacute;t&aacute;si adatok megjegyz&eacute;sre ker&uuml;ltek,
+az azonos&iacute;t&aacute;st a h&aacute;tt&eacute;rben v&eacute;gzi
+el a program. <o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+KA&Uuml; szolg&aacute;ltat&aacute;s haszn&aacute;lat&aacute;hoz
+seg&iacute;ts&eacute;get a bejelentkez&eacute;si fel&uuml;leten
+tal&aacute;l.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Sikeres KA&Uuml; azonos&iacute;t&aacute;s ut&aacute;n
+a list&aacute;ban szereplő elemek alapj&aacute;n a program megk&iacute;s&eacute;rli bek&uuml;ldeni egyenk&eacute;nt az
+&aacute;llom&aacute;nyokat.<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az
+utols&oacute; &aacute;llom&aacute;ny
+bek&uuml;ld&eacute;se&nbsp;ut&aacute;n r&eacute;szletes
+eredm&eacute;nylist&aacute;t ad a program a csoportos
+bek&uuml;ld&eacute;s
+eredm&eacute;ny&eacute;ről:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 740px; height: 345px;" alt="" src="pics/kep_215.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span>
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></p>
+
+
+
+
+
+
+
+
+
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A k&eacute;pernyőn szereplő
+gombok &eacute;s műk&ouml;d&eacute;s&uuml;k:<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+
+
+
+
+  <li><!--[if !supportLists]--><span style="font-size: 11pt; font-family: Wingdings;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Rendben: </span></b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">az ablak bez&aacute;r&aacute;sa, műveletv&eacute;gz&eacute;s n&eacute;lk&uuml;li
+visszat&eacute;r&eacute;s <o:p></o:p></span></li>
+
+
+
+
+
+
+
+
+
+
+
+  <li><!--[if !supportLists]--><span style="font-size: 11pt; font-family: Wingdings;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Lista ment&eacute;se:</span></b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"> a&nbsp;csoportos_muveletek_uzenetek.txt
+sz&ouml;vegf&aacute;jlba (ami tetsz&eacute;s szerint &aacute;tnevezhető) lementhető a csoportos bek&uuml;ld&eacute;s
+eredm&eacute;nye. Alap&eacute;rtelmez&eacute;sben a ment&eacute;s hely&eacute;nek a<b> \naplo</b> k&ouml;nyvt&aacute;rat
+k&iacute;n&aacute;lja fel.<o:p></o:p></span></li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az &eacute;rkeztet&eacute;si sz&aacute;m bejegyz&eacute;sre ker&uuml;l a felad&aacute;s
+napl&oacute;ba is, amely a <b style="">Szerviz -&gt; Megjel&ouml;l&eacute;s, &aacute;tad&aacute;s napl&oacute;</b>
+men&uuml;pontban tekinthető meg.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Amennyiben
+sikertelen az
+&aacute;llom&aacute;ny list&aacute;hoz ad&aacute;sa (pl. t&uacute;l
+nagy kr. m&eacute;ret est&eacute;n) vagy bek&uuml;ld&eacute;se (pl:
+hib&aacute;s proxy be&aacute;ll&iacute;t&aacute;s;
+h&aacute;l&oacute;zat szakad&aacute;sa) arr&oacute;l is
+t&aacute;j&eacute;koztat a program.</span><br>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="14sor"></a>
+<h2>Nyomtatv&aacute;ny hiteles&iacute;t&eacute;se AVDH szolg&aacute;ltat&aacute;ssal</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Kapcsolat a C&eacute;g/Hivatali kapuval -&gt; Nyomtatv&aacute;ny hiteles&iacute;t&eacute;se AVDH szolg&aacute;ltat&aacute;ssal</span></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+men&uuml;pont haszn&aacute;lata azoknak a
+felhaszn&aacute;l&oacute;knak c&eacute;lszerű, akik t&ouml;bb
+munkat&aacute;rssal szeretn&eacute;k j&oacute;v&aacute;hagyatni,
+al&aacute;&iacute;ratni a k&uuml;ldendő &aacute;llom&aacute;nyokat. Egy
+al&aacute;&iacute;r&oacute; eset&eacute;n is haszn&aacute;lhat&oacute;
+a funkci&oacute;,
+de ak&aacute;r egyszer, ak&aacute;r t&ouml;bbsz&ouml;r ker&uuml;l
+haszn&aacute;latra a funkci&oacute;, bek&uuml;ld&eacute;s előtt a
+feladand&oacute; kr f&aacute;jl
+elk&eacute;sz&iacute;t&eacute;s&eacute;hez a <b style="">Nyomtatv&aacute;ny
+titkos&iacute;t&aacute;sa elektronikus bek&uuml;ld&eacute;sre</b> men&uuml;pontot kell haszn&aacute;lni.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+men&uuml;pont akkor el&eacute;rhető, ha a bet&ouml;lt&ouml;tt
+nyomtatv&aacute;ny &aacute;llapota M&oacute;dos&iacute;that&oacute;
+vagy
+AVDH al&aacute;&iacute;r&aacute;ssal hiteles&iacute;tett.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A funkci&oacute; megh&iacute;v&aacute;s&aacute;nak
+hat&aacute;s&aacute;ra az al&aacute;bbi p&aacute;rbesz&eacute;d ablak lesz l&aacute;that&oacute;:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 734px; height: 405px;" alt="" title="T&ouml;bbes al&aacute;&iacute;r&aacute;s" src="pics/kep_226.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><br>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Alap&eacute;rtelmez&eacute;sben
+az &ouml;sszes &aacute;llom&aacute;ny t&ouml;bbsz&ouml;r&ouml;s
+al&aacute;&iacute;r&aacute;sra ki van jel&ouml;lve. Technikai
+okokb&oacute;l az
+&aacute;llom&aacute;nyok al&aacute;&iacute;r&aacute;s&aacute;t
+csoportokban v&eacute;gezz&uuml;k. Előfordulhat, hogy egyes csoportok
+al&aacute;&iacute;r&aacute;sa nem siker&uuml;l, ez&eacute;rt, hogy ne
+kelljen el&ouml;lről kezdenie az eg&eacute;sz t&ouml;bbsz&ouml;r&ouml;s
+al&aacute;&iacute;r&aacute;si folyamatot, <b style="">lehetős&eacute;ge van csak
+a kijel&ouml;lt csatolm&aacute;nyokat al&aacute;&iacute;rni</b>.
+Ilyen esetben az al&aacute;&iacute;rand&oacute; f&aacute;jlok
+kijel&ouml;l&eacute;s&eacute;hez k&eacute;rj&uuml;k, haszn&aacute;lja
+az utols&oacute; oszlopban l&eacute;vő jel&ouml;lőn&eacute;gyzeteket!</span><br>
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><br>
+
+
+
+
+
+
+
+
+</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+dial&oacute;gus ablakban a kijel&ouml;lt nyomtatv&aacute;nyon vagy csatolm&aacute;nyon &aacute;llva az <b style="">Al&aacute;&iacute;r&oacute;k</b> gombra kattintva megtekintheti,
+hogy ki&iacute;rta m&aacute;r al&aacute; a kiv&aacute;lasztott &aacute;llom&aacute;nyt:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="height: 599px; width: 810px;" alt="" title="AVDH al&aacute;&iacute;r&aacute;sok" src="pics/kep_228.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az <b style="">AVDH al&aacute;&iacute;r&aacute;s</b> gombra kattintva lefut a
+nyomtatv&aacute;ny ellenőrz&eacute;s. Ha a nyomtatv&aacute;ny hib&aacute;s, akkor az al&aacute;bbi t&iacute;pus&uacute;
+hibalista jelenik:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 732px; height: 203px;" alt="" title="Hibalista" src="pics/kep_229.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 115%;"><span style="font-size: 11pt; line-height: 115%; font-family: &quot;Verdana&quot;,sans-serif;">S&uacute;lyos
+hiba (k&eacute;k) eset&eacute;n nem megy tov&aacute;bb a
+funkci&oacute;, nem &iacute;rhat&oacute; al&aacute; a
+nyomtatv&aacute;ny.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 115%;"><span style="font-size: 11pt; line-height: 115%; font-family: &quot;Verdana&quot;,sans-serif;">A
+nyomtatv&aacute;ny ellenőrz&eacute;s csak <b style=""><i style="">M&oacute;dos&iacute;that&oacute;</i></b> st&aacute;tusz&uacute; nyomtatv&aacute;nyn&aacute;l
+t&ouml;rt&eacute;nik. Ha a nyomtatv&aacute;ny &aacute;llapota <b style=""><i style="">AVDH szolg&aacute;ltat&aacute;ssal hiteles&iacute;tett</i></b>,
+azaz m&aacute;r al&aacute;&iacute;rt legal&aacute;bb egyszer, akkor m&aacute;r nem fut le a nyomtatv&aacute;ny
+ellenőrz&eacute;s.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A <b style="">Tov&aacute;bb</b> gombra a program </span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">megjelen&iacute;ti az al&aacute;bbi k&eacute;pernyőt:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 567px; height: 324px;" alt="" title="Azonos&iacute;t&aacute;s" src="pics/kep_220.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az azonos&iacute;t&aacute;s a
+K&ouml;zponti Azonos&iacute;t&aacute;si &Uuml;gyn&ouml;k (KA&Uuml;) szolg&aacute;ltat&aacute;ssal t&ouml;rt&eacute;nik. </span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ha t&ouml;bbsz&ouml;r szeretn&eacute;
+haszn&aacute;lni ugyanazokat az azonos&iacute;t&oacute; adatokat bek&uuml;ld&eacute;sre, akkor jel&ouml;lje be a
+&nbsp;<b>Azonos&iacute;t&oacute; adatok megjegyz&eacute;se </b>jel&ouml;lőn&eacute;gyzetet. Ha bejel&ouml;li, akkor a&nbsp;k&ouml;vetkező
+&uuml;zenetablak jelenik meg:<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: center;"><img style="width: 511px; height: 124px;" alt="" src="pics/kep_106.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: left;"><br>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Ha
+első alkalommal jelentkezik be a KA&Uuml; szolg&aacute;ltat&aacute;s ig&eacute;nybev&eacute;tel&eacute;hez, a program
+&aacute;tir&aacute;ny&iacute;tja a <b style="">Rendben </b>gomb lenyom&aacute;sa
+ut&aacute;n a szolg&aacute;ltat&aacute;s bejelentkez&eacute;si fel&uuml;let&eacute;re.<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 459px; height: 495px;" alt="" title="KA&Uuml;" src="pics/kep_203.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Amennyiben
+az
+azonos&iacute;t&aacute;si adatok megjegyz&eacute;sre ker&uuml;ltek, az
+azonos&iacute;t&aacute;st a h&aacute;tt&eacute;rben v&eacute;gzi el a
+program. <o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A KA&Uuml; szolg&aacute;ltat&aacute;s
+haszn&aacute;lat&aacute;hoz seg&iacute;ts&eacute;get tal&aacute;l a bejelentkez&eacute;si fel&uuml;leten.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoListParagraph" style="margin: 12pt 0cm;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Sikeres
+KA&Uuml; azonos&iacute;t&aacute;s ut&aacute;n a
+nyomtatv&aacute;nyb&oacute;l
+&eacute;s minden egyes csatolm&aacute;nyb&oacute;l lenyomatot
+k&eacute;pez az &Aacute;NYK, melyeket az AVDH
+szolg&aacute;ltat&aacute;ssal al&aacute;&iacute;rat. Az &Aacute;NYK az
+&iacute;gy kapott ASIC &aacute;llom&aacute;nyokat egyes&eacute;vel az
+eredeti csatolm&aacute;nyok mell&eacute; m&aacute;solja, vagy a
+megl&eacute;vőt fel&uuml;l&iacute;rja, valamint a
+felhaszn&aacute;l&oacute;
+KR\digitalis_alairas\nyomtatv&aacute;nyn&eacute;v\alairt
+k&ouml;nyvt&aacute;r&aacute;ban
+elhelyez&eacute;sre ker&uuml;l az urlap.anyk.ASIC ami a
+KR\digitalis_alairas k&ouml;nyvt&aacute;rban
+előzőleg l&eacute;trehozott &lt;nyomtatv&aacute;nyn&eacute;v&gt;.xml
+&aacute;llom&aacute;nyhoz tartozik.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az elv&eacute;gzett műveletről
+t&aacute;j&eacute;koztat&oacute; ablak jelenik meg:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><img style="width: 850px; height: 170px;" alt="" src="pics/kep_230.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: left;"><br>
+
+
+
+
+
+
+
+
+
+
+
+<b style=""><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">R&eacute;szletek</span></b><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"> gomb megnyom&aacute;s&aacute;ra
+megn&eacute;zhető milyen f&aacute;jlok k&eacute;sz&uuml;ltek &eacute;s melyik k&ouml;nyvt&aacute;rakba:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><img style="width: 850px; height: 290px;" alt="" src="pics/kep_231.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span>
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A nyomtatv&aacute;ny <b style=""><i style="">M&oacute;dos&iacute;that&oacute; </i></b>&aacute;llapotr&oacute;l <b style=""><i style="">AVDH
+al&aacute;&iacute;r&aacute;ssal hiteles&iacute;tett</i></b> st&aacute;tuszba ker&uuml;l, vagy ha m&aacute;r al&aacute;&iacute;rt volt az
+&aacute;llom&aacute;ny, akkor a st&aacute;tusza v&aacute;ltozatlan marad.<o:p></o:p></span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"> A felhaszn&aacute;l&oacute; sz&aacute;m&aacute;ra
+k&eacute;sz&uuml;l egy bejegyz&eacute;s a napl&oacute; &aacute;llom&aacute;nyba (<b style="">Szerviz-&gt;
+Megjel&ouml;l&eacute;s, &aacute;tad&aacute;s napl&oacute;f&aacute;jl</b>).</span></p>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="15sor"></a>
+<h2>Nyomtatv&aacute;ny hiteles&iacute;t&eacute;s&eacute;nek visszavon&aacute;sa</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Kapcsolat a C&eacute;g/Hivatali kapuval -&gt; Nyomtatv&aacute;ny&nbsp;</span><span style="font-weight: bold;">hiteles&iacute;t&eacute;s&eacute;nek visszavon&aacute;sa</span></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A men&uuml;pont akkor el&eacute;rhető, ha a bet&ouml;lt&ouml;tt
+nyomtatv&aacute;ny st&aacute;tusza <b style=""><i style="">AVDH al&aacute;&iacute;r&aacute;ssal hiteles&iacute;tett</i></b>.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A funkci&oacute; megh&iacute;v&aacute;s&aacute;nak
+hat&aacute;s&aacute;ra az al&aacute;bbi p&aacute;rbesz&eacute;d ablak lesz l&aacute;that&oacute;:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 738px; height: 321px;" alt="" title="AVDH al&aacute;&iacute;r&aacute;s visszavon&aacute;s" src="pics/kep_232.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A kijel&ouml;lt csatolm&aacute;nyon &aacute;llva az <b style="">Al&aacute;&iacute;r&oacute;k</b> gombra kattintva megtekintheti,
+hogy ki&iacute;rta al&aacute; a csatolm&aacute;nyt.&nbsp;A funkci&oacute;t a <b style="">Visszavon&aacute;s</b> gombbal ind&iacute;tva a nyomtatv&aacute;nyhoz tartoz&oacute; al&aacute;&iacute;r&aacute;sok
+t&ouml;rl&eacute;sre ker&uuml;lnek.<span style="">&nbsp;&nbsp;</span></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A t&ouml;rl&eacute;sre ker&uuml;lő
+&aacute;llom&aacute;nyokr&oacute;l az al&aacute;bbi t&aacute;j&eacute;koztat&oacute; ablak jelenik meg:<br>
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 287px; height: 122px;" alt="" title="Visszavon&aacute;s" src="pics/kep_233.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+
+<p class="MsoNormal"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+nyomtatv&aacute;ny st&aacute;tusza <b style=""><i style="">M&oacute;dos&iacute;that&oacute;</i></b> lesz.&nbsp;</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A felhaszn&aacute;l&oacute; sz&aacute;m&aacute;ra
+k&eacute;sz&uuml;l egy bejegyz&eacute;s a napl&oacute; &aacute;llom&aacute;nyba&nbsp;</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">
+(<b style="">Szerviz -&gt; Megjel&ouml;l&eacute;s, &aacute;tad&aacute;s
+napl&oacute;f&aacute;jl</b>) az al&aacute;&iacute;r&aacute;s visszavon&aacute;s&aacute;r&oacute;l.</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="16sor"></a>
+<h2>Nyomtatv&aacute;ny ment&eacute;se k&uuml;lső al&aacute;&iacute;r&aacute;ssal t&ouml;rt&eacute;nő hiteles&iacute;t&eacute;shez</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Kapcsolat a C&eacute;g/Hivatali kapuval -&gt; Nyomtatv&aacute;ny </span><span style="font-weight: bold;">ment&eacute;se k&uuml;lső al&aacute;&iacute;r&aacute;ssal t&ouml;rt&eacute;nő hiteles&iacute;t&eacute;shez</span></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+men&uuml;pont haszn&aacute;lata akkor c&eacute;lszerű, ha egy
+k&uuml;lső al&aacute;&iacute;r&oacute; programmal t&ouml;rt&eacute;nik
+a csatolm&aacute;ny(ok) hiteles&iacute;t&eacute;se, &eacute;s az
+&Aacute;NYK
+program a nyomtatv&aacute;ny kit&ouml;lt&eacute;s&eacute;ben, az
+előzőleg k&uuml;lső al&aacute;&iacute;r&oacute; programmal
+hiteles&iacute;tett csatolm&aacute;nyok
+hozz&aacute;ad&aacute;s&aacute;ban, a kit&ouml;lt&ouml;tt
+nyomtatv&aacute;ny
+al&aacute;&iacute;rattat&aacute;s&aacute;ban &eacute;s a
+bek&uuml;ld&eacute;s&eacute;ben ny&uacute;jt seg&iacute;ts&eacute;get.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A folyamatban l&eacute;p&eacute;sei:<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoListParagraphCxSpFirst" style="margin-left: 1cm; text-indent: -18pt;"><!--[if !supportLists]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><span style="">1.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+k&uuml;lső al&aacute;&iacute;r&oacute; programmal a csatolm&aacute;nyok
+egyenk&eacute;nt al&aacute;&iacute;r&aacute;sra ker&uuml;lnek.<span style=""><o:p></o:p></span></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoListParagraphCxSpMiddle" style="margin-left: 1cm; text-indent: -18pt;"><!--[if !supportLists]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><span style="">2.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">&Aacute;NYK-ban
+a kit&ouml;lt&ouml;tt nyomtatv&aacute;nyhoz az <b style="">Adatok
+-&gt; Csatolm&aacute;nyok kezel&eacute;se</b> men&uuml;ponttal csatol&aacute;sra ker&uuml;lnek az előzőleg
+hiteles&iacute;tett csatolm&aacute;nyok.<span style=""><o:p></o:p></span></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoListParagraphCxSpMiddle" style="margin-left: 1cm; text-indent: -18pt;"><!--[if !supportLists]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><span style="">3.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+nyomtatv&aacute;ny al&aacute;&iacute;r&aacute;s&aacute;hoz a <b style="">Nyomtatv&aacute;ny
+ment&eacute;se k&uuml;lső al&aacute;&iacute;r&aacute;ssal t&ouml;rt&eacute;nő hiteles&iacute;t&eacute;shez</b> men&uuml;pontnak a seg&iacute;ts&eacute;g&eacute;vel
+a nyomtatv&aacute;ny ellenőrz&eacute;sre, majd annak lenyomata kiment&eacute;sre ker&uuml;l egy
+k&ouml;nyvt&aacute;rba.<span style=""><o:p></o:p></span></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoListParagraphCxSpLast" style="margin-left: 1cm;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><o:p>&nbsp;</o:p>Nyomtatv&aacute;ny
+ellenőrz&eacute;sekor, ha hib&aacute;s, akkor az al&aacute;bbi t&iacute;pus&uacute; hibalista jelenik meg:<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: center;"><img style="width: 732px; height: 203px;" alt="" title="Hibalista" src="pics/kep_229.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: left;"><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoListParagraphCxSpFirst" style="margin-left: 1cm; line-height: 115%;"><span style="font-size: 11pt; line-height: 115%; font-family: &quot;Verdana&quot;,sans-serif;">S&uacute;lyos hiba (k&eacute;k) eset&eacute;n nem megy tov&aacute;bb a funkci&oacute;, nem
+&iacute;rhat&oacute; al&aacute; a nyomtatv&aacute;ny.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoListParagraphCxSpLast" style="margin-left: 1cm; line-height: 115%;"><span style="font-size: 11pt; line-height: 115%; font-family: &quot;Verdana&quot;,sans-serif;">Amennyiben
+hib&aacute;tlan vagy nem s&uacute;lyos hib&aacute;s a
+nyomtatv&aacute;ny
+akkor &aacute;tadhatja a nyomtatv&aacute;nyb&oacute;l
+k&eacute;sz&uuml;lt lenyomatot k&uuml;lső
+al&aacute;&iacute;r&aacute;sra. A lenyomat
+a <b style="">\KR\digitalis_alairas\&lt;f&aacute;jl_n&eacute;v&gt;\alairando</b>
+k&ouml;nyvt&aacute;rba k&eacute;sz&uuml;l el. A nyomtatv&aacute;ny &aacute;llapota <b style=""><i style="">M&oacute;dos&iacute;that&oacute;</i></b> &aacute;llapotr&oacute;l <b style=""><i style="">K&uuml;lső
+al&aacute;&iacute;r&aacute;sra &aacute;tadva</i></b> st&aacute;tuszt kap.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az
+elv&eacute;gzett műveletről az al&aacute;bbi t&aacute;j&eacute;koztat&oacute; ablak jelenik meg:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><img style="width: 539px; height: 234px;" alt="" title="K&uuml;lső al&aacute;&iacute;r&aacute;s" src="pics/kep_234.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: left;"></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoListParagraphCxSpFirst" style="margin-left: 1cm; text-indent: -18pt;"><!--[if !supportLists]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><span style="">4.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A lenyomat k&uuml;lső programmal t&ouml;rt&eacute;nt al&aacute;&iacute;r&aacute;sa.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoListParagraphCxSpMiddle" style="margin-left: 1cm; text-indent: -18pt;"><!--[if !supportLists]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><span style="">5.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Al&aacute;&iacute;r&aacute;s ut&aacute;n </span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">a
+\KR\digitalis_alairas\&lt;f&aacute;jl_n&eacute;v&gt;\alairt
+k&ouml;nyvt&aacute;rba kell m&aacute;solni az
+&aacute;llom&aacute;nyt. A k&uuml;lső program haszn&aacute;lata miatt
+ez a felhaszn&aacute;l&oacute; felelőss&eacute;ge, az
+&Aacute;NYK ezt nem tudja elv&eacute;gezni. A
+titkos&iacute;t&aacute;shoz (kr k&eacute;sz&iacute;t&eacute;shez)
+sz&uuml;ks&eacute;ges, hogy
+a f&aacute;jl az \alairt k&ouml;nyvt&aacute;rban legyen. A
+nyomtatv&aacute;ny st&aacute;tusza tov&aacute;bbra is <b style=""><i style="">K&uuml;lső
+al&aacute;&iacute;r&aacute;sra &aacute;tadva</i></b> marad.<span style=""><o:p></o:p></span></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoListParagraphCxSpLast" style="margin-left: 1cm; text-indent: -18pt;"><!--[if !supportLists]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><span style="">6.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az
+&Aacute;NYK a tov&aacute;bbi haszn&aacute;lathoz a <b>Nyomtatv&aacute;ny titkos&iacute;t&aacute;sa elektronikus
+bek&uuml;ld&eacute;sre</b><span style=""> vagy az <b>XCZ k&eacute;sz&iacute;t&eacute;s
+fizikai adathordoz&oacute;n val&oacute; beny&uacute;jt&aacute;shoz</b> men&uuml;pontok ind&iacute;t&aacute;s&aacute;val folytathatja
+a folyamatot.<o:p></o:p></span></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="margin-left: 1cm; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A men&uuml;pont akkor
+akt&iacute;v, ha a bet&ouml;lt&ouml;tt nyomtatv&aacute;ny &aacute;llapota <b style=""><i style="">M&oacute;dos&iacute;that&oacute;</i></b>.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+felhaszn&aacute;l&oacute; sz&aacute;m&aacute;ra
+k&eacute;sz&uuml;l egy bejegyz&eacute;s a k&uuml;lső
+al&aacute;&iacute;r&aacute;sra &aacute;tad&aacute;sr&oacute;l a
+napl&oacute; &aacute;llom&aacute;nyba (<b style="">Szerviz -&gt; Megjel&ouml;l&eacute;s, &aacute;tad&aacute;s napl&oacute;f&aacute;jl</b>).<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span><a name="17sor"></a>
+<h2>K&uuml;lső al&aacute;&iacute;r&aacute;ssal t&ouml;rt&eacute;nő&nbsp;hiteles&iacute;t&eacute;s visszavon&aacute;sa</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Kapcsolat a C&eacute;g/Hivatali kapuval -&gt; K&uuml;lső al&aacute;&iacute;r&aacute;ssal t&ouml;rt&eacute;nő&nbsp;</span><span style="font-weight: bold;">hiteles&iacute;t&eacute;s visszavon&aacute;sa</span></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+men&uuml;pont akkor el&eacute;rhető, ha a bet&ouml;lt&ouml;tt nyomtatv&aacute;ny st&aacute;tusza <b style=""><i style="">K&uuml;lső
+al&aacute;&iacute;r&aacute;sra &aacute;tadva</i></b>.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A funkci&oacute;t ind&iacute;tva az
+al&aacute;bbi t&aacute;j&eacute;koztat&oacute; ablak jelenik meg:<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 779px; height: 124px;" alt="" title="K&uuml;lső al&aacute;&iacute;r&aacute;s visszavon&aacute;sa" src="pics/kep_235.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><br>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az <b style="">Igen</b> gombra
+kattintva a nyomtatv&aacute;nyhoz tartoz&oacute;
+al&aacute;&iacute;r&aacute;sok &eacute;s a
+\KR\digitalis_alairas\&lt;f&aacute;jl_n&eacute;v&gt;
+k&ouml;nyvt&aacute;r &eacute;s tartalma t&ouml;rl&eacute;sre
+ker&uuml;l, &iacute;gy a benne l&eacute;vő \alairando &eacute;s \alairt
+alk&ouml;nyvt&aacute;r is t&ouml;rlődik &eacute;s a nyomtatv&aacute;ny
+al&aacute;&iacute;r&aacute;s&aacute;nak visszavon&aacute;s&aacute;t is
+jelenti.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A t&ouml;rl&eacute;sre ker&uuml;lő
+&aacute;llom&aacute;nyokr&oacute;l az al&aacute;bbi t&aacute;j&eacute;koztat&oacute; ablak jelenik meg.<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 450px; height: 170px;" alt="" title="Hiteles&iacute;t&eacute;s t&ouml;rl&eacute;se" src="pics/kep_236.png"></span><br>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+nyomtatv&aacute;ny st&aacute;tusza <b style=""><i style="">M&oacute;dos&iacute;that&oacute;</i></b> lesz.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+felhaszn&aacute;l&oacute; sz&aacute;m&aacute;ra
+k&eacute;sz&uuml;l egy bejegyz&eacute;s a k&uuml;lső
+al&aacute;&iacute;r&aacute;sok t&ouml;rl&eacute;s&eacute;ről a
+napl&oacute; &aacute;llom&aacute;nyba (<b style="">Szerviz -&gt; Megjel&ouml;l&eacute;s, &aacute;tad&aacute;s napl&oacute;f&aacute;jl</b>).<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<a name="18sor"></a>
+<h2>Nyomtatv&aacute;ny titkos&iacute;t&aacute;sa elektronikus bek&uuml;ld&eacute;sre</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Kapcsolat a C&eacute;g/Hivatali kapuval -&gt; Nyomtatv&aacute;ny </span><span style="font-weight: bold;">titkos&iacute;t&aacute;sa elektronikus bek&uuml;ld&eacute;sre</span></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+men&uuml;pont akkor el&eacute;rhető, ha a bet&ouml;lt&ouml;tt nyomtatv&aacute;ny st&aacute;tusza <b style=""><i style="">AVDH
+al&aacute;&iacute;r&aacute;ssal hiteles&iacute;tett</i></b> vagy <b style=""><i style="">K&uuml;lső al&aacute;&iacute;r&aacute;sra &aacute;tadva</i></b>.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A funkci&oacute; megh&iacute;v&aacute;s&aacute;nak
+hat&aacute;s&aacute;ra a nyomtatv&aacute;ny titkos&iacute;t&aacute;sra ker&uuml;l, majd<br>
+
+
+
+
+
+
+
+
+
+
+
+a felhaszn&aacute;l&oacute; sz&aacute;m&aacute;ra az al&aacute;bbi
+t&aacute;j&eacute;koztat&oacute; k&eacute;pernyő jelenik meg, ami
+tartalmazza az elk&eacute;sz&uuml;lt .kr &aacute;llom&aacute;ny
+hely&eacute;t &eacute;s milyen csatolm&aacute;nyok ker&uuml;ltek az
+&aacute;llom&aacute;nyba.<br>
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><img style="width: 804px; height: 206px;" alt="" title="Titkos&iacute;t&aacute;s" src="pics/kep_237.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: left;"><br>
+
+
+
+
+
+
+
+
+
+
+A
+felhaszn&aacute;l&oacute; sz&aacute;m&aacute;ra k&eacute;sz&uuml;l egy bejegyz&eacute;s a <span style="font-weight: bold; font-style: italic;">K&uuml;ld&eacute;sre megjel&ouml;l&eacute;s</span> t&eacute;ny&eacute;ről a napl&oacute;
+&aacute;llom&aacute;nyba (<span style="font-weight: bold;">Szerviz-&gt; Megjel&ouml;l&eacute;s,
+&aacute;tad&aacute;s napl&oacute;f&aacute;jl</span>).<br>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<a name="19sor"></a>
+<h2>Nyomtatv&aacute;ny titkos&iacute;t&aacute;s&aacute;nak visszavon&aacute;sa</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Kapcsolat a C&eacute;g/Hivatali kapuval -&gt; Nyomtatv&aacute;ny </span><span style="font-weight: bold;">titkos&iacute;t&aacute;s&aacute;nak visszavon&aacute;sa</span></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A men&uuml;pont akkor akt&iacute;v, ha a bet&ouml;lt&ouml;tt
+nyomtatv&aacute;ny st&aacute;tusza <b style=""><i style="">K&uuml;ld&eacute;sre megjel&ouml;lt</i></b>. &nbsp;A
+funkci&oacute;t ind&iacute;tva a nyomtatv&aacute;nyhoz tartoz&oacute;
+.kr &aacute;llom&aacute;ny t&ouml;rl&eacute;sre ker&uuml;l a
+felhaszn&aacute;l&oacute; KR\kuldendo
+k&ouml;nyvt&aacute;r&aacute;b&oacute;l. <o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az al&aacute;bbi tartalm&uacute;
+t&aacute;j&eacute;koztat&oacute; ablak jelenik meg:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 583px; height: 120px;" alt="" title="Hiteles&iacute;t&eacute;s megszűnt" src="pics/kep_238.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;">
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A nyomtatv&aacute;ny st&aacute;tusza <b style=""><i style="">AVDH al&aacute;&iacute;r&aacute;ssal hiteles&iacute;tett</i></b>
+vagy <b style=""><i style="">K&uuml;lső
+al&aacute;&iacute;r&aacute;sra &aacute;tadva</i></b> lesz, att&oacute;l f&uuml;ggően, hogy milyen szolg&aacute;ltat&aacute;ssal
+ker&uuml;lt hiteles&iacute;t&eacute;sre a nyomtatv&aacute;ny titkos&iacute;t&aacute;sa előtt.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A felhaszn&aacute;l&oacute; sz&aacute;m&aacute;ra
+k&eacute;sz&uuml;l egy bejegyz&eacute;s a visszavon&aacute;s t&eacute;ny&eacute;ről a napl&oacute; &aacute;llom&aacute;nyba (<b style="">Szerviz -&gt; Megjel&ouml;l&eacute;s, &aacute;tad&aacute;s napl&oacute;f&aacute;jl</b>).<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="20sor"></a>
+<h2>XCZ k&eacute;sz&iacute;t&eacute;se fizikai adathordoz&oacute;n val&oacute; beny&uacute;jt&aacute;shoz</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Kapcsolat a C&eacute;g/Hivatali kapuval -&gt; XCZ k&eacute;sz&iacute;t&eacute;se&nbsp;</span><span style="font-weight: bold;">fizikai adathordoz&oacute;n val&oacute; beny&uacute;jt&aacute;shoz</span></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+men&uuml;pont haszn&aacute;lata akkor aj&aacute;nlott, ha a
+bet&ouml;lt&ouml;tt nyomtatv&aacute;ny, &eacute;s a
+nyomtatv&aacute;nyhoz hozz&aacute;adott csatolm&aacute;nyok valamilyen
+m&oacute;don m&aacute;r al&aacute;&iacute;r&aacute;sra (AVDH,
+k&uuml;lső program) ker&uuml;ltek, de &ouml;sszess&eacute;g&uuml;kben
+olyan
+nagy m&eacute;retűek, hogy azt<span style="">&nbsp; </span>elektronikusan
+bek&uuml;ldeni nem lehets&eacute;ges. Ebben az esetben c&eacute;lszerű
+k&eacute;sz&iacute;teni egy adatcsomagot
+(XCZ &aacute;llom&aacute;ny). Az elk&eacute;sz&iacute;tett
+&aacute;llom&aacute;nyt a felhaszn&aacute;l&oacute; ki&iacute;rhatja
+k&uuml;lső
+adathordoz&oacute;ra (pl.: DVD, pendrive) a sz&uuml;ks&eacute;ges
+m&aacute;solati p&eacute;ld&aacute;nysz&aacute;mban &eacute;s az
+esetleges k&iacute;s&eacute;rőlappal egy&uuml;tt a
+b&iacute;r&oacute;s&aacute;gnak beny&uacute;jthatja szem&eacute;lyesen
+vagy postai
+&uacute;ton.<b style=""><span style="color: red;"><o:p></o:p></span></b></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A men&uuml;pont akkor akt&iacute;v, ha a nyomtatv&aacute;ny
+&aacute;llapota <b style=""><i style="">AVDH al&aacute;&iacute;r&aacute;ssal hiteles&iacute;tett</i></b> vagy <b style=""><i style="">K&uuml;lső al&aacute;&iacute;r&aacute;sra &aacute;tadva</i></b>.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A men&uuml;pont ind&iacute;t&aacute;sa ut&aacute;n a
+k&ouml;vetkező k&eacute;pernyő jelenik meg:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 738px; height: 405px;" alt="" title="XCZ &ouml;ssze&aacute;ll&iacute;t&aacute;sa" src="pics/kep_239.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><br>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az <b style="">XCZ k&eacute;sz&iacute;t&eacute;s</b>
+gombra kattintva az &Aacute;NYK a
+m&aacute;r al&aacute;&iacute;rt nyomtatv&aacute;nyb&oacute;l,
+mell&eacute;kletekből valamint ezek k&iacute;s&eacute;rő
+&aacute;llom&aacute;nyaib&oacute;l
+egy t&ouml;m&ouml;r&iacute;tett .xcz kiterjeszt&eacute;sű
+&aacute;llom&aacute;nyt k&eacute;sz&iacute;t el. Az
+elk&eacute;sz&iacute;tett &aacute;llom&aacute;ny
+a felhaszn&aacute;l&oacute; \fizikai_adathordozo
+k&ouml;nyvt&aacute;r&aacute;ba ker&uuml;l ment&eacute;sre. A
+felhaszn&aacute;l&oacute;
+sz&aacute;m&aacute;ra az al&aacute;bbi t&aacute;j&eacute;koztat&oacute;
+k&eacute;pernyő jelenik meg, ami tartalmazza, hogy hov&aacute;
+k&eacute;sz&uuml;lt el az xcz &aacute;llom&aacute;ny &eacute;s milyen
+f&aacute;jlokat tartalmaz.<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 796px; height: 124px;" alt="" title="XCZ elk&eacute;sz&uuml;lt" src="pics/kep_240.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">Az <b style="">Igen</b> gomb megnyom&aacute;s&aacute;ra a csomagot
+tartalmaz&oacute; mappa megnyit&aacute;sra ker&uuml;l:<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><img style="width: 749px; height: 285px;" alt="" title="XCZ k&ouml;nyvt&aacute;ra" src="pics/kep_241.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: left;">
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family: &quot;Verdana&quot;,sans-serif;">A
+nyomtatv&aacute;ny &aacute;llapota <b style=""><i style="">Adathordoz&oacute;hoz m&aacute;solva</i></b> st&aacute;tuszt kap,
+tov&aacute;bb nem m&oacute;dos&iacute;that&oacute;<b style="">.</b><o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 12pt; font-family: &quot;Verdana&quot;,sans-serif;">A felhaszn&aacute;l&oacute; sz&aacute;m&aacute;ra
+k&eacute;sz&uuml;l egy bejegyz&eacute;s a napl&oacute; &aacute;llom&aacute;nyba (<b style="">Szerviz
+-&gt; Megjel&ouml;l&eacute;s, &aacute;tad&aacute;s napl&oacute;f&aacute;jl</b>).<br>
+
+
+
+
+
+
+
+
+
+
+
+</span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="21sor"></a>
+<h2>XCZ k&eacute;sz&iacute;t&eacute;s visszavon&aacute;sa</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Kapcsolat a C&eacute;g/Hivatali kapuval -&gt; XCZ k&eacute;sz&iacute;t&eacute;s&nbsp;</span><span style="font-weight: bold;">visszavon&aacute;sa</span></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A men&uuml;pont akkor akt&iacute;v, ha a bet&ouml;lt&ouml;tt
+nyomtatv&aacute;ny st&aacute;tusza <b style=""><i style="">Adathordoz&oacute;hoz m&aacute;solva</i></b>.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A funkci&oacute;t ind&iacute;tva a nyomtatv&aacute;nyhoz tartoz&oacute;
+.xcz &aacute;llom&aacute;ny t&ouml;rl&eacute;sre ker&uuml;l a felhaszn&aacute;l&oacute; \fizikai_adathordozo
+k&ouml;nyvt&aacute;r&aacute;b&oacute;l.<span style="">&nbsp; </span><o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A t&ouml;rl&eacute;sre ker&uuml;lő
+&aacute;llom&aacute;nyr&oacute;l az al&aacute;bbi t&aacute;j&eacute;koztat&oacute; ablak jelenik meg:</span><br>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><img style="width: 624px; height: 122px;" alt="" title="XCZ visszavon&aacute;sa" src="pics/kep_242.png"><br>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span>
+
+<p class="MsoNormal" style="text-align: justify; margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A nyomtatv&aacute;ny st&aacute;tusza <b style=""><i style="">AVDH al&aacute;&iacute;r&aacute;ssal hiteles&iacute;tett</i></b>
+vagy <b style=""><i style="">K&uuml;lső
+al&aacute;&iacute;r&aacute;sra &aacute;tadva</i></b> lesz, att&oacute;l f&uuml;ggően, hogy milyen szolg&aacute;ltat&aacute;ssal
+ker&uuml;lt hiteles&iacute;t&eacute;sre.<o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="margin-left: 40px;"><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A
+felhaszn&aacute;l&oacute; sz&aacute;m&aacute;ra
+k&eacute;sz&uuml;l egy bejegyz&eacute;s az XCZ &aacute;llom&aacute;ny
+t&ouml;rl&eacute;s&eacute;ről a napl&oacute; &aacute;llom&aacute;nyba (<b style="">Szerviz -&gt; Megjel&ouml;l&eacute;s, &aacute;tad&aacute;s napl&oacute;f&aacute;jl</b>).</span></div>
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+
+
+
+
+  <small><a href="enyk_lap_4.htm#teteje">Lap teteje</a>
+| <a href="enyk_tartalom.htm#tartalom">Tartalom</a>
+| <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></small>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <p></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <small><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </small>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

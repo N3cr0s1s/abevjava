@@ -1,0 +1,1246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta http-equiv="Content-Type" content="text/htm; charset=iso-8859-2">
+
+
+
+
+
+
+
+
+
+
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <title>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program s&uacute;g&oacute;ja</title>
+</head>
+
+
+<body lang="HU">
+
+
+
+
+
+
+
+
+
+
+
+<h1 align="center"><big><a name="teteje"><b><font size="+2"><big></big></font></b></a><b><font size="+2"><big><a name="904sor">Az xkr &aacute;llom&aacute;nyok</a><a name="jar"> kezel&eacute;se az &Aacute;NYK nyomtatv&aacute;nykit&ouml;ltő programban</a> </big></font></b></big></h1>
+
+
+
+
+
+
+
+
+
+
+
+<b><font size="+2"><a name="904sor"></a><a name="jar"></a></font></b>
+
+
+<p align="left">A&nbsp;nyomtatv&aacute;nykit&ouml;ltő programba
+bet&ouml;lthető xml form&aacute;tum&uacute; &aacute;llom&aacute;nyok
+egyedi kiterjeszt&eacute;st kaphatnak xkr n&eacute;ven.<br>
+
+
+
+
+
+
+
+
+
+
+Az .xkr kiterjeszt&eacute;sű &aacute;llom&aacute;nyok a java-s
+nyomtatv&aacute;nykit&ouml;ltő program sz&aacute;m&aacute;ra
+import&aacute;lhat&oacute;k.&nbsp;</p>
+
+
+
+
+
+
+
+
+
+
+<p align="left">Az &Aacute;NYK program, .xkr kiterjeszt&eacute;ssel
+t&ouml;rt&eacute;nő t&aacute;rs&iacute;t&aacute;s&aacute;t, az
+&Aacute;NYK a telep&iacute;t&eacute;s
+ut&aacute;ni&nbsp;első&nbsp;program&nbsp;ind&iacute;t&aacute;sakor
+elv&eacute;gzi.&nbsp;<br>
+
+
+Ha nem siker&uuml;lt az &ouml;sszerendel&eacute;s, akkor&nbsp;a
+http://www.nav.gov.hu/nav/ebevallas/abevjava/javakitolto.html oldalon
+tal&aacute;lhat&oacute;
+XKR_allomanyok_hozzarendelese_az_abevjavahoz.pdf le&iacute;r&aacute;s
+ad seg&iacute;ts&eacute;get, hogy manu&aacute;lisan, hogyan
+v&eacute;gezhető el.</p>
+
+
+
+
+
+
+
+
+
+
+<p align="left"><big style="font-weight: bold;">1, .xkr kiterjeszt&eacute;sű &aacute;llom&aacute;nyok
+alkalmaz&aacute;sa a NAV egyszerűs&iacute;tett&nbsp;szem&eacute;lyij&ouml;vedelemad&oacute;-bevall&aacute;s
+&aacute;llom&aacute;nyain&aacute;l. pl: 1053E</big><br>
+
+
+
+
+
+
+
+</p>
+
+
+
+
+
+
+
+<div style="margin-left: 40px;">
+
+
+Azok az ad&oacute;z&oacute;k, akik elektronikus form&aacute;ban
+k&eacute;rt&eacute;k az adataikat, azok egy .xkr kiterjeszt&eacute;sű
+&aacute;llom&aacute;nyt t&ouml;lthetnek le a megadott internetes
+oldalr&oacute;l.<br>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<p style="margin-left: 40px;" align="left">Ha műk&ouml;dik az &ouml;sszerendel&eacute;s, akkor
+.xkr kiterjeszt&eacute;sű &aacute;llom&aacute;nyokat legegyszerűbben az
+al&aacute;bbi m&oacute;don lehet megnyitni:<br>
+
+
+
+
+
+
+
+</p>
+
+
+
+
+
+
+
+<div style="margin-left: 40px;">
+<ol>
+
+
+
+
+
+
+
+  <li>
+
+
+T&ouml;ltse le az NAV honlapj&aacute;r&oacute;l az AbevJava legfrissebb verzi&oacute;j&aacute;t.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+T&ouml;ltse le az NAV honlapj&aacute;r&oacute;l a 1053-s nyomtatv&aacute;ny legfrissebb verzi&oacute;j&aacute;t.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+Az .xkr kiterjeszt&eacute;sű &aacute;llom&aacute;nyokra
+dupl&aacute;n kattintva, vagy a megnyit&aacute;st v&aacute;lasztva
+elindul az &Aacute;NYK program &eacute;s bet&ouml;ltődik a
+nyomtatv&aacute;ny. Az &aacute;llom&aacute;ny adatai
+bet&ouml;lt&eacute;s ut&aacute;n tetsz&eacute;s szerint
+szerkeszthetőek.&nbsp;</li>
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<p style="margin-left: 40px;" align="left">
+
+
+Ha nem siker&uuml;lt az .xkr &aacute;llom&aacute;ny
+&ouml;sszerendel&eacute;se manu&aacute;lisan sem, akkor a
+k&ouml;vetkező m&oacute;don tudja megnyitni az .xkr
+&aacute;llom&aacute;ny&aacute;t:<br>
+
+
+
+
+
+
+
+</p>
+
+
+
+
+
+
+
+<div style="margin-left: 40px;">
+<ol>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;Mentse le az a kapott .xkr &aacute;llom&aacute;nyt a g&eacute;p&eacute;re.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;Ind&iacute;tsa el az Abevjava program legfrissebb verzi&oacute;j&aacute;t.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;V&aacute;lassza ki a Szerviz -&gt; Egyedi import men&uuml;pontot.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;A megjelenő f&aacute;jl v&aacute;laszt&oacute; ablakban a
+f&aacute;jl t&iacute;pust &aacute;ll&iacute;tsa &aacute;t "xkr
+&aacute;llom&aacute;nyokra" &eacute;s keresse meg azt a
+k&ouml;nyvt&aacute;rat,&nbsp;amelyikbe let&ouml;lt&ouml;tte az .xkr &aacute;llom&aacute;ny&aacute;t.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;Nyissa meg az .xkr &aacute;llom&aacute;nyt.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;Az &aacute;llom&aacute;ny bet&ouml;lt&eacute;s
+ut&aacute;n tetsz&eacute;s szerint szerkeszthető, nyomtathat&oacute;
+valamint feladhat&oacute; a Kapcsolat az &Uuml;gyf&eacute;lkapuval
+men&uuml;ben.&nbsp;</li>
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<big style="font-weight: bold;">2, .xkr kiterjeszt&eacute;sű &aacute;llom&aacute;nyok alkalmaz&aacute;sa a NAV eBEV lek&eacute;rdez&eacute;sek eset&eacute;n</big><br>
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<div style="margin-left: 40px;">
+
+&nbsp;Ha műk&ouml;dik az &ouml;sszerendel&eacute;s, akkor
+.xkr kiterjeszt&eacute;sű &aacute;llom&aacute;nyokat legegyszerűbben az
+al&aacute;bbi m&oacute;don lehet megnyitni:<br>
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+  <li>&nbsp;Az .xkr kiterjeszt&eacute;sű &aacute;llom&aacute;nyokra
+dupl&aacute;n kattintva, vagy a megnyit&aacute;st v&aacute;lasztva
+elindul az &Aacute;NYK program &eacute;s bet&ouml;ltődik a
+nyomtatv&aacute;ny.</li>
+
+
+
+
+
+
+  <li>Az &aacute;llom&aacute;ny adatai "Csak olvashat&oacute;"
+&aacute;llapotban ker&uuml;lnek
+megnyit&aacute;sra. Az adatok megtekinthetőek,
+nyomtathat&oacute;ak.&nbsp;Az &aacute;llom&aacute;ny nem ker&uuml;lt
+ment&eacute;sre.</li>
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+&nbsp;Ha nem siker&uuml;lt az .xkr &aacute;llom&aacute;ny
+&ouml;sszerendel&eacute;se manu&aacute;lisan sem, akkor a
+k&ouml;vetkező m&oacute;don tudja megnyitni az .xkr
+&aacute;llom&aacute;ny&aacute;t:<br>
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;Mentse le az a kapott .xkr &aacute;llom&aacute;nyt a g&eacute;p&eacute;re.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;Ind&iacute;tsa el az Abevjava program legfrissebb verzi&oacute;j&aacute;t.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;V&aacute;lassza ki a Szerviz -&gt; Egyedi import men&uuml;pontot.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;A megjelenő f&aacute;jl v&aacute;laszt&oacute; ablakban a
+f&aacute;jl t&iacute;pust &aacute;ll&iacute;tsa &aacute;t "xkr
+&aacute;llom&aacute;nyokra" &eacute;s keresse meg azt a
+k&ouml;nyvt&aacute;rat,&nbsp;amelyikbe let&ouml;lt&ouml;tte az .xkr &aacute;llom&aacute;ny&aacute;t.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;Nyissa meg az .xkr &aacute;llom&aacute;nyt.</li>
+
+
+
+
+
+
+
+  <li>
+
+&nbsp;A nyomtatv&aacute;ny bet&ouml;ltődik.&nbsp;Az &aacute;llom&aacute;ny adatai
+bet&ouml;lt&eacute;s ut&aacute;n tetsz&eacute;s szerint
+szerkeszthetőek.&nbsp; </li>
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+&nbsp;A tov&aacute;bbi l&eacute;p&eacute;sek mindk&eacute;t esetben a k&ouml;vetkezők:<br>
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+  
+
+  <li>
+
+&nbsp;Ha szeretn&eacute; a g&eacute;p&eacute;re menteni, illetve
+&uacute;j nyomtatv&aacute;ny k&eacute;sz&iacute;t&eacute;s&eacute;hez akarja felhaszn&aacute;lni az
+adatokat (pl: helyesb&iacute;t&eacute;s, &ouml;nrev&iacute;zi&oacute;),
+akkor az Adatok-&gt; Nyomtatv&aacute;ny ment&eacute;se
+m&aacute;sk&eacute;nt men&uuml;pontban lementheti tetszőleges
+n&eacute;ven.</li>
+
+
+
+
+
+
+
+  <li>
+
+&nbsp;Az &iacute;gy keletkezett &aacute;llom&aacute;ny&nbsp;tetsz&eacute;s szerint szerkeszthető, nyomtathat&oacute;
+valamint feladhat&oacute; a Kapcsolat az &Uuml;gyf&eacute;lkapuval
+men&uuml;ben, mint b&aacute;rmely m&aacute;s bevall&aacute;s.</li>
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<big style="font-weight: bold;">
+
+
+3, .xkr kiterjeszt&eacute;sű &aacute;llom&aacute;nyok alkalmaz&aacute;sa
+az eBEV bevall&aacute;sok aktu&aacute;lis
+&aacute;llapot&aacute;nak lek&eacute;rdez&eacute;sekor</big><br>
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<div style="margin-left: 40px;">
+
+
+Az eBEV-ből visszak&eacute;rt bevall&aacute;sok eddig .xml &nbsp;kiterjeszt&eacute;ssel ker&uuml;ltek
+elő&aacute;ll&iacute;t&aacute;sra. Most m&aacute;r .xkr
+kiterjeszt&eacute;ssel t&ouml;lthetőek le.<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+Ha műk&ouml;dik az &ouml;sszerendel&eacute;s, akkor
+.xkr kiterjeszt&eacute;sű &aacute;llom&aacute;nyokat legegyszerűbben az
+al&aacute;bbi m&oacute;don lehet megnyitni:<br>
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+  <li>
+
+&nbsp;Az .xkr kiterjeszt&eacute;sű &aacute;llom&aacute;nyra
+dupl&aacute;n kattintva, vagy a megnyit&aacute;st v&aacute;lasztva
+elindul az &Aacute;NYK program &eacute;s bet&ouml;ltődik a
+nyomtatv&aacute;ny.</li>
+
+
+
+
+
+
+  <li>Az &aacute;llom&aacute;ny adatai "Csak olvashat&oacute;"
+&aacute;llapotban ker&uuml;lnek
+megnyit&aacute;sra. Az adatok megtekinthetőek,
+nyomtathat&oacute;ak.&nbsp;Az &aacute;llom&aacute;ny nem ker&uuml;lt
+ment&eacute;sre.</li>
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+&nbsp;Ha nem siker&uuml;lt az .xkr &aacute;llom&aacute;ny
+&ouml;sszerendel&eacute;se manu&aacute;lisan sem, akkor a
+k&ouml;vetkező m&oacute;don tudja megnyitni az .xkr
+&aacute;llom&aacute;ny&aacute;t:<br>
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;Mentse le az a kapott .xkr &aacute;llom&aacute;nyt a g&eacute;p&eacute;re.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;Ind&iacute;tsa el az Abevjava program legfrissebb verzi&oacute;j&aacute;t.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;V&aacute;lassza ki a Szerviz -&gt; Egyedi import men&uuml;pontot.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;A megjelenő f&aacute;jl v&aacute;laszt&oacute; ablakban a
+f&aacute;jl t&iacute;pust &aacute;ll&iacute;tsa &aacute;t "xkr
+&aacute;llom&aacute;nyokra" &eacute;s keresse meg azt a
+k&ouml;nyvt&aacute;rat,&nbsp;amelyikbe let&ouml;lt&ouml;tte az .xkr &aacute;llom&aacute;ny&aacute;t.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+&nbsp;Nyissa meg az .xkr &aacute;llom&aacute;nyt.</li>
+
+
+
+
+
+
+
+  <li>
+
+&nbsp;A nyomtatv&aacute;ny bet&ouml;ltődik.&nbsp;Az &aacute;llom&aacute;ny adatai
+bet&ouml;lt&eacute;s ut&aacute;n tetsz&eacute;s szerint
+szerkeszthetőek. </li>
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+&nbsp;A tov&aacute;bbi l&eacute;p&eacute;sek mindk&eacute;t esetben a k&ouml;vetkezők:<br>
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+  
+
+  <li>
+
+&nbsp;Ha szeretn&eacute; a g&eacute;p&eacute;re menteni, illetve
+&uacute;j nyomtatv&aacute;ny k&eacute;sz&iacute;t&eacute;s&eacute;hez akarja felhaszn&aacute;lni az
+adatokat (pl: helyesb&iacute;t&eacute;s, &ouml;nrev&iacute;zi&oacute;),
+akkor az Adatok-&gt; Nyomtatv&aacute;ny ment&eacute;se
+m&aacute;sk&eacute;nt men&uuml;pontban lementheti tetszőleges
+n&eacute;ven.</li>
+
+
+
+
+
+
+
+  <li>
+
+&nbsp;Az &iacute;gy keletkezett &aacute;llom&aacute;ny&nbsp;tetsz&eacute;s szerint szerkeszthető, nyomtathat&oacute;
+valamint feladhat&oacute; a Kapcsolat az &Uuml;gyf&eacute;lkapuval
+men&uuml;ben, mint b&aacute;rmely m&aacute;s bevall&aacute;s.</li>
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+<big style="font-weight: bold;">
+4, .xkr kiterjeszt&eacute;sű &aacute;llom&aacute;ny felhaszn&aacute;l&aacute;si ter&uuml;letei<br>
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+</big>
+<div style="margin-left: 40px;">Az .xkr kiterjeszt&eacute;sű &aacute;llom&aacute;nyokat az &Aacute;NYK az al&aacute;bbi funkci&oacute;kban kezeli:<br>
+
+
+
+
+
+
+
+
+
+&nbsp;<br>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div style="margin-left: 40px;">XML &aacute;llom&aacute;ny megnyit&aacute;sa megtekint&eacute;sre<br>
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+  <li>
+
+
+Ind&iacute;tsa el az Abevjava program legfrissebb verzi&oacute;j&aacute;t.</li>
+
+
+
+
+
+
+
+  <li>
+
+V&aacute;lassza ki az Adatok -&gt; XML &aacute;llom&aacute;ny
+megnyit&aacute;sa megtekint&eacute;sre&nbsp;men&uuml;pontot.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+A megjelenő f&aacute;jl v&aacute;laszt&oacute;
+ablakban&nbsp;keresse meg azt a k&ouml;nyvt&aacute;rat, amelyikbe
+let&ouml;lt&ouml;tte az .xkr &aacute;llom&aacute;ny&aacute;t.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+Nyissa meg az .xkr &aacute;llom&aacute;nyt.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+Az &aacute;llom&aacute;ny bet&ouml;lt&eacute;se ut&aacute;n ha szeretn&eacute; a g&eacute;p&eacute;re menteni, illetve
+&uacute;j nyomtatv&aacute;ny k&eacute;sz&iacute;t&eacute;s&eacute;hez akarja felhaszn&aacute;lni az
+adatokat (pl: helyesb&iacute;t&eacute;s, &ouml;nrev&iacute;zi&oacute;),
+akkor az Adatok-&gt; Nyomtatv&aacute;ny ment&eacute;se
+m&aacute;sk&eacute;nt men&uuml;pontban lementheti tetszőleges
+n&eacute;ven.
+  </li>
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<p style="margin-left: 40px;" align="left">Csoportos import<br>
+
+
+
+
+
+
+
+</p>
+
+
+
+
+
+
+
+<div style="margin-left: 40px;">
+<ol>
+
+
+
+
+
+
+
+  <li>
+
+Ind&iacute;tsa el az Abevjava program legfrissebb verzi&oacute;j&aacute;t.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+V&aacute;lassza ki az Szerviz -&gt; Csoportos import men&uuml;pontot.</li>
+
+
+
+
+
+
+
+  <li>
+
+A megjelenő f&aacute;jl v&aacute;laszt&oacute;
+ablakban&nbsp;keresse meg azt a k&ouml;nyvt&aacute;rat, amelyikbe
+let&ouml;lt&ouml;tte az .xkr &aacute;llom&aacute;ny&aacute;t.</li>
+
+
+
+
+
+
+
+  <li>
+
+Nyissa meg az .xkr &aacute;llom&aacute;nyt.</li>
+
+
+
+
+
+  <li>Import&aacute;lja be.</li>
+
+
+
+
+
+
+
+  <li>
+
+
+Az import&aacute;lt &aacute;llom&aacute;ny adatai bet&ouml;lt&eacute;s ut&aacute;n
+tetsz&eacute;s szerint szerkeszthetőek.</li>
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+<big><span style="font-weight: bold;">5, Parancssori import</span></big>
+
+<p style="margin-left: 40px;" align="left">A file.import parancssori funkci&oacute; megegyezik
+funkcionalit&aacute;s&aacute;ban .xkr kiterjeszt&eacute;s eset&eacute;n
+a Szerviz -&gt; Egyedi import funkci&oacute;val.<br>
+
+
+
+
+
+
+
+
+
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p align="left">FONTOS!<br>
+
+
+
+
+
+
+
+Az &Aacute;NYK, import&aacute;l&aacute;s sor&aacute;n
+az .xml kiterjeszt&eacute;sű &aacute;llom&aacute;nyok eset&eacute;n
+teljes &uacute;jrasz&aacute;m&iacute;t&aacute;st v&eacute;gez. Az <span style="font-weight: bold;">.xkr</span>
+kiterjeszt&eacute;sű &aacute;llom&aacute;nyok import&aacute;l&aacute;sa
+eset&eacute;n az &Aacute;NYK <span style="font-weight: bold;">nem sz&aacute;molja</span>&nbsp;&uacute;jra a
+sz&aacute;m&iacute;tott mezőket!&nbsp;<br>
+
+
+
+
+
+
+
+
+
+Az Egyszerűs&iacute;tett bevall&aacute;sok eset&eacute;ben, amelyek
+szint&eacute;n .xkr kiterjeszt&eacute;ssel k&eacute;sz&uuml;lnek, az
+.xkr &aacute;llom&aacute;nyban tal&aacute;lhat&oacute; &uacute;j
+param&eacute;ter szab&aacute;lyozza, hogy a
+teljes&nbsp;&uacute;jrasz&aacute;m&iacute;t&aacute;s lefusson &eacute;s
+r&ouml;gt&ouml;n szerkeszthető &aacute;llapotban ny&iacute;ljon meg a
+nyomtatv&aacute;ny.</p>
+
+
+
+
+
+
+
+
+
+
+<p align="left"><br>
+
+
+
+
+
+
+
+
+
+
+
+<b><font size="+2"></font></b></p>
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

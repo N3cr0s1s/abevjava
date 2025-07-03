@@ -1,0 +1,2676 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+  
+  <meta http-equiv="Content-Type" content="text/htm; charset=utf-8">
+
+  
+
+
+  
+  <title>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program S&uacute;g&oacute;</title>
+  <style type="text/css">
+BODY {font-family:verdana; font-size:12pt; margin:5px;}
+H1 {font-size: 15pt;}
+H2 {font-size: 14pt; font-weight:bold; border-bottom: 2px solid;}
+H3 {font-size: 13pt; font-weight:bold; font-style:italic;}
+H4 {font-size: 12pt; font-weight:bold;}
+H5 {font-size: 12pt; font-weight:bold; font-style:italic;}
+H6 {font-size: 11pt; font-weight:bold;}
+TABLE {font-size: 12pt; border-collapse: collapse; clear: both;}
+TD {border: 1px solid #666666; padding: 2px;}
+DT {font-style:italic;}
+.label {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+.path {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+  </style>
+</head>
+
+
+<body lang="hu">
+
+
+<a name="teteje"></a>
+<h1>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program
+S&uacute;g&oacute;</h1>
+
+
+<a name="teteje"></a>
+<h1>'08 J&aacute;rul&eacute;k bevall&aacute;sok
+kezel&eacute;se a java-s nyomtatv&aacute;nykit&ouml;ltő
+programban</h1>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="143sor"></a>
+<a name="toltott"></a>
+<h2>Nyomtatv&aacute;ny k&ouml;teg szerkeszt&eacute;se</h2>
+
+
+<p>Az <span class="label">Adatok -&gt;
+&Uacute;j nyomtatv&aacute;ny l&eacute;trehoz&aacute;sa</span>
+men&uuml;pontban v&aacute;lassza ki a telep&iacute;tett
+0808-as
+sablont, majd nyissa meg. A nyomtatv&aacute;ny
+megnyit&aacute;sa
+ut&aacute;n egy 0808A-s nyomtatv&aacute;ny t&ouml;ltődik be
+a
+k&eacute;pernyőn l&aacute;that&oacute; men&uuml;sorral.</p>
+
+
+<p align="center"><img style="width: 855px; height: 586px;" alt="" title="Megnyitott k&ouml;tegelt nyomtatv&aacute;ny" src="pics/kep_55.png"><br>
+
+
+Megnyitott nyomtatv&aacute;nyk&ouml;teg (0808AM)</p>
+
+
+<p>Tov&aacute;bbi 0808M-es nyomtatv&aacute;nyokat a
+men&uuml;sor seg&iacute;ts&eacute;g&eacute;vel tud
+l&eacute;trehozni.</p>
+
+
+<p>A bet&ouml;lt&ouml;tt
+nyomtatv&aacute;nyk&ouml;tegn&eacute;l
+l&aacute;that&oacute; men&uuml;sor
+funkci&oacute;gombjai:</p>
+
+
+<h3>A kiv&aacute;lasztott nyomtatv&aacute;ny
+l&eacute;trehoz&aacute;sa <img src="pics/ikon_19.png"></h3>
+
+
+<p>A leg&ouml;rd&uuml;lő list&aacute;ban
+l&aacute;that&oacute;k a
+bet&ouml;lt&ouml;tt nyomtatv&aacute;ny k&ouml;teghez
+tartoz&oacute;
+nyomtatv&aacute;nyt&iacute;pusok. A fenti k&eacute;pen
+l&aacute;that&oacute; p&eacute;lda alapj&aacute;n a
+0808AM
+nyomtatv&aacute;nyk&ouml;teghez k&eacute;tf&eacute;le
+nyomtatv&aacute;nyt&iacute;pus tartozik: 0808A &eacute;s a
+0808M.</p>
+
+
+<p>V&aacute;lassza ki a
+nyomtatv&aacute;nyt&iacute;pust a
+list&aacute;b&oacute;l &eacute;s kattintson a <img src="pics/ikon_19.png"> gombra. A l&eacute;trehozott
+nyomtatv&aacute;ny a "Nyomtatv&aacute;nyok" list&aacute;ban
+jelenik meg.</p>
+
+
+<p>A "nyomtatv&aacute;nyok" lista tartalmazza
+l&eacute;trehozott nyomtatv&aacute;nyokat: <img src="pics/ikon_26.png"></p>
+
+
+<p>A k&eacute;pen l&aacute;that&oacute;
+leg&ouml;rd&uuml;lő
+list&aacute;b&oacute;l lehet kiv&aacute;lasztani a
+szerkeszteni
+k&iacute;v&aacute;nt nyomtatv&aacute;nyt. A
+kiv&aacute;laszt&aacute;shoz seg&iacute;ts&eacute;get
+ad a
+list&aacute;ban a nyomtatv&aacute;nyon szereplő n&eacute;v
+ill.
+ad&oacute;sz&aacute;m megjelen&iacute;t&eacute;se.</p>
+
+
+<p>Az "A" nyomtatv&aacute;nyn&aacute;l az
+ad&oacute;z&oacute; neve
+&eacute;s ad&oacute;sz&aacute;ma, "M"-n&eacute;l a
+munkav&aacute;llal&oacute; neve ker&uuml;l a
+list&aacute;ba.</p>
+
+
+<h3>A "Nyomtatv&aacute;nyok" gomb <img src="pics/kiskep_261.png"></h3>
+
+
+<p>A gombra kattintva egy t&aacute;bl&aacute;zat jelenik
+meg a l&eacute;trehozott nyomtatv&aacute;nyokkal.</p>
+
+
+<p>Ebben a t&aacute;bl&aacute;zatban rendezheti az oszlop
+fejl&eacute;cre val&oacute; kattint&aacute;ssal
+(n&ouml;vekvő/cs&ouml;kkenő) sorrendbe a
+kiv&aacute;lasztott oszlop
+adatait.</p>
+
+
+<p>
+</p>
+
+
+<p>A szűr&eacute;si felt&eacute;telek
+haszn&aacute;lat&aacute;val a
+megszokot m&oacute;don kereshet a nyomtatv&aacute;nyok
+k&ouml;z&ouml;tt.</p>
+
+
+A kiv&aacute;lasztott nyomtatv&aacute;ny sor&aacute;ra
+dupl&aacute;n
+kattintva akt&iacute;vv&aacute; v&aacute;lik a
+nyomtatv&aacute;ny, vagy
+haszn&aacute;lhatja a 'Kiv&aacute;laszt' gombot.
+<p></p>
+
+
+<h3>A megjelen&iacute;tett nyomtatv&aacute;ny
+t&ouml;rl&eacute;se <img src="pics/ikon_20.png"></h3>
+
+
+<p>A k&eacute;pernyőn l&aacute;that&oacute;
+(aktu&aacute;lis)
+nyomtatv&aacute;nyt lehet kit&ouml;r&ouml;lni a
+bet&ouml;lt&ouml;tt
+nyomtatv&aacute;nyk&ouml;tegből. A t&ouml;rl&eacute;s
+"fizikai
+t&ouml;rl&eacute;st" jelent, visszavonni nem lehet! A
+t&eacute;nyleges
+t&ouml;rl&eacute;s előtt m&eacute;g egyszer
+r&aacute;k&eacute;rdez,
+hogy biztosan t&ouml;r&ouml;lni szeretn&eacute;-e a
+k&eacute;pernyőn
+l&aacute;that&oacute; (aktu&aacute;lis)
+nyomtatv&aacute;nyt.</p>
+
+
+<p>A 0808A t&iacute;pus&uacute; nyomtatv&aacute;nyt
+t&ouml;r&ouml;lni nem lehet!</p>
+
+
+<h3>&Ouml;sszes nyomtatv&aacute;ny ellenőrz&eacute;se
+<img src="pics/ikon_21.png"></h3>
+
+
+<p>A nyomtatv&aacute;nyk&ouml;teg &ouml;sszes
+nyomtatv&aacute;ny&aacute;t leellenőrzi, nem csak az
+aktu&aacute;lisat.
+Az eredm&eacute;ny&uuml;l adott hibalist&aacute;ban
+elősz&ouml;r a
+hib&aacute;s nyomtatv&aacute;ny
+azonos&iacute;t&oacute;i jelennek meg.</p>
+
+
+<p>Itt is &eacute;l az ellenőrz&eacute;si
+hibalist&aacute;n&aacute;l
+megszokott "ugr&aacute;s a hib&aacute;ra"
+tulajdons&aacute;g. A program
+a hib&aacute;hoz tartoz&oacute; nyomtatv&aacute;nyt
+t&ouml;lti be
+aktu&aacute;lis nyomtatv&aacute;nynak &eacute;s
+"s&aacute;rg&iacute;tja" ki a hib&aacute;s mezőt.</p>
+
+
+<p>A hibalist&aacute;ban csak azok a nyomtatv&aacute;nyok
+jelennek meg, amelyekn&eacute;l hiba van!</p>
+
+
+<p>FONTOS!<br>
+
+
+Ha adatt&iacute;pus hib&aacute;t tartalmaz a file, addig nem
+jelennek meg az &ouml;sszef&uuml;gg&eacute;s
+hib&aacute;k a
+list&aacute;ban, m&iacute;g az adatt&iacute;pus
+hib&aacute;kat ki nem
+jav&iacute;totta! K&ouml;tegelt
+nyomtatv&aacute;ny (pl: 1008) eset&eacute;ben ha csak az egyik
+alnyomtatv&aacute;nyban (M-en) van adatt&iacute;pus hiba, akkor
+a
+t&ouml;bbi alnyomtatv&aacute;nyra lefutnak az
+&ouml;sszef&uuml;gg&eacute;s ellenőrz&eacute;sek. </p>
+
+
+<h3>&Ouml;sszes nyomtatv&aacute;ny
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa <img src="pics/ikon_22.png"></h3>
+
+
+<p>A nyomtatv&aacute;nyk&ouml;teg &ouml;sszes
+nyomtatv&aacute;ny&aacute;n elv&eacute;gzi a mező
+&uacute;jrasz&aacute;m&iacute;t&aacute;st.</p>
+
+
+<h3>A főnyomtatv&aacute;ny
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa <img src="pics/ikon_33.png"></h3>
+
+
+<p>A 0808M-es nyomtatv&aacute;ny adatainak
+m&oacute;dos&iacute;t&aacute;sakor a program nem
+sz&aacute;molja
+automatikusan &uacute;jra az "A" &ouml;sszegző mezőit.</p>
+
+
+<p>FONTOS!<br>
+
+
+Ha befejezte a nyomtatv&aacute;nyk&ouml;teg
+szerkeszt&eacute;s&eacute;t, akkor
+nyomtatv&aacute;nyk&ouml;teg
+fődokumentum&aacute;b&oacute;l pl: 0808AM-n&eacute;l a
+0808A-s
+nyomtatv&aacute;nyb&oacute;l ind&iacute;tsa el az Adatok
+men&uuml;-&gt;
+Sz&aacute;m&iacute;tott mezők
+&uacute;jrasz&aacute;m&iacute;t&aacute;s&aacute;t,vagy
+kattintson erre
+a gombra. Ut&aacute;na futtassa le az <span class="label">&Ouml;sszes
+nyomtatv&aacute;ny ellenőrz&eacute;se</span> műveletet!</p>
+
+
+<a name="beemel"></a>
+<h3>&Aacute;llom&aacute;ny beemel&eacute;se <img src="pics/ikon_23.png"></h3>
+
+
+A&nbsp;funkci&oacute;nak a haszn&aacute;lata
+seg&iacute;ts&eacute;get ad k&uuml;lső (pl.:
+b&eacute;r) program
+&aacute;ltal
+gener&aacute;lt .imp &aacute;llom&aacute;nyok
+beemel&eacute;s&eacute;re.
+<p>Az al&aacute;bbi form&aacute;tum&uacute;
+f&aacute;jlokat lehet a
+megnyitott nyomtatv&aacute;nyk&ouml;teghez
+hozz&aacute;adni:</p>
+
+
+<ul>
+
+
+  <li>Import &aacute;llom&aacute;nyok (.imp)</li>
+
+
+  <li>java-s nyomtatv&aacute;nykit&ouml;ltő
+&aacute;llom&aacute;nyai (.frm.enyk)</li>
+
+
+</ul>
+
+
+<p>A funkci&oacute;
+ind&iacute;t&aacute;sa ut&aacute;n a k&ouml;vetkező
+ablak jelenik meg: </p>
+
+
+<p align="center"><img src="pics/kep_86.png"><br>
+
+
+Csoportos hozz&aacute;ad&aacute;s</p>
+
+
+<p></p>
+
+
+<p>A k&eacute;pernyőn szereplő gombok &eacute;s
+műk&ouml;d&eacute;s&uuml;k: </p>
+
+
+<ul>
+
+
+  <li><span style="font-weight: bold;">Abevjava
+f&aacute;jl hozz&aacute;ad&aacute;sa:</span>&nbsp;a
+gomb lenyom&aacute;sa ut&aacute;n a szűrőablakban megjelenő
+list&aacute;b&oacute;l
+( \mentesek
+k&ouml;nyvt&aacute;r tartalma szerint)
+v&aacute;laszthat&oacute; ki a java-s
+nyomtatv&aacute;nykit&ouml;ltő
+belső
+form&aacute;tum&aacute;nak megfelelő
+&aacute;llom&aacute;ny. <br>
+
+
+A
+kiv&aacute;lasztott f&aacute;jl
+megjelen&iacute;t&eacute;sre
+ker&uuml;l a
+list&aacute;ban teljes el&eacute;r&eacute;si
+&uacute;tvonallal
+egy&uuml;tt. <br>
+
+
+Az Abevjava f&aacute;jl hozz&aacute;ad&aacute;sa gomb
+t&ouml;bbsz&ouml;ri haszn&aacute;lat&aacute;val
+egym&aacute;sut&aacute;n, t&ouml;bb f&aacute;jl
+hozz&aacute;ad&aacute;sa is lehets&eacute;ges a
+list&aacute;hoz, mielőtt&nbsp;a Csoportos
+hozz&aacute;ad&aacute;s ablakban az
+Ind&iacute;t&aacute;s gomb megnyom&aacute;sra
+ker&uuml;l.<span style="font-weight: bold;"></span></li>
+
+
+  <li><span style="font-weight: bold;">Import
+f&aacute;jl hozz&aacute;ad&aacute;sa: </span>a gomb
+lenyom&aacute;sa
+ut&aacute;n a megjelenő&nbsp;ablakban az \import
+k&ouml;nyvt&aacute;r
+tartalm&aacute;b&oacute;l&nbsp;a megszokott
+m&oacute;don&nbsp;Ctrl&nbsp;vagy Shift billentyűk
+haszn&aacute;lat&aacute;val .imp
+form&aacute;tum&uacute;, egy vagy t&ouml;bb
+f&aacute;jlt
+lehet kijel&ouml;lni. Az alap&eacute;rtelmezett
+k&ouml;nyvt&aacute;r&nbsp;(Szerviz -&gt;
+N&eacute;vjegy Import
+&aacute;llom&aacute;nyok helye)
+helyett&nbsp;m&aacute;sik k&ouml;nyvt&aacute;r is
+v&aacute;laszthat&oacute;.</li>
+
+
+  
+  <p align="center"><img src="pics/kep_83.png"><br>
+
+
+Import &aacute;llom&aacute;ny hozz&aacute;ad&aacute;sa</p>
+
+
+  
+  <ul>
+
+
+    <li><span style="font-weight: bold;">Megnyit&aacute;s:</span>
+a kijel&ouml;lt &aacute;llom&aacute;nyt vagy
+&aacute;llom&aacute;nyokat a teljes
+el&eacute;r&eacute;si &uacute;tvonallal egy&uuml;tt
+be&iacute;r&aacute;sra ker&uuml;lnek a&nbsp; Csoportos
+hozz&aacute;ad&aacute;s ablakban megjelenő list&aacute;ba</li>
+
+
+    <li><span style="font-weight: bold;">M&eacute;gsem:</span>
+műveletv&eacute;gz&eacute;s n&eacute;lk&uuml;l
+visszat&eacute;r a Csoportos hozz&aacute;ad&aacute;s ablakba<br>
+
+
+      <br>
+
+
+Az Import f&aacute;jl hozz&aacute;ad&aacute;sa gomb
+t&ouml;bbsz&ouml;ri haszn&aacute;lat&aacute;val
+egym&aacute;sut&aacute;n, t&ouml;bb f&aacute;jl
+hozz&aacute;ad&aacute;sa is lehets&eacute;ges a
+list&aacute;hoz, mielőtt a Csoportos
+hozz&aacute;ad&aacute;s ablakban az
+Ind&iacute;t&aacute;s gomb megnyom&aacute;sra
+ker&uuml;l. <br>
+
+
+    </li>
+
+
+  
+  </ul>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Lista
+bet&ouml;lt&eacute;se:</span>&nbsp;ha
+l&eacute;trehozott
+egy sz&ouml;veges f&aacute;jlba&nbsp;(pl.: txt) a
+bet&ouml;ltendő
+&aacute;llom&aacute;nyok
+list&aacute;j&aacute;t
+(el&eacute;r&eacute;si &uacute;ttal egy&uuml;tt, vagy
+an&eacute;lk&uuml;l) vagy az előzőleg m&aacute;r
+&ouml;ssze&aacute;ll&iacute;tott, majd a&nbsp;<span style="font-weight: bold;">Lista ment&eacute;se</span>
+gombbal
+lementette az &aacute;llom&aacute;nyokat (\mentesek
+k&ouml;nyvt&aacute;rba), akkor itt tudja ennek
+a f&aacute;jlnak a tartalm&aacute;t
+hozz&aacute;adni a
+list&aacute;hoz.
+    
+    <p align="center"><img src="pics/kep_89.png"><br>
+
+
+Lista &aacute;llom&aacute;ny kiv&aacute;laszt&aacute;sa</p>
+
+
+  </li>
+
+
+</ul>
+
+
+<p>A megjelenő ablak a telep&iacute;t&eacute;skor
+megadott import
+k&ouml;nyvt&aacute;rra mutat (Szerviz -&gt;
+N&eacute;vjegy Import
+&aacute;llom&aacute;nyok helye), ahonnan tetsz&eacute;s
+szerint
+elnavig&aacute;lhat. <br>
+
+
+</p>
+
+
+<ul>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">T&ouml;r&ouml;l:</span>
+a list&aacute;ban szereplő f&aacute;jlok
+k&ouml;z&uuml;l lehet
+t&ouml;r&ouml;lni. T&ouml;bb elem
+kijel&ouml;l&eacute;se a megszokott m&oacute;don a
+Ctrl&nbsp;vagy Shift
+billentyűk
+haszn&aacute;lat&aacute;val lehet. A T&ouml;rl&eacute;s
+gomb
+megnyom&aacute;sa ut&aacute;n az alkalmaz&aacute;s
+megerős&iacute;t&eacute;sk&eacute;nt
+r&aacute;k&eacute;rdez, hogy
+biztosan t&ouml;r&ouml;lni szeretn&eacute;-e a
+f&aacute;jlt a
+list&aacute;b&oacute;l vagy nem.</li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Lista ment&eacute;se: </span>az
+&ouml;ssze&aacute;ll&iacute;tott
+&aacute;llom&aacute;nyok list&aacute;ja menthető el vele, a
+\mentesek&nbsp;alap&eacute;rtelmezett
+k&ouml;nyvt&aacute;rba.
+(Szerviz -&gt; N&eacute;vjegy Import
+&aacute;llom&aacute;nyok helye)&nbsp;<br>
+
+
+  </li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Ind&iacute;t&aacute;s:</span>&nbsp;a
+list&aacute;ban szereplő elemek
+alapj&aacute;n a
+program megk&iacute;s&eacute;rli beimport&aacute;lni
+egyenk&eacute;nt
+az &aacute;llom&aacute;nyok tartalm&aacute;t. Ha
+bet&ouml;lt&eacute;skor s&uacute;lyos
+import&aacute;l&aacute;si hiba
+l&eacute;p fel, akkor adott &aacute;llom&aacute;ny
+kihagy&aacute;sra
+ker&uuml;l.&nbsp;<br>
+
+
+Fontos!<br>
+
+
+Ha az import&aacute;land&oacute; &aacute;llom&aacute;ny
+adatt&iacute;pus hib&aacute;kat tartalmaz, akkor is
+megpr&oacute;b&aacute;lja a program beimport&aacute;lni. Ha
+az
+adatt&iacute;pus hiba az import&aacute;l&aacute;s
+sor&aacute;n
+lefut&oacute;
+&uacute;jrasz&aacute;m&iacute;t&aacute;sn&aacute;l
+hib&aacute;t okoz, akkor nem keletkezik import&aacute;lt
+&aacute;llom&aacute;ny.<br>
+
+
+Ha az
+import&aacute;land&oacute;&nbsp;&aacute;llom&aacute;ny
+olyan
+adatt&iacute;pus hib&aacute;kat tartalmaz, ami a
+lefut&oacute;
+&uacute;jrasz&aacute;m&iacute;t&aacute;sn&aacute;l
+nem
+okoz hib&aacute;t, akkor az import&aacute;l&aacute;s
+megt&ouml;rt&eacute;nik.<br>
+
+
+    <br>
+
+
+A művelet eredm&eacute;ny&eacute;ről a k&ouml;vetkező
+visszajelz&eacute;s &eacute;rkezik:</li>
+
+
+</ul>
+
+
+<p align="center"><img src="pics/kep_87.png"><br>
+
+
+Import&aacute;l&aacute;s log f&aacute;jl</p>
+
+
+<ul>
+
+
+  
+  <ul>
+
+
+    <li><span style="font-weight: bold;">Rendben:</span><small style="font-weight: bold;"> </small>a sikeresen
+bet&ouml;lt&ouml;tt
+&aacute;llom&aacute;ny adatai
+megjelen&iacute;t&eacute;sre
+ker&uuml;lnek az adott nyomtatv&aacute;nyban</li>
+
+
+    <li><span style="font-weight: bold;">Lista
+ment&eacute;se:</span><small style="font-weight: bold;">
+      </small>a log
+f&aacute;jt lementhető az alap&eacute;rtelmezett \naplo
+k&ouml;nyvt&aacute;rba. </li>
+
+
+  
+  </ul>
+
+
+</ul>
+
+
+<ul>
+
+
+  <li><span style="font-weight: bold;">M&eacute;gsem:</span>
+kil&eacute;p&eacute;s műveletv&eacute;gz&eacute;s
+n&eacute;lk&uuml;l</li>
+
+
+</ul>
+
+
+<h3>&Aacute;llom&aacute;ny kiment&eacute;se <img src="pics/ikon_24.png"></h3>
+
+
+<p>Az aktu&aacute;lis nyomtatv&aacute;nyt ki lehet
+menteni
+k&uuml;l&ouml;n f&aacute;jlba. A f&aacute;jl
+nev&eacute;nek
+felk&iacute;n&aacute;lja a bet&ouml;lt&ouml;tt
+nyomtatv&aacute;ny
+nev&eacute;t.</p>
+
+
+<p>Ha nem k&iacute;n&aacute;l nevet fel, akkor a
+bet&ouml;lt&ouml;tt
+nyomtatv&aacute;nyk&ouml;teg m&eacute;g nem ker&uuml;lt
+ment&eacute;sre. A <span class="label">Maszk</span>
+gombra kattintva csak a <span class="label">Szerv&iacute;z
+-&gt; Be&aacute;ll&iacute;t&aacute;sok -&gt; File
+maszkol&aacute;s</span>
+men&uuml;pont alatt be&aacute;ll&iacute;tott
+f&aacute;jln&eacute;vnek
+megfelelő nevet jelen&iacute;ti meg, ami szint&eacute;n
+tetsz&eacute;s
+szerint m&oacute;dos&iacute;that&oacute;.</p>
+
+
+<p>A kiment&eacute;sre ker&uuml;lő
+&aacute;llom&aacute;ny kiterjeszt&eacute;se <span class="path">.frm.enyk</span>
+lesz, ezt nem kell megadni. Amennyiben v&eacute;letlen&uuml;l
+be&iacute;rja a kitejeszt&eacute;st, akkor ezt a program
+ment&eacute;skor lev&aacute;gja, nem ker&uuml;l
+duplik&aacute;lva
+ment&eacute;sre. A ment&eacute;s helye a
+telep&iacute;t&eacute;skor
+megadott <span class="path">\mentesek</span>
+k&ouml;nyvt&aacute;r lesz.</p>
+
+
+<h3>&Eacute;rt&eacute;k m&aacute;sol&aacute;sa <img src="pics/ikon_25.png"></h3>
+
+
+<p>Ennek a funkci&oacute;nak a haszn&aacute;lata
+seg&iacute;ts&eacute;get ad ahhoz hogy b&aacute;rmilyen
+mező
+&eacute;rt&eacute;k&eacute;t a
+nyomtatv&aacute;nyk&ouml;teg azonos
+t&iacute;pus&uacute; &ouml;sszes
+nyomtatv&aacute;ny&aacute;ba
+belem&aacute;solja.</p>
+
+
+<p>Haszn&aacute;lata c&eacute;lszerű pl: ha a 0808AM
+nyomtatv&aacute;nyk&ouml;tegn&eacute;l a k&ouml;vetkező
+h&oacute;napban
+bevall&aacute;sra ker&uuml;lő adatok csak az időszakban
+k&uuml;l&ouml;nb&ouml;znek.</p>
+
+
+<p>Teendők: A kurzort belehelyezi abba a mezőbe, aminek a
+tartalm&aacute;t m&aacute;solni szeretn&eacute; (pl: 0808M
+időszak
+kezdete - 20080301). Megh&iacute;vja a funkci&oacute;t, ami
+r&aacute;k&eacute;rdez, hogy biztos ezt az
+&eacute;rt&eacute;ket
+szeretn&eacute; m&aacute;solni. Az igenre kattintva lefut a
+m&aacute;sol&aacute;s, azaz a p&eacute;ld&aacute;ban
+szereplő 20080301
+bele&iacute;r&oacute;dik mindegyik 0808M-es
+nyomtatv&aacute;ny időszak
+kezdet&eacute;be.</p>
+
+
+<h3>Nyomtatv&aacute;ny kiv&aacute;laszt&aacute;sa
+mező&eacute;rt&eacute;k alapj&aacute;n, az
+aktu&aacute;lis ut&aacute;ni
+nyomtatv&aacute;nyt&oacute;l kezdve <img src="pics/ikon_281.png"></h3>
+
+
+<p>Ennek a funkci&oacute;nak a haszn&aacute;lata
+seg&iacute;ts&eacute;get ad ahhoz hogy b&aacute;rmilyen
+mező
+&eacute;rt&eacute;k&eacute;t/sz&oacute;t&ouml;red&eacute;k&eacute;t
+a
+nyomtatv&aacute;nyk&ouml;teg b&aacute;rmelyik
+mezőj&eacute;ben meg
+lehet keresni.</p>
+
+
+<p>Teendők: A nyomtatv&aacute;nyk&ouml;tegben
+v&aacute;lassza ki azt a
+nyomtatv&aacute;nyt, ahonnan a keres&eacute;st
+ind&iacute;tani
+szeretn&eacute;. Ezut&aacute;n h&iacute;vja meg a
+funkci&oacute;t,
+&eacute;s a megjelenő kereső ablakba &iacute;rja be a keresendő
+&eacute;rt&eacute;ket. Az OK gomb
+lenyom&aacute;s&aacute;ra az a
+nyomtatv&aacute;ny lesz akt&iacute;v, amelyben elősz&ouml;r
+megtal&aacute;lta a keresett &eacute;rt&eacute;ket. Ha nem
+ez a
+keresett nyomtatv&aacute;ny, akkor a funkci&oacute;
+&uacute;jb&oacute;li
+megh&iacute;v&aacute;s&aacute;val tov&aacute;bb
+lehet keresni.</p>
+
+
+<p>Fontos!<br>
+
+
+Ha a kurzort belehelyezi valamelyik mezőbe(s&aacute;rga a mező),
+akkor
+csak abban a t&iacute;pus&uacute; mezőkben
+t&ouml;rt&eacute;nik a
+keres&eacute;s, ha egyik mezőben sincs benne a kurzor, akkor az
+&ouml;sszes mezőben keres.
+Seg&iacute;ts&eacute;gk&eacute;ppen a kereső
+ablak legfelső sor&aacute;ban ki&iacute;r&aacute;sra is
+ker&uuml;l,
+hogy melyik t&iacute;pus&uacute; mezőben
+t&ouml;rt&eacute;nik a
+keres&eacute;s (Keres&eacute;s a kiv&aacute;lasztott
+mezőben/Keres&eacute;s az &ouml;sszes mezőben)</p>
+
+
+<p>A keres&eacute;s
+megk&uuml;l&ouml;nb&ouml;zteti a kis &eacute;s nagy
+betűket!</p>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="1431sor"></a>
+<a name="pelda"></a>
+<h2>P&eacute;ld&aacute;k
+j&aacute;rul&eacute;kbevall&aacute;s
+l&eacute;trehoz&aacute;s&aacute;ra .dat, xml, .imp
+form&aacute;tum&uacute;
+&aacute;llom&aacute;nyokb&oacute;l.</h2>
+
+
+<p>A 0808AM nyomtatv&aacute;nyk&ouml;teg
+k&eacute;tf&eacute;le
+nyomtatv&aacute;nyt&iacute;pusb&oacute;l &aacute;ll:
+0808A &eacute;s a
+0808M. Az ABEV-ben minden nyomtatv&aacute;ny A-s &eacute;s M-es
+egyar&aacute;nt k&uuml;l&ouml;n
+nyomtatv&aacute;nyk&eacute;nt
+ker&uuml;lt t&aacute;rol&aacute;sra, &eacute;s egy
+k&uuml;l&ouml;n
+men&uuml;pont a Nyomtatv&aacute;ny
+&ouml;sszerendel&eacute;se kapcsolta
+&ouml;ssze őket.</p>
+
+
+<p>A JAVA-s nyomtatv&aacute;nykit&ouml;ltőben NINCS
+Nyomtatv&aacute;ny
+&ouml;sszerendel&eacute;se funkci&oacute;! Az
+&ouml;sszetartoz&oacute;
+nyomtatv&aacute;nyok fizikailag is ugyanabba az
+&aacute;llom&aacute;nyba ker&uuml;lnek ment&eacute;sre.</p>
+
+
+<p>Az al&aacute;bbi p&eacute;ld&aacute;k
+seg&iacute;ts&eacute;get
+ny&uacute;jtanak, hogy m&aacute;s programok &aacute;ltal
+k&eacute;sz&iacute;tett k&uuml;l&ouml;nb&ouml;ző
+form&aacute;tum&uacute; j&aacute;rul&eacute;k
+&aacute;llom&aacute;nyokb&oacute;l, hogyan tudja a java-s
+nyomtatv&aacute;nykit&ouml;ltő programmal
+elk&eacute;sz&iacute;teni
+&eacute;s feladni a j&aacute;rul&eacute;k
+bevall&aacute;s&aacute;t.</p>
+
+
+<p>FONTOS!<br>
+
+
+Ha az import&aacute;land&oacute; &aacute;llom&aacute;ny
+adatt&iacute;pus hib&aacute;kat tartalmaz, akkor is
+megpr&oacute;b&aacute;lja a program
+beimport&aacute;lni.&nbsp;<br>
+
+
+Ha az adatt&iacute;pus hiba az import&aacute;l&aacute;s
+sor&aacute;n
+lefut&oacute;
+&uacute;jrasz&aacute;m&iacute;t&aacute;sn&aacute;l
+hib&aacute;t okoz, akkor nem keletkezik import&aacute;lt
+&aacute;llom&aacute;ny.<br>
+
+
+Ha az
+import&aacute;land&oacute;&nbsp;&aacute;llom&aacute;ny
+olyan
+adatt&iacute;pus hib&aacute;kat tartalmaz, ami a
+lefut&oacute;
+&uacute;jrasz&aacute;m&iacute;t&aacute;sn&aacute;l
+nem okoz
+hib&aacute;t, akkor az import&aacute;l&aacute;s
+megt&ouml;rt&eacute;nik.<br>
+
+
+Az import&aacute;l&aacute;s ut&aacute;n
+l&eacute;trej&ouml;vő
+&aacute;llom&aacute;nyon ha ellenőrz&eacute;st futtat,
+addig nem
+jelennek meg az &ouml;sszef&uuml;gg&eacute;s
+hib&aacute;k a
+list&aacute;ban, am&iacute;g adatt&iacute;pus
+hib&aacute;t tartalmaz a
+f&aacute;jl! K&ouml;tegelt nyomtatv&aacute;ny (pl: 1008)
+eset&eacute;ben ha csak az egyik alnyomtatv&aacute;nyban (M-en)
+van
+adatt&iacute;pus hiba, akkor a t&ouml;bbi
+alnyomtatv&aacute;nyra is
+lefutnak az &ouml;sszef&uuml;gg&eacute;s
+ellenőrz&eacute;sek.</p>
+
+
+<h3>1, P&eacute;ld&aacute;k IMP kiterjeszt&eacute;sű
+&aacute;llom&aacute;nyok beemel&eacute;s&eacute;re
+IMPORT
+k&ouml;nyvt&aacute;rba m&aacute;sol&aacute;s
+n&eacute;lk&uuml;l</h3>
+
+
+<p>Ha a b&eacute;r program nem gener&aacute;l 0808A-s
+.imp nyomtatv&aacute;nyt csak 0808M .imp
+&aacute;llom&aacute;nyokat:</p>
+
+
+<ol>
+
+
+  <li>Az <span class="label">Adatok -&gt;
+&Uacute;j nyomtatv&aacute;ny megnyit&aacute;sa</span>
+men&uuml;pontban hozzon l&eacute;tre egy 0808-s
+nyomtatv&aacute;nyt a megfelelő t&ouml;rzsadatokkal</li>
+
+
+  <li><img src="pics/ikon_23.png">&Aacute;llom&aacute;ny
+beemel&eacute;se gombbal (jobb oldali ikonsor) ind&iacute;tott
+k&eacute;pernyőn az 'Importf&aacute;jl
+hozz&aacute;ad&aacute;sa'
+gombn&aacute;l adja hozz&aacute; az import&aacute;lni
+k&iacute;v&aacute;nt &aacute;llom&aacute;nyokat vagy a
+'Lista
+bet&ouml;lt&eacute;se' gombn&aacute;l
+kiv&aacute;laszthatja az
+import&aacute;lni k&iacute;v&aacute;nt .imp
+&aacute;llom&aacute;nyokat
+tartalmaz&oacute; listaf&aacute;jlt</li>
+
+
+  <li><img src="pics/ikon_33.png"> A
+főnyomtatv&aacute;ny
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa
+men&uuml;ponttal futtassa le
+a 0808A-s nyomtatv&aacute;ny adatainak
+&uacute;jrasz&aacute;m&iacute;t&aacute;s&aacute;t.</li>
+
+
+  <li><span class="label">Adatok -&gt;
+Nyomtatv&aacute;ny ment&eacute;se</span>
+men&uuml;ponttal mentse el a nyomtatv&aacute;nyt.</li>
+
+
+  <li>Ezut&aacute;n &eacute;rdemes lefutattni az <img src="pics/ikon_21.png"> <span class="label">&Ouml;sszes
+nyomtatv&aacute;ny ellenőrz&eacute;se</span> műveletet.</li>
+
+
+  <li>Az esetleges ellenőrz&eacute;si hib&aacute;k
+jav&iacute;t&aacute;sa ut&aacute;n c&eacute;lszerű a
+főnyomtatv&aacute;ny adatainak
+&uacute;jrasz&aacute;m&iacute;t&aacute;s&aacute;t
+elv&eacute;gezni,
+majd elmenteni a nyomtatv&aacute;nyt.</li>
+
+
+  <li>Amennyiben siker&uuml;lt a hib&aacute;kat
+kijav&iacute;tani a <span class="label">Kapcsolat
+az &uuml;gyf&eacute;lkapuval -&gt;
+Nyomtatv&aacute;ny
+megjel&ouml;l&eacute;se elektronikus
+bek&uuml;ld&eacute;sre</span> men&uuml;ponttal a
+nyomtatv&aacute;ny bek&uuml;ldhető.</li>
+
+
+</ol>
+
+
+<p>Ha b&eacute;r program gener&aacute;l 0808A
+&eacute;s 0808M .imp &aacute;llom&aacute;nyokat:</p>
+
+
+<ol>
+
+
+  <li>Az <span class="label">Szerv&iacute;z
+-&gt; Egyedi import&aacute;l&aacute;s</span>
+men&uuml;pontban import&aacute;lja be a 0808A-s
+t&iacute;pus&uacute; import &aacute;llom&aacute;nyt</li>
+
+
+  <li><img src="pics/ikon_23.png">&Aacute;llom&aacute;ny
+beemel&eacute;se gombbal (jobb oldali ikonsor) ind&iacute;tott
+k&eacute;pernyőn az 'Importf&aacute;jl
+hozz&aacute;ad&aacute;sa'
+gombn&aacute;l adja hozz&aacute; az import&aacute;lni
+k&iacute;v&aacute;nt &aacute;llom&aacute;nyokat vagy a
+'Lista
+bet&ouml;lt&eacute;se' gombn&aacute;l
+kiv&aacute;laszthatja az
+import&aacute;lni k&iacute;v&aacute;nt .imp
+&aacute;llom&aacute;nyokat
+tartalmaz&oacute; listaf&aacute;jlt</li>
+
+
+  <li><img src="pics/ikon_33.png"> A
+főnyomtatv&aacute;ny
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa
+men&uuml;ponttal futtassa le
+a 0808A-s nyomtatv&aacute;ny adatainak
+&uacute;jrasz&aacute;m&iacute;t&aacute;s&aacute;t.</li>
+
+
+  <li><span class="label">Adatok -&gt;
+Nyomtatv&aacute;ny ment&eacute;se</span>
+men&uuml;ponttal mentse el a nyomtatv&aacute;nyt.</li>
+
+
+  <li>Ezut&aacute;n &eacute;rdemes lefutattni az <img src="pics/ikon_21.png"> <span class="label">&Ouml;sszes
+nyomtatv&aacute;ny ellenőrz&eacute;se</span> műveletet.</li>
+
+
+  <li>Az esetleges ellenőrz&eacute;si hib&aacute;k
+jav&iacute;t&aacute;sa ut&aacute;n c&eacute;lszerű a
+főnyomtatv&aacute;ny adatainak
+&uacute;jrasz&aacute;m&iacute;t&aacute;s&aacute;t
+elv&eacute;gezni,
+majd elmenteni a nyomtatv&aacute;nyt.</li>
+
+
+  <li>Amennyiben siker&uuml;lt a hib&aacute;kat
+kijav&iacute;tani a <span class="label">Kapcsolat
+az &uuml;gyf&eacute;lkapuval -&gt;
+Nyomtatv&aacute;ny
+megjel&ouml;l&eacute;se elektronikus
+bek&uuml;ld&eacute;sre</span> men&uuml;ponttal a
+nyomtatv&aacute;ny bek&uuml;ldhető.</li>
+
+
+</ol>
+
+
+<p>R&eacute;szletes le&iacute;r&aacute;st az
+&aacute;llom&aacute;nyok beemel&eacute;s&eacute;ről az <a href="#beemel">&Aacute;llom&aacute;ny
+beemel&eacute;se</a> men&uuml;pont
+le&iacute;r&aacute;s&aacute;n&aacute;l olvashat</p>
+
+
+<h3>2, .xml kiterjeszt&eacute;sű
+j&aacute;rul&eacute;k
+&aacute;llom&aacute;ny import&aacute;l&aacute;sa IMPORT
+k&ouml;nyvt&aacute;rba m&aacute;sol&aacute;s
+n&eacute;lk&uuml;l (az
+ABEV XML file bet&ouml;lt&eacute;se szerkeszt&eacute;sre
+funkci&oacute;
+helyett)</h3>
+
+
+<ol>
+
+
+  <li><span class="label">Szerviz -&gt; Egyedi
+import&aacute;l&aacute;s</span> men&uuml;pont alatt
+be tudja import&aacute;lni a <span class="path">.xml</span>
+&aacute;llom&aacute;nyt a java-s
+nyomtatv&aacute;nykit&ouml;ltő programba.</li>
+
+
+  <li>Innentől kezdve ugyan&uacute;gy szerkesztheti, mint
+b&aacute;rmely m&aacute;s nyomtatv&aacute;nyt.</li>
+
+
+</ol>
+
+
+<h3>3, Import k&ouml;nyvt&aacute;rba m&aacute;solt
+k&uuml;l&ouml;nb&ouml;ző kiterjeszt&eacute;sű
+&aacute;llom&aacute;nyok
+import&aacute;l&aacute;sa</h3>
+
+
+<p>M&aacute;solja az &aacute;llom&aacute;nyokat a
+java-s
+nyomtatv&aacute;nykit&ouml;ltő program
+telep&iacute;t&eacute;si
+k&ouml;nyvt&aacute;ra alatt l&eacute;vő IMPORT
+k&ouml;nyvt&aacute;rba.</p>
+
+
+<p>Ind&iacute;tsa el a <span class="label">Szerv&iacute;z
+-&gt; Import&aacute;l&aacute;s</span>
+funkci&oacute;t.</p>
+
+
+<p>B&aacute;rmelyik t&iacute;pus&uacute; import
+&aacute;llom&aacute;ny
+&aacute;ll a rendelkez&eacute;s&eacute;re, javasolt az
+Import&aacute;l&aacute;s k&eacute;pernyő alj&aacute;n
+l&aacute;that&oacute; <span class="label">Lista
+&aacute;llom&aacute;ny
+k&eacute;sz&iacute;t&eacute;se az
+elk&eacute;sz&uuml;lt
+&aacute;llom&aacute;nyokr&oacute;l</span>
+jel&ouml;lő n&eacute;gyzetet bekattintani. Ennek az
+eredm&eacute;nye
+egy lista az import&aacute;l&aacute;s befejez&eacute;se
+ut&aacute;n az
+elk&eacute;sz&uuml;lt <span class="path">.frm.enyk</span>
+t&iacute;pus&uacute; f&aacute;jlokr&oacute;l.</p>
+
+
+<p>A list&aacute;t fel tudja haszn&aacute;lni az <span class="label">&Aacute;llom&aacute;nyok
+beemel&eacute;se</span> men&uuml;pontn&aacute;l.</p>
+
+
+<h3> Ha .imp kiterjeszt&eacute;sű
+j&aacute;rul&eacute;k - pl.:0808A
+&eacute;s 0808M - &aacute;llom&aacute;nyok
+&aacute;llnak a
+rendelkez&eacute;s&eacute;re</h3>
+
+
+<ol>
+
+
+  <li>M&aacute;solja az &aacute;llom&aacute;nyokat a
+java-s
+nyomtatv&aacute;nykit&ouml;ltő program
+telep&iacute;t&eacute;si
+k&ouml;nyvt&aacute;ra alatt l&eacute;vő IMPORT
+k&ouml;nyvt&aacute;rba.</li>
+
+
+  <li><span class="label">Szerviz -&gt;
+Import&aacute;l&aacute;s</span> men&uuml;pont alatt
+be tudja import&aacute;lni a rendelkez&eacute;sre
+&aacute;ll&oacute; <span class="path">.imp</span>
+&aacute;llom&aacute;nyait a java-s
+nyomtatv&aacute;nykit&ouml;ltő programba.</li>
+
+
+  <li>Ha a beimport&aacute;lt
+&aacute;llom&aacute;nyok
+k&ouml;z&ouml;tt volt 0808A-s nyomtatv&aacute;ny, akkor az
+import&aacute;l&aacute;s ut&aacute;n
+l&eacute;trej&ouml;tt <span class="path">.frm.enyk</span>
+&aacute;llom&aacute;nyok k&ouml;z&uuml;l
+v&aacute;lassza ki, &eacute;s az <span class="label">Adatok
+-&gt; Nyomtatv&aacute;ny megnyit&aacute;sa</span>
+men&uuml;pontban nyissa meg.</li>
+
+
+  <li><img src="pics/ikon_23.png">&Aacute;llom&aacute;ny
+beemel&eacute;se men&uuml;pontban adja hozz&aacute; a
+t&ouml;bbi
+import&aacute;l&aacute;s ut&aacute;n
+l&eacute;trej&ouml;tt <span class="path">.frm.enyk</span>
+&aacute;llom&aacute;nyt.</li>
+
+
+  <li><img src="pics/ikon_33.png"> A
+főnyomtatv&aacute;ny
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa
+men&uuml;ponttal futtassa le
+a 0808A-s nyomtatv&aacute;ny adatainak
+&uacute;jrasz&aacute;m&iacute;t&aacute;s&aacute;t.</li>
+
+
+  <li><span class="label">Adatok -&gt;
+Nyomtatv&aacute;ny ment&eacute;se</span>
+men&uuml;ponttal mentse el a nyomtatv&aacute;nyt.</li>
+
+
+  <li>Ezut&aacute;n &eacute;rdemes lefutattni az <img src="pics/ikon_21.png"> <span class="label">&Ouml;sszes
+nyomtatv&aacute;ny ellenőrz&eacute;se</span> műveletet.</li>
+
+
+  <li>Az esetleges ellenőrz&eacute;si hib&aacute;k
+jav&iacute;t&aacute;sa ut&aacute;n c&eacute;lszerű a
+főnyomtatv&aacute;ny adatainak
+&uacute;jrasz&aacute;m&iacute;t&aacute;s&aacute;t
+elv&eacute;gezni,
+majd elmenteni a nyomtatv&aacute;nyt.</li>
+
+
+  <li>Amennyiben siker&uuml;lt a hib&aacute;kat
+kijav&iacute;tani a <span class="label">Kapcsolat
+az &uuml;gyf&eacute;lkapuval -&gt;
+Nyomtatv&aacute;ny
+megjel&ouml;l&eacute;se elektronikus
+bek&uuml;ld&eacute;sre</span> men&uuml;ponttal a
+nyomtatv&aacute;ny bek&uuml;ldhető.</li>
+
+
+</ol>
+
+
+<h3>Ha .xml kiterjeszt&eacute;sű
+j&aacute;rul&eacute;k &aacute;llom&aacute;ny
+&aacute;ll a rendelkez&eacute;s&eacute;re.</h3>
+
+
+<p>A k&uuml;lsős program &aacute;ltal
+elő&aacute;ll&iacute;tott xml
+tartalmazza az adott c&eacute;g &ouml;sszes
+dolgoz&oacute;j&aacute;t
+&eacute;s a hozz&aacute;juk tartoz&oacute; 0808A-s
+nyomtatv&aacute;nyt.</p>
+
+
+<ol>
+
+
+  <li>M&aacute;solja az &aacute;llom&aacute;nyokat a
+java-s
+nyomtatv&aacute;nykit&ouml;ltő program
+telep&iacute;t&eacute;si
+k&ouml;nyvt&aacute;ra alatt l&eacute;vő IMPORT
+k&ouml;nyvt&aacute;rba.</li>
+
+
+  <li><span class="label">Szerviz -&gt;
+Import&aacute;l&aacute;s</span> men&uuml;pont alatt
+be tudja import&aacute;lni a bem&aacute;solt <span class="path">.xml</span>
+&aacute;llom&aacute;nyt a java-s
+nyomtatv&aacute;nykit&ouml;ltő programba.</li>
+
+
+  <li>A beimport&aacute;lt
+&aacute;llom&aacute;nyb&oacute;l
+k&eacute;sz&uuml;lt <span class="path">.frm.enyk</span>
+nyomtatv&aacute;nyt a <span class="path">Adatok
+-&gt; Nyomtatv&aacute;ny megnyit&aacute;sa</span>
+men&uuml;pontban nyissa meg.</li>
+
+
+  <li><img src="pics/ikon_33.png"> A <span class="label">Főnyomtatv&aacute;ny
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa</span>
+men&uuml;ponttal futtassa le a 0808A-s nyomtatv&aacute;ny
+adatainak
+&uacute;jrasz&aacute;m&iacute;t&aacute;s&aacute;t.</li>
+
+
+  <li><span class="path">Adatok -&gt;
+Nyomtatv&aacute;ny ment&eacute;se</span>
+men&uuml;ponttal mentse el a nyomtatv&aacute;nyt.</li>
+
+
+  <li>Ezut&aacute;n &eacute;rdemes lefutattni az <img src="pics/ikon_21.png"> <span class="label">&Ouml;sszes
+nyomtatv&aacute;ny ellenőrz&eacute;se</span> műveletet.</li>
+
+
+  <li>Az esetleges ellenőrz&eacute;si hib&aacute;k
+jav&iacute;t&aacute;sa ut&aacute;n c&eacute;lszerű a
+főnyomtatv&aacute;ny adatainak
+&uacute;jrasz&aacute;m&iacute;t&aacute;s&aacute;t
+elv&eacute;gezni,
+majd elmenteni a nyomtatv&aacute;nyt.</li>
+
+
+  <li>Amennyiben siker&uuml;lt a hib&aacute;kat
+kijav&iacute;tani a <span class="label">Kapcsolat
+az &uuml;gyf&eacute;lkapuval -&gt;
+Nyomtatv&aacute;ny
+megjel&ouml;l&eacute;se elektronikus
+bek&uuml;ld&eacute;sre</span> men&uuml;ponttal a
+nyomtatv&aacute;ny bek&uuml;ldhető.</li>
+
+
+</ol>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="1435sor"></a>
+<a name="pelda"></a>
+<h2>XML &aacute;llom&aacute;ny
+megjel&ouml;l&eacute;se &eacute;s megtekint&eacute;se</h2>
+
+
+<p>Ha <span class="path">.xml</span>
+kiterjeszt&eacute;sű
+j&aacute;rul&eacute;k &aacute;llom&aacute;ny
+&aacute;ll a
+rendelkez&eacute;s&eacute;re de NEM akarja
+beimport&aacute;lni a java-s
+nyomtatv&aacute;nykit&ouml;ltő programba</p>
+
+
+<ol>
+
+
+  <li>Az <span class="path">.xml</span>
+&aacute;llom&aacute;nyt az <span class="label">Adatok
+-&gt; XML &aacute;llom&aacute;ny megtekint&eacute;se</span>
+men&uuml;pontban v&aacute;lassza ki &eacute;s a
+f&aacute;jl adattartalm&aacute;t meg tudja tekinteni.</li>
+
+
+  <li>Az <span class="path">.xml</span>
+&aacute;llom&aacute;nyt az <span class="label">Adatok
+-&gt; XML &aacute;llom&aacute;ny ellenőrz&eacute;s</span><span style="font-weight: bold;" class="label">e</span>
+    <span class="label" style="font-weight: bold;">&eacute;s
+&aacute;tad&aacute;sa elektronikus
+bek&uuml;ld&eacute;sre</span> men&uuml;pontban
+v&aacute;lassza ki.</li>
+
+
+  <li>A nyomtatv&aacute;ny leellenőrz&eacute;se
+ut&aacute;n eld&ouml;nthető, hogy
+elk&eacute;sz&iacute;ti-e a <span class="path">.kr</span>
+file-t, vagy megszak&iacute;tja az &aacute;llom&aacute;ny
+megjel&ouml;l&eacute;s&eacute;t.</li>
+
+
+</ol>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="1432sor"></a>
+<a name="parancs"></a>
+<h2>Parancssori import</h2>
+
+
+<p>Lehetős&eacute;ge van parancssorosan ind&iacute;tani
+az import
+funkci&oacute;t. N&eacute;gy f&eacute;le
+form&aacute;tum&uacute;
+importot tud kezelni a program:</p>
+
+
+<ul>
+
+
+  <li>ABEV &aacute;llom&aacute;ny (<span class="path">.dat,
+.abv</span>.) </li>
+
+
+  <li>XML &aacute;llom&aacute;ny (<span class="path">.xml</span>)
+  </li>
+
+
+  <li>XKR &aacute;llom&aacute;ny (<span class="path">.xkr</span>)
+    <br>
+
+
+Az XKR form&aacute;tum&aacute;ban teljesen megegyezik az XML
+form&aacute;tum&aacute;val. Saj&aacute;t
+kiterjeszt&eacute;st kapnak a
+bet&ouml;lthető XML &aacute;llom&aacute;nyok. </li>
+
+
+  <li>import &aacute;llom&aacute;ny (<span class="path">.imp</span>)</li>
+
+
+</ul>
+
+
+<p>FONTOS!<br>
+
+
+Ha az import&aacute;land&oacute; &aacute;llom&aacute;ny
+adatt&iacute;pus hib&aacute;kat tartalmaz, akkor is
+megpr&oacute;b&aacute;lja a program
+beimport&aacute;lni.&nbsp;<br>
+
+
+Ha az adatt&iacute;pus hiba az import&aacute;l&aacute;s
+sor&aacute;n
+lefut&oacute;
+&uacute;jrasz&aacute;m&iacute;t&aacute;sn&aacute;l
+hib&aacute;t okoz, akkor nem keletkezik import&aacute;lt
+&aacute;llom&aacute;ny.<br>
+
+
+Ha az
+import&aacute;land&oacute;&nbsp;&aacute;llom&aacute;ny
+olyan
+adatt&iacute;pus hib&aacute;kat tartalmaz, ami a
+lefut&oacute;
+&uacute;jrasz&aacute;m&iacute;t&aacute;sn&aacute;l
+nem okoz
+hib&aacute;t, akkor az import&aacute;l&aacute;s
+megt&ouml;rt&eacute;nik.<br>
+
+
+Az import&aacute;l&aacute;s ut&aacute;n
+l&eacute;trej&ouml;vő
+&aacute;llom&aacute;nyon ha ellenőrz&eacute;st futtat,
+addig nem
+jelennek meg az &ouml;sszef&uuml;gg&eacute;s
+hib&aacute;k a
+list&aacute;ban, am&iacute;g adatt&iacute;pus
+hib&aacute;t tartalmaz a
+f&aacute;jl! K&ouml;tegelt nyomtatv&aacute;ny (pl: 1008)
+eset&eacute;ben ha csak az egyik alnyomtatv&aacute;nyban (M-en)
+van
+adatt&iacute;pus hiba, akkor a t&ouml;bbi
+alnyomtatv&aacute;nyra is
+lefutnak az &ouml;sszef&uuml;gg&eacute;s
+ellenőrz&eacute;sek. </p>
+
+
+<h3>1, Parancssori import kezel&eacute;se
+megjelen&iacute;t&eacute;s n&eacute;lk&uuml;l</h3>
+
+
+<p>Ebben az esetben az import&aacute;land&oacute;
+&aacute;llom&aacute;nyt(okat) listaf&aacute;jlban sorolja
+fel.
+</p>
+
+
+<p>Egy lista &aacute;llom&aacute;ny
+k&uuml;l&ouml;nb&ouml;ző
+form&aacute;tum&uacute; &aacute;llom&aacute;nyokat is
+tartalmazhat
+(ak&aacute;r egyszerre is).</p>
+
+
+<p>A parancs form&aacute;tuma: <span class="path">abevjava_start.bat
+"cmd:file.import listaf&aacute;jlneve"</span></p>
+
+
+<dl>
+
+
+  <dt>abevjava_start.bat:</dt>
+
+
+  <dd> az ind&iacute;t&oacute;
+&aacute;llom&aacute;ny neve</dd>
+
+
+  <dt>cmd:file.import:</dt>
+
+
+  <dd> a parancssori import kapcsol&oacute;</dd>
+
+
+  <dt>"listaf&aacute;ljlneve":</dt>
+
+
+  <dd> annak az &aacute;llom&aacute;nynak a neve, amely
+tartalmazza az
+import&aacute;llom&aacute;nyok neveit,
+el&eacute;r&eacute;si
+&uacute;ttal ha sz&uuml;ks&eacute;ges.</dd>
+
+
+</dl>
+
+
+<p>Az import lista &eacute;s az import
+&aacute;llom&aacute;nyok helye
+b&aacute;rhol lehet, nem sz&uuml;ks&eacute;ges a program
+telep&iacute;t&eacute;sekor megadott import
+k&ouml;nyvt&aacute;rba
+m&aacute;solni őket, de ekkor az el&eacute;r&eacute;si
+&uacute;t
+megad&aacute;sa sz&uuml;ks&eacute;ges a lista
+&aacute;llom&aacute;ny
+nev&eacute;nek megad&aacute;sa előtt!</p>
+
+
+<p>Ha NEM el&eacute;r&eacute;si &uacute;ttal adja meg
+a lista
+f&aacute;jl nev&eacute;t &eacute;s a lista
+f&aacute;jlban sem
+el&eacute;r&eacute;si &uacute;ttal szerepelnek az
+import&aacute;land&oacute; f&aacute;jlok , akkor a program
+a java-s
+nyomtatv&aacute;nykit&ouml;ltő program import
+k&ouml;nyvt&aacute;r&aacute;ban (Szerv&iacute;z
+-&gt; N&eacute;vjegy) keresi a lista
+&aacute;llom&aacute;nyt &eacute;s az
+import&aacute;land&oacute; &aacute;llom&aacute;nyt
+egyar&aacute;nt.</p>
+
+
+<p>Ha el&eacute;r&eacute;si &uacute;ttal adja meg a
+lista f&aacute;jl
+nev&eacute;t &eacute;s a lista f&aacute;jlban nem
+el&eacute;r&eacute;si
+&uacute;ttal szerepelnek az import&aacute;land&oacute;
+f&aacute;jlok ,
+akkor a program a lista &aacute;llom&aacute;nyt &eacute;s a
+list&aacute;ban el&eacute;r&eacute;si &uacute;t
+n&eacute;lk&uuml;l
+megadott import&aacute;land&oacute;
+&aacute;llom&aacute;nyokat
+egyar&aacute;nt a lista&aacute;llom&aacute;ny
+el&eacute;r&eacute;si
+k&ouml;nyvt&aacute;r&aacute;ban keresi.</p>
+
+
+<p>P&eacute;lda import k&ouml;nyvt&aacute;rba
+elhelyezett &aacute;llom&aacute;nyok
+import&aacute;l&aacute;s&aacute;ra:</p>
+
+
+<p><span class="path">abevjava_start.bat
+"cmd:file.import import_lista.txt"</span></p>
+
+
+<p align="center"><img src="pics/kep_80.png"><br>
+
+
+import_lista.txt tartalma el&eacute;r&eacute;si &uacute;t
+n&eacute;lk&uuml;l</p>
+
+
+<p align="center"><img src="pics/kep_81.png"><br>
+
+
+P&eacute;lda parancssori ind&iacute;t&aacute;sra</p>
+
+
+<p>P&eacute;lda nem a java-s
+nyomtatv&aacute;nykit&ouml;ltő program
+import k&ouml;nyvt&aacute;r&aacute;ba elhelyezett
+&aacute;llom&aacute;nyok beemel&eacute;s&eacute;re:</p>
+
+
+<p><span class="path">abevjava_start.bat
+"cmd:file.import c:\mentesek\import_lista.txt"</span></p>
+
+
+<p align="center"><img src="pics/kep_82.png"><br>
+
+
+import_lista.txt tartalma el&eacute;r&eacute;si &uacute;ttal</p>
+
+
+<p align="center"><img src="pics/kep_79.png"><br>
+
+
+Parancssori import befejez&eacute;se ut&aacute;n megjelenő
+eredm&eacute;nylista</p>
+
+
+<p>A k&eacute;pernyőn megjelenő eredm&eacute;ny lista nem
+ker&uuml;l automatikusan ment&eacute;sre, de a <span class="label">Lista ment&eacute;se</span> gombbal
+ez a művelet elv&eacute;gezhető.</p>
+
+
+<p>FIGYELEM!<br>
+
+
+A lista legutols&oacute; sor&aacute;ban
+ki&iacute;r&aacute;sra
+ker&uuml;l, hogy milyen n&eacute;ven ker&uuml;lt
+ment&eacute;sre az
+elk&eacute;sz&uuml;lt &aacute;llom&aacute;nyok
+list&aacute;ja. Erre a
+list&aacute;ra hivatkozva egyszerűbben emelheti be az
+&aacute;llom&aacute;nyokat a csoportos műveletekn&eacute;l,
+vagy a
+j&aacute;rul&eacute;k nyomtatv&aacute;nyok
+kezel&eacute;s&eacute;n&eacute;l az <span class="label">&Aacute;llom&aacute;nyok
+beemel&eacute;se</span> men&uuml;pontban.</p>
+
+
+<h3>2, Parancssori import egyedi
+&aacute;llom&aacute;nyokra,
+megjelen&iacute;t&eacute;ssel</h3>
+
+
+<p>A java-s nyomtatv&aacute;nykit&ouml;ltő program
+bet&ouml;lti a
+nyomtatv&aacute;nyt &eacute;s felt&ouml;lti a megadott
+import
+f&aacute;jl tartalm&aacute;val. A nyomtatv&aacute;ny a
+kit&ouml;ltőben
+a megszokott m&oacute;don tov&aacute;bb szerkeszthető,
+ellenőrizhető
+stb.</p>
+
+
+<p>A parancs form&aacute;tuma: <span class="path">abevjava_start.bat
+"cmd:file.import
+import&aacute;land&oacute;_&aacute;llom&aacute;ny"</span></p>
+
+
+<dl>
+
+
+  <dt>abevjava_start.bat:</dt>
+
+
+  <dd> az ind&iacute;t&oacute;
+&aacute;llom&aacute;ny neve</dd>
+
+
+  <dt>cmd:file.import:</dt>
+
+
+  <dd> a parancssori import kapcsol&oacute;</dd>
+
+
+  <dt>"import&aacute;land&oacute;_&aacute;llom&aacute;ny":</dt>
+
+
+  <dd> az import&aacute;land&oacute;
+&aacute;llom&aacute;ny neve, kiterjeszt&eacute;ssel
+egy&uuml;tt</dd>
+
+
+</dl>
+
+
+<p>Az import &aacute;llom&aacute;ny helye
+b&aacute;rhol lehet, nem
+sz&uuml;ks&eacute;ges a program
+telep&iacute;t&eacute;sekor megadott
+import k&ouml;nyvt&aacute;rba m&aacute;solni őket, de ekkor
+az
+el&eacute;r&eacute;si &uacute;t megad&aacute;sa
+sz&uuml;ks&eacute;ges!</p>
+
+
+<p>Ha NEM el&eacute;r&eacute;si &uacute;ttal adja meg
+az
+import&aacute;land&oacute; &aacute;llom&aacute;ny
+nev&eacute;t, akkor a
+program a java-s nyomtatv&aacute;nykit&ouml;ltő program import
+k&ouml;nyvt&aacute;r&aacute;ban keresi az
+&aacute;llom&aacute;nyt.</p>
+
+
+<p>P&eacute;lda import k&ouml;nyvt&aacute;rba
+elhelyezett &aacute;llom&aacute;ny
+import&aacute;l&aacute;s&aacute;ra:</p>
+
+
+<p><span class="path">abevjava_start.bat
+"cmd:file.import 08VAMO_1227616844951.imp"</span></p>
+
+
+<p>P&eacute;lda nem a java-s
+nyomtatv&aacute;nykit&ouml;ltő program
+import k&ouml;nyvt&aacute;r&aacute;ba elhelyezett
+&aacute;llom&aacute;nyok beemel&eacute;s&eacute;re:</p>
+
+
+<p><span class="path">abevjava_start.bat
+"cmd:file.import
+D:\abevjava\naplo\0808A_11111111111_c&eacute;gteszt_1231249313315.imp"</span></p>
+
+
+<p align="center"><img src="pics/kep_91.png"><br>
+
+
+P&eacute;lda import f&aacute;jl parancssori
+bet&ouml;lt&eacute;s&eacute;re</p>
+
+
+<p>Amennyiben az import&aacute;l&aacute;s
+sor&aacute;n hiba l&eacute;p
+fel, akkor a k&eacute;pernyőn eredm&eacute;ny lista jelenik
+meg. Ez a
+lista nem ker&uuml;l automatikusan ment&eacute;sre. A <span class="label">Lista ment&eacute;se</span> gombbal
+ez a művelet elv&eacute;gezhető.</p>
+
+
+<h3>3, Parancssori import j&aacute;rul&eacute;k
+t&iacute;pus&uacute;
+&aacute;llom&aacute;nyokra,
+megjelen&iacute;t&eacute;ssel
+(egyszerűs&iacute;tett import)</h3>
+
+
+<p>A lista&aacute;llom&aacute;nyban szereplő imp
+&aacute;llom&aacute;nyokat ("..08A", "..08M"
+t&iacute;pus&uacute;
+bizonylatok) beimport&aacute;lja &eacute;s &ouml;sszefűzi
+egy
+nyomtatv&aacute;nyk&ouml;tegg&eacute;. Csak egy
+&aacute;llom&aacute;ny
+keletkezik. Csak j&aacute;rul&eacute;k bevall&aacute;sra
+haszn&aacute;lhat&oacute; ez a fajta
+bet&ouml;lt&eacute;s.
+A nyomtatv&aacute;ny a kit&ouml;ltőben a megszokott
+m&oacute;don
+tov&aacute;bb szerkeszthető, ellenőrizhető, feladhat&oacute;. </p>
+
+
+<p>A parancs form&aacute;tuma: <span class="path">abevjava_start.bat
+"cmd:file.multiimport lista_f&aacute;jln&eacute;v"</span></p>
+
+
+<ul>
+
+
+  <li><b>abevjava_start.bat:</b> Az
+ind&iacute;t&oacute; &aacute;llom&aacute;ny neve</li>
+
+
+  <li><b>cmd:file.multiimport:</b> A parancssori
+import kapcsol&oacute;</li>
+
+
+  <li><b>lista_f&aacute;jln&eacute;v:</b> A
+lista &aacute;llom&aacute;ny neve el&eacute;r&eacute;si
+&uacute;ttal.</li>
+
+
+</ul>
+
+
+<h4>A lista f&aacute;jl tartalma</h4>
+
+
+<p> A "..08A"-s &eacute;s "..08M"-es imp
+form&aacute;tum&uacute;
+&aacute;llom&aacute;nyok neveit kell felsorolni. Nem
+k&ouml;telező hogy
+a lista tartalmazzon "..08A"-s bizonylatot. Ha nem tartalmaz, akkor a
+"..08A"-s bizonylat amit a program l&eacute;trehoz &uuml;res
+lesz. </p>
+
+
+<p><b>Ha a lista tartalmaz "..08A"-s bizonylatot akkor
+annak a lista első elem&eacute;nek kell lennie.</b></p>
+
+
+<p>Az import lista &eacute;s az import
+&aacute;llom&aacute;nyok helye
+b&aacute;rhol lehet, nem sz&uuml;ks&eacute;ges a program
+telep&iacute;t&eacute;sekor megadott import
+k&ouml;nyvt&aacute;rba
+m&aacute;solni őket, de ekkor az el&eacute;r&eacute;si
+&uacute;t
+megad&aacute;sa sz&uuml;ks&eacute;ges a lista
+&aacute;llom&aacute;ny
+nev&eacute;nek megad&aacute;sa előtt!</p>
+
+
+<p>Ha NEM el&eacute;r&eacute;si &uacute;ttal adja meg
+a lista
+f&aacute;jl nev&eacute;t &eacute;s a lista
+f&aacute;jlban sem
+el&eacute;r&eacute;si &uacute;ttal szerepelnek az
+import&aacute;land&oacute; f&aacute;jlok , akkor a program
+a java-s
+nyomtatv&aacute;nykit&ouml;ltő program import
+k&ouml;nyvt&aacute;r&aacute;ban keresi az
+&aacute;llom&aacute;nyokat(lista
+&aacute;llom&aacute;nyt &eacute;s az
+import&aacute;land&oacute; &aacute;llom&aacute;nyt
+egyar&aacute;nt).</p>
+
+
+<p>Ha el&eacute;r&eacute;si &uacute;ttal adja meg a
+lista f&aacute;jl
+nev&eacute;t &eacute;s a lista f&aacute;jlban nem
+el&eacute;r&eacute;si
+&uacute;ttal szerepelnek az import&aacute;land&oacute;
+f&aacute;jlok ,
+akkor a program a lista &aacute;llom&aacute;nyt &eacute;s a
+list&aacute;ban el&eacute;r&eacute;si &uacute;t
+n&eacute;lk&uuml;l
+megadott import&aacute;land&oacute;
+&aacute;llom&aacute;nyokat
+egyar&aacute;nt a lista&aacute;llom&aacute;ny
+el&eacute;r&eacute;si
+k&ouml;nyvt&aacute;r&aacute;ban keresi.</p>
+
+
+<h4>P&eacute;lda
+j&aacute;rul&eacute;kt&iacute;pus&uacute;
+&aacute;llom&aacute;nyok beemel&eacute;s&eacute;re</h4>
+
+
+<p><span class="path">abevjava_start.bat
+"cmd:file.multiimport D:\berprogram\ceg\lista.txt"</span></p>
+
+
+<p>A p&eacute;ld&aacute;ban megadott esetben a
+lista.txt-t a
+D:\berprogram\ceg k&ouml;nyvt&aacute;rban keresi, azokkal az
+&aacute;llom&aacute;nyokkal egy&uuml;tt amelyek előtt a
+list&aacute;ban
+nem szerepelt el&eacute;r&eacute;si &uacute;t. Amelyik imp
+&aacute;llom&aacute;ny el&eacute;r&eacute;si
+&uacute;ttal szerepel,
+azokat a megadott el&eacute;r&eacute;si
+&uacute;tr&oacute;l emeli be.</p>
+
+
+<p>Az import&aacute;l&aacute;s befejez&eacute;se
+ut&aacute;n a
+k&eacute;pernyőn eredm&eacute;ny lista jelenik meg.
+&Aacute;llom&aacute;nyonk&eacute;nt
+inform&aacute;ci&oacute;t ad az
+import&aacute;l&aacute;s
+eredm&eacute;nyess&eacute;g&eacute;ről.
+</p>
+
+
+<p>A bet&ouml;lt&eacute;skor az importn&aacute;l
+szok&aacute;sos
+&uacute;jrasz&aacute;m&iacute;t&aacute;s
+elv&eacute;gzi a program. A
+program a bet&ouml;lt&eacute;s ut&aacute;n nem
+v&eacute;gez
+ment&eacute;st. Ha az import&aacute;l&aacute;s pl. nem
+megfelelő
+adatokat tartalmaz akkor z&aacute;rja be a nyomtatv&aacute;nyt
+&eacute;s a feltett k&eacute;rd&eacute;sre hogy mentse-e a
+program
+nem-el v&aacute;laszolva, semmilyen &aacute;llom&aacute;ny
+nem
+keletkezik.</p>
+
+
+<p>Ha megfelelőek az adatok akkor ind&iacute;that&oacute;
+a
+Nyomtatv&aacute;nyok megjel&ouml;l&eacute;se elektronikus
+bek&uuml;ld&eacute;sre men&uuml;pont. Ez elmenti a
+nyomtatv&aacute;nyt,
+lefuttatja az ellenőrz&eacute;st &eacute;s megjel&ouml;li
+felad&aacute;sra az &aacute;llom&aacute;nyt.</p>
+
+
+<p style="text-align: justify;">Figyelem!<br>
+
+
+A Szerviz -&gt; Be&aacute;ll&iacute;t&aacute;sok
+Friss&iacute;t&eacute;s f&uuml;l&ouml;n az <b style="">Automatikus friss&iacute;t&eacute;sek
+enged&eacute;lyez&eacute;sek funkci&oacute;nk&eacute;nt</b>
+men&uuml;pontonk&eacute;nt
+hi&aacute;ba van enged&eacute;lyezve, enn&eacute;l a
+funkci&oacute;n&aacute;l figyelmen k&iacute;v&uuml;l
+marad, teh&aacute;t ebben
+az esetben <b style="">nem t&ouml;rt&eacute;nik
+meg az
+automatikus friss&iacute;t&eacute;s!</b><o:p></o:p></p>
+
+
+<p><a href="jarulekbevallasok_kezelese_a_nyomtatvany_kitoltoben.htm#teteje">Lap
+teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a>
+| <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="1432sor"></a>
+<a name="parancs"></a>
+<h2>Xml &aacute;llom&aacute;nyok kezel&eacute;se
+parancssori funkci&oacute;val</h2>
+
+
+Lehetős&eacute;ge van parancssorosan xml
+&aacute;llom&aacute;nyok
+kezel&eacute;s&eacute;re.
+<h3>Parancssori funkci&oacute;: xml
+&aacute;llom&aacute;ny szerkeszt&eacute;se</h3>
+
+
+A java-s nyomtatv&aacute;nykit&ouml;ltő program megnyitja az
+xml
+&aacute;llom&aacute;nyt szerkeszt&eacute;sre a
+felhaszn&aacute;l&oacute; g&eacute;p&eacute;n
+tal&aacute;lhat&oacute;
+legfrissebb sablonnal. Az xml &aacute;llom&aacute;ny a
+kit&ouml;ltőben
+a megszokott m&oacute;don tov&aacute;bb szerkeszthető,
+ellenőrizhető
+stb.
+<p>A parancs form&aacute;tuma: <span class="path">abevjava_start.bat
+"cmd:open.xml szerkeszthető_&aacute;llom&aacute;ny.xml"</span></p>
+
+
+<dl>
+
+
+  <dt>abevjava_start.bat:</dt>
+
+
+  <dd> az ind&iacute;t&oacute;
+&aacute;llom&aacute;ny neve</dd>
+
+
+  <dt>cmd:open.xml:</dt>
+
+
+  <dd> a parancssori funkci&oacute; neve</dd>
+
+
+  <dt>"szerkeszthető_&aacute;llom&aacute;ny.xml":</dt>
+
+
+  <dd> a szerkeszt&eacute;sre megnyithat&oacute; xml
+&aacute;llom&aacute;ny neve (kiterjeszt&eacute;ssel
+egy&uuml;tt)</dd>
+
+
+</dl>
+
+
+<p>A szerkeszteni kiv&aacute;lasztott
+&aacute;llom&aacute;ny helye b&aacute;rhol lehet, nem
+sz&uuml;ks&eacute;ges a program
+telep&iacute;t&eacute;sekor megadott import
+k&ouml;nyvt&aacute;rba m&aacute;solni, de ekkor az
+el&eacute;r&eacute;si &uacute;t megad&aacute;sa
+sz&uuml;ks&eacute;ges!</p>
+
+
+<p>Ha NEM el&eacute;r&eacute;si &uacute;ttal adja meg
+a megnyit&aacute;sra ker&uuml;lő &aacute;llom&aacute;ny
+nev&eacute;t, akkor
+a program a java-s nyomtatv&aacute;nykit&ouml;ltő program
+import k&ouml;nyvt&aacute;r&aacute;ban
+keresi az &aacute;llom&aacute;nyt.</p>
+
+
+<p>FONTOS!<br>
+
+
+Ha az import&aacute;land&oacute; &aacute;llom&aacute;ny
+adatt&iacute;pus hib&aacute;kat tartalmaz, akkor is
+megpr&oacute;b&aacute;lja a program bet&ouml;lteni.<br>
+
+
+<br>
+
+
+A bet&ouml;lt&eacute;s ut&aacute;n
+l&eacute;trej&ouml;vő
+&aacute;llom&aacute;nyon ha ellenőrz&eacute;st futtat,
+addig nem
+jelennek meg az &ouml;sszef&uuml;gg&eacute;s
+hib&aacute;k a
+list&aacute;ban, am&iacute;g adatt&iacute;pus
+hib&aacute;t tartalmaz a
+f&aacute;jl! K&ouml;tegelt nyomtatv&aacute;ny (pl: 1008)
+eset&eacute;ben ha csak az egyik alnyomtatv&aacute;nyban (M-en)
+van
+adatt&iacute;pus hiba, akkor a t&ouml;bbi
+alnyomtatv&aacute;nyra is
+lefutnak az &ouml;sszef&uuml;gg&eacute;s
+ellenőrz&eacute;sek.</p>
+
+
+<p>P&eacute;lda import k&ouml;nyvt&aacute;rba
+elhelyezett &aacute;llom&aacute;ny
+import&aacute;l&aacute;s&aacute;ra:</p>
+
+
+<p><span class="path">abevjava_start.bat
+"cmd:open.xml 1008_pelda.xml"</span></p>
+
+
+<p>P&eacute;lda nem a java-s
+nyomtatv&aacute;nykit&ouml;ltő program
+import k&ouml;nyvt&aacute;r&aacute;ba elhelyezett
+&aacute;llom&aacute;ny szerkeszt&eacute;sre val&oacute;
+megnyit&aacute;s&aacute;ra:</p>
+
+
+<p><span class="path">abevjava_start.bat
+"cmd:open.xml
+D:\teszt_adatok\naplo\1008A_11111111111_c&eacute;gteszt_1231249313315.xml"</span></p>
+
+
+<h3>Parancssori funkci&oacute;: xml
+&aacute;llom&aacute;ny ellenőrz&eacute;se grafikus
+fel&uuml;let n&eacute;lk&uuml;l</h3>
+
+
+A megadott xml &aacute;llom&aacute;nyt leellenőrizheti a
+felhaszn&aacute;l&oacute; g&eacute;p&eacute;n
+tal&aacute;lhat&oacute;
+legfrissebb sablonnal an&eacute;lk&uuml;l, hogy a
+nyomtatv&aacute;nykit&ouml;ltő program grafikus
+fel&uuml;lete
+megjelenne. Az ellenőrz&eacute;s eredm&eacute;nye
+bele&iacute;r&oacute;dik a parancssorban megadott txt
+&aacute;llom&aacute;nyba.
+<p>A parancs form&aacute;tuma: <span class="path">abevjava_start.bat
+"cmd:check.xml.silent
+szerkeszthető_&aacute;llom&aacute;ny.xml;hiba.txt"</span></p>
+
+
+<dl>
+
+
+  <dt>abevjava_start.bat:</dt>
+
+
+  <dd> az ind&iacute;t&oacute;
+&aacute;llom&aacute;ny neve</dd>
+
+
+  <dt>cmd:check.xml.silent:</dt>
+
+
+  <dd> a parancssori funkci&oacute; neve</dd>
+
+
+  <dt>"szerkeszthető_&aacute;llom&aacute;ny.xml":</dt>
+
+
+  <dd> a szerkeszt&eacute;sre megnyithat&oacute; xml
+&aacute;llom&aacute;ny neve (kiterjeszt&eacute;ssel
+egy&uuml;tt)</dd>
+
+
+  <dt>"hiba.txt":</dt>
+
+
+  <dd> ellenőrz&eacute;s eredm&eacute;ny&eacute;t
+tartalmaz&oacute; txt
+&aacute;llom&aacute;ny neve (felhaszn&aacute;l&oacute;
+adja meg
+kiterjeszt&eacute;ssel egy&uuml;tt)</dd>
+
+
+</dl>
+
+
+<p>Az ellenőrz&eacute;sre kiv&aacute;lasztott
+&aacute;llom&aacute;ny helye b&aacute;rhol lehet, nem
+sz&uuml;ks&eacute;ges a program
+telep&iacute;t&eacute;sekor megadott import
+k&ouml;nyvt&aacute;rba m&aacute;solni, de ekkor az
+el&eacute;r&eacute;si &uacute;t megad&aacute;sa
+sz&uuml;ks&eacute;ges!</p>
+
+
+<p>Ha NEM el&eacute;r&eacute;si &uacute;ttal adja meg
+az ellenőrizendő xml &aacute;llom&aacute;ny nev&eacute;t,
+akkor
+a program a java-s nyomtatv&aacute;nykit&ouml;ltő program
+import k&ouml;nyvt&aacute;r&aacute;ban
+keresi az &aacute;llom&aacute;nyt.</p>
+
+
+<p>Az .xml
+&aacute;llom&aacute;ny &ouml;sszef&uuml;gg&eacute;s
+hib&aacute;i addig nem
+jelennek meg a
+list&aacute;ban, am&iacute;g adatt&iacute;pus
+hib&aacute;t tartalmaz a
+f&aacute;jl! K&ouml;tegelt nyomtatv&aacute;ny (pl: 1008)
+eset&eacute;ben ha csak az egyik alnyomtatv&aacute;nyban (M-en)
+van
+adatt&iacute;pus hiba, akkor a t&ouml;bbi
+alnyomtatv&aacute;nyra is
+lefutnak az &ouml;sszef&uuml;gg&eacute;s
+ellenőrz&eacute;sek.</p>
+
+
+<p>P&eacute;lda import k&ouml;nyvt&aacute;rba
+elhelyezett xml &aacute;llom&aacute;ny
+ellenőrz&eacute;s&eacute;re:</p>
+
+
+<p><span class="path">abevjava_start.bat "cmd:</span><span class="path">check.xml.silent</span><span class="path"> 1008_pelda.xml;eredmeny.txt"</span></p>
+
+
+<p>P&eacute;lda&nbsp;a java-s
+nyomtatv&aacute;nykit&ouml;ltő program
+nem import k&ouml;nyvt&aacute;r&aacute;ba elhelyezett
+&aacute;llom&aacute;ny ellenőrz&eacute;s&eacute;re: (a
+txt
+&aacute;llom&aacute;ny ugyanabban a
+k&ouml;nyvt&aacute;rban j&ouml;n
+l&eacute;tre, mint ahol az xml &aacute;llom&aacute;ny van)</p>
+
+
+<p><span class="path">abevjava_start.bat "cmd:</span><span class="path">check.xml.silent</span><span class="path">
+D:\teszt_adatok\naplo\1008A_11111111111_c&eacute;gteszt_1231249313315.xml;</span><span class="path">c&eacute;gteszt_1231249313315.txt</span><span class="path">"</span></p>
+
+
+<p><span class="path">Fontos!</span></p>
+
+
+<p>- Az xml &aacute;llom&aacute;nyt &eacute;s az
+eredm&eacute;ny
+list&aacute;t tartalmaz&oacute; txt file-t pontos vesszővel
+v&aacute;lassza el.</p>
+
+
+<p>- Az eredm&eacute;nyt tartalmaz&oacute; txt
+&aacute;llom&aacute;ny első sora mindig az al&aacute;bbi
+adatokat tartalmazza:</p>
+
+
+<p>"Ellenőrizendő xml &aacute;llom&aacute;ny neve
+el&eacute;r&eacute;si
+&uacute;ttal;programverzi&oacute;;sablon
+azonos&iacute;t&oacute;;sablon
+verzi&oacute;"</p>
+
+
+<p>&nbsp;&nbsp;&nbsp; Az
+&aacute;llom&aacute;ny utols&oacute; sora: &gt;
+V&eacute;ge</p>
+
+
+<p><img style="width: 849px; height: 179px;" alt="" title="Ellenőrz&eacute;si lista" src="pics/kep_102.png"></p>
+
+
+<h3><a href="#teteje">
+</a>Parancssori funkci&oacute;: xml
+&aacute;llom&aacute;ny nyomtat&aacute;sa pdf
+form&aacute;tumba, grafikus fel&uuml;let
+n&eacute;lk&uuml;l<span style="font-size: 11pt; font-family: Verdana;"></span></h3>
+
+
+<span style="font-size: 11pt; font-family: Verdana;">A
+megadott .xml &aacute;llom&aacute;nyt kinyomtathatja
+a felhaszn&aacute;l&oacute; g&eacute;p&eacute;n
+tal&aacute;lhat&oacute;
+legfrissebb sablonnal an&eacute;lk&uuml;l, hogy a
+nyomtatv&aacute;nykit&ouml;ltő program grafikus
+fel&uuml;lete
+megjelenne. A nyomtat&aacute;skor
+keletkező .pdf
+&aacute;llom&aacute;ny/&aacute;llom&aacute;nyok
+el&eacute;r&eacute;si &uacute;tvonala
+bele&iacute;r&oacute;dik a
+parancssorban
+megadott .txt &aacute;llom&aacute;nyba. Az &iacute;gy
+nyomtat&aacute;sra ker&uuml;lő .xml
+&aacute;llom&aacute;nyok nem
+ker&uuml;lnek ellenőrz&eacute;sre.<o:p></o:p><br>
+
+
+</span>
+<br>
+
+<span style="font-size: 11pt; font-family: Verdana;"></span>
+<span style="font-size: 11pt; font-family: Verdana;">A parancs
+form&aacute;tuma: <o:p></o:p></span>
+<br>
+
+<span class="path1"><span style="font-size: 11pt;">abevjava_start.bat
+"cmd:pdf.print.xml.silent
+&aacute;llom&aacute;nyn&eacute;v;eredm&eacute;ny.txt"<o:p></o:p></span></span>
+<br>
+
+<i><span style="font-size: 11pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></i>
+<br>
+
+<b style=""><span style="font-size: 11pt; font-family: Verdana;">abevjava_start.bat:
+</span></b><span style="font-size: 11pt; font-family: Verdana;">az
+ind&iacute;t&oacute; &aacute;llom&aacute;ny neve <b style=""><span style=""><o:p></o:p></span></b></span>
+<br>
+
+<b style=""><span style="font-size: 11pt; font-family: Verdana;">cmd:pdf.print.xml.silent:
+</span></b><span style="font-size: 11pt; font-family: Verdana;">a parancssori
+funkci&oacute; neve <b style=""><span style=""><o:p></o:p></span></b></span>
+<br>
+
+<b style=""><span style="font-size: 11pt; font-family: Verdana;">"&aacute;llom&aacute;nyn&eacute;v"
+</span></b><span style="font-size: 11pt; font-family: Verdana;">k&eacute;tf&eacute;le
+lehet<b style=""><span style="">: <o:p></o:p></span></b></span>
+<ul>
+
+
+  <li><span style="font-size: 11pt; font-family: Wingdings;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;</span></span></span><span style="font-size: 11pt; font-family: Verdana;">.xml
+&aacute;llom&aacute;ny neve (kiterjeszt&eacute;ssel
+egy&uuml;tt) , amiből .pdf &aacute;llom&aacute;nyt szeretne
+k&eacute;sz&iacute;teni.<b style=""><span style=""><o:p></o:p></span></b></span><span style="font-size: 11pt; font-family: Wingdings;"><span style=""></span></span></li>
+
+
+  <li><span style="font-size: 11pt; font-family: Wingdings;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;</span></span></span><span style="font-size: 11pt; font-family: Verdana;">lista
+&aacute;llom&aacute;ny neve (kiterjeszt&eacute;ssel
+egy&uuml;tt). A lista &aacute;llom&aacute;nynak
+tartalmaznia kell
+azoknak az .xml f&aacute;jloknak a nev&eacute;t, amelyekből
+.pdf &aacute;llom&aacute;nyt szeretne nyomtatni.<b style=""><span style=""><o:p></o:p></span></b></span></li>
+
+
+</ul>
+
+
+<b style=""><span style="font-size: 11pt; font-family: Verdana;">"eredm&eacute;ny.txt":
+.</span></b><span style="font-size: 11pt; font-family: Verdana;">pdf
+&aacute;llom&aacute;ny el&eacute;r&eacute;si
+&uacute;tvonal&aacute;t
+tartalmaz&oacute; .txt &aacute;llom&aacute;ny neve
+(felhaszn&aacute;l&oacute; adja meg kiterjeszt&eacute;ssel
+egy&uuml;tt). A
+legener&aacute;lt pdf &aacute;llom&aacute;nyok a
+kit&ouml;ltő program
+\naplo k&ouml;nyvt&aacute;r&aacute;ba j&ouml;nnek
+l&eacute;tre. <b style=""><span style=""><o:p></o:p></span></b></span>
+<br>
+
+<span style="font-size: 11pt; font-family: Verdana;">A
+.pdf k&eacute;sz&iacute;t&eacute;sre
+kiv&aacute;lasztott .xml
+&aacute;llom&aacute;ny(&aacute;llom&aacute;nyok) vagy
+lista
+&aacute;llom&aacute;ny
+helye b&aacute;rhol lehet, nem sz&uuml;ks&eacute;ges a
+program
+telep&iacute;t&eacute;sekor megadott \import
+k&ouml;nyvt&aacute;rba
+m&aacute;solni, de ekkor az el&eacute;r&eacute;si
+&uacute;t
+megad&aacute;sa sz&uuml;ks&eacute;ges!<o:p></o:p></span>
+<br>
+
+<span style="font-size: 11pt; font-family: Verdana;">Ha
+NEM el&eacute;r&eacute;si &uacute;ttal adja meg az .xml
+&aacute;llom&aacute;ny(&aacute;llom&aacute;nyok) vagy
+lista
+&aacute;llom&aacute;ny nev&eacute;t,
+akkor a program a java-s nyomtatv&aacute;nykit&ouml;ltő program
+\import
+k&ouml;nyvt&aacute;r&aacute;ban keresi
+az &aacute;llom&aacute;nyt.<o:p></o:p></span>
+<br>
+
+<span style="font-size: 11pt; font-family: Verdana;">P&eacute;lda
+import k&ouml;nyvt&aacute;rba elhelyezett .xml
+&aacute;llom&aacute;ny .pdf
+k&eacute;sz&iacute;t&eacute;s&eacute;re:<o:p></o:p></span>
+<br>
+
+<big><big><span class="path1"><span style="font-size: 10pt;">abevjava_start.bat
+"cmd</span></span><span class="path1"><span style="font-size: 10pt; font-weight: normal;">:</span></span><span class="path1"><span style="font-size: 10pt;">pdf.print.xml.silent
+1008_pelda.xml;eredm&eacute;ny_1.txt"</span></span></big></big><span style="font-size: 10pt; font-weight: normal;"><o:p></o:p></span>
+<br>
+
+<span style="font-size: 11pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span>
+<br>
+
+<span style="font-size: 11pt; font-family: Verdana;">P&eacute;lda&nbsp;a
+java-s
+nyomtatv&aacute;nykit&ouml;ltő program nem \import
+k&ouml;nyvt&aacute;r&aacute;ba elhelyezett
+&aacute;llom&aacute;ny .pdf
+&aacute;llom&aacute;ny
+k&eacute;sz&iacute;t&eacute;s&eacute;re<o:p></o:p></span>
+<ul>
+
+
+  <li><span style="font-size: 11pt; font-family: Wingdings;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><span style="font-size: 11pt; font-family: Verdana;">a
+.txt &aacute;llom&aacute;ny ugyanabban a
+k&ouml;nyvt&aacute;rban j&ouml;n l&eacute;tre, mint
+ahol az .xml &aacute;llom&aacute;ny
+van</span><span style="font-size: 11pt; font-family: Verdana;"></span></li>
+
+
+  <li><span style="font-size: 11pt; font-family: Verdana;">a
+legener&aacute;lt .pdf &aacute;llom&aacute;nyok a
+kit&ouml;ltő program
+\naplo k&ouml;nyvt&aacute;r&aacute;ba j&ouml;nnek
+l&eacute;tre.<o:p></o:p></span></li>
+
+
+</ul>
+
+
+<span class="path1"><span style="font-size: 10pt;">abevjava_start.bat
+"cmd: pdf.print.xml.silent
+D:\teszt_adatok\naplo\1008A_11111111111_c&eacute;gteszt_1231249313315.xml;eredmeny_2.txt"<o:p></o:p></span></span>
+<br>
+
+<span style="font-size: 11pt; font-weight: normal;"><o:p>&nbsp;</o:p></span>
+<br>
+
+<span style="font-size: 11pt; font-family: Verdana;">P&eacute;lda
+import k&ouml;nyvt&aacute;rba elhelyezett lista
+&aacute;llom&aacute;nyban
+felsorolt .xml &aacute;llom&aacute;nyokb&oacute;l .pdf
+f&aacute;jlok
+k&eacute;sz&iacute;t&eacute;s&eacute;re:<o:p></o:p></span>
+<br>
+
+<span class="path1"><span style="font-size: 10pt;">abevjava_start.bat
+"cmd</span></span><span class="path1"><span style="font-size: 10pt; font-weight: normal;">:</span></span><span class="path1"><span style="font-size: 10pt;">pdf.print.xml.silent
+pelda.txt;eredmeny_3.txt"</span></span><span style="font-size: 10pt; font-weight: normal;"><o:p></o:p></span>
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 11pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="Normal-verdana-sg" style="margin: 0cm 0cm 0.0001pt; text-align: left;" align="left"><span style="font-size: 11pt; font-weight: normal;">pelda.txt
+&aacute;llom&aacute;ny tartalma:<o:p></o:p></span></p>
+
+
+<p class="Normal-verdana-sg" style="margin: 0cm 0cm 0.0001pt; text-align: left;" align="left"><span style="font-size: 11pt; font-weight: normal;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>teszt1.xml<o:p></o:p></span></p>
+
+
+<p class="Normal-verdana-sg" style="margin: 0cm 0cm 0.0001pt; text-align: left;" align="left"><span style="font-size: 11pt; font-weight: normal;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>c:\users\teszt2.xml<o:p></o:p></span></p>
+
+
+<p class="Normal-verdana-sg" style="margin: 0cm 0cm 0.0001pt; text-align: left;" align="left"><span style="font-size: 11pt; font-weight: normal;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1042_teszt3.xml<o:p></o:p></span></p>
+
+
+<p class="Normal-verdana-sg" style="margin: 0cm 0cm 0.0001pt; text-align: left;" align="left"><span style="font-size: 11pt; font-weight: normal;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="Normal-verdana-sg" style="margin: 0cm 0cm 0.0001pt;"><span class="path1"><span style="font-size: 11pt;">Fontos!</span></span><span style="font-size: 11pt; font-weight: normal;"><o:p></o:p></span></p>
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 11pt; font-family: Verdana;">Az .xml
+&aacute;llom&aacute;nyt/lista &aacute;llom&aacute;nyt
+&eacute;s az eredm&eacute;ny list&aacute;t
+tartalmaz&oacute; .txt file-t pontos vesszővel v&aacute;lassza
+el.<o:p></o:p></span></p>
+
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: Verdana;">Ha
+a .pdf k&eacute;sz&iacute;t&eacute;s sor&aacute;n
+valamilyen hiba l&eacute;p fel, akkor keletkezik az
+eredm&eacute;ny
+list&aacute;t tartalmaz&oacute; k&ouml;nyvt&aacute;rban
+egy &bdquo;<b style=""><span style="">eredm&eacute;ny_hiba.txt&rdquo;
+</span></b>&aacute;llom&aacute;ny a
+hiba le&iacute;r&aacute;s&aacute;val.</span></p>
+
+
+<p style="text-align: justify;">Figyelem!<br>
+
+
+A Szerviz -&gt; Be&aacute;ll&iacute;t&aacute;sok
+Friss&iacute;t&eacute;s f&uuml;l&ouml;n az <b style="">Automatikus friss&iacute;t&eacute;sek
+enged&eacute;lyez&eacute;sek funkci&oacute;nk&eacute;nt</b>
+men&uuml;pontonk&eacute;nt
+hi&aacute;ba van enged&eacute;lyezve, enn&eacute;l a
+funkci&oacute;n&aacute;l figyelmen k&iacute;v&uuml;l
+marad, teh&aacute;t ebben
+az esetben <b style="">nem t&ouml;rt&eacute;nik
+meg az
+automatikus friss&iacute;t&eacute;s!</b><o:p></o:p></p>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="nagyxml"></a>
+<h2>Nagy XML &aacute;llom&aacute;nyok kezel&eacute;se</h2>
+
+
+<h3>Nagy &aacute;llom&aacute;nyok kezel&eacute;st
+t&aacute;mogat&oacute; funkci&oacute;k:</h3>
+
+
+<ul>
+
+
+  <li>Xml &aacute;llom&aacute;ny megnyit&aacute;sa
+szerkeszt&eacute;sre</li>
+
+
+  <li>XML &aacute;llom&aacute;ny ment&eacute;se</li>
+
+
+  <li>XML &aacute;llom&aacute;ny
+bez&aacute;r&aacute;sa</li>
+
+
+  <li>XML &aacute;llom&aacute;ny megnyit&aacute;sa
+megtekint&eacute;sre</li>
+
+
+  <li>XML &aacute;llom&aacute;nyok
+&ouml;sszem&aacute;sol&aacute;sa</li>
+
+
+  <li>XML &aacute;llom&aacute;ny ellenőrz&eacute;se
+&eacute;s &aacute;tad&aacute;sa elektronikus
+bek&uuml;ld&eacute;sre</li>
+
+
+</ul>
+
+
+A program az 1.4.0-&aacute;s verzi&oacute;t&oacute;l
+t&aacute;mogatja
+teljes k&ouml;r&uuml;en az xml műveleteket. Az XML
+megnyit&aacute;sa
+szerkeszt&eacute;sre funkci&oacute; ettől a
+verzi&oacute;t&oacute;l nem
+import funkci&oacute;k&eacute;nt &uuml;zemel, mint
+kor&aacute;bban.
+Ennek k&ouml;vetkezt&eacute;ben ment&eacute;sre csak az XML
+&aacute;llom&aacute;ny ment&eacute;se men&uuml;pontban
+van
+lehetős&eacute;g.
+<ol>
+
+
+  <li><span class="label">Mem&oacute;riakezel&eacute;s</span></li>
+
+
+</ol>
+
+
+Nagy adatt&ouml;meg kezel&eacute;se eset&eacute;n - 5000 db
+r&eacute;szbizonylat f&ouml;l&ouml;tt - a programnak
+t&ouml;bb
+mem&oacute;ri&aacute;ra van sz&uuml;ks&eacute;ge. A
+mem&oacute;ria
+be&aacute;ll&iacute;t&aacute;s&aacute;n&aacute;l a
+k&ouml;vetkezőket
+kell szem előtt tartani:
+<br>
+
+
+A program 256 Mb mem&oacute;ri&aacute;val indul
+alap&eacute;rtelmez&eacute;sben.
+<br>
+
+
+Nem elegendő a sz&aacute;m&iacute;t&oacute;g&eacute;p
+mem&oacute;ri&aacute;j&aacute;t bőv&iacute;teni, a
+program
+ind&iacute;t&oacute; szkriptj&eacute;t is
+m&oacute;dos&iacute;tani
+kell.
+<br>
+
+
+A m&oacute;dos&iacute;t&aacute;s ut&aacute;n
+&uacute;jra kell
+ind&iacute;tani a programot, mert a
+m&oacute;dos&iacute;t&aacute;sok
+csak ut&aacute;na l&eacute;pnek &eacute;letbe.
+<br>
+
+
+Nagy adatt&ouml;meg eset&eacute;n 512 Mb mem&oacute;ria
+felhaszn&aacute;l&aacute;s
+enged&eacute;lyez&eacute;s&eacute;vel
+javasolt a program ind&iacute;t&aacute;sa.
+Be&aacute;ll&iacute;t&aacute;s az al&aacute;bbiakban
+l&aacute;that&oacute;.
+<br>
+
+
+A g&eacute;p fizikai mem&oacute;ri&aacute;j&aacute;nak
+&eacute;s
+program sz&aacute;m&aacute;ra enged&eacute;lyezett
+mem&oacute;ria
+felhaszn&aacute;l&aacute;snak &ouml;sszehangban kell lennie
+az
+al&aacute;bbiak tekintet&eacute;ben. 512 Mb mem&oacute;ria
+enged&eacute;lyez&eacute;se eset&eacute;n
+legal&aacute;bb 1 Gb fizikai
+mem&oacute;ri&aacute;val kell rendelkeznie a g&eacute;pnek,
+hogy az
+oper&aacute;ci&oacute;s rendszer &eacute;s az
+egy&eacute;b programok
+sz&aacute;m&aacute;ra is maradjon elegendő fizikai
+mem&oacute;ria. Ha
+ez nem teljes&uuml;l, akkor a program sokkal lassabban fog
+műk&ouml;dik, mert a rendszer a mem&oacute;ria
+tartalm&aacute;t a
+merevlemezre '&iacute;rja' &eacute;s onnan 'olvassa'. <br>
+
+
+<br>
+
+
+<h3>A program &aacute;ltal
+felhaszn&aacute;lhat&oacute; mem&oacute;ria
+be&aacute;ll&iacute;t&aacute;sa:</h3>
+
+
+<li>A java-s nyomtatv&aacute;nykit&ouml;ltő program
+k&ouml;nyvt&aacute;r&aacute;ban
+tal&aacute;lhat&oacute; setenv.bat
+&aacute;llom&aacute;ny. Telep&iacute;t&eacute;skor a
+tartalma:</li>
+
+
+<br>
+
+
+@REM ECHO OFF
+<br>
+
+
+@SET MEMORY_OPTS=-Xms128m -Xmx256m
+<br>
+
+
+@SET TUNING_OPTS=
+<li>Nyissa meg egy sz&ouml;vegszerkesztőben &eacute;s
+m&oacute;dos&iacute;tsa a k&ouml;vetkezők&eacute;ppen
+&eacute;s mentse el:</li>
+
+
+<br>
+
+
+@REM ECHO OFF
+<br>
+
+
+@SET MEMORY_OPTS=-Xms512m -Xmx512m
+<br>
+
+
+@SET TUNING_OPTS=
+<br>
+
+
+<br>
+
+
+<h3>M&eacute;r&eacute;si eredm&eacute;nyek</h3>
+
+
+<ul>
+
+
+Tesztg&eacute;p param&eacute;terei: <li>CPU: 3,00 GHz</li>
+
+
+  <li>Mem&oacute;ria: 1 GB RAM</li>
+
+
+  <li>WIN XP oper&aacute;ci&oacute;s rendszer</li>
+
+
+  <li>1.6_03 java verzi&oacute;</li>
+
+
+  <li>A java-s nyomtatv&aacute;nykit&ouml;ltő programnak
+enged&eacute;lyezett mem&oacute;ria 512 MB (l&aacute;sd
+fent)</li>
+
+
+</ul>
+
+
+<table>
+
+
+  <tbody>
+
+
+    <tr>
+
+
+      <td></td>
+
+
+      <td> 30.000 r&eacute;szbizonylat</td>
+
+
+      <td> 90.000 r&eacute;szbizonylat</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td>XML &aacute;llom&aacute;ny
+megnyit&aacute;sa szerkeszt&eacute;sre
+(&aacute;llom&aacute;ny bet&ouml;lt&eacute;se)</td>
+
+
+      <td>
+      
+      <p align="center">35 perc</p>
+
+
+      </td>
+
+
+      <td>
+      
+      <p align="center">115 perc</p>
+
+
+      </td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td> - &Ouml;sszes nyomtatv&aacute;ny
+ellenőrz&eacute;se</td>
+
+
+      <td>
+      
+      <p align="center">18 perc</p>
+
+
+      </td>
+
+
+      <td>
+      
+      <p align="center">54 perc</p>
+
+
+      </td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td> - Főnyomtatv&aacute;ny
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa</td>
+
+
+      <td>
+      
+      <p align="center">9 perc</p>
+
+
+      </td>
+
+
+      <td>
+      
+      <p align="center">43 perc</p>
+
+
+      </td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td> - XML &aacute;llom&aacute;ny ment&eacute;se</td>
+
+
+      <td>
+      
+      <p align="center">30 perc</p>
+
+
+      </td>
+
+
+      <td>
+      
+      <p align="center">95 perc</p>
+
+
+      </td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td>XML &aacute;llom&aacute;ny
+ellenőrz&eacute;se &eacute;s &aacute;tad&aacute;sa
+elektronikus bek&uuml;ld&eacute;sre</td>
+
+
+      <td>
+      
+      <p align="center">61 perc</p>
+
+
+      </td>
+
+
+      <td>
+      
+      <p align="center">189 perc</p>
+
+
+      </td>
+
+
+    </tr>
+
+
+  
+  </tbody>
+</table>
+
+
+<h3 style="margin: 5pt 3.75pt;"><br>
+
+
+<span style="font-family: Verdana;"></span></h3>
+
+
+<h3 style="margin: 5pt 3.75pt;"><span style="font-family: Verdana;">Időig&eacute;nyes műveletek<o:p></o:p></span></h3>
+
+
+Az al&aacute;bb felsorolt funkci&oacute;k haszn&aacute;lata
+nagy xml
+&aacute;llom&aacute;nyok
+szerkeszt&eacute;s&eacute;n&eacute;l
+lass&uacute;:
+<ul>
+
+
+  <li>Nyomtat&aacute;s: A
+Nyomtat&aacute;s előtt mindig lefut a teljes ellenőrz&eacute;s</li>
+
+
+  <li>&Eacute;rt&eacute;k m&aacute;sol&aacute;sa:
+A
+m&aacute;soland&oacute; &eacute;rt&eacute;k
+&aacute;tm&aacute;sol&aacute;sa gyors, de a
+m&aacute;sol&aacute;s
+ut&aacute;n &uacute;jrasz&aacute;m&iacute;tja a program
+a mezőket.</li>
+
+
+  <li>Nyomtatv&aacute;ny kiv&aacute;laszt&aacute;sa
+mező&eacute;rt&eacute;k alapj&aacute;n: Helyette a
+nyomtatv&aacute;nyokat tartalmaz&oacute;
+&eacute;rt&eacute;klista előtt
+tal&aacute;lhat&oacute; 'Nyomtatv&aacute;nyok'
+gomb haszn&aacute;lata javasolt.(Itt a megszokott m&oacute;don
+rendez&eacute;ssel, szűr&eacute;ssel tud keresni a
+nyomtatv&aacute;nyok
+k&ouml;z&ouml;tt)</li>
+
+
+  <br>
+
+
+</ul>
+
+
+<h3 style="margin: 5pt 7.5pt;"><span style="font-family: Verdana;">Param&eacute;ter
+be&aacute;ll&iacute;t&aacute;si lehetős&eacute;g<o:p></o:p></span></h3>
+
+
+<p class="MsoNormal" style="margin-left: 9pt;"><span style="font-family: Verdana;">Ha
+azt szeretn&eacute;, hogy xml &aacute;llom&aacute;ny
+megnyit&aacute;sa szerkeszt&eacute;sre művelet sor&aacute;n
+a
+folyamat v&eacute;g&eacute;t &uuml;zenettel jelezze a
+program, akkor ezt a k&ouml;vetkező param&eacute;ter
+be&aacute;ll&iacute;t&aacute;s&aacute;val teheti meg:<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 9pt; text-align: justify;"><span style="font-family: Verdana;">A
+nyomtatv&aacute;nykit&ouml;ltő program
+ind&iacute;t&aacute;si
+k&ouml;nyvt&aacute;r&aacute;ban
+tal&aacute;lhat&oacute; cfg.enyk &aacute;llom&aacute;ny
+utols&oacute;
+sor&aacute;ba &iacute;rja be a k&ouml;vetkezőt:
+xml_loaded_dialog=igen<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 9pt; text-align: justify;"><span style="font-family: Verdana;">A program
+&uacute;jraind&iacute;t&aacute;sa ut&aacute;n az
+al&aacute;bbi &uuml;zenet fog
+megjelenni xml &aacute;llom&aacute;ny megnyit&aacute;sa
+ut&aacute;n:<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: center;" align="center"><img style="width: 407px; height: 122px;" alt="" title="&uuml;zenet" src="pics/kiskep_264.png"></p>
+
+
+<ul>
+
+
+  <br>
+
+
+  <br>
+
+
+</ul>
+
+
+</body>
+</html>

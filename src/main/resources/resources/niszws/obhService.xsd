@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://nisz.hu/obhservice/1.0"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="qualified"
+			targetNamespace="http://nisz.hu/obhservice/1.0">
+
+	<xsd:element name="obhServiceRequest" type="obhServiceRequestType"/>
+	<xsd:element name="obhServiceResponse" type="obhServiceResponseType"/>
+
+	<xsd:complexType name="obhServiceRequestType">
+		<xsd:sequence>
+			<xsd:element name="uid" type="string50" />
+			<xsd:element name="sender" type="string50" />
+			<xsd:element name="documents">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="document" maxOccurs="unbounded" type="document" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="obhServiceResponseType">
+		<xsd:sequence>
+			<xsd:element name="originalUid" type="string50" />
+			<xsd:choice>
+				<!-- Either list of signed documents -->
+				<xsd:element name="documents">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="document" maxOccurs="unbounded" type="signedDocument" />
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<!-- or error -->
+				<xsd:element name="error" type="error" />
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="document">
+		<xsd:sequence>
+			<xsd:element name="docType" type="string255" />
+			<xsd:element name="docBytes" type="xsd:base64Binary" />
+			<xsd:element name="fileName" type="string255" />
+			<xsd:element name="mimeType" type="string255" />
+			<xsd:element name="signerType" type="signerTypeEnum" />
+			<xsd:element name="fileInResponse" type="xsd:boolean" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- 
+	ANYK_OBH_LENYOMAT doctype esetén a docBytes ban csak az 
+	alábbi mintához hasonló XML tartalom lehet, utf-8 kódolással:
+	<document>
+		<fileName>jegyzokonyv.doc</fileName>
+		<hashAlgorithm>SHA-256</hashAlgorithm>
+		<hash>7cd995a82c5d3d9eacfaa8438bc20c75f55067d932f077c02c3577679c9831c5</hash>
+	</document>
+	  Sémája:
+	<xsd:element name="document">
+		<xsd:sequence>
+			<xsd:element name="fileName" type="string255" />
+			<xsd:element name="hashAlgorithm" type="string255" />
+			<xsd:element name="hash" type="string255" />
+		</xsd:sequence>
+	</xsd:complexType>
+ 	-->
+
+	<xsd:complexType name="signedDocument">
+		<xsd:sequence>
+			<xsd:element name="originalFileName" type="string255" />
+			<xsd:element name="docBytes" type="xsd:base64Binary" minOccurs="0"/>
+			<xsd:element name="fileName" type="string255" />
+			<xsd:element name="mimeType" type="string255" />
+			<xsd:element name="signerType" type="signerTypeEnum" />
+			<xsd:element name="documentId" type="string100" />
+			<xsd:element name="documentUrl" type="string2000" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="error">
+		<xsd:sequence>
+			<xsd:element name="errorCode" type="string100" />
+			<xsd:element name="errorMessage" type="string255" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="signerTypeEnum">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ASiC" />
+			<xsd:enumeration value="PAdES" />
+			<xsd:enumeration value="XAdES" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="string50">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string100">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string255">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="255"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string600">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="600"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string2000">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="2000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+</xsd:schema>

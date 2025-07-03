@@ -1,0 +1,780 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+  
+  <meta http-equiv="Content-Type" content="text/htm; charset=utf-8">
+
+  
+
+
+  
+  <title>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program S&uacute;g&oacute;</title>
+  <style type="text/css">
+BODY {font-family:verdana; font-size:12pt; margin:5px;}
+H1 {font-size: 15pt;}
+H2 {font-size: 14pt; font-weight:bold; border-bottom: 2px solid;}
+H3 {font-size: 13pt; font-weight:bold; font-style:italic;}
+H4 {font-size: 12pt; font-weight:bold;}
+H5 {font-size: 12pt; font-weight:bold; font-style:italic;}
+H6 {font-size: 11pt; font-weight:bold;}
+TABLE {font-size: 12pt; border-collapse: collapse; clear: both;}
+TD {border: 1px solid #666666; padding: 2px;}
+DT {font-style:italic;}
+.label {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+.path {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+  </style>
+</head>
+
+
+<body lang="hu">
+
+
+<a name="teteje"></a>
+<h1>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program
+S&uacute;g&oacute;</h1>
+
+
+<h2>H&aacute;l&oacute;zatos
+telep&iacute;t&eacute;s&nbsp;Windows&nbsp;&eacute;s
+<span class="SpellE">Linux</span>
+oper&aacute;ci&oacute;s rendszereken</h2>
+
+
+<p>A program nem haszn&aacute;lja a Registry-t. A program
+h&aacute;rom
+k&ouml;nyvt&aacute;rstrukt&uacute;r&aacute;t
+haszn&aacute;l, melyek a k&ouml;vetkezők:<br>
+
+
+(Ettől r&eacute;szletesebb inform&aacute;ci&oacute;kat a
+k&ouml;nyvt&aacute;rszerkezetről az NAV port&aacute;lon
+tal&aacute;l.)</p>
+
+
+<h3>1. Programk&ouml;nyvt&aacute;r</h3>
+
+
+Ide ker&uuml;lnek a programot műk&ouml;dtető
+&aacute;llom&aacute;nyok.
+<ul>
+
+
+  <li>Helye Windows eset&eacute;n: <span class="path">&lt;windir
+k&ouml;rnyezeti
+v&aacute;ltoz&oacute;&gt;\abevjavapath.cfg</span><br>
+
+
+k&ouml;z&eacute;rthetőbben: abban a mapp&aacute;ban ahova a
+Windows telep&iacute;tve van. (T&ouml;bbnyire C:/WINDOWS)</li>
+
+
+  <li>Helye Linux eset&eacute;n: <span class="path">/etc/abevjavapath.cfg</span></li>
+
+
+</ul>
+
+
+<h3>2. Adatk&ouml;nyvt&aacute;r</h3>
+
+
+<p>Ide ker&uuml;lnek a felhaszn&aacute;l&oacute;i
+be&aacute;ll&iacute;t&aacute;sok,
+kit&ouml;lt&ouml;tt nyomtatv&aacute;nyok,
+t&ouml;rzsadatok, stb.</p>
+
+
+<ul>
+
+
+  <li>Helye Windows eset&eacute;n: <span class="path">&lt;felhaszn&aacute;l&oacute;
+home
+k&ouml;nyvt&aacute;ra&gt;\.abevjava\&lt;felhaszn&aacute;l&oacute;n&eacute;v&gt;.enyk</span><br>
+
+
+k&ouml;z&eacute;rthetőbben: a felhaszn&aacute;l&oacute;
+szem&eacute;lyes mapp&aacute;ja. (T&ouml;bbnyire
+C:\Documents and
+Settings\felhaszn&aacute;l&oacute;n&eacute;v\)</li>
+
+
+  <li>Helye Linux eset&eacute;n: <span class="path">/home/felhaszn&aacute;l&oacute;n&eacute;v/abevjavapath.cfg</span></li>
+
+
+</ul>
+
+
+<h3>3. Elektronikus felad&aacute;s
+k&ouml;nyvt&aacute;ra</h3>
+
+
+<p>Ide ker&uuml;lnek az elektronikus felad&aacute;sra
+sz&aacute;nt nyomtatv&aacute;nyok.</p>
+
+
+<ul>
+
+
+  <li>Minden esetben: Az Elektronikus felad&aacute;s
+k&ouml;nyvt&aacute;r&aacute;t a KRDIR k&ouml;ryezeti
+v&aacute;ltoz&oacute; t&aacute;rolja.</li>
+
+
+</ul>
+
+
+<p><strong>Hogy n&eacute;zheti meg a
+k&ouml;rnyezeti v&aacute;ltoz&oacute;k
+&eacute;rt&eacute;k&eacute;t?</strong></p>
+
+
+<p>Windows-on: Kattintson a Start &gt;
+Be&aacute;ll&iacute;t&aacute;sok &gt;
+Vez&eacute;rlőpult &gt; Rendszer ikonra. A felugr&oacute;
+ablakban v&aacute;lassza a Speci&aacute;lis f&uuml;let,
+majd alul a K&ouml;rnyezeti v&aacute;ltoz&oacute;k gombot.
+A felny&iacute;l&oacute; ablakban l&aacute;thatja a
+felhaszn&aacute;l&oacute;i &eacute;s rendszerszintű
+k&ouml;rnyezeti v&aacute;ltoz&oacute;kat is.</p>
+
+
+A nyomtatv&aacute;nykit&ouml;ltő program &aacute;ltal
+haszn&aacute;lt KRDIR k&ouml;rnyezeti
+v&aacute;ltoz&oacute;t a felhaszn&aacute;l&oacute;i
+k&ouml;rnyezeti v&aacute;ltoz&oacute;k
+k&ouml;z&ouml;tt tal&aacute;lja! (Amennyiben a
+kor&aacute;bbi ABEV is telep&iacute;tve volt vagy van, akkor a
+rendszerv&aacute;ltoz&oacute;k k&ouml;z&ouml;tti is
+tal&aacute;l egy KRDIR-t, ezt a kor&aacute;bbi ABEV
+haszn&aacute;lja.)
+<p>Linux-on: Egy termin&aacute;l ablakban adja ki az "env |
+grep KRDIR" parancsot.</p>
+
+
+<p>A h&aacute;rom
+k&ouml;nyvt&aacute;rstrukt&uacute;ra b&aacute;rmelyike
+egyedileg &aacute;l&iacute;that&oacute;, &iacute;gy
+ak&aacute;r h&aacute;l&oacute;zati meghajt&oacute;ra
+helyezhető. N&eacute;h&aacute;ny lehets&eacute;ges
+felhaszn&aacute;l&aacute;si m&oacute;d.</p>
+
+
+<ul>
+
+
+  <li>A h&aacute;l&oacute;zati meghajt&oacute;n mind
+a h&aacute;rom k&ouml;nyvt&aacute;r
+k&ouml;z&ouml;s, minden felhaszn&aacute;l&oacute;
+sz&aacute;m&aacute;ra. A t&ouml;bbi
+felhaszn&aacute;l&oacute; &aacute;llom&aacute;nyait is
+megn&eacute;zheti, m&oacute;dos&iacute;thatja. Ha a
+h&aacute;l&oacute;zati meghajt&oacute;, ahol a Program
+k&ouml;nyvt&aacute;rat elhelyezte nem
+&iacute;r&aacute;sv&eacute;dett, akkor b&aacute;rmelyik
+felhaszn&aacute;l&oacute; friss&iacute;theti a programot,
+nyomtatv&aacute;nyokat, dokument&aacute;ci&oacute;t.</li>
+
+
+  <li>A Program k&ouml;nyvt&aacute;r
+k&ouml;z&ouml;s a h&aacute;l&oacute;zati
+meghajt&oacute;n, esetleg felhaszn&aacute;l&oacute; szintű
+jogosults&aacute;gokkal v&eacute;dett, vagy a rendszergazda
+sz&aacute;m&aacute;ra &iacute;rhat&oacute; csak. Az
+Adatk&ouml;nyvt&aacute;r &eacute;s az Elektronikus
+felad&aacute;s k&ouml;nyvt&aacute;ra
+felhaszn&aacute;l&oacute; szintű
+k&ouml;nyvt&aacute;rakban h&aacute;l&oacute;zati
+meghajt&oacute;n tal&aacute;lhat&oacute;. </li>
+
+
+  <li>Az is be&aacute;ll&iacute;that&oacute;, hogy az
+Adatk&ouml;nyvt&aacute;r egyedi legyen a
+h&aacute;l&oacute;zaton minden
+felhaszn&aacute;l&oacute;nak, az Elektronikus
+felad&aacute;s k&ouml;nyvt&aacute;ra pedig
+k&ouml;z&ouml;s. (Mindenki csak a saj&aacute;t
+&aacute;llom&aacute;nyait l&aacute;tja, az
+&uuml;gyf&eacute;lkapun t&ouml;rt&eacute;nő
+konkr&eacute;t felad&aacute;st egy arra kijel&ouml;lt
+felhaszn&aacute;l&oacute; v&eacute;gzi.) </li>
+
+
+  <li>Ha az Elektronikus felad&aacute;s
+k&ouml;nyvt&aacute;ra egyedi
+(felhaszn&aacute;l&oacute;nk&eacute;nt
+k&uuml;l&ouml;nb&ouml;ző), akkor az
+Adatk&ouml;nyvt&aacute;rnak is egyedinek kell lenni. Ellenkező
+esetben a programnak az &aacute;llom&aacute;nyok
+&aacute;llapot&aacute;r&oacute;l
+('Elk&uuml;ld&ouml;tt') bizonyos esetekben nem lesz
+inform&aacute;ci&oacute;ja. </li>
+
+
+</ul>
+
+
+<p>A fenti lehetős&eacute;gek k&ouml;z&ouml;tt annyi
+a k&uuml;l&ouml;nbs&eacute;g, hogy a kor&aacute;bban
+eml&iacute;tett k&ouml;nyvt&aacute;rak - program, adat
+&eacute;s elektronikus felad&aacute;s -
+be&aacute;ll&iacute;t&aacute;sa hogyan
+t&ouml;rt&eacute;nik.</p>
+
+
+<h2>H&aacute;l&oacute;zatos
+telep&iacute;t&eacute;s menete</h2>
+
+
+<h3>Alkalmaz&aacute;s telep&iacute;t&eacute;se</h3>
+
+
+<p>Csatolja a sz&uuml;ks&eacute;ges
+h&aacute;l&oacute;zati meghajt&oacute;kat, amelyen vagy
+amelyeken, a programot, az adatokat &eacute;s az elektronikus
+felad&aacute;sra sz&aacute;nt
+&aacute;llom&aacute;nyokat t&aacute;rolni
+szeretn&eacute;. (Az UNC Path hivatkoz&aacute;s
+\\szerver\megoszt&aacute;s\k&ouml;nyvt&aacute;r nem
+haszn&aacute;lhat&oacute;.)</p>
+
+
+<p>A program telep&iacute;t&eacute;se
+t&ouml;rt&eacute;nhet az &aacute;llom&aacute;ny
+kiszolg&aacute;l&oacute;n, vagy egy kliens g&eacute;pen
+olyan felhaszn&aacute;l&oacute;val, amelynek van
+jogosults&aacute;ga a h&aacute;l&oacute;zati
+meghajt&oacute;n &aacute;llom&aacute;nyok
+l&eacute;trehoz&aacute;s&aacute;hoz, &eacute;s a
+felhaszn&aacute;l&oacute;i g&eacute;pen rendszergazdai
+jogosults&aacute;gokkal rendelkezik. Ha a szerveren fut&oacute;
+oper&aacute;ci&oacute;s rendszer nem azonos
+t&iacute;pus&uacute; (pl. linux-os file szerver, windows-os
+kliensek), a felhaszn&aacute;l&oacute;i g&eacute;pek
+oper&aacute;ci&oacute;s rendszer&eacute;vel, akkor a
+programtelep&iacute;t&eacute;st mindenk&eacute;ppen a
+kliens g&eacute;pekről kell kezdem&eacute;nyezni.</p>
+
+
+<p>A program l&eacute;trehozza a <span class="path">&lt;windir
+k&ouml;rnyezeti
+v&aacute;ltoz&oacute;&gt;\abevjavapath.cfg</span>
+(Linux eset&eacute;n: <span class="path">/etc/abevjavapath.cfg</span>)
+&aacute;llom&aacute;nyt.</p>
+
+
+<h3>Kliens g&eacute;pek (&uacute;j
+felhaszn&aacute;l&oacute;k) telep&iacute;t&eacute;se</h3>
+
+
+<p>A t&ouml;bbi felhaszn&aacute;l&oacute;i
+g&eacute;pen a windir k&ouml;rnyezeti
+v&aacute;ltoz&oacute; &aacute;ltal defini&aacute;lt
+k&ouml;nyvt&aacute;rba (Linux eset&eacute;n a <span class="path">/etc</span>
+k&ouml;nyvt&aacute;rba) kell m&aacute;solni, vagy
+&uacute;jonnan l&eacute;trehozni az <span class="path">abevjavapath.cfg</span>
+&aacute;llom&aacute;nyt. Az &aacute;llom&aacute;nyban
+tal&aacute;lhat&oacute; el&eacute;r&eacute;si
+&uacute;t arra a k&ouml;nyvt&aacute;rra
+(h&aacute;l&oacute;zati) mutasson, ahov&aacute; a program
+telep&iacute;tve lett (UNC path hivatkoz&aacute;s
+\\szerver\megoszt&aacute;s\k&ouml;nyvt&aacute;r nem
+haszn&aacute;lhat&oacute;).</p>
+
+
+<p>Ezt k&ouml;vetően felhaszn&aacute;l&oacute;i
+g&eacute;peken le kell futtatni a telep&iacute;tőt, de csak a
+felhaszn&aacute;l&oacute;
+be&aacute;ll&iacute;t&aacute;sokat k&eacute;rve. A
+felhaszn&aacute;l&oacute;
+be&aacute;ll&iacute;t&aacute;sok sor&aacute;n kell
+megadni az Adat &eacute;s az Elektronikus felad&aacute;s
+k&ouml;nyvt&aacute;r&aacute;t. Ezek a
+k&ouml;nyvt&aacute;rak ker&uuml;lhetnek a
+felhaszn&aacute;l&oacute; g&eacute;p&eacute;re, a
+h&aacute;l&oacute;zatra, a h&aacute;l&oacute;zaton
+egyedi vagy k&ouml;z&ouml;s k&ouml;nyvt&aacute;rba. A
+kliens g&eacute;peken a felhaszn&aacute;l&oacute;i
+be&aacute;ll&iacute;t&aacute;sokat egyszer kell
+elv&eacute;gezni.</p>
+
+
+<p>A k&eacute;sőbbi
+telep&iacute;t&eacute;sekn&eacute;l, - program,
+nyomtatv&aacute;ny, dokument&aacute;ci&oacute;, - elegendő
+egy g&eacute;pen elv&eacute;gezni a
+telep&iacute;t&eacute;st,&nbsp;a
+h&aacute;l&oacute;zati meghajt&oacute;n
+&aacute;llom&aacute;ny
+l&eacute;trehoz&aacute;si/m&oacute;dos&iacute;t&aacute;si
+jogosults&aacute;ggal rendelkező
+felhaszn&aacute;l&oacute;val. </p>
+
+
+<p>A felhaszn&aacute;l&oacute;i
+be&aacute;ll&iacute;t&aacute;sok
+elv&eacute;gz&eacute;se ezut&aacute;n m&aacute;r nem
+sz&uuml;ks&eacute;ges. A k&eacute;sőbbiekben csak akkor van
+sz&uuml;ks&eacute;g r&aacute;, ha megv&aacute;ltozik a
+felhaszn&aacute;l&oacute;i adatok helye. Ekkor a
+telep&iacute;tő futtat&aacute;s&aacute;val &eacute;s a
+felhaszn&aacute;l&oacute;i
+be&aacute;ll&iacute;t&aacute;sok
+elv&eacute;gz&eacute;s&eacute;vel
+be&aacute;ll&iacute;that&oacute; az &uacute;j
+k&ouml;nyvt&aacute;r. Az adatokat nem m&aacute;solja a
+program, azt egyedileg kell elv&eacute;gezni!</p>
+
+
+<p>Ha a felhaszn&aacute;l&oacute;
+g&eacute;p&eacute;n a Programk&ouml;nyvt&aacute;r
+el&eacute;r&eacute;si &uacute;tj&aacute;t
+tartalmaz&oacute; <span class="path">abevjavapath.cfg</span>
+&aacute;llom&aacute;ny mellett az
+Adatk&ouml;nyvt&aacute;r el&eacute;r&eacute;si
+&uacute;tj&aacute;t tartalmaz&oacute; <span class="path">&lt;felhaszn&aacute;l&oacute;
+home
+k&ouml;nyvt&aacute;ra&gt;\.abevjava\&lt;felhaszn&aacute;l&oacute;i
+azonos&iacute;t&oacute;&gt;.enyk</span>
+&aacute;llom&aacute;ny is be
+van &aacute;ll&iacute;tva, akkor a program
+elind&iacute;t&aacute;s&aacute;val automatikusan
+l&eacute;trej&ouml;nnek a felhaszn&aacute;l&oacute;i
+adatok t&aacute;rol&aacute;s&aacute;hoz
+sz&uuml;ks&eacute;ges k&ouml;nyvt&aacute;rak. Ez
+lehetős&eacute;get ny&uacute;jthat
+nagysz&aacute;m&uacute;, t&aacute;voli,
+felhaszn&aacute;l&oacute;i interakci&oacute;t nem
+k&iacute;v&aacute;n&oacute;
+telep&iacute;t&eacute;sre.</p>
+
+
+<h3>Program &eacute;s nyomtatv&aacute;ny
+friss&iacute;t&eacute;s</h3>
+
+
+<p>Ha a Programk&ouml;nyvt&aacute;r azonos (hiszen
+k&ouml;z&ouml;s h&aacute;l&oacute;zati
+meghajt&oacute; mapp&aacute;ja) akkor az adott
+mapp&aacute;ra &iacute;r&aacute;si
+jogosults&aacute;ggal b&iacute;r&oacute;
+felhaszn&aacute;l&oacute; friss&iacute;theti a programot
+&eacute;s a nyomtatv&aacute;nyokat is. Elegendő a
+telep&iacute;tő &aacute;llom&aacute;nyt futtatnia. Ezt
+k&ouml;vetően m&aacute;r b&aacute;rmelyik
+felhaszn&aacute;l&oacute; a friss v&aacute;ltozatot
+ind&iacute;thatja &eacute;s haszn&aacute;lhatja.</p>
+
+
+<h2>Gyakorlati p&eacute;ld&aacute;k</h2>
+
+
+<p>T&ouml;bb, h&aacute;l&oacute;zatba
+k&ouml;t&ouml;tt g&eacute;p haszn&aacute;lata
+eset&eacute;n (pl. k&ouml;nyvelő iroda) az a c&eacute;l,
+hogy a program &eacute;s nyomtatv&aacute;nyok egyetlen helyre
+legyenek telep&iacute;tve, ez&aacute;ltal cs&ouml;kkentve a
+telep&iacute;t&eacute;s, de főleg a
+friss&iacute;t&eacute;s munkaig&eacute;ny&eacute;t.
+Ez&eacute;rt az al&aacute;bb le&iacute;rt esetek
+mindegyik&eacute;ben abb&oacute;l indulunk ki, hogy a programot
+egy kiszolg&aacute;l&oacute;, vagy ak&aacute;r egy
+"kijel&ouml;lt" felhaszn&aacute;l&oacute;i g&eacute;p
+h&aacute;l&oacute;zati megoszt&aacute;s&aacute;ra
+telep&iacute;tj&uuml;k.</p>
+
+
+<h3>1. Felhaszn&aacute;l&oacute;k
+&ouml;n&aacute;ll&oacute;an,
+egym&aacute;st&oacute;l f&uuml;ggetlen&uuml;l dolgoznak</h3>
+
+
+<p>Ha olyan munkak&ouml;rnyezetet k&iacute;v&aacute;n
+kialak&iacute;tani, ahol a felhaszn&aacute;l&oacute; csak
+saj&aacute;t elmentett nyomtatv&aacute;nyaikkal,
+t&ouml;rzsadataikkal dolgozhatnak, saj&aacute;t
+nyomtatv&aacute;nyukat k&uuml;ldhetik csak be, akkor a
+k&ouml;vetkezők szerint telep&iacute;tsen:</p>
+
+
+<ol>
+
+
+  <li>Hozzon l&eacute;tre egy h&aacute;l&oacute;zati
+megoszt&aacute;son egy mapp&aacute;t ahova a programot majd
+telep&iacute;ti. (p&eacute;ld&aacute;nkba ez Z:/APEHprogram)</li>
+
+
+  <li>A felhaszn&aacute;l&oacute;
+g&eacute;p&eacute;n ind&iacute;tsa el a
+nyomtatv&aacute;nykit&ouml;ltő program
+telep&iacute;t&eacute;s&eacute;t, a
+telep&iacute;t&eacute;s sor&aacute;n a Futtat&oacute;
+program c&eacute;lmapp&aacute;j&aacute;nak adja meg a
+Z:/APEHprogram &uacute;tvonalat.</li>
+
+
+  <li>Felhaszn&aacute;l&oacute;i
+be&aacute;ll&iacute;t&aacute;sok &eacute;s adat
+k&ouml;nyvt&aacute;rnak jel&ouml;lj&ouml;n ki egy
+mapp&aacute;t a felhaszn&aacute;l&oacute; saj&aacute;t
+k&ouml;nyvt&aacute;r&aacute;ban (pl.: C:/Documents and
+Settings/felhasznalo1/abevjava).</li>
+
+
+  <li>Az elektronikus felad&aacute;shoz
+jel&ouml;lj&ouml;n ki egy mapp&aacute;t a
+felhaszn&aacute;l&oacute; saj&aacute;t
+k&ouml;nyvt&aacute;r&aacute;ban (pl.: C:/Documents and
+Settings/felhasznalo1/abevjava/eKuldes).</li>
+
+
+  <li>Hajtsa v&eacute;gre a telep&iacute;t&eacute;st.</li>
+
+
+  <li>Ha &uacute;jabb felhaszn&aacute;l&oacute;
+sz&aacute;m&aacute;ra akarja
+haszn&aacute;lhat&oacute;v&aacute; tenni a programot, akkor
+k&eacute;t lehetős&eacute;ge van (egyiket kell csak
+v&eacute;grehajtania):</li>
+
+
+  
+  <ul>
+
+
+    <li>Ism&eacute;telje meg az &uacute;j
+felhaszn&aacute;l&oacute; g&eacute;p&eacute;n (az ő
+nev&eacute;ben bejelentkezve) a telep&iacute;t&eacute;st a
+fentiek szerint.</li>
+
+
+    <li>M&aacute;solja az &uacute;j
+felhaszn&aacute;l&oacute; g&eacute;p&eacute;re a
+Programk&ouml;nyvt&aacute;r el&eacute;r&eacute;si
+&uacute;tj&aacute;t tartalmaz&oacute; <span class="path">abevjavapath.cfg</span>
+&aacute;llom&aacute;ny mellett az
+Adatk&ouml;nyvt&aacute;r el&eacute;r&eacute;si
+&uacute;tj&aacute;t tartalmaz&oacute; <span class="path">&lt;felhaszn&aacute;l&oacute;
+home
+k&ouml;nyvt&aacute;ra&gt;\.abevjava\&lt;felhaszn&aacute;l&oacute;i
+azonos&iacute;t&oacute;&gt;.enyk</span>
+&aacute;llom&aacute;nyt &eacute;s
+&aacute;ll&iacute;tsa be &eacute;rtelem szerűen e
+felhaszn&aacute;l&oacute; home
+k&ouml;nyt&aacute;r&aacute;ra (prop.usr.root). A program
+ind&iacute;t&aacute;s&aacute;val minden egy&eacute;b,
+sz&uuml;ks&eacute;ges k&ouml;nyvt&aacute;r
+l&eacute;trej&ouml;n automatikusan.</li>
+
+
+  
+  </ul>
+
+
+</ol>
+
+
+<h3>2. Felhaszn&aacute;l&oacute;k k&ouml;z&ouml;s
+munkak&ouml;rnyezetben dolgoznak (mindenki
+l&aacute;tja/m&oacute;dos&iacute;thatja/bek&uuml;ldheti
+egym&aacute;s nyomtatv&aacute;nyait)</h3>
+
+
+<p>Ha olyan munkak&ouml;rnyezetet akar
+kialak&iacute;tani, ahol minden felhaszn&aacute;l&oacute;
+egy k&ouml;z&ouml;s mapp&aacute;ba dolgozik,
+b&aacute;rmelyik felhaszn&aacute;l&oacute; tudja
+m&oacute;dos&iacute;tani a m&aacute;sik
+felhaszn&aacute;l&oacute; nyomtatv&aacute;ny&aacute;t
+&eacute;s b&aacute;rmelyik&uuml;k b&aacute;rmelyik
+nyomtatv&aacute;nyt feladhatja elektronikusan.</p>
+
+
+<ol>
+
+
+  <li>Hozzon l&eacute;tre egy h&aacute;l&oacute;zati
+megoszt&aacute;son egy mapp&aacute;t, ahova a programot
+telep&iacute;ti majd (p&eacute;ld&aacute;nkba ez
+Z:/APEHprogram).</li>
+
+
+  <li>Hozzon l&eacute;tre egy h&aacute;l&oacute;zati
+megoszt&aacute;son egy mapp&aacute;t, ahol majd a
+k&ouml;z&ouml;s felhaszn&aacute;l&oacute;i adatok
+t&aacute;rol&oacute;dnak (p&eacute;ld&aacute;nkban ez
+legyen H:/APEHkozosFelhasznaloi).</li>
+
+
+  <li>A felhaszn&aacute;l&oacute;
+g&eacute;p&eacute;n ind&iacute;tsa el a
+nyomtatv&aacute;nykit&ouml;ltő program
+telep&iacute;t&eacute;s&eacute;t, a
+telep&iacute;t&eacute;s sor&aacute;n a Futtat&oacute;
+program c&eacute;lmapp&aacute;j&aacute;nak adja meg a
+Z:/APEHprogram &uacute;tvonalat.</li>
+
+
+  <li>Felhaszn&aacute;l&oacute;i
+be&aacute;ll&iacute;t&aacute;sok &eacute;s adat
+k&ouml;nyvt&aacute;rnak jel&ouml;lj&ouml;n ki megfelelő
+h&aacute;l&oacute;zati mapp&aacute;t
+(H:/APEHkozosFelhasznaloi).</li>
+
+
+  <li>Az elektronikus felad&aacute;shoz
+jel&ouml;lj&ouml;n ki egy mapp&aacute;t a
+felhaszn&aacute;l&oacute;k k&ouml;z&ouml;s
+k&ouml;nyvt&aacute;r&aacute;ban (pl.:
+H:/APEHfelhasznaloi/eKuldes).</li>
+
+
+  <li>Hajtsa v&eacute;gre a telep&iacute;t&eacute;st.</li>
+
+
+  <li>Ha &uacute;jabb felhaszn&aacute;l&oacute;
+sz&aacute;m&aacute;ra akarja
+haszn&aacute;lhat&oacute;v&aacute; tenni a programot, akkor
+k&eacute;t lehetős&eacute;ge van (egyiket kell csak
+v&eacute;grehajtania):</li>
+
+
+  
+  <ul>
+
+
+    <li>Ism&eacute;telje meg az &uacute;j
+felhaszn&aacute;l&oacute; g&eacute;p&eacute;n (az ő
+nev&eacute;ben bejelentkezve) a telep&iacute;t&eacute;st a
+fentiek szerint.</li>
+
+
+    <li>M&aacute;solja az &uacute;j
+felhaszn&aacute;l&oacute; g&eacute;p&eacute;re a
+Programk&ouml;nyvt&aacute;r el&eacute;r&eacute;si
+&uacute;tj&aacute;t tartalmaz&oacute; <span class="path">abevjavapath.cfg</span>
+&aacute;llom&aacute;ny mellett az
+Adatk&ouml;nyvt&aacute;r el&eacute;r&eacute;si
+&uacute;tj&aacute;t tartalmaz&oacute; <span class="path">&lt;felhaszn&aacute;l&oacute;
+home
+k&ouml;nyvt&aacute;ra&gt;\.abevjava\&lt;felhaszn&aacute;l&oacute;i
+azonos&iacute;t&oacute;&gt;.enyk</span>
+&aacute;llom&aacute;nyt. A program
+ind&iacute;t&aacute;s&aacute;val minden egy&eacute;b,
+sz&uuml;ks&eacute;ges k&ouml;nyvt&aacute;r
+l&eacute;trej&ouml;n automatikusan.</li>
+
+
+  
+  </ul>
+
+
+</ol>
+
+
+<h3>3. Felhaszn&aacute;l&oacute;k
+egym&aacute;st&oacute;l f&uuml;ggetlen&uuml;l
+dolgoznak, elektronikus felad&aacute;ssal egyik&uuml;k van
+megb&iacute;zva</h3>
+
+
+<p>Ha olyan munkak&ouml;rnyezetet k&iacute;v&aacute;n
+kialak&iacute;tani, ahol a felhaszn&aacute;l&oacute; csak
+saj&aacute;t elmentett nyomtatv&aacute;nyaikkal,
+t&ouml;rzsadataikkal dolgozhatnak, saj&aacute;t
+nyomtatv&aacute;nyukat megjel&ouml;lheti felad&aacute;sra,
+de az &ouml;sszes felad&aacute;st egy
+felhaszn&aacute;l&oacute; v&eacute;gzi, akkor a
+k&ouml;vetkezők szerint telep&iacute;tsen:</p>
+
+
+<ol>
+
+
+  <li>Hozzon l&eacute;tre egy h&aacute;l&oacute;zati
+megoszt&aacute;son egy mapp&aacute;t, ahova a programot majd
+telep&iacute;ti (p&eacute;ld&aacute;nkba ez Z:/APEHprogram).</li>
+
+
+  <li>Hozzon l&eacute;tre egy h&aacute;l&oacute;zati
+megoszt&aacute;son egy mapp&aacute;t, ahol felad&aacute;sra
+sz&aacute;nt nyomtatv&aacute;nyok
+t&aacute;rol&oacute;dnak (p&eacute;ld&aacute;nkban ez
+legyen H:/eKuldes).</li>
+
+
+  <li>Ind&iacute;tsa el a
+nyomtatv&aacute;nykit&ouml;ltő program
+telep&iacute;t&eacute;s&eacute;t, a
+telep&iacute;t&eacute;s sor&aacute;n a Futtat&oacute;
+program c&eacute;lmapp&aacute;j&aacute;nak adja meg a
+Z:/APEHprogram &uacute;tvonalat.</li>
+
+
+  <li>Felhaszn&aacute;l&oacute;i
+be&aacute;ll&iacute;t&aacute;sok &eacute;s adat
+k&ouml;nyvt&aacute;rnak jel&ouml;lj&ouml;n ki egy
+mapp&aacute;t a felhaszn&aacute;l&oacute; saj&aacute;t
+k&ouml;nyvt&aacute;r&aacute;ban (pl.: C:/Documents and
+Settings/felhasznalo1/abevjava).</li>
+
+
+  <li>Az elektronikus felad&aacute;shoz jel&ouml;lje ki a
+l&eacute;trehozott h&aacute;l&oacute;zati mapp&aacute;t
+(pl.: H:/eKuldes).</li>
+
+
+  <li>Hajtsa v&eacute;gre a telep&iacute;t&eacute;st.</li>
+
+
+  <li>Ha &uacute;jabb felhaszn&aacute;l&oacute;
+sz&aacute;m&aacute;ra akarja
+haszn&aacute;lhat&oacute;v&aacute; tenni a programot, akkor
+k&eacute;t lehetős&eacute;ge van (egyiket kell csak
+v&eacute;grehajtania):</li>
+
+
+  
+  <ul>
+
+
+    <li>Ism&eacute;telje meg az &uacute;j
+felhaszn&aacute;l&oacute; g&eacute;p&eacute;n (az ő
+nev&eacute;ben bejelentkezve) a telep&iacute;t&eacute;st a
+fentiek szerint.</li>
+
+
+    <li>M&aacute;solja az &uacute;j
+felhaszn&aacute;l&oacute; g&eacute;p&eacute;re a
+Programk&ouml;nyvt&aacute;r el&eacute;r&eacute;si
+&uacute;tj&aacute;t tartalmaz&oacute; <span class="path">abevjavapath.cfg</span>
+&aacute;llom&aacute;ny mellett az
+Adatk&ouml;nyvt&aacute;r el&eacute;r&eacute;si
+&uacute;tj&aacute;t tartalmaz&oacute; <span class="path">&lt;felhaszn&aacute;l&oacute;
+home
+k&ouml;nyvt&aacute;ra&gt;\.abevjava\&lt;felhaszn&aacute;l&oacute;i
+azonos&iacute;t&oacute;&gt;.enyk</span>
+&aacute;llom&aacute;nyt &eacute;s
+&aacute;ll&iacute;tsa be &eacute;rtelem szerűen e
+felhaszn&aacute;l&oacute; home
+k&ouml;nyt&aacute;r&aacute;ra (prop.usr.root). A program
+ind&iacute;t&aacute;s&aacute;val minden egy&eacute;b,
+sz&uuml;ks&eacute;ges k&ouml;nyvt&aacute;r
+l&eacute;trej&ouml;n automatikusan.</li>
+
+
+  
+  </ul>
+
+
+</ol>
+
+
+<h3>4. Nem felhaszn&aacute;l&oacute;nk&eacute;nt,
+hanem k&ouml;nyvelt c&eacute;genk&eacute;nt
+k&uuml;l&ouml;n nyomtatv&aacute;nykit&ouml;ltő program
+futtat&aacute;sa</h3>
+
+
+<p>Ha olyan munkak&ouml;rnyezetet k&iacute;v&aacute;n
+kialak&iacute;tani (pl. egy k&ouml;nyvelő iroda), ahol nem
+felhaszn&aacute;l&oacute;nk&eacute;nt
+(k&ouml;nyvelőnk&eacute;nt) hanem k&ouml;nyvelt
+c&eacute;gk&eacute;nt (&uuml;gyfelenk&eacute;nt)
+szeretne elk&uuml;l&ouml;n&iacute;tett
+munkak&ouml;rnyezetet kialak&iacute;tani, akkor a
+k&ouml;vetkezők&eacute;ppen kell elj&aacute;rnia:</p>
+
+
+<ol>
+
+
+  <li>Hozzon l&eacute;tre egy h&aacute;l&oacute;zati
+megoszt&aacute;son egy mapp&aacute;t, ahova a programot
+telep&iacute;ti majd (p&eacute;ld&aacute;nkba ez
+Z:/APEHprogram).</li>
+
+
+  <li>Hozzon l&eacute;tre egy h&aacute;l&oacute;zati
+megoszt&aacute;son egy mapp&aacute;t, ahol majd a
+c&eacute;genk&eacute;nti felhaszn&aacute;l&oacute;i
+adatok t&aacute;rol&oacute;dnak
+(p&eacute;ld&aacute;nkban ez legyen H:/cegek/ceg1).</li>
+
+
+  <li>Egyik felhaszn&aacute;l&oacute;
+g&eacute;p&eacute;n ind&iacute;tsa el a
+nyomtatv&aacute;nykit&ouml;ltő
+telep&iacute;t&eacute;s&eacute;t, a
+telep&iacute;t&eacute;s sor&aacute;n a Futtat&oacute;
+program c&eacute;lmapp&aacute;j&aacute;nak adja meg a
+Z:/APEHprogram &uacute;tvonalat.</li>
+
+
+  <li>Felhaszn&aacute;l&oacute;i
+be&aacute;ll&iacute;t&aacute;sok &eacute;s adat
+k&ouml;nyvt&aacute;rnak jel&ouml;lj&ouml;n ki megfelelő
+h&aacute;l&oacute;zati mapp&aacute;t (H:/cegek/ceg1).</li>
+
+
+  <li>Az elektronikus felad&aacute;shoz
+jel&ouml;lj&ouml;n ki egy mapp&aacute;t a
+felhaszn&aacute;l&oacute;k k&ouml;z&ouml;s
+k&ouml;nyvt&aacute;r&aacute;ban (pl.:
+H:/cegek/ceg1/eKuldes).</li>
+
+
+  <li>Hajtsa v&eacute;gre a telep&iacute;t&eacute;st,
+majd ind&iacute;tsa el a programot. (Ezzel
+l&eacute;trej&ouml;n a
+be&aacute;ll&iacute;t&aacute;sokat tartalmaz&oacute;
+&aacute;llom&aacute;ny.) Elindul&aacute;st
+k&ouml;vetően l&eacute;pjen ki.</li>
+
+
+  <li>A telep&iacute;t&eacute;st
+v&eacute;grehajt&oacute; felhaszn&aacute;l&oacute;
+Documents and Settings mapp&aacute;j&aacute;ban l&eacute;vő
+.abevjava mapp&aacute;b&oacute;l mozgassa &aacute;t a
+l&eacute;trej&ouml;tt .enyk f&aacute;jlt a H:/cegek/ceg1/
+mapp&aacute;ban ceg1.enyk n&eacute;ven, majd
+m&oacute;dos&iacute;tsa az al&aacute;bbi n&eacute;gy
+sort:
+    
+    <pre><span class="path">prop.usr.naplo=H:/cegek/ceg1/naplo<br>prop.usr.root=H:/cegek/ceg1<br>prop.usr.frissitesek=H:/cegek/ceg1/frissitesek<br>prop.usr.primaryaccounts=H:/cegek/ceg1/torzsadatok<br></span></pre>
+
+
+  </li>
+
+
+  <li>Ezt k&ouml;vetően hozzon l&eacute;tre egy
+&uacute;j ind&iacute;tof&aacute;jlt (.bat) a Z:/APEHprogram
+mapp&aacute;ban az al&aacute;bbi tartalommal, akkor ezzel
+b&aacute;rmelyik felhaszn&aacute;l&oacute;
+ind&iacute;thatja az adott &uuml;gyf&eacute;l
+szerep&eacute;ben a nyomtatv&aacute;nykit&ouml;ltő
+programot.
+    
+    <pre><span class="path">set KRDIR=H:/cegek/ceg1/eKuldes<br>abevjava_start.bat "useroptionfile=H:/cegek/ceg1/ceg1.enyk"<br></span></pre>
+
+
+  </li>
+
+
+  <li>Ha tov&aacute;bbi c&eacute;get szeretne
+hozz&aacute;adni, akkor el&eacute;g ha a mapp&aacute;t
+m&aacute;solja le &eacute;s nevez &aacute;t mindent
+"ceg1"-ről mondjuk "ceg2"-re
+(k&ouml;nyvt&aacute;rn&eacute;v, .enyk
+f&aacute;jln&eacute;v &eacute;s az
+&aacute;llom&aacute;ny tartalm&aacute;ban, valamint az
+ind&iacute;t&oacute;f&aacute;jlban).</li>
+
+
+</ol>
+
+<br>
+
+</body>
+</html>

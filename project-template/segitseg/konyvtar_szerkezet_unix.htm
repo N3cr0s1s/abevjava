@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+	
+  
+  <meta http-equiv="Content-Type" content="text/htm; charset=UTF-8">
+
+ 
+	
+
+	
+  
+  
+  <title>Az &Aacute;NYK k&ouml;nyvt&aacute;rszerkezete unix-alap&uacute; rendszerekn&eacute;l</title>
+  <style type="text/css">
+		BODY {font-family:verdana; font-size:12pt; margin:5px;}
+		H1 {font-size: 15pt;}
+		H2 {font-size: 14pt; font-weight:bold; border-bottom: 2px solid;}
+		H3 {font-size: 13pt; font-weight:bold; font-style:italic;}
+		H4 {font-size: 12pt; font-weight:bold;}
+		H5 {font-size: 12pt; font-weight:bold; font-style:italic;}
+		H6 {font-size: 11pt; font-weight:bold;}
+		TABLE {font-size: 12pt; border-collapse: collapse; clear: both;}
+		TD {border: 1px solid #666666; padding: 2px;}
+		DT {font-style:italic;}
+		.label {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+		.path {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+		</style>
+</head>
+
+
+<body>
+
+
+
+<a name="teteje"></a>
+
+
+
+
+<h2>Az &Aacute;NYK&nbsp;k&ouml;nyvt&aacute;rszerkezete unix-alap&uacute; rendszerekn&eacute;l</h2>
+
+
+
+<p>Az &Aacute;ltal&aacute;nos Nyomtatv&aacute;nykit&ouml;ltő
+keretprogram (&Aacute;NYK) a k&ouml;vetkező k&ouml;nyvt&aacute;rakba
+telep&uuml;l, &eacute;s az al&aacute;bbi &aacute;llom&aacute;nyokat
+haszn&aacute;lja.</p>
+
+
+
+<h3>Rendszerk&ouml;nyvt&aacute;rak</h3>
+
+
+
+<p>Ha &Ouml;n&nbsp;rendszergazdai jogosults&aacute;gokkal rendelkező
+felhaszn&aacute;l&oacute;k&eacute;nt telep&iacute;tette a programot,
+akkor az <span class="path">/etc/abevjavapath.cfg</span>
+&aacute;llom&aacute;ny tartalmazza azt az el&eacute;r&eacute;si utat,
+ahol&nbsp;az adott g&eacute;pen a keretprogram megtal&aacute;lhat&oacute;.</p>
+
+
+<p>Ha &Ouml;n nem rendszergazdai jogosults&aacute;gokkal
+ind&iacute;tja a telep&iacute;t&eacute;st, akkor a program
+jelzi, hogy nem tudja a fenti k&ouml;nyvt&aacute;rban l&eacute;trehozni
+az <span class="path">abevjavapath.cfg</span> &aacute;llom&aacute;nyt &eacute;s a felhaszn&aacute;l&oacute; home k&ouml;nyvt&aacute;ra alatt a <span class="path">\.abevjava</span> k&ouml;nyvt&aacute;rba helyezi el az &aacute;llom&aacute;nyt.</p>
+
+
+
+<h4>Az abevjavapath.cfg &aacute;llom&aacute;ny felhaszn&aacute;l&aacute;sa</h4>
+
+
+
+<p>Ez az &aacute;llom&aacute;ny tartalmazza azt az el&eacute;r&eacute;si utat, ahol a program megtal&aacute;lhat&oacute;. A
+friss&iacute;t&eacute;sek sor&aacute;n a keretprogram, a
+nyomtatv&aacute;ny &eacute;s az &uacute;tmutat&oacute;k telep&iacute;tői, valamint&nbsp;a k&uuml;lső programok is innen
+&aacute;llap&iacute;tj&aacute;k meg, hogy hol keress&eacute;k az &Aacute;NYK-t.</p>
+
+
+<p>A rendszergazda is l&eacute;trehozhatja ezt az
+&aacute;llom&aacute;nyt, be&aacute;ll&iacute;tva a
+telep&iacute;t&eacute;si k&ouml;nyvt&aacute;rat is az &aacute;llom&aacute;nyban.
+P&eacute;ld&aacute;ul: <span class="path">abevjava.path=/usr/share/abevjava.</span></p>
+
+
+<p>Ha&nbsp;m&aacute;r l&eacute;tezik ez az &aacute;llom&aacute;ny,
+akkor a telep&iacute;tő az ebben tal&aacute;lhat&oacute;
+el&eacute;r&eacute;si utat tekinti a programk&ouml;nyvt&aacute;rnak
+&eacute;s nem engedi m&oacute;dos&iacute;tani.</p>
+
+
+
+<h3>Programk&ouml;nyvt&aacute;r</h3>
+
+
+
+<p>Program alatt a nyomtatv&aacute;nykit&ouml;ltő program, a nyomtatv&aacute;ny sablonok, a
+program dokument&aacute;ci&oacute; &eacute;s a kit&ouml;lt&eacute;si
+&uacute;tmutat&oacute;k &eacute;rtendők. Ezek az
+&aacute;llom&aacute;nyok egy helyre telep&uuml;lnek az adott
+g&eacute;pen &eacute;s az adott g&eacute;p &ouml;sszes
+felhaszn&aacute;l&oacute;ja ezt haszn&aacute;lja, futtatja, ha a telep&iacute;tőt
+rendszergazdai jogosults&aacute;gokkal ind&iacute;tott&aacute;k, vagy be&aacute;ll&iacute;tott&aacute;k a
+hely&eacute;t a konfigur&aacute;ci&oacute;s &aacute;llom&aacute;nyban.</p>
+
+
+<p>A telep&iacute;t&eacute;skor&nbsp;az alap&eacute;rtelmezett programk&ouml;nyvt&aacute;r a <span class="path">/usr/share/abevjava</span>.
+Ez&nbsp;első
+telep&iacute;t&eacute;skor m&oacute;dos&iacute;that&oacute;. Ezt az el&eacute;r&eacute;si &uacute;tat
+tartalmazza az <span class="path">abevjavapath.cfg</span> &aacute;llom&aacute;ny.</p>
+
+
+<p>A program fut&aacute;sakor ebbe a k&ouml;nyvt&aacute;rba
+nem &iacute;r, az &aacute;llom&aacute;nyokat nem
+m&oacute;dos&iacute;tja, napl&oacute;&aacute;llom&aacute;nyt nem hoz l&eacute;tre benne.</p>
+
+
+
+<p>A programk&ouml;nyvt&aacute;r, vagyis az ind&iacute;t&aacute;si k&ouml;nyvt&aacute;r tartalma: </p>
+
+
+<ul>
+
+
+	<li><span class="path">abev</span>: seg&eacute;d&aacute;llom&aacute;nyok,</li>
+
+
+	<li><span class="path">eroforrasok</span>: srőforr&aacute;s &aacute;llom&aacute;nyok,</li>
+  <li><span class="path">lib</span>: felhaszn&aacute;lhat&oacute; szoftverek,</li>
+
+
+	<li><span class="path">license</span>: szabadon felhaszn&aacute;lhat&oacute; be&eacute;p&iacute;tett szoftverek inform&aacute;ci&oacute;i,</li>
+
+
+	<li><span class="path">nyomtatvanyok</span>: sablonok,</li>
+  <li><span class="path">nyomtatvanyok_archivum</span>: arhiv&aacute;lt sablonok,</li>
+
+
+	<li><span class="path">segitseg</span>: programdokument&aacute;ci&oacute; &eacute;s kit&ouml;lt&eacute;si &uacute;tmutat&oacute;k,</li>
+
+
+	<li><span class="path">upgrade</span>: munka k&ouml;nyvt&aacute;r a programfriss&iacute;t&eacute;sekhez,</li>
+
+
+	<li><span class="path">xsd</span>: XML-ellenőrz&eacute;shez xsd-&aacute;llom&aacute;nyok,</li>
+
+
+	<li><span class="path">abevjava_start*</span>: ind&iacute;t&oacute;szkriptek,</li>
+
+
+	<li><span class="path">abevjava.jar</span>: főprogram,</li>
+
+
+	<li><span class="path">*.enyk</span>: param&eacute;ter&aacute;llom&aacute;nyok,</li>
+  <li><span class="path">setenv.bat</span>: param&eacute;ter&aacute;llom&aacute;ny,</li>
+  <li><span class="path">boot.jar</span>: ind&iacute;t&aacute;shoz sz&uuml;ks&eacute;ges&nbsp;&aacute;llom&aacute;ny.</li>
+
+
+</ul>
+
+
+
+<h3>Felhaszn&aacute;l&oacute;i k&ouml;nyvt&aacute;rak,
+adat&aacute;llom&aacute;nyok, felhaszn&aacute;l&oacute;i
+be&aacute;ll&iacute;t&aacute;sok</h3>
+
+ 
+<p>A program a felhaszn&aacute;l&oacute; home k&ouml;nyvt&aacute;r&aacute;ban l&eacute;trehoz egy k&ouml;nyvt&aacute;rat <span class="path">/home/% Felhaszn&aacute;l&oacute;i azonos&iacute;t&oacute; %/.abevjava</span> n&eacute;ven. Ebbe a k&ouml;nyvt&aacute;rba j&ouml;n l&eacute;tre a <span class="path">% Felhaszn&aacute;l&oacute;i azonos&iacute;t&oacute; %.enyk</span>
+&aacute;llom&aacute;ny. Ide ker&uuml;l a felhaszn&aacute;l&oacute;
+adatk&ouml;nyvt&aacute;r&aacute;nak&nbsp;el&eacute;r&eacute;si
+&uacute;tja, illetve a tov&aacute;bbi el&eacute;r&eacute;si utak. A nem
+teljes el&eacute;r&eacute;si &uacute;ttal megadott param&eacute;terek
+az adatk&ouml;nyvt&aacute;rhoz relat&iacute;vak.</p>
+
+
+<p>A felhaszn&aacute;l&oacute; home k&ouml;nyvt&aacute;r&aacute;ban a <span class="path">/home/% Felhaszn&aacute;l&oacute;i azonos&iacute;t&oacute; %/abevjava</span>
+k&ouml;nyvt&aacute;r&aacute;t aj&aacute;nlja fel a program
+adatk&ouml;nyvt&aacute;rnak. Ez a be&aacute;ll&iacute;t&aacute;si lehetős&eacute;g tetszőlegesen
+m&oacute;dos&iacute;that&oacute;.&nbsp;Erre fog mutatni az eml&iacute;tett <span class="path">% Felhaszn&aacute;l&oacute;i azonos&iacute;t&oacute; %.enyk</span> &aacute;llom&aacute;ny egy bejegyz&eacute;se.</p>
+
+
+<p>A program minden felhaszn&aacute;l&oacute;nak a saj&aacute;t home k&ouml;nyvt&aacute;r&aacute;t aj&aacute;nlja fel.</p>
+
+
+
+<p>Az adatk&ouml;nyvt&aacute;r tartalma:</p>
+
+
+<ul>
+
+
+	<li><span class="path">archivum:</span> az arhiv&aacute;l&aacute;s funkci&oacute; haszn&aacute;lja,</li>
+
+
+	<li><span class="path">beallitasok</span>: a Be&aacute;ll&iacute;t&aacute;sok panel param&eacute;terei,</li>
+
+
+	<li><span class="path">csatolmanyok</span>: felhaszn&aacute;l&oacute;i csatolm&aacute;nyok,</li>
+
+
+	<li><span class="path">frissitesek</span>: munka k&ouml;nyvt&aacute;r a friss&iacute;t&eacute;sekhez,</li>
+
+
+	<li><span class="path">import</span>: adatbet&ouml;lt&eacute;s/adatkiment&eacute;s k&ouml;nyvt&aacute;ra,</li>
+
+
+	<li><span class="path">kontroll</span>: a kontrollnyomtatv&aacute;nyok kezel&eacute;s&eacute;hez,</li>
+
+
+	<li><span class="path">mentesek</span>:&nbsp;mentett nyomtatv&aacute;nyok,</li>
+
+
+	<li><span class="path">tmp</span>: ideiglenes &aacute;llom&aacute;nyok,
+az egyes adatk&ouml;nyvt&aacute;rak (p&eacute;ld&aacute;ul: \mentesek) tartalm&aacute;nak
+list&aacute;z&aacute;s&aacute;hoz haszn&aacute;lt
+gyors&iacute;t&oacute;
+&aacute;llom&aacute;nyok.&nbsp;Sz&uuml;ks&eacute;g
+eset&eacute;n&nbsp;t&ouml;r&ouml;lhetők &eacute;s
+&uacute;jra&nbsp;l&eacute;trehozza a program.</li>
+
+
+	<li><span class="path">torzsadatok</span>: t&ouml;rzsadatok,</li>
+
+
+	<li><span class="path">naplo</span>: minden plusz &aacute;llom&aacute;nyba k&eacute;rt inform&aacute;ci&oacute; ide ker&uuml;l.</li>
+
+
+</ul>
+
+
+
+<p>A program a <span class="path">/home/% Felhaszn&aacute;l&oacute;i azonos&iacute;t&oacute; %/abevjava.log</span>
+&aacute;llom&aacute;nyba napl&oacute;zza
+tev&eacute;kenys&eacute;g&eacute;t. Az&eacute;rt ide &eacute;s nem az
+adatk&ouml;nyvt&aacute;rba, mert hib&aacute;s ind&iacute;t&aacute;s,
+indul&aacute;s eset&eacute;n előfordulhat, hogy m&eacute;g nem ismeri
+az adatk&ouml;nyvt&aacute;rat a program.</p>
+
+
+
+<h3>Kapcsolat az &Uuml;gyf&eacute;lkapuval, KRDIR k&ouml;rnyezeti v&aacute;ltoz&oacute;</h3>
+
+ 
+<p>A program l&eacute;trehoz egy k&ouml;rnyezeti v&aacute;ltoz&oacute;t
+KRDIR n&eacute;ven, erre a nyomtatv&aacute;nyok k&ouml;zvetlen
+bek&uuml;ld&eacute;s&eacute;n&eacute;l van sz&uuml;ks&eacute;g.&nbsp;</p>
+
+
+<p>A k&ouml;rnyezeti v&aacute;ltoz&oacute; felhaszn&aacute;l&oacute;f&uuml;ggő. Minden felhaszn&aacute;l&oacute;nak a saj&aacute;t
+k&ouml;nyvt&aacute;r&aacute;nak a <span class="path">/home/% Felhaszn&aacute;l&oacute;i azonos&iacute;t&oacute; %/abevjava/eKuldes</span> k&ouml;nyvt&aacute;r&aacute;t aj&aacute;nlja fel a program.</p>
+<p>A l&eacute;trehoz&oacute; szkript a <span class="path">/home/% Felhaszn&aacute;l&oacute;i azonos&iacute;t&oacute; %/.profabevjava</span>
+n&eacute;ven j&ouml;n l&eacute;tre &eacute;s az &aacute;llom&aacute;ny&nbsp;a felhaszn&aacute;l&oacute;i
+.profile-b&oacute;l ker&uuml;l megh&iacute;v&aacute;sra.</p>
+
+
+
+</body>
+</html>

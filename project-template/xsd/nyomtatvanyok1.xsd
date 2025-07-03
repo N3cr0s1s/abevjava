@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:abev="http://iop.gov.hu/2007/01/nyk/altalanosnyomtatvany" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://iop.gov.hu/2007/01/nyk/altalanosnyomtatvany" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="nyomtatvanyok">
+		<xs:sequence>
+			<xs:element ref="abev:abev" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Az általános kitöltőprogram hozza létre, az adózó által készített file-ban nem szerepel.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="abev:nyomtatvany">
+				<xs:annotation>
+					<xs:documentation>Nyomtatványból pontosan egy kell.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="abev">
+		<xs:sequence>
+			<xs:element ref="abev:hibakszama"/>
+			<xs:element ref="abev:hash"/>
+			<xs:element ref="abev:programverzio">
+				<xs:annotation>
+					<xs:documentation>A kitöltőprogram verziószáma.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="nyomtatvany">
+		<xs:sequence>
+			<xs:element ref="abev:nyomtatvanyinformacio"/>
+			<xs:element ref="abev:mezok"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="mezok">
+		<xs:sequence>
+			<xs:element ref="abev:mezo" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="nyomtatvanyinformacio">
+		<xs:sequence>
+			<xs:element ref="abev:nyomtatvanyazonosito"/>
+			<xs:element ref="abev:nyomtatvanyverzio" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A  nyomtatvány verziója, a kitöltőprogram hozza létre, az adózó által készített file-ban nem szerepel.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="abev:megjegyzes" minOccurs="0"/>
+			<xs:element ref="abev:datfile" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A kitöltőprogramban az  adat fájl neve, a kitöltőprogram hozza létre, az adózó által készített file-ban nem szerepel.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="nyomtatvanyok" type="abev:nyomtatvanyok"/>
+	<xs:element name="abev" type="abev:abev">
+		<xs:annotation>
+			<xs:documentation>Az ABEV ellenőrző programja hozza létre, az adózó által készített file-ban nem szerepel.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="hibakszama" type="xs:int">
+		<xs:annotation>
+			<xs:documentation>Hibák száma a nyomtatványon.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="hash" type="abev:hashtipus">
+		<xs:annotation>
+			<xs:documentation>Ellenőrző SHA1 lenyomat.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="programverzio" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Az ABEV program verziója.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="nyomtatvany" type="abev:nyomtatvany">
+		<xs:annotation>
+			<xs:documentation>Nem APEH-es nyomtatványból pontosan egy kell.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="nyomtatvanyinformacio" type="abev:nyomtatvanyinformacio">
+		<xs:annotation>
+			<xs:documentation>Nyomtatványra vonatkozó információk.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="nyomtatvanyazonosito">
+		<xs:annotation>
+			<xs:documentation>A nyomtatvány azonosítója.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="30"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="nyomtatvanyverzio">
+		<xs:annotation>
+			<xs:documentation>Az ABEV nyomtatvány verziója, az ABEV ellenőrző programja hozza létre, az adózó által készített file-ban nem szerepel.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="6"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="megjegyzes">
+		<xs:annotation>
+			<xs:documentation>Megjegyzés</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="200"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="datfile">
+		<xs:annotation>
+			<xs:documentation>Az ABEV adat fájl neve, az ABEV ellenőrző program hozza létre, az adózó által készített file-ban nem szerepel.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="200"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="mezok" type="abev:mezok">
+		<xs:annotation>
+			<xs:documentation>Mezőkre vonatkozó információk és mezőkbe írt adatok.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="mezo">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="eazon" type="xs:string" use="required">
+						<xs:annotation>
+							<xs:documentation>Mezőazonosító, értékei az ABEV-ből nyomtathatóak.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="mezotipusok">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="string"/>
+			<xs:enumeration value="numerikus"/>
+			<xs:enumeration value="logikai"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="hashtipus">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9a-fA-F]{40}"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

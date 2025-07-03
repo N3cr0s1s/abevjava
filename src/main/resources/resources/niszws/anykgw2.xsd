@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:anykgw2="http://tarhely.gov.hu/anykgw2" targetNamespace="http://tarhely.gov.hu/anykgw2" version="1.0">
+	<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="xmlmine.xsd"/>
+
+	<xs:element name="AuthTokenRequest" type="anykgw2:authTokenRequest"/>
+	<xs:element name="AuthTokenResponse" type="anykgw2:authTokenResponse"/>
+	<xs:element name="DocumentsUploadRequest" type="anykgw2:documentsUploadRequest"/>
+	<xs:element name="DocumentsUploadResponse" type="anykgw2:documentsUploadResponse"/>
+
+	<xs:complexType name="authTokenRequest">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="id" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="audience" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="authTokenResponse">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="id" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="subjectConfirmationRequired" type="xs:boolean"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="cookie" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="ssoAuthUrl" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="spRespUrl" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="relayState" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="samlRequest" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="documentsUploadRequest">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="officeAuthentication" type="anykgw2:officeAuthentication"/>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="documents" type="anykgw2:document"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="document">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string"/>
+			<xs:element minOccurs="0" name="copyIntoThePermanentStorage" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="encryptReply" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="returnReceiptMode" type="xs:string"/>
+			<xs:element minOccurs="0" name="systemMessage" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="data" type="xs:base64Binary"/>
+			<xs:element minOccurs="0" name="dataHandler" type="xs:base64Binary" xmime:expectedContentTypes="application/octet-stream"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="officeAuthentication">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="shortName" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="documentsUploadResponse">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="results" type="anykgw2:documentResult"/>
+			<xs:element minOccurs="0" name="causeOfFail" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="documentResult">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="stored" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="filingNumber" type="xs:string"/>
+			<xs:element minOccurs="0" name="causeOfFail" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

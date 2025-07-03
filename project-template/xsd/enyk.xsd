@@ -1,0 +1,39 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	<xsd:element name="adat">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="keretprogram" 
+							 type="komponensLeiroType"
+							 minOccurs="0" maxOccurs="1" />
+			 							 
+				<xsd:element name="nyomtatvany" 
+							 type="komponensLeiroType" 
+							 minOccurs="0" maxOccurs="unbounded" />
+							 							 
+				<xsd:element name="utmutato" 
+				             type="komponensLeiroType" 
+				             minOccurs="0" maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:complexType name="komponensLeiroType">
+		<xsd:sequence>
+			<xsd:element name="kategoria" type="xsd:string" />
+			<xsd:element name="szervezet" type="xsd:string" />
+			<xsd:element name="rovidnev" type="xsd:string" />
+			<xsd:element name="verzio" type="xsd:string" />
+			<xsd:element name="elnevezes" type="xsd:string" />
+			<xsd:element name="url" type="xsd:string" />			
+			<xsd:element name="files">
+				<xsd:complexType>
+					<xsd:sequence maxOccurs="unbounded">
+						<xsd:element name="file" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>			
+		</xsd:sequence>
+	</xsd:complexType>
+	
+</xsd:schema>

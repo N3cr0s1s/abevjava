@@ -1,0 +1,1362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <meta http-equiv="Content-Type" content="text/htm; charset=utf-8">
+
+
+
+
+
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <title>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program S&uacute;g&oacute;</title>
+  <style type="text/css">
+BODY {font-family:verdana; font-size:12pt; margin:5px;}
+H1 {font-size: 15pt;}
+H2 {font-size: 14pt; font-weight:bold; border-bottom: 2px solid;}
+H3 {font-size: 13pt; font-weight:bold; font-style:italic;}
+H4 {font-size: 12pt; font-weight:bold;}
+H5 {font-size: 12pt; font-weight:bold; font-style:italic;}
+H6 {font-size: 11pt; font-weight:bold;}
+TABLE {font-size: 12pt; border-collapse: collapse; clear: both;}
+TD {border: 1px solid #666666; padding: 2px;}
+DT {font-style:italic;}
+.label {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+.path {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+  </style>
+</head>
+
+
+<body lang="hu">
+
+
+
+
+
+
+<a name="teteje"></a>
+<h1>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program
+S&uacute;g&oacute;</h1>
+
+
+
+
+
+
+<a href="enyk_tartalom.htm#tartalom">Tartalomjegyz&eacute;k</a>
+<a name="index"></a>
+<h2>T&aacute;rgymutat&oacute;</h2>
+
+
+
+
+
+
+<p>Ez a programcsomag
+sz&aacute;m&iacute;t&oacute;g&eacute;ppel
+t&aacute;mogatott
+nyomtatv&aacute;nykit&ouml;lt&eacute;st
+megval&oacute;s&iacute;t&oacute; eszk&ouml;z. Ezzel a
+programmal tudja
+elektronikus nyomtatv&aacute;ny&aacute;t
+elk&eacute;sz&iacute;teni
+&eacute;s felad&aacute;sra megjel&ouml;lni. Amennyiben
+&Ouml;n internet
+kapcsolattal rendelkezik, seg&iacute;ts&eacute;get
+ny&uacute;jt az
+elektronikus felad&aacute;sban is.
+Jelen S&uacute;g&oacute;f&aacute;jl a program
+haszn&aacute;lat&aacute;hoz ad
+seg&iacute;ts&eacute;get. A
+nyomtatv&aacute;nyok kit&ouml;lt&eacute;s&eacute;hez
+kapcsol&oacute;d&oacute; kit&ouml;lt&eacute;si
+&uacute;tmutat&oacute;kat a S&uacute;g&oacute;
+men&uuml;pont alatt
+tal&aacute;lja.</p>
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+  <li>Ad&oacute;tan&aacute;csad&oacute;k</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_3.htm#adotan">Szerviz
+-&gt; T&ouml;rzsadatok</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>&Aacute;tt&ouml;lt&eacute;s</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_3.htm#attoltes">Szerviz
+-&gt; Technikai &aacute;tt&ouml;lt&eacute;s
+&uacute;j nyomtatv&aacute;nyba</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Be&aacute;ll&iacute;t&aacute;sok</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_3.htm#beallit">Szerviz
+-&gt; Be&aacute;ll&iacute;t&aacute;sok</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Bez&aacute;r&aacute;s</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#bezar">Adatok
+-&gt; Nyomtatv&aacute;ny bez&aacute;r&aacute;sa</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Billentyű haszn&aacute;lat/Gyors billentyűk</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_1.htm#billentyu">Billentyű
+haszn&aacute;lat/Gyors billentyűk</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Ellenőrz&eacute;s</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#31sor">Ellenőrz&eacute;sek
+-&gt; Ellenőrz&eacute;s</a></li>
+
+
+
+
+
+
+    <li><a href="jarulekbevallasok_kezelese_a_nyomtatvany_kitoltoben.htm#toltott">Nyomtatv&aacute;ny
+k&ouml;teg szerkeszt&eacute;se -&gt; &Ouml;sszes
+nyomtatv&aacute;ny ellenőrz&eacute;s</a></li>
+
+
+  
+  
+  </ul>
+
+
+  <li>F&aacute;jlműveletek</li>
+
+
+  
+  
+  <ul>
+
+
+    <li><a href="enyk_lap_3.htm#542sor">M&aacute;sol&aacute;s
+a ment&eacute;s k&ouml;nyvt&aacute;rb&oacute;l (&aacute;tnevez&eacute;s, t&ouml;rl&eacute;s)</a></li>
+
+
+    <li><a href="enyk_lap_3.htm#544sor">M&aacute;sol&aacute;s
+a ment&eacute;s k&ouml;nyvt&aacute;rba (&aacute;tnevez&eacute;s, t&ouml;rl&eacute;s)</a></li>
+
+
+    <li><a href="enyk_lap_3.htm#541sor">M&aacute;sol&aacute;s
+az import/export k&ouml;nyvt&aacute;rb&oacute;l (&aacute;tnevez&eacute;s, t&ouml;rl&eacute;s)</a>&nbsp;</li>
+
+
+    <li><a href="enyk_lap_3.htm#543sor">M&aacute;sol&aacute;s
+az import/export k&ouml;nyvt&aacute;rba (&aacute;tnevez&eacute;s, t&ouml;rl&eacute;s)</a></li>
+
+
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Fel&uuml;let</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_1.htm#felulet">Program
+fel&uuml;let</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Friss&iacute;t&eacute;sek</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_4.htm#frissit">Szerviz
+-&gt; Friss&iacute;t&eacute;sek</a> </li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>J&aacute;rul&eacute;k bevall&aacute;s ('08
+t&iacute;pus&uacute;) k&eacute;sz&iacute;t&eacute;se</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="jarulekbevallasok_kezelese_a_nyomtatvany_kitoltoben.htm">'08
+J&aacute;rul&eacute;k bevall&aacute;sok kezel&eacute;se
+a Java-s nyomtatv&aacute;nykit&ouml;ltőben</a></li>
+
+
+
+
+
+
+    <li><a href="jarulekbevallasok_kezelese_a_nyomtatvany_kitoltoben.htm#pelda">P&eacute;ld&aacute;k
+j&aacute;rul&eacute;kbevall&aacute;s
+l&eacute;trehoz&aacute;s&aacute;ra
+.dat, xml, .imp form&aacute;tum&uacute;
+&aacute;llom&aacute;nyokb&oacute;l</a></li>
+
+
+
+
+
+
+    <li><a href="jarulekbevallasok_kezelese_a_nyomtatvany_kitoltoben.htm#1435sor">Xml
+&aacute;llom&aacute;ny megjel&ouml;l&eacute;se
+&eacute;s megtekint&eacute;se</a></li>
+
+
+
+
+
+
+    <li><a href="jarulekbevallasok_kezelese_a_nyomtatvany_kitoltoben.htm#parancs">Parancssori
+import</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Kil&eacute;p&eacute;s</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_4.htm#kilep">Adatok
+-&gt; Kil&eacute;p&eacute;s</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Kit&ouml;lt&eacute;si &uacute;tmutat&oacute;</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_4.htm#nysugo">Szerviz
+-&gt; Kit&ouml;lt&eacute;si &uacute;tmutat&oacute;</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Megjegyz&eacute;s</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#megjegy">Adatok
+-&gt; Megjegyz&eacute;s</a></li>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#nyit">Megjegyz&eacute;s
+szerepe nyomtatv&aacute;ny
+megnyit&aacute;s&aacute;n&aacute;l</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Megnyit&aacute;s</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#nyit">Adatok
+-&gt; Nyomtatv&aacute;ny megnyit&aacute;sa</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Ment&eacute;s</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#ment">Adatok
+-&gt; Nyomtatv&aacute;ny ment&eacute;se</a></li>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#mentmas">Adatok
+-&gt; Nyomtatv&aacute;ny ment&eacute;se
+m&aacute;sk&eacute;nt</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>N&eacute;vjegy</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_4.htm#nevjegy">Szerviz
+-&gt; N&eacute;vjegy</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Nyomtat&aacute;s</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#boritek">Adatok
+-&gt; Bor&iacute;t&eacute;k nyomtat&aacute;sa</a></li>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#nyomtat">Adatok
+-&gt; Nyomtatv&aacute;ny kinyomtat&aacute;sa</a></li>
+
+
+
+
+
+
+    <li><a href="enyk_lap_3.htm#bornyom">Szerviz
+-&gt; T&ouml;rzsadat: Bor&iacute;t&eacute;k gomb</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Program</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_1.htm#indit">Program
+ind&iacute;t&aacute;sa</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>S&uacute;g&oacute;</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_4.htm#41sor">Szerviz
+-&gt; S&uacute;g&oacute;</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Sz&aacute;m&iacute;tott mezők
+&uacute;jrasz&aacute;mol&aacute;sa</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#mezoszam">Adatok
+-&gt; Sz&aacute;m&iacute;tott mezők
+&uacute;jrasz&aacute;mol&aacute;sa</a></li>
+
+
+
+
+
+
+    <li><a href="jarulekbevallasok_kezelese_a_Javas_ABEV_nyomtatvany_kitoltoben.htm#toltott">Nyomtatv&aacute;ny
+k&ouml;teg szerkeszt&eacute;se -&gt; &Ouml;sszes
+nyomtatv&aacute;ny
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Szűr&eacute;si felt&eacute;telek</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_1.htm#szur">Adatok
+-&gt; Szűr&eacute;si felt&eacute;telek</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>Telep&iacute;t&eacute;s/Elt&aacute;vol&iacute;t&aacute;s</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="telepitesi_leiras.htm">Telep&iacute;t&eacute;si
+inform&aacute;ci&oacute;k</a></li>
+
+
+
+
+
+
+    <li><a href="JAR_allomanyok_futtatasa_es_hozzarendelese_a_java_futtatasi_kornyezethez.htm">JAR
+&aacute;llom&aacute;nyok futtat&aacute;sa &eacute;s
+hozz&aacute;rendel&eacute;se a java futtat&aacute;si
+k&ouml;rnyezethez</a></li>
+
+
+
+
+
+
+    <li><a href="telepitesi_utmutato.htm#telep">Program
+telep&iacute;t&eacute;se</a></li>
+
+
+
+
+
+
+    <li><a href="telepitesi_utmutato.htm#eltav">Program
+elt&aacute;vol&iacute;t&aacute;sa</a></li>
+
+
+
+
+
+
+    <li><a href="konyvtar_szerkezet_windows.htm#mw">A
+nyomtatv&aacute;nykit&ouml;ltő program
+k&ouml;nyvt&aacute;rszerkezete Microsoft Windows
+alap&uacute; rendszerekn&eacute;l</a></li>
+
+
+
+
+
+
+    <li><a href="konyvtar_szerkezet_unix.htm#unix">A
+nyomtatv&aacute;nykit&ouml;ltő program
+k&ouml;nyvt&aacute;rszerkezete unix alap&uacute;
+rendszerekn&eacute;l</a></li>
+
+
+
+
+
+
+    <li><a href="halozati_telepites.htm">A
+nyomtatv&aacute;nykit&ouml;ltő program
+h&aacute;l&oacute;zatos telep&iacute;t&eacute;se</a>
+    </li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>T&ouml;rzsadatok</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_3.htm#torzs">Szerviz
+-&gt; T&ouml;rzsadatok</a></li>
+    <li><a href="enyk_lap_1.htm#szink1">Szerviz
+-&gt; NAV t&ouml;rzsadatok szinkroniz&aacute;l&aacute;sa</a></li>
+    <li><a href="enyk_lap_1.htm#szink3">Szerviz
+-&gt; Be&aacute;ll&iacute;t&aacute;sok -&gt; T&ouml;rzsadatok szinkroniz&aacute;l&aacute;sa</a></li>
+
+
+
+
+
+
+    <li><a href="enyk_lap_3.htm#torzsimp">Szerviz
+-&gt; T&ouml;rzsadatok &aacute;tv&eacute;tele az
+ABEV-ből</a></li>
+
+
+
+
+
+
+    <li><a href="enyk_lap_3.htm#adoimp">Szerviz
+-&gt; Ad&oacute;tan&aacute;csad&oacute;k
+&aacute;tv&eacute;tele az ABEV-ből</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>&Uacute;j</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#uj">Adatok -&gt;
+&Uacute;j nyomtatv&aacute;ny</a></li>
+
+
+
+
+
+
+    <li><a href="enyk_lap_3.htm#torzs">Szerviz
+-&gt; T&ouml;rzsadatok: &Uacute;j gomb</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>XML</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#284sor">Adatok
+-&gt; XML &aacute;llom&aacute;ny megnyit&aacute;sa
+szerkeszt&eacute;sre</a></li>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#285sor">Adatok
+-&gt; XML &aacute;llom&aacute;ny ment&eacute;se</a></li>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#286sor">Adatok
+-&gt; XML &aacute;llom&aacute;ny
+bez&aacute;r&aacute;sa</a></li>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#xmltekint">Adatok
+-&gt; XML &aacute;llom&aacute;ny megtekint&eacute;se</a></li>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#287sor">Adatok
+-&gt; J&aacute;rul&eacute;k t&iacute;pus&uacute;
+&aacute;llom&aacute;nyok
+&ouml;sszem&aacute;sol&aacute;sa</a></li>
+
+
+
+
+
+
+    <li><a href="enyk_lap_2.htm#xml">Adatok
+-&gt; XML &aacute;llom&aacute;nyok ellenőrz&eacute;se
+&eacute;s &aacute;tad&aacute;sa elektronikus
+k&uuml;ld&eacute;sre</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+  <li>XKR</li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <ul>
+
+
+
+
+
+
+    <li><a href="XKR_allomanyok_hozzarendelese_az_abevjavahoz.htm">XKR
+&aacute;llom&aacute;nyok hozz&aacute;rendel&eacute;se az &Aacute;NYK nyomtatv&aacute;nykit&ouml;ltő programhoz</a></li>
+
+
+
+
+    <li><a href="XKR_allomanyok_kezelese_az%20abevjavaban.htm">XKR
+&aacute;llom&aacute;nyok kezel&eacute;se az &Aacute;NYK&nbsp;nyomtatv&aacute;nykit&ouml;ltő programban</a></li>
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  </ul>
+
+
+
+  <li>XCZ</li>
+
+
+
+  
+  
+  
+  <ul>
+
+
+
+    <li><a href="XCZ_allomanyok_hozzarendelese_az_abevjavahoz.html">XCZ
+&aacute;llom&aacute;nyok hozz&aacute;rendel&eacute;se az &Aacute;NYK nyomtatv&aacute;nykit&ouml;ltő programhoz</a><a href="XKR_allomanyok_hozzarendelese_az_abevjavahoz.htm"></a></li>
+
+
+
+  
+  
+  
+  </ul>
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+</body>
+</html>

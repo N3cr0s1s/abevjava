@@ -1,0 +1,284 @@
+﻿<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/htm; charset=utf-8"> 
+	<title>Java-s Nyomtatványkitöltő Program Súgó</title>
+
+	<style type="text/css">
+		BODY {font-family:verdana; font-size:12pt; margin:5px;}
+		H1 {font-size: 15pt;}
+		H2 {font-size: 14pt; font-weight:bold; border-bottom: 2px solid;}
+		H3 {font-size: 13pt; font-weight:bold; font-style:italic;}
+		H4 { font-weight:bold;}
+		H5 {font-size: 12pt; font-weight:bold; font-style:italic;}
+		H6 {font-size: 11pt; font-weight:bold;}
+		TABLE {font-size: 12pt; border-collapse: collapse; clear: both;}
+		TD {border: 1px solid #666666; padding: 2px;}
+		DT {font-style:italic;}
+		.label {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+		.path {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+	</style>
+</head>
+
+<body lang="hu">
+
+<a name="teteje"></a>
+<h1>KR Titkosító program Felhasználói leírás v1.3</h1>
+
+<P>2007. augusztus 1.</p>
+
+<a name="bev"></a>
+<h2>Bevezetés</h2>
+<p>A Krtitok nevű kriptográfiai alkalmazás JAVA programozási nyelven íródott, amely az ügyfélkapun keresztül történő titkosított kommunikációt biztosítja, platform függetlenül.</p>
+<p>A program kétféle működést tesz lehetővé, parancssori indítást megfelelő paraméterezettséggel vagy a krtitok.exe indítását. Az utóbbi az adott platformnak megfelelő kinézetű ablakban, a hozzá tartozó menürendszeren keresztül használható.</p>
+<h3>Felhasználói dokumentációra vonatkozó általános leírások</h3>
+<p>A felhasználói dokumentációban alkalmazott képernyőtervek WINDOWS XP operációs rendszerben kerültek elkészítésre. Ezen képernyőtervek megjelenése az adott operációs rendszertől függően eltérőek, de a programban elérhető menüpontok és funkciók változatlanok.</p>
+<p>A dokumentum szerkesztése során a következő formai elemek kerültek alkalmazásra:</p>
+<ul>
+	<li>&lt;Nyomógombok&gt; a relációs jelek között megadott szöveg nyomógombra utal. A szöveg a nyomógomb feliratát tartalmazza;</li>
+	<li>Ablakok, és felületek neve vastagított betűkkel szedve;</li>
+	<li>üzenetek, Opciók és apró képek idézőjelek között;</li>
+	<li>Mezőnevek vastagított betűkkel szedve;</li>
+	<li>Menüpontokat \ jel választja el.</li>
+</ul>
+
+<a name="alap"></a>
+<h2>Alapfogalmak</h2>
+
+<p>Az itt felsorolásra kerülő fogalmak a krtitok programban használt kifejezések magyarázatát írják le a krtitok programra vonatkoztatva, melyek a nyomtatványkitöltő programmal előállított állományokra értelmezve kerülnek tárgyalásra.</p>
+
+<dl>
+	<dt>Titkosítás:</dt><dd>A nyomtatványkitöltő programmal előállított .xml vagy .abv kiterjesztésű állományok és a nyomtatványhoz csatolt dokumentumok nyílt adatainak, matematikai műveletekkel és kulcs felhasználásával történő, védett adattartalmú állapotának előállítása.</dd>
+	<dt>Kititkosítás:</dt><dd>A védett adattartalom visszafejtése, matematikai műveletekkel és kulcs felhasználásával, melynek során előáll a nyílt adattartalom (pl.:.dat, .xml vagy .abv).</dd>
+	<dt>Kulcspár:</dt><dd>Egy nyilvános kulcsból (public key) és egy magán kulcsból (private key) áll.</dd>
+	<dt>Nyilvános kulcs (public key):</dt><dd>Bárki számára hozzáférhető kulcs &ndash; például egy publikus adatbázisból kikereshető -, amellyel a titkosítást végezzük.</dd>
+	<dt>Magán kulcs (private key):</dt><dd>Csak a tulajdonos számára ismert kulcs, amelyet a kititkosításnál vagy másképpen visszafejtésnél használunk.</dd>
+	<dt>Kulcshossz:</dt><dd>A kulcs készítés során a felhasznált bitek számát határozza meg. Az alapértelmezett kulcshossz 1024 bit, de választható 2048 bit is. általában kevésbé veszélyeztetett a nagyobb kulcs, de tovább tarthat a titkosítás és a visszafejtés, mint egy kisebb méretű kulcs esetében.</dd>
+	<dt>Kulcstár típusa:</dt><dd>Kulcspár generálásakor alapértelmezetten a PGP kulcstár támogatott.<br>A Krtitok program ezen kívül a következő kulcstár típusokat támogatja:<ul><li>X509 típusú kulcstár;</li><li>Pkcs12 típusú kulcstár;</li><li>JKS (Java Key Store) típusú kulcstár.</li></ul></dd>
+	<dt>Kulcspár neve:</dt><dd>Egyedi azonosítóként szolgál, amely a kulcsgenerálás során a nyilvános és magán kulcs elnevezéseiben is felhasználásra kerül.</dd>
+	<dt>Jelszó (magán):</dt><dd>(A krtitok programban elvárt jelszó politika szerint a megfelelő jelszó kisbetűt, nagybetűt, számot és egyéb speciális karaktereket egyaránt tartalmaz, amelynek minimum nyolc karakter hosszúnak kell lennie.)</dd>
+	<dt>Kulcspár generálás:</dt><dd>A megadott kulcshosszal, kulcstár típussal és jelszóval létrehoz egy nyilvános és egy magán kulcsot.</dd>
+	<dt>Titkosítandó fájl neve:</dt><dd>A nyomtatványkitöltő program által előállított, alapértlemezett telepítés esetén a titkosítatlan könyvtárban lévő .xml vagy .abv kiterjesztésű állományok.</dd>
+	<dt>Meta fájl neve:</dt><dd>Egy .mf kiterjesztésű állomány, melyet a nyomtatványkitöltő program állít elő. Ez egy boríték, melyben a címzettre vonatkozó nyilvános adatok és a címzett nyilvános kulcsa található.</dd>
+	<dt>Titkosítás célkönyvtára:</dt><dd>A krtitok program által létrehozásra kerülő .kr állomány elérési útvonala.</dd>
+	<dt>Kulcsot védő jelszó:</dt><dd>A kulcstárból kiválasztott kulcshoz tartozó magán kulcs kijelölésekor kéri a program, amely a visszafejtés során kerül felhasználásra.</dd>
+	<dt>Kititkosítás célkönyvtára:</dt><dd>A krtitok program által létrehozásra kerülő .xml vagy .abv llomány elérési útvonala.</dd>
+</dl>
+
+
+<h3>Programban használt ikonok</h3>
+<table>
+<tr>
+	<td>Ikon képe</td>
+	<td>Leírása</td>
+</tr>
+<tr>
+	<td><img src="pics/Krtitok_v1.2_html_m2566e2b6.png" NAME="graphics1" ALIGN=BOTTOM WIDTH=28 HEIGHT=28 BORDER=0></td>
+	<td>PGP kulcstár</td>
+</tr>
+<tr>
+	<td><img src="pics/Krtitok_v1.2_html_ff2ec20.png" NAME="graphics2" ALIGN=BOTTOM WIDTH=30 HEIGHT=25 BORDER=0></td>
+	<td>Nyilvános kulcs</td>
+</tr>
+<tr>
+	<td><img src="pics/Krtitok_v1.2_html_m1438c50b.png" NAME="graphics3" ALIGN=BOTTOM WIDTH=29 HEIGHT=25 BORDER=0></td>
+	<td>Magán kulcs</td>
+</tr>
+<tr>
+	<td><img src="pics/Krtitok_v1.2_html_34a8b145.png" NAME="graphics4" ALIGN=BOTTOM WIDTH=23 HEIGHT=24 BORDER=0></td>
+	<td>X509 tanúsítvány</td>
+</tr>
+<tr>
+	<td><img src="pics/Krtitok_v1.2_html_1f9435fc.png" NAME="graphics5" ALIGN=BOTTOM WIDTH=27 HEIGHT=31 BORDER=0></td>
+	<td>Java kulcstár</td>
+</tr>
+<tr>
+	<td><img src="pics/Krtitok_v1.2_html_28503b36.png" NAME="graphics6" ALIGN=BOTTOM WIDTH=31 HEIGHT=30 BORDER=0></td>
+	<td>PKCS12 típusú kulcstár</td>
+</tr>
+</table>
+
+<h3>A program használata során előforduló fájlok és kiterjesztésük</h3>
+<h4>Kulcsok:</h4>
+<dl>
+	<dt>Nyilvános kulcs (Public key):</dt><dd>kulcspár neve + Pub.asc pl.: kulcsomPub.asc</dd>
+	<dt>Magán kulcs (Private key):</dt><dd>kulcspár neve + Prv.asc pl.: kulcsomPrv.asc</dd>
+</dl>
+
+<h4>Titkosítatlan állományok:</h4>
+<dl>
+	<dt>.dat:</dt><dd>A nyomtatványkitöltő programban lévő nyomtatványaink mentett adatait tartalmazó állomány.</dd>
+	<dt>.abv:</dt><dd>A nyomtatványkitöltő program <b>Bevallás megjelölése elektronikus beküldésre</b> menüpontja által létrehozásra kerülő állomány, amely a kitöltött nyomtatvány adatait és vizuális képét hordozza bináris formátumban.</dd>
+	<dt>.xml:</dt><dd>Az .abv állománynál leírtak jellemzik, különbség, hogy csak a nyomtatvány kitöltött adatait hordozza xml formátumban.</dd>
+	<dt>.mf:</dt><dd>Szintén a <B>Bevallás megjelölése elektronikus beküldésre</B> menüpont hatására létrejövő boríték állomány, amely a kitöltött nyomtatványunkra vonatkozó nyílt adatokat hordoz.</dd>
+</dl>
+
+
+<h4>Titkosított állomány:</h4>
+<dl>
+	<dt>.kr</dt><dd>A nyomtatványkitöltő program által létrehozott állomány, melyet a <B>Bevallás megjelölése elektronikus beküldésre</B> vagy az <B>XML file ellenőrzése és megjelölése beküldésre</B> menüpontok választása esetén jön létre.</dd>
+</dl>
+
+<h4>Kititkosított állomány (visszafejtett):</h4>
+<ul>
+	<li>Eredeti kiterjesztés</li>
+</ul>
+
+
+<h4>Krtitok munkaállományai:</h4>
+<dl>
+	<dt>.krtitok.log:</dt><dd>A Krtitok program napló állománya.</dd>
+	<dt>.krtitok.ini:</dt><dd>A Krtitok programban lévő Eszközök\Beállítások menüpontban megadható adatokat tárolja.</dd>
+</dl>
+
+<a name="3. A krtitok nevű program használata|outline"></a>
+<h2>A krtitok nevű program használata</h2>
+
+<h3>Menüpontok</h3>
+
+<P>Induló képernyő</p>
+<P ALIGN=CENTER><img src="pics/Krtitok_v1.2_html_m2f814133.png" NAME="graphics7" ALIGN=BOTTOM BORDER=0></p>
+<P>A program Windows XP operációs rendszer esetében a következő megjelenésű képernyővel indul.</p>
+<a name="Műveletek|outline"></a>
+<h3>Műveletek</h3>
+<a name="Titkosító kulcspár generálás|outline"></a>
+<h4>Titkosító kulcspár generálás</h4>
+<p>A menüpont lehetőséget biztosít a titkosításhoz és a kititkosításhoz (visszafejtéshez) szükséges nyilvános és magán kulcsok előállítására.</p>
+<p align="center"><img src="pics/Krtitok_v1.2_html_32412ea2.png"></p>
+<p>Titkosító kulcspár generálásakor a következőket kell megadnunk:</p>
+
+<dl>
+	<dt>Kulcshossz:</dt><dd>A program alapértelmezettként az 1024 bit-es kulcshosszt ajánlja fel. A lefelé mutató nyílra kattintva az értéklistában megjelenő 2048 bit-es érték is választható.</dd>
+<dt>Kulcstár típusa:</dt><dd> Nem módosítható. Alapértelmezett érték a PGP típusú kulcstár használata.</dd>
+<dt>Kulcspár neve:</dt><dd> Az itt megadott érték kulcs párunk egyedi azonosítója lesz, amely a nyilvános és magán kulcsunk nevében megjelenítésre kerül.<br>Nyilvános kulcsunk esetében a Pub (Public), míg magán kulcsunk esetében a Prv (Private) karakterekkel kerülnek kiegészítésre a kulcsnevek. A létrehozásra kerülő nyilvános és magán kulcsok kiterjesztése .asc.</dd>
+<dt>Nyilvános kulcs helye:</dt><dd>Alapértelmezett esetben operációs rendszertől függően a bejelentkezett felhasználóhoz tartozó munkakönyvtár útvonala. Az útvonalat a <img src="pics/Krtitok_v1.2_html_m4fd19620.png"> könyvtárválasztó gomb segítségével tetszőlegesen módosíthatjuk, de a mező kézzel nem írható.</dd>
+<dt>Magán kulcs helye:</dt><dd>Megegyezik a nyilvános kulcs helyével, így ugyanaz a könyvtárválasztó gomb vonatkozik rá, mint a nyilvános kulcsra.</dd>
+<dt>Jelszó (magán):</dt><dd>Az itt megadásra kerülő jelszót a magán kulcsunk használatakor kéri majd a rendszer. Mások által, a saját nyilvános kulcsunkkal titkosított adatok kititkosításához (visszafejtéséhez) szükségünk lesz a saját magán kulcsunkra és a hozzá tartozó jelszóra, így a jelszó megadására és megjegyzésére fordítsunk kellő figyelmet.</dd>
+</dl>
+
+<p>A mezők megfelelő kitöltése után válasszuk a &lt;<B>Kulcspár generálása</B>&gt; gombot. A következő ablak kerül megjelenítésre:</p>
+<p align="center"><img src="pics/Krtitok_v1.2_html_m448f3a19.png"></p>
+<p>Itt újra meg kell adnunk a korábban a Jelszó(magán) mezőbe írt értéket megerősítés céljából. Megfelelő jelszó megadása esetén megtörténik a
+kulcspár generálása, melyet sikeres esetben a következő üzenet jelez:</p>
+<p align="center"><img src="pics/Krtitok_v1.2_html_51f38248.png"></p>
+<p>A létrejött állományok:</p>
+<ul>
+	<li>felhasználó_prv.asc</li>
+	<li>felhasználó_pub.asc</li>
+</ul>
+
+<p>A kulcsgenerálás után az Eszközök\Beállítások menüpontban lévő következő elérési útvonalak és kulcshasználatra vonatkozó opció automatikusan beállításra kerül:</p>
+<ul>
+	<li>Saját magán kulcsának helye	kulcspár helye;</li>
+	<li>Saját nyilvános kulcsának helye	kulcspár helye;</li>
+	<li>Kívánja-e a saját kulcsát a titkosításhoz automatikusan használni: igen.</li>
+</ul>
+
+<a name="3.1.1.1.1.Titkosító kulcspár generálásra vonatkozó figyelmeztetések|outline"></a>
+<h4>Titkosító kulcspár generálásra vonatkozó figyelmeztetések</h4>
+<ul>
+	<li>A kulcspár neve és a jelszó megadása kötelező!</li>
+</ul>
+<p>A &lt;<B>Kulcspár generálás</B>&gt; gombra kattintáskor még nem kerültek kitöltésre a kulcspár neve és a jelszó mezők.</p>
+<ul>
+	<li>Sikertelen kulcsgenerálás! Hiba a fájl létrehozásakor!</li>
+</ul>
+<p>Lehet jogosultság probléma a megadott könyvtár írásakor, vagy már ugyanazon a néven létezik nyilvános és magán kulcsunk a megadott útvonalon.</p>
+<ul>
+	<li>A jelszó megerősítésekor hibásan adta meg jelszavát!</li>
+</ul>
+<p>Eltérő érték került begépelésre a <B>Jelszó (magán)</B> illetve a <B>Jelszó megerősítése</B> mezőkbe.</p>
+
+<a name="3.1.1.2.Titkosítás|outline"></a>
+<h3>Titkosítás</h3>
+<p>A menüpont lehetőséget biztosít a nyomtatványkitöltő által előállított .xml vagy .abv kiterjesztésű állományok, illetve a nyomtatványhoz csatolt dokumentumok nyílt adatainak védetté tételére.</p>
+<p>Amennyiben az Eszközök\Beállítások menüpontban jelölt a Kívánja-e saját kulcsát a titkosításhoz automatikusan használni opció, úgy saját kulcsunk automatikusan hozzáadásra kerül a címzettek listájához.</p>
+<p align="center"><img src="pics/Krtitok_v1.2_html_69d0d6a7.png"></p>
+<p align="center"><img src="pics/Krtitok_v1.2_html_m5be65eb9.png"></p>
+<p>Titkosítás során a következőket kell megadnunk:</p>
+
+<dl>
+	<dt>Titkosítandó fájl neve:</dt><dd>Alapértelmezetten a nyomtatványkitöltő program Digitalis_alairas könyvtárát ajánlja fel. A &lt;<img src="pics/Krtitok_v1.2_html_m4fd19620.png">&gt; fájlválasztó gombra kattintva a következő ablak jelenik meg:</dd>
+	<p align="center"><img src="pics/Krtitok_v1.2_html_35fcb1e8.png"></p>
+	<p>A kiválasztott fájlt az &lt;<B>Open</B>&gt; gomb megnyomásával érvényesíthetjük, amely a titkosítatlan fájl neve mezőbe beírásra kerül.</p>
+	<dt>Meta fájl neve:</dt><dd>Ha nyomtatványkitöltő programunk az alapértelmezett könyvtárak szerint telepített, akkor az előbb kiválasztott titkosítatlan fájl nevével megegyező nevű .mf kiterjesztésű állomány automatikusan beírásra kerül ebbe a mezőbe.</dd>
+	<p align="center"><img src="pics/Krtitok_v1.2_html_55de22cf.png"></p>
+	<p>Egyébként a &lt;<img src="pics/Krtitok_v1.2_html_m4fd19620.png">&gt; fájlválasztó gombra kattintva adhatjuk meg a titkosítandó fájlhoz tartozó boritékot.</p>
+	<dt>Titkosítás célkönyvtára:</dt><dd>Alapértelmezetten a nyomtatványkitöltő program Kuldendo könyvtárát ajánlja fel, amit tetszőlegesen módosíthatunk a fájlválasztó gombbal. &lt;<img src="pics/Krtitok_v1.2_html_m4fd19620.png">&gt;</dd>
+	<dt>Hozzáadás címzettek listájához:</dt><dd>A címzettek listájához nyilvános kulcsot adhatunk, melyet a <B>Kulcstárak </B>nevű ablakon választhatunk ki. &lt;<img src="pics/Krtitok_v1.2_html_6f141abd.png">&gt;</dd>
+</dl>
+<p align="center"><img src="pics/Krtitok_v1.2_html_2efb51b0.png"></p>
+<P>A kiválasztás a következők szerint végezzük:</p>
+<ol>
+	<li>Jelöljük ki a listában azt az egy kulcstár típust, melynek nyilvános kulcsát a címzettek listájához kívánjuk	hozzáadni.</li>
+	<li>Az egér bal gombjával kattintsunk duplán a kiválasztott kulcstár típuson.</li>
+</ol>
+<p>A megjelenő <B>Kulcsok</B> ablakban alapértelmezetten a nyilvános kulcsok opció jelölt. A listában megjelenő kulcsot <img src="pics/Krtitok_v1.2_html_md58cf6f.png"> az egér bal gombjával történő dupla kattintással, vagy a Kiválaszt oszlopban lévő jelölőnégyzetre történő egyszeri kattintással választhatjuk ki.</p>
+<p align="center"><img src="pics/Krtitok_v1.2_html_3cbbd420.png"></p>
+<p>Ennek tényét a jelölőnégyzetben a pipa is <img src="pics/Krtitok_v1.2_html_3792c6f1.png"> igazolja, valamint a megjelenő <B>üzenet</B> ablak szövege Kulcs hozzáadása a listához sikeres!.</p>
+<p>Az ablakon található magán kulcsok opció alapértelmezetten nem jelölt, mivel itt nyilvános kulcsok hozzáadása a cél. A jelölőnégyzetre kattintva azonban lehetőségünk van meggyőződni arról, hogy kulcstárunk tartalmazza-e magán kulcsunkat is.</p>
+<p align="center"><img src="pics/Krtitok_v1.2_html_m45b003b.png"></p>
+<p>A &lt;Rendben&gt; gomb a kiválasztott kulcsot hozzáadja a címzettek listájához. A &lt;Mégsem&gt; gombot választva a program a <B>Kulcsok</B>
+ablak meghívása előtti állapothoz tér vissza.</p>
+<dl>
+	<dt>Törlés címzettek listájából:</dt><dd>A címzettek listájából törli a kiválasztott nyilvános kulcsot. &lt;<img src="pics/Krtitok_v1.2_html_m577d8981.png">&gt;</dd>
+</dl>
+
+<p align="center"><img src="pics/Krtitok_v1.2_html_27704726.png"></p>
+<p>A mezők megfelelő kitöltése után válasszuk a &lt;<B>Titkosítás</B>&gt; gombot, amely után, sikeres esetben a következő ablak kerül megjelenítésre:</p>
+<p align="center"><img src="pics/Krtitok_v1.2_html_32f211e6.png"></p>
+
+<p>A létrejött állomány:</p>
+<ul>
+	<li>Titkosítandó fájl neve.kr</li>
+</ul>
+
+<A NAME="3.1.1.3.Kititkosítás|outline"></A>
+<h3>Kititkosítás</H3>
+<P>A menüpont lehetőséget biztosít a titkosított állományok visszafejtésére. Titkosítás során a következőket kell megadnunk:</p>
+<dl>
+	<dt>Kititkosítandó állományok:</dt><dd>A Műveletek\Kititkosítás menüpont meghívása után a következő üzenet kerül megjelenítésre:</dd>
+	<p align="center"><img src="pics/Krtitok_v1.2_html_m2b2bcbbf.png"></p>
+	<p>Az &lt;Ok&gt; gombra kattintás után a nyomtatványkitöltő program Kuldendo könyvtárában lévő .kr kiterjesztésű állományok kerülnek megjelenítésre a <B>Titkosított állományok</B> nevű ablakban. Az útvonalat a &lt;<img src="pics/Krtitok_v1.2_html_m4fd19620.png">&gt;
+könyvtárválasztó gomb segítségével tetszőlegesen módosíthatjuk, de a mező kézzel nem írható.</p>
+	<p align="center"><img src="pics/Krtitok_v1.2_html_md77e79.png"></p>
+	<p>Több állomány együttes kijelölése:</p>
+	<ul>
+		<li>A &lt;CTRL&gt; gomb folyamatos nyomva tartása mellett az egér bal gombjával egyesével tudjuk egymás után kijelölni a kititkosítandó
+	állományokat.</li>
+		<li>A &lt;SHIFT&gt; gomb folyamatos nyomva tartása mellett az egér bal gombjával egyszerre több állományt jelölhetünk ki</li>
+	</ul>
+	<p>Példa a &lt;CTRL&gt; és &lt;SHIFT&gt;  gombbal történő kijelölésekre.</p>
+
+	<p align="center"><img src="pics/Krtitok_v1.2_html_1b027389.png"></p>
+	<p align="center"><img src="pics/Krtitok_v1.2_html_m39b1e12.png" NAME="graphics32" ALIGN=BOTTOM BORDER=0></p>
+	<dt>Kititkosítás célkönyvtára:</dt><dd>Alapértelmezetten a nyomtatványkitöltő program Letoltott könyvtárát ajánlja fel. útvonalat a &lt;<img src="pics/Krtitok_v1.2_html_m4fd19620.png">&gt; könyvtárválasztó gombbal módosíthatjuk.</dd>
+	<p align="center"><img src="pics/Krtitok_v1.2_html_m442a7187.png"></p>
+
+	<p>A <B>Kititkosítandó állományok </B>és a <B>Kititkosítás célkönyvtárának </B>megadása után válasszuk a<B> &lt;</B>Kititkosítás<B>&gt; </B>gombot, amely után egy <B>üzenet</B> ablak kerül megjelenítésre:</p>
+	<p align="center"><img src="pics/Krtitok_v1.2_html_m6daee6e8.png"></p>
+	<p>Az &lt;Ok&gt; gombra kattintva megjelenik a <B>Kulcstárak</B> nevű ablak, ahol az egér bal gombjával történő dupla kattintással választhatjuk ki a kívánt kulcstárat, melyből privát kulcsunkat adhatjuk meg.</p>
+	<p align="center"><img src="pics/Krtitok_v1.2_html_ca08678.png"></p>
+	<p>A kulcstár kiválasztása után a <B>Kulcsok</B> nevű ablakban alapértelmezetten a magán kulcsok opció jelölt, mivel itt a magán kulcs kiválasztása a cél.</p>
+	<p align="center"><img src="pics/Krtitok_v1.2_html_m2c35e7ce.png"></p>
+	<p>A listában lévő magán kulcson duplán, vagy a Kiválaszt oszlopon egyszer kattintva az egér bal gombjával, megjelenik a <B>Jelszó</B> bekérő ablak. Itt kell megadnunk a magán kulcsunkhoz tartozó jelszót. Megfelelő jelszó megadása esetén a jelölőnégyzetben a pipa lesz látható, majd egy <B>üzenet</B> ablak jelenik meg:</p>
+	<p align="center"><img src="pics/Krtitok_v1.2_html_95cf08b.png"></p>
+	<p>Ezek után megtörténik a kititkosítás, amely sikeres esetben a következő üzenetet adja:</p>
+	<p align="center"><img src="pics/Krtitok_v1.2_html_67bc4166.png"></p>
+
+	<p>A létrejött állomány:</p>
+	<ul>
+		<li>a kititkosított állomány eredeti néven,</li>
+		<li>amennyiben a titkosított állomány csatolt dokumentumokat is tartalmaz, a titkosítatlan csatolmányok a kititkosítás célkönyvtárán belül, a <B>kititkosítandó fájl neve_csatolmányok</B> könyvtárba kerülnek mentésre.</li>
+	</ul>
+
+<A NAME="3.1.2.Eszközök|outline"></A>
+<h2>Eszközök</h2>
+
+<A NAME="3.1.2.1.Beállítások|outline"></A>
+<h3>Beállítások</h3>
+<p>A menüpont lehetőséget biztosít saját magánkulcsunk elérési útvonalának és használatának módosítására, valamint tetszőleges könyvtárak elérési
+útvonalának megadására.</p>
+<p align="center"><img src="pics/Krtitok_v1.2_html_m7af00ae4.png"></p>
+
+</body>
+</html>

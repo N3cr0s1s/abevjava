@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<EntitySelector>
+
+	<part>
+		<name>Típus</name>
+		<entity>
+			<type>Társaság</type>
+			<block>
+				<blockname>CONSTANT</blockname>
+				<mdata>Társaság</mdata>
+			</block>
+		</entity>
+		<entity>
+			<type>Egyéni vállalkozó</type>
+			<block>
+				<blockname>CONSTANT</blockname>
+				<mdata>Egyéni vállalkozó</mdata>
+			</block>
+		</entity>
+		<entity>
+			<type>Magánszemély</type>
+			<block>
+				<blockname>CONSTANT</blockname>
+				<mdata>Magánszemély</mdata>
+			</block>
+		</entity>
+		<entity>
+			<type>Adótanácsadó</type>
+			<block>
+				<blockname>CONSTANT</blockname>
+				<mdata>Adótanácsadó</mdata>
+			</block>
+		</entity>
+        <entity>
+            <type>Jogi képviselő</type>
+            <block>
+                <blockname>CONSTANT</blockname>
+                <mdata>Jogi képviselő</mdata>
+            </block>
+        </entity>
+	</part>
+	
+	<!--
+	    Név adatok 
+	  -->
+	<part>
+		<name>Név</name>
+		<entity>
+			<type>Társaság</type>
+			<block>
+				<blockname>Törzsadatok</blockname>
+				<mdata>Adózó neve</mdata>				
+			</block>
+		</entity>
+		<entity>
+			<type>Egyéni vállalkozó</type>
+			<block>
+				<blockname>Törzsadatok</blockname>
+				<mdata>Vezetékneve</mdata>				
+			</block>
+			<block>
+				<blockname>Törzsadatok</blockname>
+				<mdata>Keresztneve</mdata>				
+			</block>
+		</entity>
+		<entity>
+			<type>Magánszemély</type>
+			<block>
+				<blockname>Törzsadatok</blockname>
+				<mdata>Vezetékneve</mdata>				
+			</block>
+			<block>
+				<blockname>Törzsadatok</blockname>
+				<mdata>Keresztneve</mdata>				
+			</block>
+		</entity>
+		<entity>
+			<type>Adótanácsadó</type>
+			<block>
+				<blockname>Név</blockname>
+				<mdata>Adótanácsadó neve</mdata>				
+			</block>			
+		</entity>
+        <entity>
+            <type>Jogi képviselő</type>
+            <block>
+                <blockname>Jogi képviselő</blockname>
+                <mdata>J Titulus</mdata>
+            </block>
+            <block>
+                <blockname>Jogi képviselő</blockname>
+                <mdata>J Családi név</mdata>
+            </block>
+            <block>
+                <blockname>Jogi képviselő</blockname>
+                <mdata>J Első utónév</mdata>
+            </block>
+        </entity>
+	</part>
+	
+	<part>
+		<name>Cím</name>
+		<entity>
+			<type>Társaság</type>
+			<block>
+				<blockname>Állandó cím</blockname>
+				<mdata>Irányítószám</mdata>				
+			</block>
+			<block>
+				<blockname>Állandó cím</blockname>
+				<mdata>Település</mdata>				
+			</block>
+			<block>
+				<blockname>Állandó cím</blockname>
+				<mdata>Közterület neve</mdata>				
+			</block>
+			<block>
+				<blockname>Állandó cím</blockname>
+				<mdata>Közterület jellege</mdata>				
+			</block>
+			<block>
+				<blockname>Állandó cím</blockname>
+				<mdata>Házszám</mdata>				
+			</block>
+		</entity>		
+		<entity>
+			<type>Egyéni vállalkozó</type>
+			<block>
+				<blockname>Állandó cím</blockname>
+				<mdata>Irányítószám</mdata>				
+			</block>
+			<block>
+				<blockname>Állandó cím</blockname>
+				<mdata>Település</mdata>				
+			</block>
+			<block>
+				<blockname>Állandó cím</blockname>
+				<mdata>Közterület neve</mdata>				
+			</block>
+			<block>
+				<blockname>Állandó cím</blockname>
+				<mdata>Házszám</mdata>				
+			</block>
+		</entity>
+		<entity>
+			<type>Magánszemély</type>
+			<block>
+				<blockname>Állandó cím</blockname>
+				<mdata>Irányítószám</mdata>				
+			</block>
+			<block>
+				<blockname>Állandó cím</blockname>
+				<mdata>Település</mdata>				
+			</block>
+			<block>
+				<blockname>Állandó cím</blockname>
+				<mdata>Közterület neve</mdata>				
+			</block>
+			<block>
+				<blockname>Állandó cím</blockname>
+				<mdata>Házszám</mdata>				
+			</block>
+		</entity>
+        <entity>
+            <type>Jogi képviselő</type>
+            <block>
+                <blockname>Székhely cím</blockname>
+                <mdata>J Ország</mdata>
+            </block>
+            <block>
+                <blockname>Székhely cím</blockname>
+                <mdata>J Irányítószám</mdata>
+            </block>
+            <block>
+                <blockname>Székhely cím</blockname>
+                <mdata>J Település</mdata>
+            </block>
+            <block>
+                <blockname>Székhely cím</blockname>
+                <mdata>J Közterület neve</mdata>
+            </block>
+            <block>
+                <blockname>Székhely cím</blockname>
+                <mdata>J Közterület jellege</mdata>
+            </block>
+            <block>
+                <blockname>Székhely cím</blockname>
+                <mdata>J Házszám</mdata>
+            </block>
+        </entity>
+	</part>
+	
+	<part>
+		<name>Adószám</name>
+		<entity>
+			<type>Társaság</type>
+			<block>
+				<blockname>Törzsadatok</blockname>
+				<mdata>Adózó adószáma</mdata>				
+			</block>
+		</entity>
+		<entity>
+			<type>Egyéni vállalkozó</type>
+			<block>
+				<blockname>Törzsadatok</blockname>
+				<mdata>Adózó adószáma</mdata>				
+			</block>			
+		</entity>				
+	</part>
+	
+	<part>
+		<name>Adóazonosító</name>
+		<entity>
+			<type>Egyéni vállalkozó</type>
+			<block>
+				<blockname>Törzsadatok</blockname>
+				<mdata>Adózó adóazonosító jele</mdata>				
+			</block>			
+		</entity>
+		<entity>
+			<type>Magánszemély</type>
+			<block>
+				<blockname>Törzsadatok</blockname>
+				<mdata>Adózó adóazonosító jele</mdata>				
+			</block>
+		</entity>					
+	</part>
+</EntitySelector> 

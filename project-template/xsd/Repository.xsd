@@ -1,0 +1,35 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="Repository">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Entity" type="EntityType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="sequence" type="xs:string" use="optional"/>
+		</xs:complexType>		
+	</xs:element>
+
+	<xs:complexType name="EntityType">
+		<xs:sequence>
+			<xs:element name="type" type="xs:string"/>
+			<xs:element name="id" type="xs:integer"/>
+			<xs:element name="Block" type="BlockType" maxOccurs="unbounded"/>	
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="BlockType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="seq" type="xs:integer"/>
+			<xs:element name="MasterData" type="MasterDataType" maxOccurs="unbounded"/>	
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="MasterDataType">
+		<xs:sequence>
+			<xs:element name="key" type="xs:string"/>
+			<xs:element name="val" maxOccurs="unbounded" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

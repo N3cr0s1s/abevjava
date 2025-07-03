@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<fontcontainer> 
+    <fonts>
+        <font name="Arial" style="plain" filename="fonts/LiberationSans-Regular.ttf" />
+        <font name="Arial" style="bold" filename="fonts/LiberationSans-Bold.ttf" />
+        <font name="Arial" style="italic" filename="fonts/LiberationSans-Italic.ttf" />
+        <font name="Arial" style="bold,italic" filename="fonts/LiberationSans-BoldItalic.ttf"/>
+        <font name="Times New Roman" style="plain" filename="fonts/LiberationSerif-Regular.ttf" />
+        <font name="Times New Roman" style="bold" filename="fonts/LiberationSerif-Bold.ttf" />
+        <font name="Times New Roman" style="italic" filename="fonts/LiberationSerif-Italic.ttf" />
+        <font name="Times New Roman" style="bold,italic" filename="fonts/LiberationSerif-BoldItalic.ttf"/>
+        <font name="Courier New" style="plain" filename="fonts/LiberationMono-Regular.ttf" />
+        <font name="Courier New" style="bold" filename="fonts/LiberationMono-Bold.ttf" />
+        <font name="Courier New" style="italic" filename="fonts/LiberationMono-Italic.ttf" />
+        <font name="Courier New" style="bold,italic" filename="fonts/LiberationMono-BoldItalic.ttf"/>
+    </fonts>
+</fontcontainer>

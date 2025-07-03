@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MasterDataDefinitions xmlns="http://www.pillerkft.hu/enyk/md">
+
+    <!-- Közös (most: APEH,NAV) -->
+    <MasterDataDef>
+        <key>Adózó adószáma</key>
+        <type>TApehAdoszam</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Adózó neme</key>
+        <type>TAdozoNeme</type>
+        <org>ALL</org>
+    </MasterDataDef>	
+    <MasterDataDef>
+        <key>Adózó neve</key>
+        <type>TNev</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Név titulus</key>
+        <type>TTitulusLista</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Adózó adóazonosító jele</key>
+        <type>TApehAdoazonosito</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Közösségi adószám ország kód</key>
+        <type>TOrszagISOLista</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Közösségi adószám</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>E-mail címe</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Adózó telefonszáma</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Vezetékneve</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Keresztneve</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Irányítószám</key>
+        <type>TIranyitoSzam</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Település</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Közterület neve</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Közterület jellege</key>
+        <type>TKozterulet</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Házszám</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Emelet</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Épület</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Lépcsőház</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Ajtó</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>L Irányítószám</key>
+        <type>TIranyitoSzam</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>L Település</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>L Közterület neve</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>L Közterület jellege</key>
+        <type>TKozterulet</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>L Házszám</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>L Emelet</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>L Épület</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>L Lépcsőház</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>L Ajtó</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Ügyintéző neve</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Ügyintéző telefonszáma</key>
+        <type>TTel</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Adózó fax száma</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Ügyintéző e-mail címe</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Pénzintézet-azonosító</key>
+        <type>TPenzIntezet</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Számla-azonosító</key>
+        <type>TSzamlaSzam</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Pénzintézet neve</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Adótanácsadó neve</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Adótanácsadó azonosítószáma</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Adótanácsadó Bizonyítvány</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Születési családnév</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>	
+    <MasterDataDef>
+        <key>Születési utónév</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>		
+    <MasterDataDef>
+        <key>Születési időpont</key>
+        <type>TDatum</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Születési hely</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Anyja születési családneve</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Anyja születési utóneve</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Anyja születési neve</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Nyilvántartó törvényszék</key>
+        <type>TNyilvantartoTorvenyszek</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Szervezet típus</key>
+        <type>TSzervezetTipus</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Nyilvántartási sorszám</key>
+        <type>TNyilvantartasiSorszam</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <!-- NAV -->
+    <MasterDataDef>
+        <key>T Irányítószám</key>
+        <type>TIranyitoSzam</type>
+        <org>NAV</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>T Település</key>
+        <type>TString</type>
+        <org>NAV</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>T Közterület neve</key>
+        <type>TString</type>
+        <org>NAV</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>T Közterület jellege</key>
+        <type>TKozterulet</type>
+        <org>NAV</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>T Házszám</key>
+        <type>TString</type>
+        <org>NAV</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>T Emelet</key>
+        <type>TString</type>
+        <org>NAV</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>T Épület</key>
+        <type>TString</type>
+        <org>NAV</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>T Lépcsőház</key>
+        <type>TString</type>
+        <org>NAV</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>T Ajtó</key>
+        <type>TString</type>
+        <org>NAV</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>T Engedélyszám</key>
+        <type>TString</type>
+        <org>NAV</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>VPID</key>
+        <type>TVpopId</type>
+        <org>NAV</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Regisztrációs szám</key>
+        <type>TVpopRegisztraciosSzam</type>
+        <org>NAV</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Engedélyszám</key>
+        <type>TVpopEngedelySzam</type>
+        <org>NAV</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Bejelentő adóazonosító jele</key>
+        <type>TApehAdoazonosito</type>
+        <org>NAV</org>
+    </MasterDataDef>
+    <!-- OBH projekt új entity panidsei -->
+    <MasterDataDef>
+        <key>Képviselet típusa</key>
+        <type>TKepviseletTipusa</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Képviselet formája</key>
+        <type>TKepviseletFormaja</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Titulus</key>
+        <type>TTitulusLista</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Családi név</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Első utónév</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J További utónevek</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Igazolványszám</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Ország</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Irányítószám</key>
+        <type>TIranyitoSzam</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Település</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Közterület neve</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Közterület jellege</key>
+        <type>TKozterulet</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Házszám</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Épület</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Lépcsőház</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Emelet</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Ajtó</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>Ügyvédi Iroda neve</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>U Ország</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>U Irányítószám</key>
+        <type>TIranyitoSzam</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>U Település</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>U Közterület neve</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>U Közterület jellege</key>
+        <type>TKozterulet</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>U Házszám</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>U Épület</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>U Lépcsőház</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>U Emelet</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>U Ajtó</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Telefon</key>
+        <type>TTel</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Fax</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J E-mail cím</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+    <MasterDataDef>
+        <key>J Lajstromszám</key>
+        <type>TString</type>
+        <org>ALL</org>
+    </MasterDataDef>
+</MasterDataDefinitions>

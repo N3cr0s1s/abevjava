@@ -1,0 +1,1298 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Entities>
+
+    <EntityDef>
+        <type>Társaság</type>
+        <validator>hu.piller.enykp.alogic.masterdata.core.validator.TarsasagValidator</validator>
+        <BlockDef>
+            <name>Törzsadatok</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>Adózó neve;Adózó adószáma;Közösségi adószám ország kód;Közösségi adószám;E-mail címe;Adózó telefonszáma;Nyilvántartó törvényszék;Szervezet típus;Nyilvántartási sorszám;Adózó fax száma</masterdata>
+            <layout heigth="100">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="400">
+                        <key>Adózó neve</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="120">
+                        <key>Adózó adószáma</key>
+                    </element>		    
+                    <element type="glue" width="6"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>Közösségi adószám ország kód</key>
+                    </element>
+                    <element type="glue" width="6"/>
+                    <element type="mdata" space="5" width="150" haslabel="false">
+                        <key>Közösségi adószám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="45">
+                        <key>Nyilvántartó törvényszék</key>
+                    </element>
+                    <element type="glue" width="3"/>
+                    <element type="mdata" space="5" width="45" haslabel="false">
+                        <key>Szervezet típus</key>
+                    </element>
+                    <element type="glue" width="3"/>
+                    <element type="mdata" space="5" width="70" haslabel="false">
+                        <key>Nyilvántartási sorszám</key>
+                    </element>
+                    <element type="glue" width="20"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Adózó fax száma</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="200">
+                        <key>E-mail címe</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Adózó telefonszáma</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Állandó cím</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>Település;Közterület neve;Közterület jellege;Házszám;Épület;Lépcsőház;Emelet;Ajtó;Irányítószám</masterdata>
+            <layout heigth="200">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>Irányítószám</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>Település</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>Közterület neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" width="140" haslabel="false">
+                        <key>Közterület jellege</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>Házszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>Épület</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>Lépcsőház</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>Emelet</key>
+                    </element>
+                    <element type="mdata" space="5" width="40">
+                        <key>Ajtó</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Levelezési cím</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>L Település;L Közterület neve;L Közterület jellege;L Házszám;L Épület;L Lépcsőház;L Emelet;L Ajtó;L Irányítószám</masterdata>
+            <layout heigth="200">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>L Irányítószám</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>L Település</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>L Közterület neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" width="140" haslabel="false">
+                        <key>L Közterület jellege</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Házszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Épület</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Lépcsőház</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Emelet</key>
+                    </element>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Ajtó</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Egyéb adatok</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>Ügyintéző neve;Ügyintéző telefonszáma;Ügyintéző e-mail címe;Pénzintézet neve;Pénzintézet-azonosító;Számla-azonosító</masterdata>
+            <layout heigth="100">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Ügyintéző neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Ügyintéző telefonszáma</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="300">
+                        <key>Ügyintéző e-mail címe</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Pénzintézet neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="80">
+                        <key>Pénzintézet-azonosító</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="symbol" width="10" display="-" />
+                    <element type="mdata" space="5" width="145" haslabel="false">
+                        <key>Számla-azonosító</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>VPOP törzsadatok</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>VPID;Regisztrációs szám;Engedélyszám;Bejelentő adóazonosító jele</masterdata>
+            <layout heigth="100">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>VPID</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Regisztrációs szám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Engedélyszám</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="85">
+                        <key>Bejelentő adóazonosító jele</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Telephelyek</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1000</max>
+            </multiplicity>
+            <masterdata>T Engedélyszám;T Település;T Közterület neve;T Közterület jellege;T Házszám;T Épület;T Lépcsőház;T Emelet;T Ajtó;T Irányítószám</masterdata>
+            <layout heigth="200">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="250">
+                        <key>T Engedélyszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>T Irányítószám</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>T Település</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>T Közterület neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" width="140" haslabel="false">
+                        <key>T Közterület jellege</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Házszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Épület</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Lépcsőház</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Emelet</key>
+                    </element>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Ajtó</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+    </EntityDef>
+
+    <EntityDef>
+        <type>Egyéni vállalkozó</type>
+        <validator>hu.piller.enykp.alogic.masterdata.core.validator.EgyeniVallalkozoValidator</validator>
+        <BlockDef>
+            <name>Törzsadatok</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>Név titulus;Vezetékneve;Keresztneve;Adózó adószáma;Adózó neme;Adózó adóazonosító jele;Közösségi adószám ország kód;Közösségi adószám;E-mail címe;Adózó telefonszáma</masterdata>
+            <layout heigth="100">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+		    <element type="mdata" space="5" width="100">
+                        <key>Név titulus</key>
+                    </element>
+		    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Vezetékneve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Keresztneve</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="85">
+                        <key>Adózó adóazonosító jele</key>
+                    </element>
+                    <element type="glue" width="10"/>
+                    <element type="mdata" space="5" width="80">
+                        <key>Adózó neme</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="120">
+                        <key>Adózó adószáma</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>Közösségi adószám ország kód</key>
+                    </element>
+                    <element type="glue" width="3"/>
+                    <element type="mdata" space="5" width="150" haslabel="false">
+                        <key>Közösségi adószám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="200">
+                        <key>E-mail címe</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Adózó telefonszáma</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+	<BlockDef>
+            <name>Születési adatok</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>Születési családnév;Születési utónév;Születési időpont;Születési hely;Anyja születési családneve;Anyja születési utóneve</masterdata>
+            <layout heigth="100">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="200">
+                        <key>Születési családnév</key>
+                    </element>
+                    <element type="glue" width="5"/>
+		    <element type="mdata" space="5" width="200">
+                        <key>Születési utónév</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="200">
+                        <key>Születési hely</key>
+                    </element>
+                    <element type="glue" width="6"/>
+                    <element type="mdata" space="5" width="140">
+                        <key>Születési időpont</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="200">
+                        <key>Anyja születési családneve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Anyja születési utóneve</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Állandó cím</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>Település;Közterület neve;Közterület jellege;Házszám;Épület;Lépcsőház;Emelet;Ajtó;Irányítószám</masterdata>
+            <layout heigth="200">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>Irányítószám</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>Település</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>Közterület neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" width="140" haslabel="false">
+                        <key>Közterület jellege</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>Házszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>Épület</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>Lépcsőház</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>Emelet</key>
+                    </element>
+                    <element type="mdata" space="5" width="40">
+                        <key>Ajtó</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Levelezési cím</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>L Település;L Közterület neve;L Közterület jellege;L Házszám;L Épület;L Lépcsőház;L Emelet;L Ajtó;L Irányítószám</masterdata>
+            <layout heigth="200">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>L Irányítószám</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>L Település</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>L Közterület neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" width="140" haslabel="false">
+                        <key>L Közterület jellege</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Házszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Épület</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Lépcsőház</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Emelet</key>
+                    </element>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Ajtó</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Egyéb adatok</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>Ügyintéző neve;Ügyintéző telefonszáma;Ügyintéző e-mail címe;Pénzintézet neve;Pénzintézet-azonosító;Számla-azonosító</masterdata>
+            <layout heigth="100">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Ügyintéző neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Ügyintéző telefonszáma</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="300">
+                        <key>Ügyintéző e-mail címe</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Pénzintézet neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="80">
+                        <key>Pénzintézet-azonosító</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="symbol" width="10" display="-" />
+                    <element type="mdata" space="5" width="145" haslabel="false">
+                        <key>Számla-azonosító</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>VPOP törzsadatok</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>VPID;Regisztrációs szám;Engedélyszám;Bejelentő adóazonosító jele</masterdata>
+            <layout heigth="100">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>VPID</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Regisztrációs szám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Engedélyszám</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="85">
+                        <key>Bejelentő adóazonosító jele</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Telephelyek</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1000</max>
+            </multiplicity>
+            <masterdata>T Engedélyszám;T Település;T Közterület neve;T Közterület jellege;T Házszám;T Épület;T Lépcsőház;T Emelet;T Ajtó;T Irányítószám</masterdata>
+            <layout heigth="200">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="250">
+                        <key>T Engedélyszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>T Irányítószám</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>T Település</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>T Közterület neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" width="140" haslabel="false">
+                        <key>T Közterület jellege</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Házszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Épület</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Lépcsőház</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Emelet</key>
+                    </element>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Ajtó</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+    </EntityDef>
+
+    <EntityDef>
+        <type>Magánszemély</type>
+        <validator>hu.piller.enykp.alogic.masterdata.core.validator.MaganszemelyValidator</validator>
+        <BlockDef>
+            <name>Törzsadatok</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>Név titulus;Vezetékneve;Keresztneve;Adózó adóazonosító jele;Adózó neme;E-mail címe;Adózó telefonszáma</masterdata>
+            <layout heigth="100">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+		    <element type="mdata" space="5" width="100">
+                        <key>Név titulus</key>
+                    </element>
+		    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Vezetékneve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Keresztneve</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="90">
+                        <key>Adózó adóazonosító jele</key>
+                    </element>
+                    <element type="glue" width="10"/>
+                    <element type="mdata" space="5" width="80">
+                        <key>Adózó neme</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="200">
+                        <key>E-mail címe</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Adózó telefonszáma</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Születési adatok</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>Születési családnév;Születési utónév;Születési időpont;Születési hely;Anyja születési családneve;Anyja születési utóneve</masterdata>
+            <layout heigth="100">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="200">
+                        <key>Születési családnév</key>
+                    </element>
+                    <element type="glue" width="5"/>
+		    <element type="mdata" space="5" width="200">
+                        <key>Születési utónév</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="200">
+                        <key>Születési hely</key>
+                    </element>
+                    <element type="glue" width="6"/>
+                    <element type="mdata" space="5" width="140">
+                        <key>Születési időpont</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="200">
+                        <key>Anyja születési családneve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Anyja születési utóneve</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Állandó cím</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>Település;Közterület neve;Közterület jellege;Házszám;Épület;Lépcsőház;Emelet;Ajtó;Irányítószám</masterdata>
+            <layout heigth="200">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>Irányítószám</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>Település</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>Közterület neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" width="140" haslabel="false">
+                        <key>Közterület jellege</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>Házszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>Épület</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>Lépcsőház</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>Emelet</key>
+                    </element>
+                    <element type="mdata" space="5" width="40">
+                        <key>Ajtó</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Levelezési cím</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>L Település;L Közterület neve;L Közterület jellege;L Házszám;L Épület;L Lépcsőház;L Emelet;L Ajtó;L Irányítószám</masterdata>
+            <layout heigth="200">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>L Irányítószám</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>L Település</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>L Közterület neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" width="140" haslabel="false">
+                        <key>L Közterület jellege</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Házszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Épület</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Lépcsőház</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Emelet</key>
+                    </element>
+                    <element type="mdata" space="5" width="40">
+                        <key>L Ajtó</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Egyéb adatok</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>Ügyintéző neve;Ügyintéző telefonszáma;Ügyintéző e-mail címe;Pénzintézet neve;Pénzintézet-azonosító;Számla-azonosító</masterdata>
+            <layout heigth="100">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Ügyintéző neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Ügyintéző telefonszáma</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Ügyintéző e-mail címe</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Pénzintézet neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="80">
+                        <key>Pénzintézet-azonosító</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="symbol" width="10" display="-" />
+                    <element type="mdata" space="5" width="145" haslabel="false">
+                        <key>Számla-azonosító</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>VPOP törzsadatok</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>VPID;Regisztrációs szám;Engedélyszám;Bejelentő adóazonosító jele</masterdata>
+            <layout heigth="100">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>VPID</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Regisztrációs szám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Engedélyszám</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="85">
+                        <key>Bejelentő adóazonosító jele</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Telephelyek</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1000</max>
+            </multiplicity>
+            <masterdata>T Engedélyszám;T Település;T Közterület neve;T Közterület jellege;T Házszám;T Épület;T Lépcsőház;T Emelet;T Ajtó;T Irányítószám</masterdata>
+            <layout heigth="200">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="250">
+                        <key>T Engedélyszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>T Irányítószám</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>T Település</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>T Közterület neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" width="140" haslabel="false">
+                        <key>T Közterület jellege</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Házszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Épület</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Lépcsőház</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Emelet</key>
+                    </element>
+                    <element type="mdata" space="5" width="40">
+                        <key>T Ajtó</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+    </EntityDef>
+
+    <EntityDef>
+        <type>Adótanácsadó</type>
+        <validator>hu.piller.enykp.alogic.masterdata.core.validator.AdotanacsadoValidator</validator>
+        <BlockDef>
+            <name>Név</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>Adótanácsadó neve;Adótanácsadó azonosítószáma;Adótanácsadó Bizonyítvány</masterdata>
+            <layout heigth="80">
+                <row topspace="1" bottomspace="4">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="200">
+                        <key>Adótanácsadó neve</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="1" bottomspace="4">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="200">
+                        <key>Adótanácsadó Bizonyítvány</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="1" bottomspace="4">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="300">
+                        <key>Adótanácsadó azonosítószáma</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+
+            </layout>
+        </BlockDef>
+    </EntityDef>
+
+
+
+    <!-- ========================= Jogi képviselő =========================== -->
+
+
+
+    <EntityDef>
+        <type>Jogi képviselő</type>
+        <validator>hu.piller.enykp.alogic.masterdata.core.validator.JogiKepviseloValidator</validator>
+        <BlockDef>
+            <name>Képviselet típusa, formája</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>Képviselet típusa;Képviselet formája</masterdata>
+            <layout heigth="36">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Képviselet típusa</key>
+                    </element>
+                    <element type="glue" width="15"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>Képviselet formája</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Jogi képviselő</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>J Titulus;J Családi név;J Első utónév;J További utónevek;J Igazolványszám</masterdata>
+            <layout heigth="80">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="70">
+                        <key>J Titulus</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>J Családi név</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>J Első utónév</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="315"/>
+                    <element type="mdata" space="5" width="250">
+                        <key>J További utónevek</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="100">
+                        <key>J Igazolványszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Székhely cím</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>J Ország;J Irányítószám;J Település;J Közterület neve;J Közterület jellege;J Házszám;J Épület;J Lépcsőház;J Emelet;J Ajtó</masterdata>
+            <layout heigth="80">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>J Ország</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>J Irányítószám</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>J Település</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>J Közterület neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" width="140" haslabel="false">
+                        <key>J Közterület jellege</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>J Házszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>J Épület</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>J Lépcsőház</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>J Emelet</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>J Ajtó</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Ügyvédi Iroda</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>Ügyvédi Iroda neve;U Ország;U Irányítószám;U Település;U Közterület neve;U Közterület jellege;U Házszám;U Épület;U Lépcsőház;U Emelet;U Ajtó</masterdata>
+            <layout heigth="110">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="250">
+                        <key>Ügyvédi Iroda neve</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>U Ország</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="60">
+                        <key>U Irányítószám</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>U Település</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="260">
+                        <key>U Közterület neve</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" width="140" haslabel="false">
+                        <key>U Közterület jellege</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>U Házszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>U Épület</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>U Lépcsőház</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>U Emelet</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="40">
+                        <key>U Ajtó</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+        <BlockDef>
+            <name>Egyéb adatok</name>
+            <multiplicity>
+                <min>1</min>
+                <max>1</max>
+            </multiplicity>
+            <masterdata>J Telefon;J Fax;J E-mail cím;J Lajstromszám</masterdata>
+            <layout heigth="60">
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>J Telefon</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="150">
+                        <key>J Fax</key>
+                    </element>
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="250">
+                        <key>J E-mail cím</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+                <row topspace="0" bottomspace="5" heigth="20">
+                    <element type="glue" width="5"/>
+                    <element type="mdata" space="5" width="120">
+                        <key>J Lajstromszám</key>
+                    </element>
+                    <element type="glue"/>
+                </row>
+            </layout>
+        </BlockDef>
+
+    </EntityDef>
+</Entities>

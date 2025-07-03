@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://nisz.hu/anykAttachment/1.0"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="qualified"
+			targetNamespace="http://nisz.hu/anykAttachment/1.0">
+
+	<!-- 
+	ANYK_OBH_LENYOMAT doctype esetén a docBytes ban csak az 
+	alábbi mintához hasonló XML tartalom lehet, utf-8 kódolással:
+	<document>
+		<fileName>jegyzokonyv.doc</fileName>
+		<hashAlgorithm>SHA-256</hashAlgorithm>
+		<hash>7cd995a82c5d3d9eacfaa8438bc20c75f55067d932f077c02c3577679c9831c5</hash>
+	</document>
+	  Sémája:
+	<xsd:element name="document">
+		<xsd:sequence>
+			<xsd:element name="fileName" type="string255" />
+			<xsd:element name="hashAlgorithm" type="string255" />
+			<xsd:element name="hash" type="string255" />
+		</xsd:sequence>
+	</xsd:complexType>
+ 	-->
+	<xsd:element name="document">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="fileName" type="string255" />
+				<xsd:element name="hashAlgorithm" type="string255" />
+				<xsd:element name="hash" type="string255" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:simpleType name="string255">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+</xsd:schema>

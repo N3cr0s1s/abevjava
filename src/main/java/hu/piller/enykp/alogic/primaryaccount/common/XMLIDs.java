@@ -1,0 +1,44 @@
+package hu.piller.enykp.alogic.primaryaccount.common;
+
+public class XMLIDs {
+   public static final String XML_NAME = "name";
+   public static final String XML_FNAME_TITLE = "first_name_title";
+   public static final String XML_SEX = "sex";
+   public static final String XML_FNAME = "first_name";
+   public static final String XML_LNAME = "last_name";
+   public static final String XML_TAXNUMBER = "tax_number";
+   public static final String XML_TAXID = "tax_id";
+   public static final String XML_EU_TAXNUMBER = "eu_tax_number";
+   public static final String XML_TERMFROM = "term_from";
+   public static final String XML_TERMTO = "term_to";
+   public static final String XML_SIGN = "sign";
+   public static final String XML_LINECODE = "line_code";
+   public static final String XML_STATE = "state";
+   public static final String XML_APPLY = "apply";
+   public static final String XML_TAXEXPNAME = "te_name";
+   public static final String XML_TAXEXPID = "te_id";
+   public static final String XML_TAXEXPTESTIMONTALID = "te_testimontial_id";
+   public static final String XML_ADMINNAME = "administrator";
+   public static final String XML_ADMINTEL = "tel";
+   public static final String XML_FCORPID = "financial_corp_id";
+   public static final String XML_FCORPNAME = "financial_corp";
+   public static final String XML_ACCOUNT_ID = "account_id";
+   public static final String XML_STABLE_SETTLEMENT = "s_settlement";
+   public static final String XML_STABLE_PUBLIC_PLACE = "s_public_place";
+   public static final String XML_STABLE_PUBLIC_PLACE_TYPE = "s_public_place_type";
+   public static final String XML_STABLE_HOUSE_NUMBER = "s_house_number";
+   public static final String XML_STABLE_BUILDING = "s_building";
+   public static final String XML_STABLE_STAIRCASE = "s_staircase";
+   public static final String XML_STABLE_LEVEL = "s_level";
+   public static final String XML_STABLE_DOOR = "s_door";
+   public static final String XML_STABLE_ZIP = "s_zip";
+   public static final String XML_MAIL_SETTLEMENT = "m_settlement";
+   public static final String XML_MAIL_PUBLIC_PLACE = "m_public_place";
+   public static final String XML_MAIL_PUBLIC_PLACE_TYPE = "m_public_place_type";
+   public static final String XML_MAIL_HOUSE_NUMBER = "m_house_number";
+   public static final String XML_MAIL_BUILDING = "m_building";
+   public static final String XML_MAIL_STAIRCASE = "m_staircase";
+   public static final String XML_MAIL_LEVEL = "m_level";
+   public static final String XML_MAIL_DOOR = "m_door";
+   public static final String XML_MAIL_ZIP = "m_zip";
+}

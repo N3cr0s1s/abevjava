@@ -1,0 +1,66 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="Entities">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="EntityDef" type="EntityDefType" maxOccurs="unbounded"/>				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="EntityDefType">
+		<xs:sequence>
+			<xs:element name="type" type="xs:string"/>
+            <xs:element name="validator" type="xs:string"/>
+            <xs:element name="BlockDef" type="BlockDefType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="BlockDefType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="multiplicity" type="multiplicityType"/>
+			<xs:element name="masterdata" type="xs:string"/>
+			<xs:element name="layout" type="layoutType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="multiplicityType">
+		<xs:sequence>
+			<xs:element name="min" type="xs:integer"/>
+			<xs:element name="max" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="layoutType">
+		<xs:sequence>
+			<xs:element name="row" type="layoutRowType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="width" type="xs:integer" use="optional"/>
+		<xs:attribute name="heigth" type="xs:integer" use="optional"/>
+		<xs:attribute name="red" type="xs:integer" use="optional"/>
+		<xs:attribute name="green" type="xs:integer" use="optional"/>
+		<xs:attribute name="blue" type="xs:integer" use="optional"/>
+	</xs:complexType>
+	
+	<xs:complexType name="layoutRowType">
+		<xs:sequence>
+			<xs:element name="element" type="elementType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="topspace" type="xs:integer" use="optional"/>
+		<xs:attribute name="bottomspace" type="xs:integer" use="optional"/>
+		<xs:attribute name="heigth" type="xs:integer" use="optional"/>
+	</xs:complexType>
+
+	<xs:complexType name="elementType">
+        <xs:sequence>
+			<xs:element name="key" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+        <xs:attribute name="type" type="xs:string" use="required"/>
+        <xs:attribute name="width" type="xs:integer" use="optional"/>
+		<xs:attribute name="space" type="xs:integer" use="optional"/>
+        <xs:attribute name="display" type="xs:string" use="optional"/>        
+        <xs:attribute name="haslabel" type="xs:boolean" use="optional"/>
+    </xs:complexType>
+
+</xs:schema>

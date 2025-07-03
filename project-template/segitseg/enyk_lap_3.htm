@@ -1,0 +1,4692 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+  
+  <meta http-equiv="Content-Type" content="text/htm; charset=utf-8">
+
+  
+
+
+  
+  <title>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program S&uacute;g&oacute;</title>
+  <style type="text/css">
+BODY {font-family:verdana; font-size:12pt; margin:5px;}
+H1 {font-size: 15pt;}
+H2 {font-size: 14pt; font-weight:bold; border-bottom: 2px solid;}
+H3 {font-size: 13pt; font-weight:bold; font-style:italic;}
+H4 {font-size: 12pt; font-weight:bold;}
+H5 {font-size: 12pt; font-weight:bold; font-style:italic;}
+H6 {font-size: 11pt; font-weight:bold;}
+TABLE {font-size: 12pt; border-collapse: collapse; clear: both;}
+TD {border: 1px solid #666666; padding: 2px;}
+DT {font-style:italic;}
+.label {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+.path {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+  </style>
+</head>
+
+
+<body lang="hu">
+
+
+<a name="teteje"></a>
+<h1>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program
+S&uacute;g&oacute;</h1>
+
+
+<a name="51sor"></a>
+<a name="beallit"></a>
+<h2>Be&aacute;ll&iacute;t&aacute;sok</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span class="label"><span style="font-family: Verdana; font-weight: normal;">Szerviz
+-&gt; Be&aacute;ll&iacute;t&aacute;sok</span></span></li>
+
+
+</ol>
+
+
+<p>Az k&ouml;vetkező
+be&aacute;ll&iacute;t&aacute;si lehetős&eacute;gek
+k&ouml;z&uuml;l lehet v&aacute;lasztani:</p>
+
+
+<ul>
+
+
+  <li style="font-weight: bold;">Műk&ouml;d&eacute;s</li>
+
+
+  <li style="font-weight: bold;">Megjelen&eacute;s</li>
+
+
+  <li style="font-weight: bold;">File maszkol&aacute;s</li>
+
+
+  <li style="font-weight: bold;">Nyomtat&aacute;s</li>
+
+
+  <li style="font-weight: bold;">Csatolm&aacute;nyok</li>
+
+
+  <li><span style="font-weight: bold;">Friss&iacute;t&eacute;s</span></li>
+
+
+  <li><span style="font-weight: bold;">Internetkapcsolat</span></li>
+
+
+  <li><span style="font-weight: bold;">T&ouml;rzsadatszinkroniz&aacute;l&aacute;s<br>
+
+
+    </span></li>
+
+
+</ul>
+
+
+<p align="center"><img style="width: 870px; height: 660px;" alt="Műk&ouml;d&eacute;s f&uuml;l tartalma" src="pics/kep_200.png"><br>
+
+
+Műk&ouml;d&eacute;si
+be&aacute;ll&iacute;t&aacute;sok</p>
+
+
+<p>Az &aacute;br&aacute;n az alap&eacute;rtelmezett
+be&aacute;ll&iacute;t&aacute;sok
+l&aacute;that&oacute;ak. A <img src="pics/kiskep_1.png">
+jel&ouml;lt funkci&oacute;k akt&iacute;vak.</p>
+
+
+<a name="mukod"></a>
+<h3>Műk&ouml;d&eacute;s
+be&aacute;ll&iacute;t&aacute;sai</h3>
+
+
+<h4>A program kezelje a sz&aacute;m&iacute;tott mezőket</h4>
+
+
+<h4 style="font-weight: normal;">Norm&aacute;l
+műk&ouml;d&eacute;sn&eacute;l ezekbe a mezőkbe nem
+lehet &iacute;rni. Nyomtatv&aacute;ny
+kit&ouml;lt&eacute;s k&ouml;zben
+a program k&uuml;l&ouml;nb&ouml;ző algoritmusok
+alapj&aacute;n a
+sz&aacute;m&iacute;tott mezőkbe
+be&iacute;rja a megfelelő &eacute;rt&eacute;keket, ezek az
+&eacute;rt&eacute;kek a felhaszn&aacute;l&oacute;
+&aacute;ltal nem
+m&oacute;dos&iacute;that&oacute;ak.</h4>
+
+
+<p>A funkci&oacute; kikapcsol&aacute;sakor
+&iacute;rhat&oacute;v&aacute; v&aacute;lnak a
+sz&aacute;m&iacute;tott
+mezők. Ekkor a men&uuml;sorban pirossal &iacute;rt
+figyelmeztető
+&uuml;zenet jelenik meg: Kikapcsolta a
+sz&aacute;m&iacute;tott mezők
+kezel&eacute;s&eacute;t!</p>
+
+
+<p>Ha egy sz&aacute;m&iacute;tott mező adat&aacute;t
+k&eacute;zzel
+r&ouml;gz&iacute;ti be, nem szabad figyelmen
+k&iacute;v&uuml;l hagynia,
+hogy ez m&aacute;s sz&aacute;m&iacute;tott mezők alapadata
+is lehet.
+Ez&eacute;rt az &ouml;sszes sz&aacute;m&iacute;tott
+mezőben szereplő
+&eacute;rt&eacute;k helyess&eacute;g&eacute;t
+c&eacute;lszerű a
+funkci&oacute; kikapcsol&aacute;sa eset&eacute;n
+ellenőrizni!</p>
+
+
+<p>FONTOS!<br>
+
+
+K&eacute;zi r&ouml;gz&iacute;t&eacute;sű mezőkre az
+ellenőrz&eacute;sek műk&ouml;dnek! (kiv&eacute;ve, ha a<span style="font-weight: bold;"> Szerviz -&gt;
+Be&aacute;ll&iacute;t&aacute;sok Műk&ouml;d&eacute;s</span>
+panelen "<a href="enyk_lap_3.htm#elhagy">A mező
+elhagy&aacute;sakor ellenőrzi a be&iacute;rt
+&eacute;rt&eacute;ket"<span class="label"></span></a>
+funkci&oacute; nem akt&iacute;v!)</p>
+
+
+<p>Lehetős&eacute;g van a program &aacute;ltal
+sz&aacute;m&iacute;tott
+&eacute;rt&eacute;kek
+vissza&aacute;ll&iacute;t&aacute;s&aacute;ra. (<a href="enyk_lap_2.htm#mezoszam">Adatok
+-&gt;
+Sz&aacute;m&iacute;tott mezők
+&uacute;jrasz&aacute;mol&aacute;sa</a>)&nbsp;</p>
+
+
+<p>M&aacute;sik nyomtatv&aacute;ny
+v&aacute;laszt&aacute;sa
+eset&eacute;n automatikusan visszakapcsolja a program az
+alapbe&aacute;ll&iacute;t&aacute;st.</p>
+
+
+<h4><a name="elhagy">A mező elhagy&aacute;sakor</a><a href="enyk_lap_2.htm#ellen"> ellenőrzi</a> a
+be&iacute;rt &eacute;rt&eacute;ket</h4>
+
+
+<p>A mezőből val&oacute; kil&eacute;p&eacute;skor a
+lefutnak az adott
+mezőh&ouml;z rendelt ellenőrz&eacute;sek &eacute;s ha
+hib&aacute;s az
+adat, vagy hiba&uuml;zenet, vagy figyelmeztet&eacute;s jelenik
+meg.</p>
+
+
+<p align="center"><img src="pics/kiskep_24.png"><br>
+
+
+Mező elhagy&aacute;skor adott hiba&uuml;zenet</p>
+
+
+<p align="center"><img src="pics/kiskep_241.png"><br>
+
+
+Mező elhagy&aacute;skor adott figyelmeztet&eacute;s</p>
+
+
+<p>A<span class="label"></span> <span style="font-weight: bold;">Jav&iacute;t</span>
+gomb
+v&aacute;laszt&aacute;s&aacute;ra visszat&eacute;rhet a
+hib&aacute;s
+mezőbe &eacute;s r&ouml;gt&ouml;n
+m&oacute;dos&iacute;thatja,
+m&iacute;g a<span class="label"></span>
+<span style="font-weight: bold;">Tov&aacute;bb</span>
+gombra elhagyja
+a mezőt. Amennyiben a hiba nem ker&uuml;l r&ouml;gt&ouml;n
+jav&iacute;t&aacute;sra, akkor a hibalista ut&oacute;lag is
+előh&iacute;vhat&oacute;. (<span class="label"></span>
+<a href="enyk_lap_2.htm#ellen">Ellenőrz&eacute;sek</a>
+főmen&uuml;vel vagy<a style="font-weight: bold;" href="jarulekbevallasok_kezelese_a_nyomtatvany_kitoltoben.htm#toltott">
+</a><a href="jarulekbevallasok_kezelese_a_nyomtatvany_kitoltoben.htm#toltott">Nyomtatv&aacute;nyk&ouml;teg
+szerkeszt&eacute;s</a>&eacute;n&eacute;l<span class="label"></span>
+a <img src="pics/ikon_21.png"> ikonra kattintva.)</p>
+
+
+<h4><span style="font-weight: normal;">Ha a
+Szerviz/Be&aacute;ll&iacute;t&aacute;sok/Megjelen&eacute;s
+f&uuml;l&ouml;n tal&aacute;lhat&oacute; <span style="font-weight: bold;">Mezőinform&aacute;ci&oacute;
+kikapcsol&aacute;sa a hiba&uuml;zenetben</span></span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;;">&nbsp;</span><span style="font-weight: normal;">jel&ouml;lőn&eacute;gyzet
+be van pip&aacute;lva, akkor mezőelhagy&aacute;skor az
+al&aacute;bbi
+hiba&uuml;zenet ablak jelenik meg:</span></h4>
+
+
+<div style="text-align: center;"><img style="width: 637px; height: 172px;" alt="mezőelhagy&aacute;_mezőinfo n&eacute;lk&uuml;" src="pics/kiskep_24a.png"><br>
+
+
+</div>
+
+
+<div style="text-align: center;">
+Mező elhagy&aacute;skor adott hiba&uuml;zenet
+Mezőinform&aacute;ci&oacute;k n&eacute;lk&uuml;l<br>
+
+
+<div style="text-align: left;"><br>
+
+
+A&nbsp;<span style="font-weight: bold;">Mezőinform&aacute;ci&oacute;k</span>
+gomb v&aacute;laszt&aacute;s&aacute;val az ablakban
+l&aacute;that&oacute;ak lesznek a
+mezőinform&aacute;ci&oacute;k:<br>
+
+
+<br>
+
+
+</div>
+
+
+<span style="font-weight: bold;"></span></div>
+
+
+<div style="text-align: center;"><img style="width: 637px; height: 216px;" alt="mezőelhagy&aacute;_mezőinfoval" src="pics/kiskep_24b.png"><br>
+
+
+</div>
+
+
+<div style="text-align: center;">
+Mező elhagy&aacute;skor adott hiba&uuml;zenet
+Mezőinform&aacute;ci&oacute;kkal<br>
+
+
+</div>
+
+
+<h4><span style="font-size: 12pt; font-family: Verdana;">Kapcsolat
+a C&eacute;g/Hivatali Kapuval men&uuml;
+enged&eacute;lyez&eacute;se</span></h4>
+
+
+<p style="text-align: justify;">
+<span style="font-family: Verdana;">A <span style="font-weight: bold;">Szerviz -&gt;
+Be&aacute;ll&iacute;t&aacute;sok</span>
+men&uuml;pont
+Műk&ouml;d&eacute;s
+panelen lehet be&aacute;ll&iacute;tani, ha a <span style="font-weight: bold;">Kapcsolat a
+C&eacute;g/&Uuml;gyf&eacute;lkapuval</span>
+men&uuml;strukt&uacute;r&aacute;hoz
+tartoz&oacute; men&uuml;pontokat is szeretn&eacute;
+haszn&aacute;lni.<o:p></o:p></span></p>
+
+
+<p>Alap&eacute;rtelmez&eacute;sben nincs
+bekapcsolva.</p>
+
+
+<p style="text-align: justify;"><span style="font-family: Verdana;">Ha
+a Kapcsolat
+a C&eacute;g/Hivatali Kapuval men&uuml;
+enged&eacute;lyez&eacute;se
+men&uuml;pont
+előtti jel&ouml;lőn&eacute;gyzet <span style="font-weight: bold;">nincs
+kipip&aacute;lva</span>, akkor csak a Kapcsolat az
+&Uuml;gyf&eacute;lkapuval
+men&uuml;strukt&uacute;r&aacute;hoz tartoz&oacute;
+men&uuml;pontok
+jelennek meg. <o:p></o:p></span></p>
+
+
+<p style="text-align: justify;"><span style="font-family: Verdana;">Ha a Kapcsolat
+a C&eacute;g/Hivatali Kapuval men&uuml;
+enged&eacute;lyez&eacute;se
+men&uuml;pont előtti jel&ouml;lőn&eacute;gyzet <span style="font-weight: bold;">be van
+pip&aacute;lva</span>,
+akkor a Kapcsolat a C&eacute;g/Hivatali Kapuval
+men&uuml;strukt&uacute;r&aacute;hoz tartoz&oacute;
+men&uuml;pontok is
+megjelennek.<o:p></o:p></span></p>
+
+
+<span style="font-size: 12pt; font-family: Verdana;">Figyelem!<br>
+
+
+A v&aacute;ltoztat&aacute;s csak akkor fog &eacute;letbe
+l&eacute;pni,
+ha bez&aacute;rja az alkalmaz&aacute;st &eacute;s
+&uacute;jra
+elind&iacute;tja az &Aacute;NYK-t! Erre az
+alkalmaz&aacute;s
+figyelmezteti is a felhaszn&aacute;l&oacute;t.<br>
+
+
+<br>
+
+
+</span>
+<div style="text-align: center;">
+<div style="text-align: center;"><span style="font-size: 12pt; font-family: Verdana;"><img style="width: 367px; height: 122px;" alt="" title="&Uuml;zenet" src="pics/kep_117.png"><br>
+
+
+</span>
+<div style="text-align: left;"><span style="font-size: 12pt; font-family: Verdana;"></span><span style="font-size: 12pt; font-family: Verdana;"><br>
+
+
+</span><span style="font-size: 12pt; font-family: Verdana;"></span></div>
+
+
+</div>
+
+
+<span style="font-size: 12pt; font-family: Verdana;"></span></div>
+
+
+<h4>Mezők&oacute;d kijelz&eacute;s</h4>
+
+
+<p>Alap&eacute;rtelmez&eacute;sben nincs bekapcsolva.
+Bekapcsolt
+&aacute;llapotban ki&iacute;rja egy hintben a mező
+k&uuml;l&ouml;nb&ouml;ző azonos&iacute;t&oacute;it,
+&eacute;s a
+mezőh&ouml;z rendelt esetleges magyar&aacute;zatot, ha az
+eg&eacute;rkurzort a mező felett&nbsp;<span style="font-weight: bold;">felejti</span>
+p&aacute;r
+pillanatra. <img src="pics/kiskep_25.png"></p>
+
+
+<p>A <a href="enyk_lap_3.htm#mezo">CSV
+(meződefin&iacute;ci&oacute;s f&aacute;jl) </a>&eacute;rtelmez&eacute;s&eacute;t
+seg&iacute;ti elő a mezők&oacute;d kijelz&eacute;s
+haszn&aacute;lata.
+</p>
+
+
+<h4><span style="font-size: 12pt; font-family: Verdana;">Mező
+jav&iacute;t&aacute;s&aacute;n&aacute;l
+fel&uuml;l&iacute;r&aacute;si m&oacute;d</span></h4>
+
+
+<h4>
+<span style="font-weight: normal;">Ha a
+jel&ouml;lőn&eacute;gyzet <span style="font-weight: bold;">nincs
+kipip&aacute;lva</span>,
+akkor a mezőbe m&aacute;r ber&ouml;gz&iacute;tett
+&eacute;rt&eacute;k
+jav&iacute;t&aacute;sakor nem ker&uuml;l
+fel&uuml;l&iacute;r&aacute;sra.</span></h4>
+
+
+<h4><span style="font-weight: normal;">Ha a
+jel&ouml;lőn&eacute;gyzet <span style="font-weight: bold;">be
+van pip&aacute;lva</span>,
+akkor a mezőbe m&aacute;r ber&ouml;gz&iacute;tett
+&eacute;rt&eacute;k
+jav&iacute;t&aacute;sakor
+fel&uuml;l&iacute;r&aacute;sra ker&uuml;l.</span></h4>
+
+
+<h4>Felhaszn&aacute;l&oacute;
+azonos&iacute;t&aacute;s KA&Uuml;
+port&aacute;l haszn&aacute;lat&aacute;val
+(&Uuml;gyf&eacute;lkapu,
+Elektronikus szemm&eacute;lyi igazolv&aacute;ny, Telefonos
+azonos&iacute;t&aacute;s)</h4>
+
+
+<h4><span style="font-weight: normal;">Alap&eacute;rtelmezetten
+a
+bejelentkez&eacute;s KA&Uuml; port&aacute;l
+haszn&aacute;lat&aacute;val
+funkci&oacute; akt&iacute;v. Ebben az esetben a
+felhaszn&aacute;l&oacute; azonos&iacute;t&aacute;sa a
+KA&Uuml;
+port&aacute;l megjelen&iacute;t&eacute;s&eacute;vel
+t&ouml;rt&eacute;nik, az &Aacute;NYK egy ablakba
+beh&iacute;vja a
+KA&Uuml; port&aacute;l bejelentkez&eacute;si
+ablak&aacute;t.</span></h4>
+
+
+<big><big><big><big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><span style=""></span></span></big></big></big></big>
+<h4>internetb&ouml;ng&eacute;sző</h4>
+
+
+<p>Az itt be&aacute;ll&iacute;tott internetes
+b&ouml;ng&eacute;szőben
+tudja megnyitni az &Uuml;gyf&eacute;lkapu port&aacute;l
+bejelentkező
+k&eacute;pernyőj&eacute;t. <span style="font-weight: bold;">Kapcsolat
+az &Uuml;gyf&eacute;lkapuval -&gt; <a href="enyk_lap_4.htm#bevall">Nyomtatv&aacute;ny
+csoportos k&ouml;zvetlen bek&uuml;ld&eacute;se
+az&nbsp;&Uuml;gyf&eacute;lkapun
+kereszt&uuml;l</a></span><span class="label"></span>
+men&uuml;ponton
+kereszt&uuml;l tudja a felad&aacute;sra
+elők&eacute;sz&iacute;tett nyomtatv&aacute;nyait
+bek&uuml;ldeni.</p>
+
+
+<p>Ha nincs be&aacute;ll&iacute;tva
+b&ouml;ng&eacute;sző program, akkor
+a b&ouml;ng&eacute;sző programot haszn&aacute;l&oacute;
+funkci&oacute;k
+figyelmeztetnek, hogy itt a
+Be&aacute;ll&iacute;t&aacute;sokn&aacute;l
+&aacute;ll&iacute;tsa be a haszn&aacute;lni
+k&iacute;v&aacute;nt
+b&ouml;ng&eacute;sző programot. Ezt a <img src="pics/ikon_27.png">
+ikonra kattintva tudja megkeresni. (Windows-os
+oper&aacute;ci&oacute;s
+rendszerek alatt ha nincs be&aacute;ll&iacute;tva semmi, akkor
+megpr&oacute;b&aacute;lja
+seg&iacute;ts&eacute;gk&eacute;ppen az
+Internet Explorer-t megkereseni.)</p>
+
+
+<p>A<span style="font-weight: bold;"> </span><span class="label"></span><span style="font-weight: bold;">T&ouml;rl&eacute;s</span>
+gombra kattintva a kiv&aacute;laszt&aacute;st tudja
+t&ouml;r&ouml;lni. (pl. rossz programot v&aacute;lasztott
+ki)</p>
+
+
+<h4>pdf megjelen&iacute;tő</h4>
+
+
+<p>Az itt be&aacute;ll&iacute;tott pdf
+megjelen&iacute;tőben&nbsp;tudja
+megnyitni a nyomtatv&aacute;ny kit&ouml;ltővel
+k&eacute;sz&iacute;tett
+pdf &aacute;llom&aacute;nyait.&nbsp;</p>
+
+
+<p>Ha nincs
+be&aacute;ll&iacute;tva&nbsp;megjelen&iacute;tő
+program,
+akkor
+az oper&aacute;ci&oacute;s rendszerben
+alap&eacute;rtelmezett pdf
+megjelen&iacute;tő programban ny&iacute;lnak meg a pdf
+&aacute;llom&aacute;nyok. A
+Be&aacute;ll&iacute;t&aacute;sokn&aacute;l
+&aacute;ll&iacute;tsa be a haszn&aacute;lni
+k&iacute;v&aacute;nt
+megjelen&iacute;tő programot. Ezt a <img src="pics/ikon_27.png">ikonra
+kattintva tudja megkeresni vagy a szerkeszthető mezőbe be tudja
+&iacute;rni a program el&eacute;r&eacute;si
+&uacute;tj&aacute;t.</p>
+
+
+<p>A<span style="font-weight: bold;"> </span><span class="label"></span><span style="font-weight: bold;">T&ouml;rl&eacute;s</span>
+gombra kattintva a kiv&aacute;laszt&aacute;st tudja
+t&ouml;r&ouml;lni. (pl. rossz programot v&aacute;lasztott
+ki)</p>
+
+
+<h4>Digit&aacute;lis al&aacute;&iacute;r&aacute;s
+k&ouml;nyvt&aacute;ra</h4>
+
+
+<p>Az itt be&aacute;ll&iacute;tott
+k&ouml;nyvt&aacute;rba ker&uuml;lnek
+elhelyez&eacute;sre a digit&aacute;lis
+al&aacute;&iacute;r&aacute;sra
+&aacute;tadott nyomtatv&aacute;nyai.</p>
+
+
+<h4>sz&aacute;mol&oacute;g&eacute;p</h4>
+
+
+<p>Az itt be&aacute;ll&iacute;tott
+sz&aacute;mol&oacute;g&eacute;pet
+tudja beh&iacute;vni a&nbsp;nyomtatv&aacute;ny
+kit&ouml;ltő
+ikonsor&aacute;n tal&aacute;lhat&oacute; <img style="width: 26px; height: 23px;" alt="" title="sz&aacute;mol&oacute;g&eacute;p" src="pics/ikon_43.png"> ikonnal
+vagy az <span style="font-weight: bold;">F7</span>
+funkci&oacute;billentyűvel.&nbsp;
+Ha nincs
+be&aacute;ll&iacute;tva&nbsp;megjelen&iacute;tő
+program,
+akkor
+az oper&aacute;ci&oacute;s rendszerben
+alap&eacute;rtelmezett
+sz&aacute;mol&oacute;g&eacute;p&nbsp;ker&uuml;l
+megh&iacute;v&aacute;sra. A
+Be&aacute;ll&iacute;t&aacute;sokn&aacute;l
+&aacute;ll&iacute;tsa be a haszn&aacute;lni
+k&iacute;v&aacute;nt
+megjelen&iacute;tő programot. Ezt a <img src="pics/ikon_27.png">ikonra
+kattintva tudja megkeresni vagy a szerkeszthető mezőbe be tudja
+&iacute;rni a program el&eacute;r&eacute;si
+&uacute;tj&aacute;t.&nbsp;</p>
+
+
+<p>A<span style="font-weight: bold;"> </span><span class="label"></span><span style="font-weight: bold;">T&ouml;rl&eacute;s</span>
+gombra kattintva a kiv&aacute;laszt&aacute;st tudja
+t&ouml;r&ouml;lni. (pl. rossz programot v&aacute;lasztott
+ki)<br>
+
+
+</p>
+
+
+<p><span class="label"></span><span style="font-weight: bold;">Kapcsolat az
+&Uuml;gyf&eacute;lkapuval -&gt; <a href="enyk_lap_4.htm#63sor">&Aacute;tad&aacute;s
+digit&aacute;lis al&aacute;&iacute;r&aacute;sra</a>
+</span>men&uuml;ponton kereszt&uuml;l tudja a
+titkos&iacute;t&aacute;shoz
+elők&eacute;sz&iacute;tett nyomtatv&aacute;nyait
+&aacute;thelyezni a
+megfelelő k&ouml;nyvt&aacute;rba. Ha nincs
+be&aacute;ll&iacute;tva a
+megfelelő k&ouml;nyvt&aacute;r, akkor
+figyelmeztet&eacute;st kap a
+k&ouml;nyvt&aacute;rat haszn&aacute;l&oacute;
+funkci&oacute;n&aacute;l,
+hogy itt a Be&aacute;ll&iacute;t&aacute;sokn&aacute;l
+&aacute;ll&iacute;tsa be a haszn&aacute;lni
+k&iacute;v&aacute;nt
+b&ouml;ng&eacute;sző programot. Ezt a <img src="pics/ikon_27.png"> ikonra kattintva tudja megkeresni. A<span class="label"></span>
+<span style="font-weight: bold;">T&ouml;rl&eacute;s</span>
+gombra kattintva a kiv&aacute;laszt&aacute;st tudja
+t&ouml;r&ouml;lni (pl. rossz k&ouml;nyvt&aacute;rat
+v&aacute;lasztott ki).</p>
+
+
+<p><span style="font-weight: bold;">Mem&oacute;ria
+haszn&aacute;lat</span></p>
+
+
+<img style="width: 577px; height: 51px;" alt="Mem&oacute;ria haszn&aacute;lat" src="pics/kep_2a.png">
+<p>A program &aacute;ltal
+felhaszn&aacute;lhat&oacute; mem&oacute;ria
+hat&aacute;r&eacute;rt&eacute;keit
+&aacute;ll&iacute;thatja be. A
+be&aacute;ll&iacute;tott &eacute;rt&eacute;kek
+ment&eacute;sre
+ker&uuml;lnek a programk&ouml;nyvt&aacute;rban
+tal&aacute;lhat&oacute;
+setenv.bat (Linux vagy Mac rendszereken setenv)
+&aacute;llom&aacute;nyban.</p>
+
+
+<p><span style="font-weight: bold;">S&aacute;vsz&eacute;less&eacute;g</span></p>
+
+
+<p><span style="font-weight: bold;"></span>Az
+&Aacute;NYK rendelkez&eacute;s&eacute;re
+&aacute;ll&oacute; kimenő
+s&aacute;vsz&eacute;less&eacute;g
+(http/https).&nbsp;Ha nincs megadott &eacute;rt&eacute;k
+akkor az alap&eacute;rtelmezett&nbsp;1 Mbps.</p>
+
+
+<p>A .kr &aacute;llom&aacute;nyok <span style="font-weight: bold;">becs&uuml;lt</span>
+felt&ouml;lt&eacute;si idej&eacute;nek
+meghat&aacute;roz&aacute;s&aacute;hoz
+sz&uuml;ks&eacute;ges
+&eacute;rt&eacute;k. A felt&ouml;ltendő
+&aacute;llom&aacute;ny az itt
+megadott s&aacute;vsz&eacute;less&eacute;g mellett a
+session timeout
+-ig h&aacute;tral&eacute;vő időn bel&uuml;l
+felt&ouml;lthető-e.</p>
+
+
+<h3>Megjelen&eacute;s
+be&aacute;ll&iacute;t&aacute;sai</h3>
+
+
+<p style="margin: 0cm 0cm 0.0001pt;"><span style="font-size: 11pt; font-family: Verdana;"></span>Ebben
+az ablakban a nyomtatv&aacute;ny
+megjelen&eacute;s&eacute;re
+vonatkoz&oacute; tulajdons&aacute;gok
+&aacute;ll&iacute;that&oacute;ak.</p>
+<p style="margin: 0cm 0cm 0.0001pt;"></p>
+
+
+<p style="margin: 0cm 0cm 0.0001pt; text-align: center;"><img style="width: 857px; height: 460px;" alt="Megjelen&eacute;s be&aacute;ll&iacute;t&aacute;sa" src="pics/kep_131.png"></p>
+
+
+<p>
+</p>
+
+
+<h4><span style="font-family: Verdana;">A
+lapf&uuml;lek elhelyezked&eacute;se</span></h4>
+
+
+<h4><span style="font-weight: normal;">Itt lehet
+megadni, hogy a bet&ouml;lt&ouml;tt nyomtatv&aacute;ny
+lapf&uuml;lei hol
+ker&uuml;ljenek megjelen&iacute;t&eacute;sre.</span><span style="font-size: 11pt; font-family: Verdana;"><br>
+
+
+</span></h4>
+
+
+<h4><span style="font-weight: normal;">Lehetős&eacute;gek:</span><span style="font-size: 11pt; font-family: Verdana;"></span></h4>
+
+
+<ul>
+
+
+  <li>a
+nyomtatv&aacute;ny<span style="font-weight: bold;">
+jobb</span> oldal&aacute;n</li>
+
+
+  <li>a
+nyomtatv&aacute;ny<span style="font-weight: bold;"> bal</span>
+oldal&aacute;n</li>
+
+
+  <li>a
+nyomtatv&aacute;ny felett (<span style="font-weight: bold;">fel&uuml;l</span>)</li>
+
+
+  <li>a
+nyomtatv&aacute;ny alatt (<span style="font-weight: bold;">alul</span>)</li>
+
+
+</ul>
+
+
+<span style="font-size: 11pt; font-family: Verdana;"></span>Ha
+olyan
+nyomtatv&aacute;ny ker&uuml;l bet&ouml;lt&eacute;sre,
+amelynek
+t&ouml;bb
+lapf&uuml;le van, mint amit a program meg tud
+jelen&iacute;teni, akkor
+a lapf&uuml;lek ut&aacute;n 4 nyom&oacute;gomb jelenik meg:
+<ul>
+
+
+  <li><span style="font-size: 11pt; font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><span style="font-size: 11pt; font-family: Verdana;"><span style=""></span><img style="width: 21px; height: 21px;" alt="" src="pics/ikon_36.png"> </span>első
+lap<span style="font-size: 11pt; font-family: Verdana;">&nbsp;</span></li>
+
+
+  <li><span style="font-size: 11pt; font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><span style="font-size: 11pt; font-family: Verdana;"><span style=""></span><img style="width: 20px; height: 20px;" alt="" src="pics/ikon_37.png"> </span>előző
+lap<span style="font-size: 11pt; font-family: Verdana;">&nbsp;</span></li>
+
+
+  <li><span style="font-size: 11pt; font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><span style="font-size: 11pt; font-family: Verdana;"><img style="width: 21px; height: 20px;" alt="" src="pics/ikon_38.png"> </span>k&ouml;vetkező
+lap</li>
+
+
+  <li><span style="font-size: 11pt; font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><span style="font-size: 11pt; font-family: Verdana;"> <img style="width: 22px; height: 20px;" alt="" src="pics/ikon_39.png"> </span>utols&oacute;
+lap</li>
+
+
+</ul>
+
+
+<p style="margin-top: 0cm; margin-right: 3.7pt; margin-bottom: 0.0001pt; text-align: justify;">Ha
+dupla kattint&aacute;ssal kiv&aacute;laszt&aacute;sra
+ker&uuml;l egy akt&iacute;v
+lapf&uuml;l, akkor az Alt+Balra ny&iacute;l
+seg&iacute;ts&eacute;g&eacute;vel az első
+el&eacute;rhető lap, az
+Alt+Jobbra ny&iacute;l
+seg&iacute;ts&eacute;g&eacute;vel az utols&oacute;
+el&eacute;rhető lap ker&uuml;l bet&ouml;lt&eacute;sre.</p>
+
+
+<p style="margin: 6pt 3.7pt 0.0001pt; text-align: justify;"><span style="font-weight: bold;">A lapf&uuml;lek t&ouml;bb
+sorban</span> opci&oacute;
+bepip&aacute;l&aacute;sa eset&eacute;n t&ouml;bb sorban
+illetve oszlopban ker&uuml;lnek
+megjelen&iacute;t&eacute;sre a
+lapf&uuml;lek.</p>
+
+
+<p style="margin: 6pt 3.7pt 0.0001pt; text-align: justify;">Fontos!</p>
+
+
+<p style="margin: 6pt 3.7pt 0.0001pt; text-align: justify;">A
+be&aacute;ll&iacute;t&aacute;s csak akkor l&eacute;p
+&eacute;letbe, ha &uacute;jabb nyomtatv&aacute;ny
+ker&uuml;l bet&ouml;lt&eacute;sre vagy az &Aacute;NYK
+&uacute;jabb ind&iacute;t&aacute;sakor.<span style="font-size: 11pt; font-family: Verdana;">&nbsp;</span></p>
+
+
+<p style="margin: 6pt 3.7pt 0.0001pt; text-align: justify;"><span style="font-size: 11pt; font-family: Verdana;"></span></p>
+
+
+<h4><span style="font-family: Verdana;">Mezőinform&aacute;ci&oacute;
+kikapcsol&aacute;sa a hiba&uuml;zenetben</span></h4>
+
+
+<p style="margin: 6pt 3.7pt 0.0001pt; text-align: justify;">Alap&eacute;rtelmez&eacute;sben
+a jel&ouml;lőn&eacute;gyzet be van pip&aacute;lva. Ekkor a
+mezőből
+val&oacute; kil&eacute;p&eacute;skor &eacute;s az
+"Ellenőrz&eacute;s"
+ikonn&aacute;l felj&ouml;vő hiba&uuml;zenetablakokban a
+Mezőinform&aacute;ci&oacute;k elrejt&eacute;sre
+ker&uuml;lnek.&nbsp;</p>
+
+
+<p style="margin: 6pt 3.7pt 0.0001pt; text-align: center;"><img style="width: 603px; height: 162px;" alt="kiskep_24a" src="pics/kiskep_24a.png"></p>
+
+
+<p style="margin: 6pt 3.7pt 0.0001pt; text-align: center;">Mezőinform&aacute;ci&oacute;k
+elrejt&eacute;se</p>
+
+
+<p style="margin: 6pt 3.7pt 0.0001pt; text-align: center;"></p>
+
+
+<p style="margin: 6pt 3.7pt 0.0001pt; text-align: left;">A
+mező elhagy&aacute;sakor megjelenő &uuml;zenetablakban a <span style="font-weight: bold;">Mezőinform&aacute;ci&oacute;k</span>
+gomb megnyom&aacute;s&aacute;val a
+mezőinform&aacute;ci&oacute;k l&aacute;that&oacute;k.</p>
+
+
+<p style="margin: 6pt 3.7pt 0.0001pt; text-align: center;"><img style="width: 637px; height: 216px;" alt="kiskep24b" src="pics/kiskep_24b.png"></p>
+
+
+<p style="margin: 6pt 3.7pt 0.0001pt; text-align: center;">Mezőinform&aacute;ci&oacute;k
+megjelen&iacute;t&eacute;se</p>
+
+
+<p style="margin: 6pt 3.7pt 0.0001pt; text-align: left;">Ha
+a
+jel&ouml;lőn&eacute;gyzetből a pipa kiszed&eacute;sre
+ker&uuml;l, akkor
+a mezőinform&aacute;ci&oacute;k mindenhol
+l&aacute;that&oacute;k:</p>
+
+
+<p style="margin: 6pt 3.7pt 0.0001pt; text-align: center;"><img style="width: 427px; height: 143px;" alt="kiskep24" src="pics/kiskep_24.png"></p>
+
+
+<p style="margin: 6pt 3.7pt 0.0001pt; text-align: left;"></p>
+
+
+<h4><span style="font-size: 12pt; font-family: Verdana;">Alap&eacute;rtelmezettk&eacute;nt
+haszn&aacute;land&oacute; C&eacute;g/Hivatali Kapu
+azonos&iacute;t&oacute;</span></h4>
+
+
+<h4><span style="font-size: 12pt; font-family: Verdana;">Meghatalmazott/K&ouml;nyvelőiroda&nbsp;C&eacute;g/Hivatali
+Kapu azonos&iacute;t&oacute;</span></h4>
+
+
+<p style="text-align: justify;"><big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></big>Ha
+ezt az opci&oacute;t v&aacute;lasztja, akkor itt meg tudja adni
+az
+&Ouml;n &aacute;ltal gyakran haszn&aacute;lt
+meghatalmazotti vagy
+k&ouml;nyvelő irodai C&eacute;g/Hivatali kapu
+azonos&iacute;t&oacute;j&aacute;t. Ekkor a
+"Nyomtatv&aacute;ny
+csoportos k&ouml;zvetlen bek&uuml;ld&eacute;se"
+funkci&oacute;
+haszn&aacute;latakor a bek&uuml;ldendő
+&aacute;llom&aacute;nyok
+list&aacute;j&aacute;ban szereplő C&eacute;g/Hivatali kapu
+azonos&iacute;t&oacute; oszlop mezőibe beker&uuml;l az itt
+megadott
+Meghatalmazott/K&ouml;nyvelőiroda C&eacute;g/Hivatali kapu
+azonos&iacute;t&oacute; mező tartalma.</p>
+
+
+<p style="text-align: justify;"> Ha a
+nyomtatv&aacute;nyban megadott
+ad&oacute;sz&aacute;mb&oacute;l k&eacute;pzett
+C&eacute;gkapu
+azonos&iacute;t&oacute; meghat&aacute;rozhat&oacute;,
+akkor ez az
+&eacute;rt&eacute;k is beker&uuml;l
+a&nbsp;Nyomtatv&aacute;ny csoportos
+k&ouml;zvetlen bek&uuml;ld&eacute;se funkci&oacute;
+haszn&aacute;latakor a bek&uuml;ldendő
+&aacute;llom&aacute;nyok
+list&aacute;j&aacute;ban szereplő C&eacute;g/Hivatali kapu
+azonos&iacute;t&oacute; oszlop mezőihez tartoz&oacute;
+&eacute;rt&eacute;klist&aacute;ba &eacute;s onnan
+kiv&aacute;laszthat&oacute; lesz. <big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></big></p>
+
+
+<p style="text-align: justify;"><big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span></big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><big style="font-weight: bold;">Nyomtatv&aacute;nyb&oacute;l
+t&ouml;rt&eacute;nő C&eacute;gkapu
+azonos&iacute;t&aacute;s</big>&nbsp;</span></p>
+
+
+<p style="text-align: justify;"><big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">A&nbsp;<big>nyomtatv&aacute;nyb&oacute;l</big>
+<big>t&ouml;rt&eacute;nő C&eacute;gkapu
+azonos&iacute;t&aacute;s
+az alap&eacute;rtelmezett opci&oacute;.&nbsp;</big></span><big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><big>A</big>
+</span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">"<big>Nyomtatv&aacute;ny
+csoportos k&ouml;zvetlen bek&uuml;ld&eacute;se</big>"
+<big>funkci&oacute;
+haszn&aacute;latakor a bek&uuml;ldendő
+&aacute;llom&aacute;nyok
+list&aacute;j&aacute;ban szereplő </big></span><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><big>C&eacute;g/Hivatali
+kapu
+azonos&iacute;t&oacute; oszlop mezőihez</big> <big>tartoz&oacute;
+&eacute;rt&eacute;klist&aacute;ba
+beker&uuml;l az adott nyomtatv&aacute;nyban megadott
+ad&oacute;sz&aacute;mb&oacute;l k&eacute;pzett
+C&eacute;gkapu
+azonos&iacute;t&oacute; &eacute;s ez az
+&eacute;rt&eacute;k
+lesz l&aacute;that&oacute; az oszlop mezőiben.
+Ha&nbsp;kit&ouml;lt&ouml;tte a</big>&nbsp;</span></big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><big>Szerviz/Be&aacute;ll&iacute;t&aacute;sok/Megjelen&eacute;s
+f&uuml;l&ouml;n a Meghatalmazott/K&ouml;nyvelőiroda
+C&eacute;g/Hivatali
+kapu azonos&iacute;t&oacute;&nbsp;mezőt, akkor ez az
+&eacute;rt&eacute;k
+is v&aacute;laszthat&oacute; az egyes
+mezőkh&ouml;z&nbsp;tartoz&oacute;
+&eacute;rt&eacute;klist&aacute;b&oacute;</big>l.&nbsp;</span></big></p>
+
+
+<p style="text-align: justify;"><big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><big>A</big>&nbsp;</span></big></big><big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"></span><big><big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><big>Nyomtatv&aacute;ny</big>
+<big>csoportos k&ouml;zvetlen bek&uuml;ld&eacute;se
+funkci&oacute;n&aacute;l</big>
+<big>az &aacute;llom&aacute;nyok
+list&aacute;j&aacute;ban l&eacute;vő</big> </span></big></big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><big>C&eacute;g/Hivatali
+kapu
+azonos&iacute;t&oacute; oszlop&nbsp;mezőinek
+&eacute;rt&eacute;ke
+szerkeszthető, az &eacute;rt&eacute;klist&aacute;ban
+felaj&aacute;nlott
+&eacute;rt&eacute;kektől elt&eacute;rő
+kapuazonos&iacute;t&oacute;&nbsp;is megadhat&oacute;</big>.</span></big></p>
+
+
+<p style="text-align: justify;"><big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><big><span style="font-weight: bold;">Kin&eacute;zet</span></big></span></big></p>
+
+
+<p style="text-align: justify;"><big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><big><span style="font-weight: bold;"></span>A k&ouml;vetkező
+be&aacute;ll&iacute;t&aacute;si lehetős&eacute;g
+k&ouml;z&uuml;l v&aacute;laszthat:<br>
+
+
+- Java alap&eacute;rtelmezett - Az &Aacute;NYK eddig
+haszn&aacute;lt megjelen&eacute;se, ez az
+alap&eacute;rtelmezett
+megjelen&iacute;t&eacute;si m&oacute;d<br>
+
+
+- Windows Classic -&nbsp; Windows oper&aacute;ci&oacute;s
+rendszer eset&eacute;n jelenik meg az
+&eacute;rt&eacute;klist&aacute;ban. A kin&eacute;zet a
+Windows Classic t&eacute;m&aacute;nak
+megfelelő.<br>
+
+
+- MAC - MAC oper&aacute;ci&oacute;s rendszer eset&eacute;n
+v&aacute;laszthat&oacute; a list&aacute;b&oacute;l.<br>
+
+
+<br>
+
+
+<span style="font-weight: bold;">Betűm&eacute;ret
+(alap&eacute;rtelmezett 12)</span></big></span></big></p>
+
+
+<p style="text-align: justify;"><big><span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><big><span style="font-weight: bold;"></span>A programban
+haszn&aacute;lt alapbetűm&eacute;ret 12. Ha ettől nagyobb
+betűm&eacute;retet szeretne megadni, azt a mezőben<br>
+
+
+adhatja meg a nyilak seg&iacute;ts&eacute;g&eacute;vel. A be&aacute;ll&iacute;tott betűm&eacute;ret megjelen&eacute;s&eacute;t a
+be&aacute;ll&iacute;t&aacute;sok ment&eacute;se előtt az Előn&eacute;zet gomb lenyom&aacute;s&aacute;val megn&eacute;zheti.<br>
+
+
+A kiv&aacute;lasztott betűm&eacute;retet az Alkalmaz gombbal tudja elmenteni, majd a be&aacute;ll&iacute;t&aacute;sok az
+&Aacute;NYK &uacute;jraind&iacute;t&aacute;sa ut&aacute;n l&eacute;pnek &eacute;letbe.<br>
+
+
+<br>
+
+
+Ha m&oacute;dos&iacute;t az oper&aacute;ci&oacute;s
+rendszer kontraszt
+be&aacute;ll&iacute;t&aacute;sain, az &Aacute;NYK
+&uacute;jraind&iacute;t&aacute;sa ut&aacute;n lesznek
+ezek a
+be&aacute;ll&iacute;t&aacute;sok teljesk&ouml;rűen
+el&eacute;rhetőek a
+programban.<br>
+
+
+Az oper&aacute;ci&oacute;s rendszer kontraszt
+be&aacute;ll&iacute;t&aacute;sai Java
+alap&eacute;rtelmezett
+kin&eacute;zet v&aacute;laszt&aacute;sa eset&eacute;n
+csak a
+k&eacute;pernyők keret&eacute;re &eacute;rv&eacute;nyes.<br>
+
+
+Az &Aacute;NYK alap&eacute;rtelmezett betűm&eacute;rete
+(12)
+vissza&aacute;ll&iacute;that&oacute; a Ctrl+F billenyű
+kombin&aacute;ci&oacute;val, a
+be&aacute;ll&iacute;t&aacute;s az
+&Aacute;NYK &uacute;jraind&iacute;t&aacute;sa
+ut&aacute;n l&eacute;p
+&eacute;rv&eacute;nybe.</big><br>
+
+
+</span></big></p>
+
+
+<h3><a name="abev"></a>File
+maszkol&aacute;s</h3>
+
+
+<h4>&Aacute;llom&aacute;nyn&eacute;v
+felaj&aacute;nl&aacute;s haszn&aacute;lata</h4>
+
+
+<p>Itt lehet maszkot megadni a kit&ouml;lt&ouml;tt
+nyomtatv&aacute;nyf&aacute;jlok nev&eacute;nek
+k&eacute;pz&eacute;s&eacute;hez, ez&aacute;ltal
+egyszerűbb&eacute;
+t&eacute;ve azok megtal&aacute;l&aacute;s&aacute;t. A <span class="label"></span><span style="font-weight: bold;">Be&aacute;ll&iacute;t&aacute;s
+</span>gombra az opci&oacute;
+bepip&aacute;l&aacute;sakor
+v&aacute;lik akt&iacute;vv&aacute;.</p>
+
+
+<p align="center"><img style="width: 859px; height: 649px;" alt="" title="File maszkol&aacute;s" src="pics/kep_59.png"><br>
+
+
+&Aacute;llom&aacute;nyn&eacute;v
+felaj&aacute;nl&aacute;s haszn&aacute;lata</p>
+
+
+<p>Az &aacute;llom&aacute;nyn&eacute;v
+felaj&aacute;nl&aacute;s
+bekattint&aacute;s&aacute;val akt&iacute;vv&aacute;
+v&aacute;lik a
+t&aacute;bl&aacute;zat. Ha nincs megadva f&aacute;jl maszk
+a program a
+k&ouml;vetkező alap&eacute;rtelmezett f&aacute;jl maszkot
+(f&aacute;jln&eacute;v szerkezet) &aacute;ll&iacute;tja
+be:
+nyomtatv&aacute;ny
+azonos&iacute;t&oacute;_ad&oacute;sz&aacute;m/ad&oacute;azonos&iacute;t&oacute;jel_13
+karakteres egyedi azonos&iacute;t&oacute;. Pl.:
+0653_12345678_1175513601164</p>
+
+
+<p>A bal oldali (Lehets&eacute;ges
+&eacute;rt&eacute;kek)
+list&aacute;ban l&eacute;vő elemek k&ouml;z&uuml;l
+lehet a
+f&aacute;jlnevet bőv&iacute;teni. A jobb oldali (File maszk)
+lista az
+aktu&aacute;lis f&aacute;jln&eacute;v
+fel&eacute;p&iacute;t&eacute;s&eacute;t mutatja.</p>
+
+
+<p>A f&aacute;jln&eacute;v list&aacute;t a balra
+&eacute;s jobbra
+ny&iacute;l gombokkal lehet felt&ouml;lteni, illetve
+lecs&ouml;kkenteni. Ha a jobb oldali lista valamely
+elem&eacute;t
+kijel&ouml;lj&uuml;k, akkor a<span style="font-weight: bold;">
+FEL</span><span style="font-weight: bold;" class="label"></span>
+&eacute;s<span class="label"></span>
+<span style="font-weight: bold;">LE</span> gombokkal
+&aacute;ll&iacute;thatja a sorrendj&eacute;t az
+elemeknek.</p>
+
+
+<h4>Importn&aacute;l megőrizz&uuml;k az eredeti
+f&aacute;jlnevet</h4>
+
+
+<p>Az "Importn&aacute;l megőrizz&uuml;k az eredeti
+f&aacute;jlnevet"
+be&aacute;ll&iacute;t&aacute;s
+alap&eacute;rtelmez&eacute;sben
+&uuml;res (nincs bepip&aacute;lva). Ekkor az
+import&aacute;l&aacute;s
+sor&aacute;n&nbsp;be&aacute;ll&iacute;t&aacute;sra
+ker&uuml;lt file
+maszk alapj&aacute;n k&eacute;pződik a
+f&aacute;jln&eacute;v. Ha
+az&nbsp;"Importn&aacute;l megőrizz&uuml;k az eredeti
+f&aacute;jlnevet"
+be&aacute;ll&iacute;t&aacute;s bekattint&aacute;sra
+ker&uuml;l, akkor
+az import&aacute;l&aacute;sn&aacute;l keletkező
+f&aacute;jln&eacute;v
+az eredeti &aacute;llom&aacute;nyn&eacute;v lesz
+kieg&eacute;sz&iacute;tve egy 13 karakteres egyedi
+azonos&iacute;t&oacute;val, ami az
+&aacute;llom&aacute;nyok
+egyedis&eacute;g&eacute;t&nbsp;biztos&iacute;tja.</p>
+
+
+<p>pl: import&aacute;land&oacute;
+&aacute;llom&aacute;ny n&eacute;v: import.xml</p>
+
+
+<p>Import&aacute;l&aacute;s ut&aacute;n
+k&eacute;pzett &aacute;llom&aacute;nyn&eacute;v ha az
+"Importn&aacute;l
+megőrizz&uuml;k az eredeti f&aacute;jlnevet"
+be&aacute;ll&iacute;t&aacute;sra ker&uuml;lt:
+import_1234567890123.frm.enyk</p>
+
+
+<p>Az<span style="font-weight: bold;"> </span><span style="font-weight: bold;" class="label"></span><span style="font-weight: bold;">OK</span> gombot
+v&aacute;lasztva a
+k&ouml;vetkező import&aacute;l&aacute;skor
+l&eacute;trej&ouml;vő f&aacute;jl
+ment&eacute;sekor
+m&aacute;r az &uacute;j f&aacute;jln&eacute;vvel fognak
+l&eacute;trej&ouml;nni a
+felhaszn&aacute;l&oacute;&nbsp;<span class="path"></span><span style="font-weight: bold;">\mentesek</span>
+k&ouml;nyvt&aacute;r&aacute;ban az
+&aacute;llom&aacute;nyok.</p>
+
+
+<h3>Nyomtat&aacute;s
+be&aacute;ll&iacute;t&aacute;sai</h3>
+
+
+<p>Ebben az ablakban a nyomtat&aacute;sra
+vonatkoz&oacute;
+tulajdons&aacute;gok
+&aacute;ll&iacute;that&oacute;ak.&nbsp;Ugyanez a
+k&eacute;pernyő jelenik meg az <span style="font-family: Verdana;" class="label"><small>Adatok-&gt;
+Nyomtatv&aacute;ny kinyomtat&aacute;sa </small></span>men&uuml;ben
+a<span style="font-family: Verdana;" class="label"><small>
+<a href="enyk_lap_2.htm#nyomtat">Be&aacute;ll&iacute;t&aacute;sok</a></small>&nbsp;</span>gombra
+kattintva is, a k&ouml;nnyebb
+el&eacute;rhetős&eacute;g miatt.</p>
+
+
+<p align="center"><img src="pics/kep_29.png"><br>
+
+
+Nyomtat&aacute;si be&aacute;ll&iacute;t&aacute;sok</p>
+
+
+<p>Nyomtat&aacute;s sz&iacute;ne</p>
+
+
+<ul>
+
+
+  <li><span style="font-weight: bold;">Fekete-feh&eacute;r
+nyomtat&aacute;s</span><br>
+
+
+Az ad&oacute;hat&oacute;s&aacute;g fel&eacute;
+fekete-feh&eacute;r nyomtat&aacute;s&uacute; lapokat kell
+beadni.</li>
+
+
+  <li style="font-weight: bold;">Sz&iacute;nes
+nyomtat&aacute;s</li>
+
+
+</ul>
+
+
+A k&eacute;t nyomtat&aacute;si t&iacute;pus
+k&ouml;z&uuml;l csak az
+egyik lehet akt&iacute;v. Alap&eacute;rtelmez&eacute;sben a
+fekete-feh&eacute;r nyomtat&aacute;s van
+be&aacute;ll&iacute;tva.<br>
+
+
+Lap marg&oacute;ja<br>
+
+
+<ul>
+
+
+  <li><span style="font-weight: bold;">Marg&oacute;</span><br>
+
+
+Alap&eacute;rtelmez&eacute;sben 2-re van
+&aacute;ll&iacute;tva.
+Nyomtat&oacute; t&iacute;pust&oacute;l f&uuml;ggően
+esetlegesen
+sz&uuml;ks&eacute;g lehet az
+&aacute;ll&iacute;t&aacute;s&aacute;ra.</li>
+
+
+</ul>
+
+
+Azonos&iacute;t&oacute;k nyomtat&aacute;sa
+<ul>
+
+
+  <li><span style="font-weight: bold;">K&ouml;z&ouml;s
+azonos&iacute;t&oacute;
+nyomtat&aacute;sa</span><br>
+
+
+Alap&eacute;rtelmez&eacute;sben nem ker&uuml;l
+nyomtat&aacute;sra. A
+funkci&oacute; akt&iacute;vv&aacute; t&eacute;tele
+ut&aacute;n
+nyomtat&aacute;si k&eacute;pben, valamint a kinyomtatott
+lapokon
+egyar&aacute;nt megjelennek a mezőh&ouml;z tartoz&oacute;
+k&ouml;z&ouml;s azonos&iacute;t&oacute;k.</li>
+
+
+  <li><span style="font-weight: bold;">Import
+azonos&iacute;t&oacute; nyomtat&aacute;sa</span><br>
+
+
+Alap&eacute;rtelmez&eacute;sben nem ker&uuml;l
+nyomtat&aacute;sra. A
+funkci&oacute; akt&iacute;vv&aacute; t&eacute;tele
+ut&aacute;n
+nyomtat&aacute;si k&eacute;pben, valamint a kinyomtatott
+lapokon
+egyar&aacute;nt megjelennek a mezőh&ouml;z tartoz&oacute;
+import
+azonos&iacute;t&oacute;k.</li>
+
+
+  <li class="MsoNormal" style="margin-top: 0cm; margin-bottom: 0.0001pt; text-align: justify;"><b style=""><span style="font-size: 11pt; font-family: Verdana;">Belső
+azonos&iacute;t&oacute; nyomtat&aacute;sa<o:p></o:p></span></b><br>
+
+
+Alap&eacute;rtelmez&eacute;sben nem ker&uuml;l
+nyomtat&aacute;sra. A funkci&oacute;
+akt&iacute;vv&aacute; t&eacute;tele ut&aacute;n
+nyomtat&aacute;si k&eacute;pben, valamint a
+kinyomtatott lapokon egyar&aacute;nt megjelennek a mezőh&ouml;z
+tartoz&oacute; belső azonos&iacute;t&oacute;k</li>
+
+
+</ul>
+
+
+Egy&eacute;b be&aacute;ll&iacute;t&aacute;sok
+<ul>
+
+
+  <li><span style="font-weight: bold;">A PDF
+&aacute;llom&aacute;nyok ment&eacute;si
+k&ouml;nyvt&aacute;ra</span><br>
+
+
+Nyomtat&aacute;skor pdf &aacute;llom&aacute;nyban is
+elk&eacute;sz&iacute;theti a nyomtatand&oacute; lapokat.
+Alap&eacute;rtelmez&eacute;sben ezek az
+&aacute;llom&aacute;nyok az
+abevjava/naplo k&ouml;nyvt&aacute;rba ker&uuml;lnek
+ment&eacute;sre.
+Ezt itt lehet megv&aacute;ltoztatni.</li>
+
+
+  <li><span style="font-weight: bold;"></span><b style=""><span style="font-size: 11pt; font-family: Verdana;">PostScript
+optimaliz&aacute;lt nyomtat&aacute;si m&oacute;d
+enged&eacute;lyez&eacute;se<o:p></o:p></span></b><br>
+
+
+    <span style="font-size: 11pt; font-family: Verdana;">Gyors&iacute;tott
+nyomtat&aacute;s enged&eacute;lyez&eacute;se. H</span>aszn&aacute;lat&aacute;nak
+műszaki
+k&ouml;vetelm&eacute;nyei &eacute;s
+speci&aacute;lis tulajdons&aacute;gai vannak.
+R&eacute;szleteket
+megtal&aacute;lja egy k&uuml;l&ouml;n
+le&iacute;r&aacute;sban.(nyomtatassal_kapcsolatos_informaciok.pdf)</li>
+
+
+</ul>
+
+
+<h3><a name="csatol_beallit"></a>Csatolm&aacute;nyok
+be&aacute;ll&iacute;t&aacute;sai</h3>
+
+
+<p>Ezeknek a param&eacute;tereknek a
+megad&aacute;s&aacute;ra akkor van
+sz&uuml;ks&eacute;g, ha a felhaszn&aacute;l&oacute; a
+nyomtatv&aacute;nyokhoz csatolt &aacute;llom&aacute;nyokat
+meghat&aacute;rozott programmal szeretn&eacute; megnyitni.
+P&eacute;ld&aacute;ul: Alap&eacute;rtelmez&eacute;sben
+az
+oper&aacute;ci&oacute;s rendszer alatt a txt
+kiterjeszt&eacute;sű
+&aacute;llom&aacute;nyokat a notepaid programmal nyitja meg.
+Itt be
+lehet &aacute;ll&iacute;tani, hogy&nbsp;<a href="enyk_lap_2.htm#csatol"><small><span style="font-family: Verdana;" class="label"></span></small></a>az
+Adatok -&gt; Csatolm&aacute;nyok men&uuml;pont <a style="font-weight: bold;" href="enyk_lap_2.htm#csatol">Megtekint</a>
+funkci&oacute;n&aacute;l az
+uedit32 programmal tudja megn&eacute;zni.</p>
+
+
+<p align="center"><img src="pics/kep_63.png"><br>
+
+
+Csatolm&aacute;nyok be&aacute;ll&iacute;t&aacute;sai</p>
+
+
+<p>A Csatolm&aacute;nyok
+be&aacute;ll&iacute;t&aacute;sai k&eacute;pernyőn
+tal&aacute;lhat&oacute; gombok:</p>
+
+
+<ul>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Hozz&aacute;ad:</span>
+Ezzel adja hozz&aacute; a be&iacute;rt
+kiterjeszt&eacute;shez rendelt programot a list&aacute;hoz.</li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">T&ouml;r&ouml;l: </span>A
+kiv&aacute;lasztott hozz&aacute;rendel&eacute;st tudja
+t&ouml;r&ouml;lni a list&aacute;b&oacute;l.</li>
+
+
+  <li><span style="font-weight: bold;">Helyi mappa
+&aacute;tmeneti t&aacute;rol&aacute;sra:</span>
+Itt tud megadni egy helyi mapp&aacute;t, ha
+h&aacute;l&oacute;zatosan
+haszn&aacute;lja az &Aacute;NYK-t &eacute;s
+sok&aacute;ig tart a
+csatolm&aacute;nyt is tartalmaz&oacute; nyomtatv&aacute;ny
+megjel&ouml;l&eacute;se.</li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Ok:</span> Elmenti a
+megadott hozz&aacute;rendel&eacute;seket.</li>
+
+
+</ul>
+
+
+<h3>Friss&iacute;t&eacute;s
+be&aacute;ll&iacute;t&aacute;sai</h3>
+
+
+A Friss&iacute;t&eacute;sek
+be&aacute;ll&iacute;t&aacute;sai
+k&eacute;pernyőn a k&ouml;vetkező
+inform&aacute;ci&oacute;kat adhatja
+meg:
+<p align="center"><img src="pics/kep_7.png"><br>
+
+
+Friss&iacute;t&eacute;sek
+be&aacute;ll&iacute;t&aacute;sai</p>
+
+
+<span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;
+Szervezet kiv&aacute;laszt&aacute;sa</span><span style="font-size: 12pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 12pt; font-family: Verdana;"><span style="font-weight: bold;"><br>
+
+
+</span></span>
+<ul>
+
+
+  
+  <ul>
+
+
+    <li><span style="font-size: 12pt; font-family: Verdana;"><span style="font-weight: bold;">Tiltom a
+Szervezetv&aacute;laszt&oacute; dial&oacute;gusablak
+megjelen&iacute;t&eacute;s&eacute;t</span></span><br>
+
+
+A jel&ouml;lőn&eacute;gyzet &uuml;resen
+hagy&aacute;s&aacute;val enged&eacute;lyezi a
+Szervezetv&aacute;laszt&oacute; dial&oacute;gusablak
+megjelen&iacute;t&eacute;s&eacute;t.</li>
+
+
+  
+  </ul>
+
+
+</ul>
+
+
+<ul>
+
+
+</ul>
+
+
+<span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;
+Sablonarchiv&aacute;l&aacute;s
+enged&eacute;lyez&eacute;se</span><span style="font-size: 12pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 12pt; font-family: Verdana;"><span style="font-weight: bold;"><br>
+
+
+</span></span>
+<ul>
+
+
+  
+  <ul>
+
+
+    <li><span style="font-size: 12pt; font-family: Verdana;"><span style="font-weight: bold;">Enged&eacute;lyezem a
+sablonok archiv&aacute;l&aacute;s&aacute;t</span></span><br>
+
+
+A jel&ouml;lőn&eacute;gyzet &uuml;resen
+hagy&aacute;s&aacute;val tiltja&nbsp;a
+Sablonok archiv&aacute;l&aacute;st.</li>
+
+
+  
+  </ul>
+
+
+</ul>
+
+
+<span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;
+Automatikus friss&iacute;t&eacute;sek
+enged&eacute;lyez&eacute;se funkci&oacute;nk&eacute;nt<br>
+
+
+</span>
+<ul style="margin-left: 40px;">
+
+
+  <li style="font-weight: bold;">&Uacute;j
+nyomtatv&aacute;ny<br>
+
+
+    <span style="font-weight: normal;">Ha a</span><span style="font-weight: bold;"> </span><span style="font-weight: normal;">sz&ouml;veg
+melletti jel&ouml;lőn&eacute;gyzet be van pip&aacute;lva,
+akkor az
+Adatok -&gt; &Uacute;j nyomtatv&aacute;ny men&uuml;pont
+megh&iacute;v&aacute;sakor a program megvizsg&aacute;lja,
+hogy
+l&eacute;tezik-e frissebb verzi&oacute; az interneten
+publik&aacute;lva
+a kiv&aacute;lasztott nyomtatv&aacute;nyb&oacute;l. Ha
+igen, akkor
+let&ouml;lti, telep&iacute;ti &eacute;s ezt a legfrissebb
+verzi&oacute;t nyitja meg.</span></li>
+
+
+  <li><span style="font-weight: bold;">Nyomtatv&aacute;ny
+megnyit&aacute;sa</span><br>
+
+
+    <span style="font-weight: normal;">Ha a</span><span style="font-weight: bold;"> </span><span style="font-weight: normal;">sz&ouml;veg
+melletti jel&ouml;lőn&eacute;gyzet be van pip&aacute;lva,
+akkor az Adatok -&gt;&nbsp;</span>Nyomtatv&aacute;ny
+megnyit&aacute;sa<span style="font-weight: normal;">
+men&uuml;pont megh&iacute;v&aacute;sakor a program
+megvizsg&aacute;lja, hogy
+l&eacute;tezik-e frissebb verzi&oacute; az interneten
+publik&aacute;lva a kiv&aacute;lasztott
+nyomtatv&aacute;nyb&oacute;l. Ha igen, akkor let&ouml;lti,
+telep&iacute;ti &eacute;s ezt a legfrissebb
+verzi&oacute;t nyitja meg.</span></li>
+
+
+  <li><span style="font-weight: bold;">XML
+&aacute;llom&aacute;ny megnyit&aacute;sa
+szerkeszt&eacute;sre</span><br>
+
+
+    <span style="font-weight: normal;">Ha a</span><span style="font-weight: bold;"> </span><span style="font-weight: normal;">sz&ouml;veg
+melletti jel&ouml;lőn&eacute;gyzet be van pip&aacute;lva,
+akkor az Adatok -&gt;&nbsp;</span>XML
+&aacute;llom&aacute;ny megnyit&aacute;sa
+szerkeszt&eacute;sre<span style="font-weight: normal;">
+men&uuml;pont megh&iacute;v&aacute;sakor a program
+megvizsg&aacute;lja, hogy
+l&eacute;tezik-e frissebb verzi&oacute; az interneten
+publik&aacute;lva a kiv&aacute;lasztott
+nyomtatv&aacute;nyb&oacute;l. Ha igen, akkor let&ouml;lti,
+telep&iacute;ti &eacute;s ezt a legfrissebb
+verzi&oacute;t nyitja meg.</span></li>
+
+
+  <li><span style="font-weight: bold;">XML
+&aacute;llom&aacute;ny ellenőrz&eacute;se, &eacute;s
+&aacute;tad&aacute;sa elektronikus
+bek&uuml;ld&eacute;sre</span><br>
+
+
+    <span style="font-weight: normal;">Ha a</span><span style="font-weight: bold;"> </span><span style="font-weight: normal;">sz&ouml;veg
+melletti jel&ouml;lőn&eacute;gyzet be van pip&aacute;lva,
+akkor az Adatok -&gt;&nbsp;</span>XML
+&aacute;llom&aacute;ny ellenőrz&eacute;se, &eacute;s
+&aacute;tad&aacute;sa elektronikus
+bek&uuml;ld&eacute;sre<span style="font-weight: normal;">
+men&uuml;pont megh&iacute;v&aacute;sakor a program
+megvizsg&aacute;lja, hogy
+l&eacute;tezik-e frissebb verzi&oacute; az interneten
+publik&aacute;lva a kiv&aacute;lasztott
+nyomtatv&aacute;nyb&oacute;l. Ha igen, akkor let&ouml;lti,
+telep&iacute;ti &eacute;s ezt a legfrissebb
+verzi&oacute;t nyitja meg.</span></li>
+
+
+  <li><span style="font-weight: bold;">Egyedi import</span><br>
+
+
+    <span style="font-weight: normal;">Ha a</span><span style="font-weight: bold;"> </span><span style="font-weight: normal;">sz&ouml;veg
+melletti jel&ouml;lőn&eacute;gyzet be van pip&aacute;lva,
+akkor az Szerviz -&gt;&nbsp;</span>Egyedi
+import&aacute;l&aacute;s<span style="font-weight: normal;">
+men&uuml;pont megh&iacute;v&aacute;sakor a program
+megvizsg&aacute;lja, hogy
+l&eacute;tezik-e frissebb verzi&oacute; az interneten
+publik&aacute;lva a kiv&aacute;lasztott
+nyomtatv&aacute;nyb&oacute;l. Ha igen, akkor let&ouml;lti,
+telep&iacute;ti &eacute;s ezt a legfrissebb
+verzi&oacute;t nyitja meg.</span></li>
+
+
+</ul>
+
+
+<h3><span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;
+T&aacute;j&eacute;koztat&aacute;s
+friss&iacute;t&eacute;sek keres&eacute;s&eacute;ről</span><span style="font-size: 12pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 12pt; font-family: Verdana;"><span style="font-weight: bold;"><br>
+
+
+</span></span>
+</h3>
+
+
+<ul>
+
+
+  
+  <ul>
+
+
+    <li><span style="font-size: 12pt; font-family: Verdana;"><span style="font-weight: bold;">Friss&iacute;t&eacute;skeres&eacute;s
+t&aacute;j&eacute;koztat&oacute; &uuml;zenet
+enged&eacute;lyez&eacute;se</span></span><br>
+
+
+A jel&ouml;lőn&eacute;gyzet &uuml;resen
+hagy&aacute;s&aacute;val tiltja
+a "Friss&iacute;t&eacute;sek keres&eacute;se"
+t&aacute;j&eacute;koztat&oacute; &uuml;zenet
+megjelen&iacute;t&eacute;s&eacute;t.</li>
+
+
+  
+  </ul>
+
+
+</ul>
+
+
+<h3><span style="font-weight: bold;">&nbsp;
+&nbsp; V&aacute;rakoz&aacute;s
+friss&iacute;t&eacute;si inform&aacute;ci&oacute;kra</span><span style="font-size: 12pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 12pt; font-family: Verdana;"><span style="font-weight: bold;"><br>
+
+
+</span></span>
+</h3>
+
+
+<ul>
+
+
+  
+  <ul>
+
+
+    <li><span style="font-size: 12pt; font-family: Verdana;"><span style="font-weight: bold;">V&aacute;rakoz&aacute;s
+tilt&aacute;sa</span></span><br>
+
+
+A gomb akkor akt&iacute;v ha van olyan szervezet, amelyik
+be&aacute;ll&iacute;totta a v&aacute;rakoz&aacute;s
+friss&iacute;t&eacute;si inform&aacute;ci&oacute;kra
+tulajdons&aacute;got az &Aacute;NYK
+ind&iacute;t&aacute;sakor. A
+felhaszn&aacute;l&oacute; ezt
+fel&uuml;lb&iacute;r&aacute;lhatja a
+"V&aacute;rakoz&aacute;s
+tilt&aacute;sa/enged&eacute;lyez&eacute;se"
+panelen, &iacute;gy a friss&iacute;t&eacute;si
+inform&aacute;ci&oacute;k keres&eacute;se &uacute;jra a
+h&aacute;tt&eacute;rben t&ouml;rt&eacute;nik.</li>
+
+
+  
+  </ul>
+
+
+</ul>
+
+
+<h3></h3>
+
+
+<h3>Internetkapcsolat be&aacute;ll&iacute;t&aacute;sai</h3>
+
+
+Ezeknek a param&eacute;tereknek a
+megad&aacute;s&aacute;ra akkor van
+sz&uuml;ks&eacute;g, ha a felhaszn&aacute;l&oacute; az
+internetet
+k&uuml;l&ouml;n be&aacute;ll&iacute;t&aacute;st
+ig&eacute;nylő proxy-n
+kereszt&uuml;l &eacute;ri el.<br>
+
+
+<br>
+
+
+<div style="text-align: center;"><img style="width: 600px; height: 400px;" alt="Internetkapcsolat be&aacute;ll&iacute;t&aacute;sai" src="pics/kep_7a.png"><br>
+
+
+Internetkapcsolat be&aacute;ll&iacute;t&aacute;sai<br>
+
+
+</div>
+
+
+<ul>
+
+
+  <br>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Kapcsol&oacute;d&aacute;s
+az internethez proxy haszn&aacute;lat&aacute;val: </span>Ezzel
+aktiv&aacute;lja a proxy kezelő funkci&oacute;t. A Hoszt
+(a proxy
+neve, vagy IP c&iacute;me; mindenk&eacute;pp meg kell adni)
+&eacute;s a
+Port (proxy port, mindenk&eacute;pp meg kell adni)
+&eacute;rt&eacute;keket k&eacute;rdezze a
+rendszergazd&aacute;t&oacute;l. </li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">A proxy
+azonos&iacute;t&aacute;st ig&eacute;nyel:</span>
+Amennyiben a proxy ig&eacute;nybev&eacute;tele
+felhaszn&aacute;l&oacute;i azonos&iacute;t&aacute;st
+ig&eacute;nyel,
+akkor adja meg a proxy felhaszn&aacute;l&oacute;i nevet
+(azonos&iacute;t&oacute;t) &eacute;s a jelsz&oacute;t.
+Ha nem tudja,
+akkor k&eacute;rdezze a rendszergazd&aacute;t&oacute;l.</li>
+
+
+</ul>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="52sor"></a>
+<a name="torzs"></a>
+<h2>T&ouml;rzsadatok</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span style="font-weight: bold;">Szerviz
+-&gt; T&ouml;rzsadatok</span><span class="label"></span>
+  </li>
+
+
+</ol>
+
+
+<p>Ebben a men&uuml;pontban
+k&uuml;l&ouml;nb&ouml;ző
+t&iacute;pus&uacute; t&ouml;rzsadatokat lehet felvinni.
+&Uacute;j
+nyomtatv&aacute;ny kit&ouml;lt&eacute;sekor az itt
+r&ouml;gz&iacute;tett t&ouml;rzsadatok
+k&ouml;z&uuml;l lehet
+v&aacute;lasztani. N&eacute;gy t&ouml;rzsadat
+t&iacute;pus van:</p>
+
+
+<ul>
+
+
+  <li>T&aacute;rsas&aacute;gok</li>
+
+
+  <li>Egy&eacute;ni v&aacute;llalkoz&oacute;k</li>
+
+
+  <li>Mag&aacute;nszem&eacute;lyek</li>
+
+
+  <li>Ad&oacute;<a name="adotan">tan&aacute;csad&oacute;k</a></li>
+
+
+  <li>Jogi k&eacute;pviselő<a name="adotan"></a></li>
+
+
+</ul>
+
+
+<p>A szűr&eacute;si felt&eacute;telekkel a megszokott
+m&oacute;don
+keresni tud a m&aacute;r felvitt t&ouml;rzsadatok
+k&ouml;z&ouml;tt.
+</p>
+
+
+<p align="center"><img src="pics/kep_10.png"><br>
+
+
+T&ouml;rzsadat lista</p>
+
+
+<p>A t&ouml;rzsadatlista k&eacute;pernyőn a
+k&ouml;vetkező gombok tal&aacute;lhat&oacute;ak:</p>
+
+
+<ul>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">&Uacute;j:</span> a
+megjelenő k&eacute;pernyőn vihet fel &uacute;j adatokat<span class="label"></span></li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">M&oacute;dos&iacute;t&aacute;s:</span>
+itt m&oacute;dos&iacute;thatja az &uuml;gyfelek adatait</li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">T&ouml;rl&eacute;s:</span>
+az &uuml;gyfelet t&ouml;r&ouml;lni lehet a
+t&ouml;rzsadatok k&ouml;z&uuml;l</li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Bor&iacute;t&eacute;k: </span>a
+kiv&aacute;lasztott ad&oacute;alanyra, mint
+felad&oacute;ra <a name="bornyom">bor&iacute;t&eacute;kot</a>
+tud k&eacute;sz&iacute;teni. Mint az al&aacute;bbi
+&aacute;bra mutatja
+a t&ouml;rzsadatok k&ouml;z&ouml;tt
+r&ouml;gz&iacute;tett
+c&iacute;mt&iacute;pusok k&ouml;z&uuml;l
+kiv&aacute;laszthat&oacute;,
+hogy melyik szerepeljen a bor&iacute;t&eacute;kon.</li>
+
+
+  <li><span style="font-weight: bold;">Bez&aacute;r:</span>
+Kil&eacute;p&eacute;s a T&ouml;rzsadatkezelő panelből</li>
+
+
+</ul>
+
+
+<p align="center"><img src="pics/kep_13.png"><br>
+
+
+Bor&iacute;t&eacute;k nyomtat&aacute;sa</p>
+
+
+<p>Bet&ouml;lt&ouml;tt nyomtatv&aacute;ny
+eset&eacute;ben el&eacute;rhető az<span style="font-weight: bold;"> Adatok -&gt; <a href="enyk_lap_2.htm#boritek">Bor&iacute;t&eacute;k
+nyomtat&aacute;s</a>&nbsp;</span><span class="label"></span>
+men&uuml;pont. Az
+ir&aacute;ny&iacute;t&oacute;sz&aacute;mnak valamint
+a N&eacute;vnek k&ouml;telező kit&ouml;ltve lennie a
+bor&iacute;t&eacute;k nyomtat&aacute;s&aacute;hoz.</p>
+
+
+<div>
+<p>A kiv&aacute;lasztott t&ouml;rzsadatnak megfelelően
+v&aacute;ltozik
+a kit&ouml;ltendő mezők
+szerkezete.T&aacute;rsas&aacute;gok,
+egy&eacute;ni v&aacute;llalkoz&oacute;k eset&eacute;ben
+felvihető az&nbsp;ad&oacute;sz&aacute;m mellett a
+k&ouml;z&ouml;ss&eacute;gi
+ad&oacute;sz&aacute;m is.
+T&aacute;rsas&aacute;gokn&aacute;l
+megadhat&oacute; t&ouml;rzsadatok k&ouml;z&eacute;
+beker&uuml;lt a
+nyilv&aacute;ntart&aacute;si sz&aacute;m, amely a civil
+szervezetekre
+vonatkoz&oacute; elő&iacute;r&aacute;sok alapj&aacute;n
+r&ouml;gz&iacute;thető. (58/2012. (XII. 28.) KIM rendelet 3.
+mell&eacute;klete)<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;">
+</span>Az ad&oacute;sz&aacute;m
+mezőbe
+be&iacute;rhat&oacute;v&aacute;
+v&aacute;lt a csoportazonos&iacute;t&oacute; k&oacute;d
+is.</p>
+
+
+</div>
+
+
+<p>A beviteli mezők
+k&ouml;z&ouml;tt
+TAB billentyűvel vagy eg&eacute;rrel egyar&aacute;nt mozoghat.
+(Shift+TAB visszal&eacute;p&eacute;s).</p>
+
+
+<p align="center"><img src="pics/kep_9.png"><br>
+
+
+Mag&aacute;nszem&eacute;lyek adatbeviteli k&eacute;pernyő</p>
+
+
+<p>A fenti k&eacute;pernyőn l&aacute;that&oacute;
+"&Aacute;ltal&aacute;nos adatok" f&uuml;l mellett maximum
+annyi
+tov&aacute;bbi f&uuml;l tal&aacute;lhat&oacute;,
+amennyi szervezet
+erőforr&aacute;s &aacute;llom&aacute;nyt
+telep&iacute;tett a
+felhaszn&aacute;l&oacute;. A tov&aacute;bbi f&uuml;lek
+az egyes
+szervezetek egyedi t&ouml;rzsadatait tartalmazz&aacute;k.</p>
+
+
+<p>A felvitt adatok a<span class="label"></span>
+<span style="font-weight: bold;">Vissza a
+list&aacute;hoz </span>gomb
+lenyom&aacute;s&aacute;val ker&uuml;lnek
+ment&eacute;sre, a
+M&eacute;gsem gomb lenyom&aacute;s&aacute;ra nem
+t&ouml;rt&eacute;nik
+ment&eacute;s, az addigi v&aacute;ltoz&aacute;sok elvesznek.</p>
+
+
+<p>Javaslat: Jelentős adatveszt&eacute;s
+elker&uuml;l&eacute;se
+&eacute;rdek&eacute;ben a t&ouml;rzsadat
+&aacute;llom&aacute;nyr&oacute;l
+k&eacute;sz&iacute;tsen
+biztons&aacute;gi m&aacute;solatot. A t&ouml;rzsadat
+&aacute;llom&aacute;nyt az al&aacute;bbi helyen
+tal&aacute;lja:
+adatk&ouml;nyvt&aacute;r\torzsadatok\repository.xml </p>
+
+
+<p>A konvert&aacute;l&aacute;s előtti t&ouml;rzsadat
+&aacute;llom&aacute;nyair&oacute;l is
+k&eacute;sz&iacute;tsen
+biztons&aacute;gi m&aacute;solatot.</p>
+
+
+<p>Biztons&aacute;gi megold&aacute;sok a
+t&ouml;rzsadat
+&aacute;llom&aacute;ny t&ouml;bb
+felhaszn&aacute;l&oacute;
+&aacute;ltali egyidejű szerkeszt&eacute;sekor:</p>
+
+
+<p>A t&ouml;rzsadat karbantart&oacute; modulnak a
+nyomtatv&aacute;nykit&ouml;ltő program
+kiz&aacute;r&oacute;lagos
+szerkeszt&eacute;si jogot biztos&iacute;t a t&ouml;rzsadat
+&aacute;llom&aacute;nyhoz. Ezt a
+kiz&aacute;r&oacute;lagoss&aacute;got
+a z&aacute;rol&aacute;s nevű technik&aacute;val
+val&oacute;s&iacute;tja
+meg. A z&aacute;rol&aacute;s l&eacute;nyege, hogy
+egyidejűleg csak
+egyvalaki v&eacute;gezhet
+m&oacute;dos&iacute;t&aacute;sokat az
+adat&aacute;llom&aacute;nyban, nehogy az egyidejű
+m&oacute;dos&iacute;t&aacute;sok miatt
+adatveszt&eacute;s l&eacute;pjen
+fel.</p>
+
+
+<p>A z&aacute;rol&aacute;si mechanizmus a
+k&ouml;vetkezők&eacute;ppen
+kapcsolhat&oacute; ki: A cfg.enyk &aacute;llom&aacute;ny
+v&eacute;g&eacute;re oda kell &iacute;rni: mdlock=X </p>
+
+
+<p>Ebben az esetben a t&ouml;rzsadat
+&aacute;llom&aacute;ny nincs
+v&eacute;dve az egyidejű
+m&oacute;dos&iacute;t&aacute;sok nyom&aacute;n
+esetleg előfordul&oacute; adatveszt&eacute;sektől.</p>
+
+
+<p>A t&ouml;rzsadatt&aacute;r z&aacute;rolt
+&aacute;llapot&aacute;t
+jelző repo.lck file beragadhat. Ha senki nem haszn&aacute;lja a
+programot, &eacute;s a t&ouml;rzsadat
+k&ouml;nyvt&aacute;rban
+m&eacute;gis l&aacute;t egy ilyen file-t, akkor
+t&ouml;r&ouml;lje le!</p>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="512sor"></a>
+<a name="titkos"></a>
+<h2>Titkos&iacute;t&aacute;s saj&aacute;t
+tan&uacute;s&iacute;tv&aacute;nnyal</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span style="font-weight: bold;">Szerviz
+-&gt; Titkos&iacute;t&aacute;s saj&aacute;t
+tan&uacute;s&iacute;tv&aacute;nnyal</span><span class="label"></span></li>
+
+
+</ol>
+
+
+<p>A men&uuml;pont haszn&aacute;lat&aacute;hoz
+sz&uuml;ks&eacute;ges
+s&uacute;g&oacute;t k&uuml;l&ouml;n le tudja
+t&ouml;lteni az NAV
+honlapj&aacute;r&oacute;l, vagy innen meg tudja nyitni: <a style="font-weight: bold;" href="Krtitok_v1.3.htm">Titkos&iacute;t&oacute;
+program s&uacute;g&oacute;ja</a></p>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="53sor"></a>
+<a name="mezo"></a>
+<h2>Mező defin&iacute;ci&oacute;s
+&aacute;llom&aacute;ny (.csv) l&eacute;trehoz&aacute;sa</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span style="font-weight: bold;">Szerviz
+-&gt; Fejlesztőknek -&gt; Mező definici&oacute;s
+&aacute;llom&aacute;ny (.csv) l&eacute;trehoz&aacute;sa</span><span class="label"></span></li>
+
+
+</ol>
+
+
+<p>A men&uuml;pont bet&ouml;lt&ouml;tt
+"M&oacute;dos&iacute;that&oacute;"
+st&aacute;tusz&uacute;
+nyomtatv&aacute;ny mellett &eacute;rhető el.
+</p>
+
+
+<p align="center"><img src="pics/kiskep_23.png"><br>
+
+
+L&eacute;trehozott mező defin&iacute;ci&oacute;s
+&aacute;llom&aacute;ny</p>
+
+
+<p>A meződefin&iacute;ci&oacute;s f&aacute;jl az
+import f&aacute;jl
+elk&eacute;sz&iacute;t&eacute;s&eacute;hez
+ny&uacute;jt
+seg&iacute;ts&eacute;get a mezőazonos&iacute;t&oacute;k
+felsorol&aacute;s&aacute;val,
+megfeleltet&eacute;s&eacute;vel.</p>
+
+
+<p>A f&aacute;jl szerkezete:</p>
+
+
+<ol>
+
+
+  <li>soronk&eacute;nt egy mező tulajdons&aacute;gait
+sorolja fel</li>
+
+
+  <li>az &ouml;sszes &eacute;rt&eacute;kes mező
+felsorol&aacute;sra ker&uuml;l benne</li>
+
+
+  <li>az első sor oszlopfejl&eacute;c, az adat
+beazonos&iacute;t&aacute;s&aacute;nak
+seg&iacute;t&eacute;s&eacute;re</li>
+
+
+</ol>
+
+
+<p>A soronk&eacute;nt vesszővel elv&aacute;lasztott
+&eacute;rt&eacute;kek &eacute;rtelmez&eacute;se első
+sor
+r&ouml;vid&iacute;t&eacute;seit haszn&aacute;lva:</p>
+
+
+<table width="100%">
+
+
+  <tbody>
+
+
+    <tr>
+
+
+      <td>Megnevez&eacute;s</td>
+
+
+      <td>&Eacute;rt&eacute;kei</td>
+
+
+      <td>Magyar&aacute;zat</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td>Nyomtatvany</td>
+
+
+      <td>sz&ouml;veg</td>
+
+
+      <td>Nyomtatv&aacute;ny-azonos&iacute;t&oacute;
+(nyomtatv&aacute;ny r&ouml;vid neve - sz&aacute;mos
+azonos&iacute;t&oacute;ja)</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td>Kod</td>
+
+
+      <td>sz&aacute;m</td>
+
+
+      <td>Mező belső azonos&iacute;t&oacute;ja (Ez
+jelenik meg Mezők&oacute;d kijelz&eacute;s
+haszn&aacute;latakor)</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td>Adoazon</td>
+
+
+      <td>sz&ouml;veg</td>
+
+
+      <td>Besz&eacute;des mező
+azonos&iacute;t&oacute; (Megk&ouml;nny&iacute;ti a mező
+beazonos&iacute;t&aacute;s&aacute;t)</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td>Adattipus</td>
+
+
+      <td>S,N</td>
+
+
+      <td>Megmondja, hogy a mező milyen
+&eacute;rt&eacute;ket v&aacute;r (S-sz&ouml;veg,
+N-sz&aacute;m)</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td>Max_hossz</td>
+
+
+      <td>sz&aacute;m</td>
+
+
+      <td>Mezőbe &iacute;rhat&oacute; karakterek
+sz&aacute;ma (0 eset&eacute;n nincs korl&aacute;t)</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td>Lap</td>
+
+
+      <td>sz&ouml;veg</td>
+
+
+      <td>Lap azonos&iacute;t&oacute; (A programban a
+bet&ouml;lt&ouml;tt
+nyomtatv&aacute;ny lapv&aacute;laszt&oacute;
+f&uuml;l&eacute;n
+megjelenő &eacute;rt&eacute;k)</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td>Sor</td>
+
+
+      <td>sz&aacute;m</td>
+
+
+      <td>mező t&aacute;bl&aacute;zaton bel&uuml;li
+sor
+poz&iacute;ci&oacute;j&aacute;t mutatja (0
+eset&eacute;n nem
+t&aacute;bl&aacute;zatos a mező)</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td>Oszlop</td>
+
+
+      <td>sz&aacute;m</td>
+
+
+      <td>mező t&aacute;bl&aacute;zaton bel&uuml;li
+oszlop
+poz&iacute;ci&oacute;j&aacute;t mutatja (0
+eset&eacute;n nem
+t&aacute;bl&aacute;zatos a mező)</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td>Dinamikus</td>
+
+
+      <td>F,T</td>
+
+
+      <td>Megmondja, hogy a mező dinamikus lapon szerepel-e (F -
+Nem dinamikus a lap, T - Dinamikus a lap)</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td>Eazon</td>
+
+
+      <td>sz&ouml;veg</td>
+
+
+      <td>egys&eacute;ges (k&ouml;z&ouml;s)
+azonos&iacute;t&oacute;, mely
+a j&aacute;rul&eacute;k bevall&aacute;sokban
+azonos&iacute;tja a mezőt</td>
+
+
+    </tr>
+
+
+  
+  </tbody>
+</table>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="teszt_imp_export"></a>
+<h2>Teszt import f&aacute;jl
+k&eacute;sz&iacute;t&eacute;se (.imp)</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Szerviz -&gt; Fejlesztőknek
+-&gt; Teszt import f&aacute;jl
+k&eacute;sz&iacute;t&eacute;se&nbsp;(.imp)</span></li>
+
+
+</ol>
+
+
+<p>A funkci&oacute; seg&iacute;ts&eacute;get
+k&iacute;v&aacute;n
+ny&uacute;jtani szoftver fejlesztőknek, hogy az adott
+nyomtatv&aacute;nyb&oacute;l tesztel&eacute;si
+c&eacute;lra IMP
+form&aacute;tum&uacute; &aacute;llom&aacute;nyt
+hozhassanak
+l&eacute;tre. Az &aacute;llom&aacute;ny
+k&oacute;dol&aacute;sa: ISO-8859-2<span style="font-size: 11pt; font-family: &quot;Calibri&quot;,sans-serif;">.
+</span></p>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="teszt_xml_export"></a>
+<h2>Teszt XML f&aacute;jl
+k&eacute;sz&iacute;t&eacute;se (.xml)</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Szerviz -&gt; Fejlesztőknek
+-&gt; Teszt XML f&aacute;jl
+k&eacute;sz&iacute;t&eacute;se (.xml)</span></li>
+
+
+</ol>
+
+
+<p>A funkci&oacute; seg&iacute;ts&eacute;get
+k&iacute;v&aacute;n
+ny&uacute;jtani szoftver fejlesztőknek, hogy az adott
+nyomtatv&aacute;nyb&oacute;l tesztel&eacute;si
+c&eacute;lra XML
+form&aacute;tum&uacute; &aacute;llom&aacute;nyt
+hozhassanak
+l&eacute;tre.</p>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<p><a name="veletlenszeru"></a>
+</p>
+
+
+<h2>Automatikus kit&ouml;lt&eacute;s tesztadatokkal</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Szerviz -&gt; Fejlesztőknek
+-&gt; Automatikus kit&ouml;lt&eacute;s tesztadatokkal</span></li>
+
+
+</ol>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; text-align: justify;">
+Ha nincs bet&ouml;lt&ouml;tt nyomtatv&aacute;ny, akkor
+&eacute;rhető el a funkci&oacute;.</p>
+
+
+<br>
+
+
+A
+funkci&oacute; seg&iacute;ts&eacute;get
+k&iacute;v&aacute;n ny&uacute;jtani a
+nyomtatv&aacute;ny tervezőinek abban, hogy az
+adott nyomtatv&aacute;ny mezői v&eacute;letlenszerű
+&eacute;rt&eacute;kekkel, tesztel&eacute;si
+c&eacute;lb&oacute;l automatikusan
+felt&ouml;lt&eacute;sre
+ker&uuml;lnek. (pld. kivonatolt nyomtat&aacute;s
+tesztel&eacute;s&eacute;hez)<br>
+
+
+<br>
+
+
+A
+L&eacute;trehoz&aacute;s felirat&uacute; ablakban lehet
+&uacute;j
+nyomtatv&aacute;nyt kiv&aacute;lasztani. A sablonok
+alap&eacute;rtelmez&eacute;sben n&ouml;vekvő sorrendben
+rendezettek. A
+sablonokat tartalmaz&oacute;
+t&aacute;bl&aacute;zat&nbsp;oszlopainak
+sorrendje v&aacute;ltoztathat&oacute;.
+<br>
+
+
+<br>
+
+
+Ha
+kijel&ouml;lt egy nyomtatv&aacute;nyt, akkor megjelenik a
+t&ouml;rzsadat kiv&aacute;laszt&aacute;s
+lehetős&eacute;ge,
+de ebben a funkci&oacute;ban nincs &eacute;rtelme
+t&ouml;rzsadatot v&aacute;lasztani, mert a
+nyomtatv&aacute;ny
+t&ouml;rzsadat mezői is fel&uuml;l&iacute;r&aacute;sra
+ker&uuml;lnek a tesztadatokkal.<br>
+
+
+<br>
+
+
+A funkci&oacute; speci&aacute;lisan műk&ouml;dik. Nem
+&eacute;rhetőek el a "Kapcsolat az
+&uuml;gyf&eacute;lkapuval" men&uuml;pontok, nem futnak
+le&nbsp;nyomtat&aacute;s előtt az
+ellenőrz&eacute;sek sem. Nyomtat&aacute;sn&aacute;l ha
+m&aacute;s felt&eacute;tel nem teljes&uuml;l (pl:
+kivonatoltan nem adhat&oacute; be a nyomtatv&aacute;ny, teszt
+verzi&oacute;j&uacute; a
+nyomtatv&aacute;ny), akkor a lapok alj&aacute;ra
+nyomtat&aacute;sra ker&uuml;l az al&aacute;bbi
+sz&ouml;veg:
+"A nyomtatv&aacute;ny jelen
+kit&ouml;lt&ouml;tts&eacute;g mellett nem k&uuml;ldhető
+be!"<br>
+
+
+<br>
+
+
+Am&iacute;g 's&uacute;lyos
+hib&aacute;s' &eacute;rt&eacute;keket,
+&ouml;sszef&uuml;gg&eacute;seket tartalmaz az
+&aacute;llom&aacute;ny, addig nem
+k&eacute;sz&iacute;thető xml belőle!<br>
+
+
+<br>
+
+
+<br>
+
+
+<p><a href="enyk_lap_3.htm#teteje">Lap teteje</a>
+| <a href="enyk_tartalom.htm#tartalom">Tartalom</a>
+| <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="57sor"></a>
+<a name="telnyom"></a><br>
+
+
+<h2><a name="csatolmany_param"></a>Csatolm&aacute;ny
+param&eacute;terek</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Szerviz -&gt; Fejlesztőknek
+-&gt;&nbsp;Csatolm&aacute;ny param&eacute;terek</span></li>
+
+
+</ol>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; text-align: justify;">Ha
+van bet&ouml;lt&ouml;tt nyomtatv&aacute;ny, akkor
+&eacute;rhető el a funkci&oacute;.&nbsp;A men&uuml;pont
+ind&iacute;t&aacute;sa ut&aacute;n az al&aacute;bbi
+k&eacute;pernyő
+jelenik meg:</p>
+
+
+<br>
+
+
+<div style="text-align: center;"><img style="width: 851px; height: 170px;" alt="Csatolm&aacute;ny param&eacute;terek" src="pics/kep_144.png"><br>
+
+
+<small>Csatolm&aacute;nyok le&iacute;r&aacute;sa<br>
+
+
+</small>
+<div style="text-align: left;"><br>
+
+
+<br>
+
+
+A k&eacute;pernyőn l&aacute;that&oacute;ak az .XCZ
+&aacute;llom&aacute;ny
+k&eacute;sz&iacute;t&eacute;s&eacute;hez
+sz&uuml;ks&eacute;ges
+inform&aacute;ci&oacute;k. (nyomtatv&aacute;ny,
+csatolm&aacute;nyok
+t&iacute;pusa)<br>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; text-align: justify;"><span style="font-size: 11pt; font-family: Verdana;"><o:p></o:p></span></p>
+
+
+Az&nbsp;<span style="font-weight: bold;">&Aacute;llom&aacute;nyba
+ment&eacute;s</span>
+gomb lenyom&aacute;sa ut&aacute;n megadhatja, hogy milyen
+k&ouml;nyvt&aacute;rba k&eacute;sz&uuml;lj&ouml;n
+el az csatolmany_parameterek.txt
+seg&eacute;d&aacute;llom&aacute;ny.
+Alap&eacute;rtelmez&eacute;sben ez a program
+\naplo k&ouml;nyvt&aacute;ra.</div>
+
+
+</div>
+
+
+<o:p></o:p>
+<p><a href="enyk_lap_3.htm#teteje">Lap teteje</a>
+| <a href="enyk_tartalom.htm#tartalom">Tartalom</a>
+| <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="57sor"></a>
+<a name="telnyom"></a><br>
+
+
+<h2><a name="xcz"></a>XML-t &eacute;s
+csatolm&aacute;nyt tartalmaz&oacute; csomag
+k&eacute;sz&iacute;t&eacute;se</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Szerviz -&gt; Fejlesztőknek
+-&gt; XML-t &eacute;s csatolm&aacute;nyt
+tartalmaz&oacute; csomag k&eacute;sz&iacute;t&eacute;se</span></li>
+
+
+</ol>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; text-align: justify;">
+Ha van bet&ouml;lt&ouml;tt nyomtatv&aacute;ny, akkor
+&eacute;rhető el a funkci&oacute;.</p>
+
+
+<br>
+
+
+A
+funkci&oacute; seg&iacute;ts&eacute;get
+k&iacute;v&aacute;n ny&uacute;jtani azoknak a
+fejlesztőknek, akik az
+XML &aacute;llom&aacute;nyt csatolm&aacute;nnyal
+egy&uuml;tt
+szeretn&eacute;k l&eacute;trehozni.<br>
+
+
+A funkci&oacute; a megnyitott nyomtatv&aacute;nyb&oacute;l
+a
+hozz&aacute; csatolt &aacute;llom&aacute;nyokkal
+egy&uuml;tt
+elk&eacute;sz&iacute;t egy teszt .XCZ
+&aacute;llom&aacute;nyt.<br>
+
+
+<br>
+
+
+Az .XCZ f&aacute;jl tartalmazza az al&aacute;bbi
+&aacute;llom&aacute;nyokat:<br>
+
+
+<ul>
+
+
+  <li>a megnyitott nyomtatv&aacute;ny
+adattartalm&aacute;b&oacute;l k&eacute;sz&uuml;lt .XML
+&aacute;llom&aacute;nyt</li>
+
+
+  <li>.ATC &aacute;llom&aacute;nyt (tartalmazza a
+csatolm&aacute;ny(ok) nev&eacute;t,
+t&iacute;pus&aacute;t)</li>
+
+
+  <li>alk&ouml;nyvt&aacute;rban a megnyitott
+nyomtatv&aacute;nyhoz tartoz&oacute;
+csatolm&aacute;ny(oka)t. </li>
+
+
+</ul>
+
+
+A men&uuml;pont ind&iacute;t&aacute;sa ut&aacute;n az
+al&aacute;bbi k&eacute;pernyő jelenik meg:<br>
+
+
+<br>
+
+
+<div style="text-align: center;"><img style="width: 514px; height: 363px;" alt="" title="Tall&oacute;z&aacute;s" src="pics/kep_148.png"><br>
+
+
+<small>Tall&oacute;z&aacute;s<br>
+
+
+</small>
+<div style="text-align: left;"><br>
+
+
+</div>
+
+
+</div>
+
+
+A k&eacute;pernyőn megadhatja, hogy milyen
+k&ouml;nyvt&aacute;rba k&eacute;sz&uuml;lj&ouml;n
+el az .XCZ
+&aacute;llom&aacute;ny. Alap&eacute;rtelmez&eacute;sben
+ez a program
+\import k&ouml;nyvt&aacute;ra.<br>
+
+
+A <span style="font-weight: bold;">Ment&eacute;s</span>
+gombra kattintva a teszt &aacute;llom&aacute;ny
+elk&eacute;sz&uuml;l.<br>
+
+
+<br>
+
+
+<div style="text-align: center;"><img style="width: 676px; height: 125px;" alt="" src="pics/kep_149.png"><br>
+
+
+<br>
+
+
+</div>
+
+
+<span style="font-size: 11pt; font-family: Verdana;"></span>Az
+elk&eacute;sz&uuml;lt .XCZ teszt &aacute;llom&aacute;ny
+az
+&Aacute;NYK-ba beimport&aacute;lhat&oacute;,
+k&ouml;zvetlen&uuml;l
+feladhat&oacute;.<br>
+
+
+<br>
+
+
+Ha a megnyitott nyomtatv&aacute;nyhoz nem adhat&oacute;
+csatolm&aacute;ny, akkor az al&aacute;bbi &uuml;zenet
+jelenik meg:<br>
+
+
+<div style="text-align: center;"><img style="width: 550px; height: 126px;" alt="" src="pics/kep_150.png"><br>
+
+
+<br>
+
+
+</div>
+
+
+<o:p></o:p><a href="enyk_lap_3.htm#teteje">Lap
+teteje</a>
+| <a href="enyk_tartalom.htm#tartalom">Tartalom</a>
+| <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a>
+<a name="57sor"></a><a name="telnyom"></a>
+<h2>Telep&iacute;tett nyomtatv&aacute;nyok</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Szerviz -&gt;
+Telep&iacute;tett nyomtatv&aacute;nyok</span> </li>
+
+
+</ol>
+
+
+<p>A nyomtatv&aacute;nykit&ouml;ltőben
+telep&iacute;tett sablonok
+list&aacute;z&aacute;s&aacute;ra szolg&aacute;l a
+men&uuml;pont, amely
+b&aacute;rmikor el&eacute;rhető. A megjelenő ablakban a
+m&aacute;r
+telep&iacute;tett nyomtatv&aacute;nyok jelennek meg, ezek
+k&ouml;z&uuml;l lehet <a href="enyk_lap_2.htm#uj">&uacute;j
+nyomtatv&aacute;ny</a> l&eacute;trehoz&aacute;sakor
+v&aacute;lasztani.</p>
+
+
+<p>Az itt megjelenő list&aacute;ban az &ouml;sszes
+telep&iacute;tett
+(r&eacute;gebbi verzi&oacute;j&uacute;)
+nyomtatv&aacute;nyok is
+megjelen&iacute;t&eacute;sre ker&uuml;lnek, de az
+&uacute;j
+nyomtatv&aacute;nyok ablakban csak a legfrissebb
+verzi&oacute;sz&aacute;mmal rendelkező nyomtatv&aacute;ny
+jelenik meg
+egy adott t&iacute;pusb&oacute;l.</p>
+
+
+<p>A funkci&oacute;
+seg&iacute;ts&eacute;g&eacute;vel t&ouml;r&ouml;lni
+tudja a r&eacute;gi nyomtatv&aacute;ny verzi&oacute;kat.</p>
+
+
+<p align="center"><img src="pics/kep_51.png"><br>
+
+
+Telep&iacute;tett nyomtatv&aacute;nyok</p>
+
+
+<p>A k&eacute;pernyő felső r&eacute;sz&eacute;ben
+tal&aacute;lhat&oacute; a szűr&eacute;si
+felt&eacute;telek, mellyel
+egyszerűen lehet a nyomtatv&aacute;nyok k&ouml;z&ouml;tt
+keresni.&nbsp;A sablonokat tartalmaz&oacute;
+t&aacute;bl&aacute;zat&nbsp;oszlopainak sorrendje nem
+v&aacute;ltoztathat&oacute;.</p>
+
+
+<p>K&eacute;t funkci&oacute; gomb
+l&aacute;that&oacute;:</p>
+
+
+<li>A <span style="font-weight: bold;">kiv&aacute;lasztott
+nyomtatv&aacute;ny &ouml;sszes
+verzi&oacute;j&aacute;nak t&ouml;rl&eacute;se</span>:
+a kiv&aacute;lasztott nyomtatv&aacute;ny minden
+telep&iacute;tett verzi&oacute;j&aacute;t t&ouml;rli<span style="font-weight: bold;"></span></li>
+
+
+<li><span style="font-weight: bold;">A
+kiv&aacute;lasztott nyomtatv&aacute;ny
+t&ouml;rl&eacute;se</span>: csak a
+kiv&aacute;lasztott nyomtatv&aacute;ny verzi&oacute;t
+t&ouml;rli</li>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="55sor"></a>
+<a name="archiv"></a><br>
+
+
+<h2><a name="nyarc"></a>Nyomtatv&aacute;nyok
+archiv&aacute;l&aacute;sa</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Szerviz -&gt;
+Nyomtatv&aacute;nyok archiv&aacute;l&aacute;sa</span>
+  </li>
+
+
+</ol>
+
+
+A funkci&oacute;val le tudja archiv&aacute;lni a
+nyomtatv&aacute;nyait.
+A men&uuml;pont elind&iacute;t&aacute;sa ut&aacute;n az
+al&aacute;bbi
+k&eacute;pernyő jelenik meg:<br>
+
+
+<br>
+
+
+<div style="text-align: center;"><img style="width: 720px; height: 550px;" alt="" title="Nyomtatv&aacute;nyok archiv&aacute;l&aacute;sa" src="pics/kep_145.png"><br>
+
+
+<small>Nyomtatv&aacute;nyok archiv&aacute;l&aacute;sa</small><br>
+
+
+<br>
+
+
+</div>
+
+
+<span style="text-decoration: underline;">Funkci&oacute;k:</span><br>
+
+
+<br>
+
+
+<span style="font-weight: bold;">Az &ouml;sszes
+nyomtatv&aacute;ny verzi&oacute;inak
+archiv&aacute;l&aacute;sa a legutols&oacute;
+kiv&eacute;tel&eacute;vel</span>:<br>
+
+
+&nbsp;&nbsp;&nbsp; -
+minden&nbsp;nyomtatv&aacute;nyt&iacute;pusb&oacute;l
+csak a legfrissebb nyomtatv&aacute;nyt hagyja meg<br>
+
+
+<span style="font-weight: bold;">Az &ouml;sszes
+nyomtatv&aacute;ny &ouml;sszes
+verzi&oacute;j&aacute;nak archiv&aacute;l&aacute;sa</span>:<br>
+
+
+&nbsp;&nbsp;&nbsp; -
+minden&nbsp;nyomtatv&aacute;nyt learchiv&aacute;l<br>
+
+
+<span style="font-weight: bold;">A kiv&aacute;lasztott
+nyomtatv&aacute;ny verzi&oacute;inak
+archiv&aacute;l&aacute;sa a
+legutols&oacute; kiv&eacute;tel&eacute;vel</span>:<br>
+
+
+&nbsp;&nbsp;&nbsp; - a kijel&ouml;lt
+nyomtatv&aacute;nyt&iacute;pusb&oacute;l a legfrissebb
+verzi&oacute;t hagyja meg<br>
+
+
+<span style="font-weight: bold;">A kiv&aacute;lasztott
+nyomtatv&aacute;ny &ouml;sszes
+verzi&oacute;j&aacute;nak archiv&aacute;l&aacute;sa</span>:<br>
+
+
+&nbsp;&nbsp;&nbsp; - a kijel&ouml;lt
+nyomtatv&aacute;nyt&iacute;pus minden
+verzi&oacute;j&aacute;t learchiv&aacute;lja<br>
+
+
+<span style="font-weight: bold;">A kiv&aacute;lasztott
+nyomtatv&aacute;ny archiv&aacute;l&aacute;sa</span>:<br>
+
+
+&nbsp;&nbsp;&nbsp; - a kijel&ouml;lt
+nyomtatv&aacute;ny minden verzi&oacute;j&aacute;t
+learchiv&aacute;lja <br>
+
+
+<br>
+
+
+A megfelelő funkci&oacute;
+&eacute;rt&eacute;klist&aacute;b&oacute;l
+t&ouml;rt&eacute;nő kiv&aacute;laszt&aacute;sa
+ut&aacute;n, az <span style="font-weight: bold;">Ind&iacute;t&aacute;s</span>
+gomb lenyom&aacute;sa ut&aacute;n az
+archiv&aacute;l&aacute;s megt&ouml;rt&eacute;nik.<br>
+
+
+<br>
+
+
+<span style="font-weight: bold;">Le&aacute;ll&iacute;t&aacute;s</span>
+gomb: a gomb lenyom&aacute;s&aacute;val az
+archiv&aacute;l&aacute;s
+folyamata megszak&iacute;that&oacute;. Az &eacute;ppen
+archiv&aacute;lt
+nyomtatv&aacute;ny
+t&ouml;m&ouml;r&iacute;t&eacute;se m&eacute;g
+befejez&eacute;sre ker&uuml;l.<br>
+
+
+<br>
+
+
+<span style="font-weight: bold;">Kil&eacute;p&eacute;s</span>
+gomb: kil&eacute;p&eacute;s a funkci&oacute;b&oacute;l.<br>
+
+
+<p><a href="enyk_lap_3.htm#teteje">Lap teteje</a>
+| <a href="enyk_tartalom.htm#tartalom">Tartalom</a>
+| <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="55sor"></a>
+<a name="archiv"></a><br>
+
+
+<h2><a name="nyvarc"></a>Nyomtatv&aacute;nyok
+visszav&eacute;tele az arch&iacute;vumb&oacute;l</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Szerviz -&gt;
+Nyomtatv&aacute;nyok visszav&eacute;tele az
+archivumb&oacute;l</span> </li>
+
+
+</ol>
+
+
+A funkci&oacute;val vissza lehet venni az archivumb&oacute;l a
+learchiv&aacute;lt nyomtatv&aacute;nyokat.<br>
+
+
+A funkci&oacute; ind&iacute;t&aacute;sa ut&aacute;n az
+al&aacute;bbi k&eacute;pernyő jelenik meg:<br>
+
+
+<br>
+
+
+<div style="text-align: center;"><img style="width: 514px; height: 364px;" alt="" title="Tall&oacute;z&aacute;s" src="pics/kep_146.png"><br>
+
+
+<small>Tall&oacute;z&aacute;s</small><br>
+
+
+</div>
+
+
+&nbsp;<br>
+
+
+A nyomtatv&aacute;ny kiv&aacute;laszt&aacute;sa
+ut&aacute;n a <span style="font-weight: bold;">Megnyit&aacute;s
+</span>gombra
+kattintva a nyomtatv&aacute;ny visszaker&uuml;l a
+telep&iacute;tett
+nyomtatv&aacute;ynok k&ouml;z&eacute; a \nyomtatvanyok
+k&ouml;nyvt&aacute;rba.<br>
+
+
+<span style="font-weight: bold;"></span><br>
+
+
+<a href="enyk_lap_3.htm#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a>
+<a name="55sor"></a><a name="archiv"></a><br>
+
+
+<h2>Adatok archiv&aacute;l&aacute;sa &eacute;s
+visszat&ouml;lt&eacute;se</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Szerviz -&gt; Adatok
+archiv&aacute;l&aacute;sa &eacute;s
+visszat&ouml;lt&eacute;se</span> </li>
+
+
+</ol>
+
+
+<p>Ez a funkci&oacute; akkor el&eacute;rhető ha nincs
+bet&ouml;lt&ouml;tt nyomtatv&aacute;ny. Ennek a
+men&uuml;pontnak a
+seg&iacute;ts&eacute;g&eacute;vel k&ouml;nnyen lehet
+archiv&aacute;lni
+a kit&ouml;lt&ouml;tt nyomtatv&aacute;nyokat. Az
+archiv&aacute;lt
+nyomtatv&aacute;nyok bet&ouml;lt&eacute;skor nem
+nyithat&oacute;ak meg.
+Ha m&eacute;gis sz&uuml;ks&eacute;g van egy
+archiv&aacute;lt
+nyomtatv&aacute;nyra, akkor azt visszat&ouml;ltheti.</p>
+
+
+<p align="center"><img src="pics/kep_27.png"><br>
+
+
+Arch&iacute;vum</p>
+
+
+<p>A k&eacute;pernyő bal oldal&aacute;n
+tal&aacute;lhat&oacute;ak az
+Archiv&aacute;lhat&oacute; &aacute;llom&aacute;nyok
+(&Aacute;llom&aacute;nyok), m&iacute;g a jobboldalon a
+m&aacute;r
+archiv&aacute;ltak (Arch&iacute;v
+&aacute;llom&aacute;nyok).</p>
+
+
+<p>A bal oldali list&aacute;ban
+tal&aacute;lhat&oacute;
+&aacute;llom&aacute;nyok sz&aacute;ma megjelenik a
+szűr&eacute;si
+felt&eacute;telek alatt: &Ouml;sszes/Kijel&ouml;lt: 105/3 -
+azaz 105 a
+k&eacute;pernyőn szereplő p&eacute;ld&aacute;ban. A /
+ut&aacute;n az
+ebből kijel&ouml;lt &aacute;llom&aacute;nyok
+sz&aacute;ma
+l&aacute;that&oacute;: 3. Ugyanez az
+inform&aacute;ci&oacute;
+megtal&aacute;lhat&oacute; jobb oldali, m&aacute;r
+archiv&aacute;lt
+&aacute;llom&aacute;nyok
+list&aacute;j&aacute;r&oacute;l is.</p>
+
+
+<p>Az ablak felső r&eacute;sz&eacute;n a m&aacute;r
+ismert
+szűr&eacute;si felt&eacute;telek
+&aacute;ll&iacute;that&oacute;ak be a
+szokott m&oacute;don.&nbsp;</p>
+
+
+A megjelenő list&aacute;kban a t&aacute;bl&aacute;zatok
+oszlopainak
+m&eacute;rete &eacute;s az oszlopok
+sorrendje&nbsp;v&aacute;ltoztathat&oacute;, melyeket a
+program
+megjegyez. A&nbsp;<img style="width: 18px; height: 21px;" alt="" src="pics/ikon_35.png">
+gombra kattintva vissza&aacute;ll&iacute;thatja a
+t&aacute;bl&aacute;zat oszlopainak eredeti
+elrendez&eacute;s&eacute;t
+&eacute;s m&eacute;ret&eacute;t. <br>
+
+
+<br>
+
+
+Az
+&aacute;llom&aacute;nyokr&oacute;l az
+al&aacute;bbi adatok l&aacute;that&oacute;ak:
+<ul>
+
+
+  <li>Nyomtatv&aacute;ny: a nyomtatv&aacute;ny
+sz&aacute;ma</li>
+
+
+  <li>Ad&oacute;sz&aacute;m:
+ad&oacute;sz&aacute;m vagy
+ad&oacute;azonos&iacute;t&oacute; jel</li>
+
+
+  <li>N&eacute;v: az elmentett nyomtatv&aacute;nyokban
+szereplő c&eacute;gek vagy mag&aacute;nszem&eacute;lyek neve</li>
+
+
+  <li>D&aacute;tumt&oacute;l - D&aacute;tumig: mely
+időszakra vonatkozik a nyomtatv&aacute;ny</li>
+
+
+  <li>Verzi&oacute;: melyik verzi&oacute;
+sz&aacute;m&uacute; nyomtatv&aacute;ny sablonnal
+k&eacute;sz&uuml;lt a mentett file</li>
+
+
+  <li>Inform&aacute;ci&oacute;:
+nyomtatv&aacute;nyonk&eacute;nt egyedi
+inform&aacute;ci&oacute;</li>
+
+
+  <li>Ad&oacute;azonos&iacute;t&oacute;: ha a
+nyomtatv&aacute;nyhoz
+ad&oacute;sz&aacute;m is tartozik, akkor az
+ad&oacute;azonos&iacute;t&oacute; itt ker&uuml;l
+megjelen&iacute;t&eacute;sre</li>
+
+
+  <li>Mentve: nyomtatv&aacute;ny
+ment&eacute;s&eacute;nek d&aacute;tuma</li>
+
+
+  <li>Megjegyz&eacute;s: a nyomtatv&aacute;nyhoz
+fűz&ouml;tt megjegyz&eacute;s</li>
+
+
+  <li>St&aacute;tusz: nyomtatv&aacute;ny
+&aacute;llapota</li>
+
+
+  <li>&Aacute;llom&aacute;ny: milyen n&eacute;ven
+ker&uuml;lt a nyomtatv&aacute;ny ment&eacute;sre</li>
+
+
+  <li>Csat.db: Csatolm&aacute;nyok darabsz&aacute;ma</li>
+
+
+</ul>
+
+
+<p>Csak a nyomtatv&aacute;ny- kit&ouml;ltő programmal
+elő&aacute;ll&iacute;tott (<span style="font-weight: bold;">.frm.enyk</span>)<span class="path"></span>
+kiterjeszt&eacute;sű f&aacute;jlok ker&uuml;lnek itt
+megjelen&iacute;t&eacute;sre.&nbsp;</p>
+
+
+<p>K&eacute;t funkci&oacute;
+tal&aacute;lhat&oacute;:</p>
+
+
+<ul>
+
+
+  <li>
+    
+    <h4>Archiv&aacute;l&aacute;s<br>
+
+
+    <span style="font-weight: normal;">Első
+l&eacute;p&eacute;sk&eacute;nt ki kell
+jel&ouml;lni a bal
+oldali (&Aacute;llom&aacute;nyok) list&aacute;ban az
+archiv&aacute;land&oacute; &aacute;llom&aacute;nyokat.
+Ezt
+egyes&eacute;vel a kijel&ouml;lendő sorra dupl&aacute;n
+kattintva lehet
+megtenni, hogy a kijel&ouml;lendő sor elej&eacute;n
+l&aacute;that&oacute; n&eacute;gyzetbe&nbsp;megjelenjen
+a kis
+"pipa".</span><br>
+
+
+    <span style="font-weight: normal;">Ha az
+&ouml;sszes &aacute;llom&aacute;nyt
+szeretn&eacute; egyszerre
+kijel&ouml;lni, akkor Mindet gombot nyomja meg a megfelelő oldali
+lista
+alatt, vagy ha az &ouml;sszes kijel&ouml;l&eacute;st
+megakarja
+sz&uuml;ntetni, akkor az Egyet sem gombot nyomja le. A
+kijel&ouml;l&eacute;sek
+be&aacute;ll&iacute;t&aacute;sa ut&aacute;n az </span><span style="font-weight: normal;" class="label"></span><span style="font-weight: normal;"><span style="font-weight: bold;">Archiv&aacute;l&aacute;s</span>
+gombbal tudja az archiv&aacute;l&aacute;st ind&iacute;tani.</span></h4>
+
+
+  </li>
+
+
+  <li>
+    
+    <h4>Visszav&eacute;tel<br>
+
+
+    <span style="font-weight: normal;">Ugyan azt kell
+elv&eacute;gezni, mint az
+Archiv&aacute;l&aacute;sn&aacute;l annyi
+k&uuml;l&ouml;nbs&eacute;ggel,
+hogy a jobb oldali (Archiv&aacute;lt
+&aacute;llom&aacute;nyok)
+list&aacute;ban kell a kijel&ouml;l&eacute;st
+elv&eacute;gezni, majd a </span><span style="font-weight: normal;" class="label">Visszav&eacute;tel</span><span style="font-weight: normal;">
+gomb lenyom&aacute;s&aacute;val ind&iacute;thatja az
+archiv&aacute;lt
+&aacute;llom&aacute;nyok
+archiv&aacute;l&aacute;s&aacute;nak
+megsz&uuml;ntet&eacute;s&eacute;t.</span></h4>
+
+
+  </li>
+
+
+</ul>
+
+
+<p>A&nbsp;<span class="label"></span><span style="font-weight: bold;">Le&aacute;ll&iacute;t&aacute;s</span>
+gombbal meg tudja szak&iacute;tani az
+Archiv&aacute;l&aacute;si/Visszav&eacute;teli folyamatot.</p>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="541sor"></a>
+<a name="masol1"></a>
+<h2>M&aacute;sol&aacute;s az import/export
+k&ouml;nyvt&aacute;rb&oacute;l
+(&aacute;tnevez&eacute;s, t&ouml;rl&eacute;s)</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Szerviz -&gt;
+F&aacute;jlműveletek az import/export
+k&ouml;nyvt&aacute;rban -&gt; M&aacute;sol&aacute;s
+az import/export
+k&ouml;nyvt&aacute;rb&oacute;l
+(&aacute;tnevez&eacute;s, t&ouml;rl&eacute;s)</span></li>
+
+
+</ol>
+
+
+<p>A men&uuml;pont akkor &eacute;rhető el, ha nincs
+nyitott nyomtatv&aacute;ny.</p>
+
+
+<p>A kit&ouml;ltővel vagy k&uuml;lső programmal
+k&eacute;sz&iacute;tett <span style="font-weight: bold;">.imp,
+.xml, .xkr, .dat, .abv</span><span style="font-weight: bold;" class="path"></span>
+kiterjeszt&eacute;sű &aacute;llom&aacute;nyok
+list&aacute;z&aacute;s&aacute;ra, k&uuml;lső
+k&ouml;nyvt&aacute;rba
+m&aacute;sol&aacute;s&aacute;ra,
+&aacute;tnevez&eacute;s&eacute;re
+valamint a feleslegess&eacute; v&aacute;lt
+&aacute;llom&aacute;nyok
+t&ouml;rl&eacute;s&eacute;re szolg&aacute;l. A
+megjelenő ablakban a
+kit&ouml;ltő program import_export
+k&ouml;nyvt&aacute;r&aacute;ban
+tal&aacute;lhat&oacute; nyomtatv&aacute;nyok jelennek
+meg.&nbsp;</p>
+
+
+<p>A&nbsp;t&aacute;bl&aacute;zat oszlopainak
+m&eacute;rete &eacute;s az
+oszlopok sorrendje&nbsp;v&aacute;ltoztathat&oacute;,
+melyeket a program
+megjegyez. A&nbsp;<img style="width: 18px; height: 21px;" alt="" src="pics/ikon_35.png">
+gombra kattintva vissza&aacute;ll&iacute;thatja a
+t&aacute;bl&aacute;zat oszlopainak eredeti
+elrendez&eacute;s&eacute;t
+&eacute;s m&eacute;ret&eacute;t.</p>
+
+
+<p align="center"><img src="pics/kep_53.png"><br>
+
+
+M&aacute;sol&aacute;s import_export
+k&ouml;nyvt&aacute;rb&oacute;l</p>
+
+
+<p>A k&eacute;pernyőn l&aacute;that&oacute;
+funkci&oacute; gombok:</p>
+
+
+<ul>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">&Aacute;tnevez&eacute;s:</span>
+a
+felsorol&aacute;sb&oacute;l kiv&aacute;lasztott
+&aacute;llom&aacute;ny
+nev&eacute;t lehet tetsz&eacute;s szerint
+m&oacute;dos&iacute;tani.
+Speci&aacute;lis karakterek nem adhat&oacute;ak meg.Pl.:
+&sect;,&lt;,&gt;,#<br>
+
+
+Ha olyan f&aacute;jlnevet ad meg, ami m&aacute;r
+l&eacute;tezik akkor hiba&uuml;zenet jelenik meg.</li>
+
+
+  <li><span style="font-weight: bold;">T&ouml;rl&eacute;s:</span>
+a felsorol&aacute;sb&oacute;l kiv&aacute;lasztott
+&aacute;llom&aacute;nyt lehet t&ouml;r&ouml;lni!</li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">M&aacute;sol&aacute;s:</span>
+a
+felsorol&aacute;sb&oacute;l kiv&aacute;lasztott
+&aacute;llom&aacute;nyt
+m&aacute;solja a
+c&eacute;lk&ouml;nyvt&aacute;rn&aacute;l
+be&aacute;ll&iacute;tott k&ouml;nyvt&aacute;rba.
+P&eacute;ld&aacute;ul:
+A k&eacute;pernyőn l&aacute;that&oacute;
+list&aacute;b&oacute;l
+kiv&aacute;lasztja a m&aacute;solni
+k&iacute;v&aacute;nt
+&aacute;llom&aacute;nyt. A <span style="font-weight: bold;">M&aacute;sol&aacute;s</span><span class="label"></span> gomb
+lenyom&aacute;s&aacute;ra a kiv&aacute;lasztott
+f&aacute;jlt
+&aacute;tm&aacute;solja a c&eacute;l mappak&eacute;nt
+be&aacute;ll&iacute;tott k&ouml;nyvt&aacute;rba
+(c:\dokumentumok...).</li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">C&eacute;l
+k&ouml;nyvt&aacute;r kiv&aacute;laszt&aacute;sa: </span>k&ouml;nyvt&aacute;r
+megad&aacute;sa ahov&aacute;
+m&aacute;solni szeretne</li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Vissza:</span>
+kil&eacute;p&eacute;s a funkci&oacute;b&oacute;l</li>
+
+
+</ul>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="542sor"></a>
+<a name="masol2"></a>
+<h2>M&aacute;sol&aacute;s a ment&eacute;s
+k&ouml;nyvt&aacute;rb&oacute;l
+(&aacute;tnevez&eacute;s, t&ouml;rl&eacute;s)</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span style="font-weight: bold;">Szerviz
+-&gt; </span><span style="font-weight: bold;">F&aacute;jlműveletek
+a ment&eacute;s k&ouml;nyvt&aacute;rban -&gt; </span><span style="font-weight: bold;">M&aacute;sol&aacute;s a
+ment&eacute;s
+k&ouml;nyvt&aacute;rb&oacute;l
+(&aacute;tnevez&eacute;s, t&ouml;rl&eacute;s) </span><span class="label"></span></li>
+
+
+</ol>
+
+
+<p>A men&uuml;pont ha nincs nyitott nyomtatv&aacute;ny
+akkor &eacute;rhető el.</p>
+
+
+<p>A kit&ouml;ltővel k&eacute;sz&iacute;tett
+nyomtatv&aacute;nyok
+list&aacute;z&aacute;s&aacute;ra, k&uuml;lső
+k&ouml;nyvt&aacute;rba
+m&aacute;sol&aacute;s&aacute;ra,
+&aacute;tnevez&eacute;s&eacute;re
+valamint a feleslegess&eacute; v&aacute;lt
+&aacute;llom&aacute;nyok
+t&ouml;rl&eacute;s&eacute;re szolg&aacute;l. A
+megjelenő ablakban a
+kit&ouml;ltő program ment&eacute;s
+k&ouml;nyvt&aacute;r&aacute;ban
+tal&aacute;lhat&oacute; nyomtatv&aacute;nyok jelennek meg.</p>
+
+
+<p>A&nbsp;t&aacute;bl&aacute;zat oszlopainak
+m&eacute;rete &eacute;s az
+oszlopok sorrendje&nbsp;v&aacute;ltoztathat&oacute;,
+melyeket a program
+megjegyez. A&nbsp;<img style="width: 18px; height: 21px;" alt="" src="pics/ikon_35.png">
+gombra kattintva vissza&aacute;ll&iacute;thatja a
+t&aacute;bl&aacute;zat oszlopainak eredeti
+elrendez&eacute;s&eacute;t
+&eacute;s m&eacute;ret&eacute;t.</p>
+
+
+<p align="center"><img src="pics/kep_64.png"><br>
+
+
+M&aacute;sol&aacute;s a ment&eacute;s
+k&ouml;nyvt&aacute;rb&oacute;l</p>
+
+
+<p>A k&eacute;pernyőn l&aacute;that&oacute;
+funkci&oacute; gombok:</p>
+
+
+<ul>
+
+
+  <li><span style="font-weight: bold;">&Aacute;tnevez&eacute;s:
+    </span>a felsorol&aacute;sb&oacute;l
+kiv&aacute;lasztott
+"M&oacute;dos&iacute;that&oacute;"
+st&aacute;tusz&uacute;
+&aacute;llom&aacute;ny nev&eacute;t lehet
+tetsz&eacute;s szerint
+m&oacute;dos&iacute;tani. Speci&aacute;lis karakterek nem
+adhat&oacute;ak meg.Pl.: &sect;,&lt;,&gt;,#<br>
+
+
+Ha olyan f&aacute;jlnevet ad meg, ami m&aacute;r
+l&eacute;tezik, akkor arra hiba&uuml;zenet jelenik meg.</li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">T&ouml;rl&eacute;s:</span>
+a felsorol&aacute;sb&oacute;l b&aacute;rmilyen
+st&aacute;tusz&uacute; &aacute;llom&aacute;nyt lehet
+t&ouml;r&ouml;lni!</li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">M&aacute;sol&aacute;s:</span>
+a&nbsp;felsorol&aacute;sb&oacute;l kiv&aacute;lasztott
+&aacute;llom&aacute;nyt
+m&aacute;solja. P&eacute;ld&aacute;ul: A
+k&eacute;pernyőn
+l&aacute;that&oacute; list&aacute;b&oacute;l
+kiv&aacute;lasztja a
+m&aacute;solni k&iacute;v&aacute;nt
+&aacute;llom&aacute;nyt. A<span style="font-weight: bold;">
+M&aacute;sol&aacute;s</span> gomb
+lenyom&aacute;s&aacute;ra a kiv&aacute;lasztott
+f&aacute;jlt
+&aacute;tm&aacute;solja a c&eacute;l mappak&eacute;nt
+be&aacute;ll&iacute;tott k&ouml;nyvt&aacute;rba
+(c:\dokumentumok...).&nbsp;<big><span style="font-size: 11pt; font-family: Verdana;">A <b>M&aacute;sol&aacute;s
+    </b></span></big><span style="font-size: 11pt; font-family: Verdana;"><big>funkci&oacute;
+az &Aacute;NYK 2.31.0-s
+verzi&oacute;j&aacute;t&oacute;l ha a
+m&aacute;sol&aacute;sra kijel&ouml;lt<span style="">&nbsp;
+    </span>nyomtatv&aacute;nyhoz tartoznak
+csatolm&aacute;nyok, akkor
+azokat is &aacute;tm&aacute;solja a kijel&ouml;lt
+c&eacute;l k&ouml;nyvt&aacute;rba a nyomtatv&aacute;ny
+mell&eacute;. Ha a c&eacute;l k&ouml;nyvt&aacute;rban
+m&aacute;r l&eacute;tezik ilyen nevű nyomtatv&aacute;ny,
+akkor az al&aacute;bbi &uuml;zenet ablak jelenik meg:</big>&nbsp;<br>
+
+
+    </span>
+    
+    <div style="text-align: center;"><span style="font-size: 11pt; font-family: Verdana;"><img style="width: 488px; height: 255px;" alt="csatolm&aacute;nyok m&aacute;sol&aacute;sa" src="pics/kep_155.png"></span></div>
+
+
+  </li>
+
+
+  <br>
+
+
+</ul>
+
+
+<div style="margin-left: 40px;"><span style="font-size: 12pt; font-family: Verdana;">Az
+&uuml;zenet
+ablakban azok az &aacute;llom&aacute;nyok &eacute;s
+k&ouml;nyvt&aacute;rak szerepelnek, amelyek a c&eacute;l
+k&ouml;nyvt&aacute;rban ilyen n&eacute;ven
+l&eacute;teznek (a
+p&eacute;ld&aacute;ban szereplő nyomtatv&aacute;nyhoz
+csatolm&aacute;nyok is tartoznak). A
+&bdquo;T&ouml;rl&eacute;s&rdquo;
+gomb hat&aacute;s&aacute;ra a
+c&eacute;lk&ouml;nyvt&aacute;rban a
+felsorolt
+&aacute;llom&aacute;nyok &eacute;s
+k&ouml;nyvt&aacute;rak
+t&ouml;rlődnek &eacute;s a nyomtatv&aacute;ny
+m&aacute;sol&aacute;sra
+ker&uuml;l. A &bdquo;M&eacute;gsem&rdquo;
+gomb v&aacute;laszt&aacute;s&aacute;val a
+nyomtatv&aacute;ny nem
+ker&uuml;l &aacute;t m&aacute;sol&aacute;sra</span><big><big style="font-family: Verdana;"><span style="font-size: 11pt;">.</span></big></big><br>
+
+
+</div>
+
+
+<ul>
+
+
+  <li><span style="font-weight: bold;">C&eacute;l
+k&ouml;nyvt&aacute;r kiv&aacute;laszt&aacute;sa: </span>k&ouml;nyvt&aacute;r
+megad&aacute;sa ahov&aacute;
+m&aacute;solni szeretne.</li>
+
+
+  <li><span style="font-weight: bold;">Vissza:</span>
+kil&eacute;p&eacute;s a funkci&oacute;b&oacute;l</li>
+
+
+</ul>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="543sor"></a>
+<a name="masol3"></a>
+<h2>M&aacute;sol&aacute;s az import/export
+k&ouml;nyvt&aacute;rba (&aacute;tnevez&eacute;s,
+t&ouml;rl&eacute;s)</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span style="font-weight: bold;">Szerviz
+-&gt; </span><span style="font-weight: bold;">F&aacute;jlműveletek
+az import/export k&ouml;nyvt&aacute;rban -&gt; </span><span style="font-weight: bold;">M&aacute;sol&aacute;s az
+import/export
+k&ouml;nyvt&aacute;rba (&aacute;tnevez&eacute;s,
+t&ouml;rl&eacute;s)</span><span class="label"></span></li>
+
+
+</ol>
+
+
+<p align="left">A men&uuml;pont, ha nincs nyitott
+nyomtatv&aacute;ny akkor el&eacute;rhető.</p>
+
+
+<p>K&uuml;lső programmal k&eacute;sz&iacute;tett
+nyomtatv&aacute;nyok
+list&aacute;z&aacute;s&aacute;ra, import_export
+k&ouml;nyvt&aacute;rba
+m&aacute;sol&aacute;s&aacute;ra,
+&aacute;tnevez&eacute;s&eacute;re
+valamint a feleslegess&eacute; v&aacute;lt
+&aacute;llom&aacute;nyok
+t&ouml;rl&eacute;s&eacute;re szolg&aacute;l. A
+megjelenő ablakban a
+kiv&aacute;lasztott forr&aacute;s
+k&ouml;nyvt&aacute;rban
+tal&aacute;lhat&oacute; nyomtatv&aacute;nyok (<span style="font-weight: bold;">.imp, .dat, .xml, .xkr, .abv</span>
+kiterjeszt&eacute;sűek) jelennek meg. Ha nincs forr&aacute;s
+k&ouml;nyvt&aacute;r kiv&aacute;lasztva, vagy a
+be&aacute;ll&iacute;tott k&ouml;nyvt&aacute;rban nem
+tal&aacute;lhat&oacute; a program &aacute;ltal kezelt
+kiterjeszt&eacute;sű &aacute;llom&aacute;ny, akkor ez a
+lista &uuml;res.</p>
+
+
+<p>A&nbsp;t&aacute;bl&aacute;zat oszlopainak
+m&eacute;rete &eacute;s az
+oszlopok sorrendje&nbsp;v&aacute;ltoztathat&oacute;,
+melyeket a program
+megjegyez. A&nbsp;<img style="width: 18px; height: 21px;" alt="" src="pics/ikon_35.png">
+gombra kattintva vissza&aacute;ll&iacute;thatja a
+t&aacute;bl&aacute;zat oszlopainak eredeti
+elrendez&eacute;s&eacute;t
+&eacute;s m&eacute;ret&eacute;t.</p>
+
+
+<p align="center"><img src="pics/kep_65.png"><br>
+
+
+M&aacute;sol&aacute;s az import/export
+k&ouml;nyvt&aacute;rba</p>
+
+
+<p>A k&eacute;pernyőn l&aacute;that&oacute;
+funkci&oacute; gombok:</p>
+
+
+<ul>
+
+
+  <li><span style="font-weight: bold;">&Aacute;tnevez&eacute;s:
+    </span>a&nbsp;felsorol&aacute;sb&oacute;l
+kiv&aacute;lasztott
+&aacute;llom&aacute;ny
+nev&eacute;t lehet tetsz&eacute;s szerint
+m&oacute;dos&iacute;tani.
+Speci&aacute;lis karakterek nem adhat&oacute;ak meg.Pl.:
+&sect;,&lt;,&gt;,#<br>
+
+
+Ha olyan f&aacute;jlnevet ad meg, ami m&aacute;r
+l&eacute;tezik, akkor hiba&uuml;zenet jelenik meg.</li>
+
+
+  <li><span style="font-weight: bold;">T&ouml;rl&eacute;s:</span>
+a&nbsp;felsorol&aacute;sb&oacute;l b&aacute;rmilyen
+st&aacute;tusz&uacute; &aacute;llom&aacute;nyt lehet
+t&ouml;r&ouml;lni!</li>
+
+
+  <li><span style="font-weight: bold;">M&aacute;sol&aacute;s:</span>
+a&nbsp;felsorol&aacute;sb&oacute;l kiv&aacute;lasztott
+&aacute;llom&aacute;nyt
+m&aacute;solja. P&eacute;ld&aacute;ul: A
+k&eacute;pernyőn
+l&aacute;that&oacute; list&aacute;b&oacute;l
+kiv&aacute;lasztja a
+m&aacute;solni k&iacute;v&aacute;nt
+&aacute;llom&aacute;nyt. A&nbsp;<span style="font-weight: bold;">M&aacute;sol&aacute;s</span><span class="label"></span>
+gomb lenyom&aacute;s&aacute;ra a kiv&aacute;lasztott
+f&aacute;jlt
+&aacute;tm&aacute;solja az import_export
+k&ouml;nyvt&aacute;rba.</li>
+
+
+  <li><span style="font-weight: bold;">Forr&aacute;s
+k&ouml;nyvt&aacute;r kiv&aacute;laszt&aacute;sa:</span>
+k&ouml;nyvt&aacute;r megad&aacute;sa ahonnan
+m&aacute;solni szeretne az import_export
+k&ouml;nyvt&aacute;rba.</li>
+
+
+  <li><span style="font-weight: bold;">Vissza:</span>
+kil&eacute;p&eacute;s a funkci&oacute;b&oacute;l</li>
+
+
+</ul>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="544sor"></a>
+<a name="masol4"></a>
+<h2>M&aacute;sol&aacute;s a ment&eacute;s
+k&ouml;nyvt&aacute;rba (&aacute;tnevez&eacute;s,
+t&ouml;rl&eacute;s)</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Szerviz -&gt; </span><span style="font-weight: bold;">F&aacute;jlműveletek a
+ment&eacute;s k&ouml;nyvt&aacute;rban -&gt; </span><span style="font-weight: bold;">M&aacute;sol&aacute;s a
+ment&eacute;s
+k&ouml;nyvt&aacute;rba (&aacute;tnevez&eacute;s,
+t&ouml;rl&eacute;s)</span></li>
+
+
+</ol>
+
+
+<p>A men&uuml;pont, ha nincs nyitott nyomtatv&aacute;ny
+akkor el&eacute;rhető.</p>
+
+
+<p>A kit&ouml;ltővel k&eacute;sz&iacute;tett
+nyomtatv&aacute;nyok
+list&aacute;z&aacute;s&aacute;ra, k&uuml;lső
+k&ouml;nyvt&aacute;rba
+m&aacute;sol&aacute;s&aacute;ra,
+&aacute;tnevez&eacute;s&eacute;re
+valamint a feleslegess&eacute; v&aacute;lt
+&aacute;llom&aacute;nyok
+t&ouml;rl&eacute;s&eacute;re szolg&aacute;l. A
+megjelenő ablakban a
+kiv&aacute;lasztott forr&aacute;s
+k&ouml;nyvt&aacute;rban
+tal&aacute;lhat&oacute; nyomtatv&aacute;nyok jelennek meg
+(kiterjeszt&eacute;s<span class="path"></span> <span style="font-weight: bold;">.frm.enyk</span> - a
+kit&ouml;lt&ouml; program belső form&aacute;tuma).&nbsp;</p>
+
+
+<p>A&nbsp;t&aacute;bl&aacute;zat oszlopainak
+m&eacute;rete &eacute;s az
+oszlopok sorrendje&nbsp;v&aacute;ltoztathat&oacute;,
+melyeket a program
+megjegyez. A&nbsp;<img style="width: 18px; height: 21px;" alt="" src="pics/ikon_35.png">
+gombra kattintva vissza&aacute;ll&iacute;thatja a
+t&aacute;bl&aacute;zat oszlopainak eredeti
+elrendez&eacute;s&eacute;t
+&eacute;s m&eacute;ret&eacute;t.</p>
+
+
+<p align="center"><img src="pics/kep_66.png"><br>
+
+
+M&aacute;sol&aacute;s a ment&eacute;s
+k&ouml;nyvt&aacute;rba</p>
+
+
+<p>A k&eacute;pernyőn l&aacute;that&oacute;
+funkci&oacute; gombok:</p>
+
+
+<ul>
+
+
+  <li><span style="font-weight: bold;">&Aacute;tnevez&eacute;s:
+    </span>a&nbsp;felsorol&aacute;sb&oacute;l
+kiv&aacute;lasztott
+"M&oacute;dos&iacute;that&oacute;"
+st&aacute;tusz&uacute;
+&aacute;llom&aacute;ny nev&eacute;t lehet
+tetsz&eacute;s szerint
+m&oacute;dos&iacute;tani. Speci&aacute;lis karakterek nem
+adhat&oacute;ak meg.Pl.: &sect;,&lt;,&gt;,#<br>
+
+
+Ha olyan f&aacute;jlnevet ad meg, ami m&aacute;r
+l&eacute;tezik, akkor arra hiba&uuml;zenet jelenik meg.</li>
+
+
+  <li><span style="font-weight: bold;">T&ouml;rl&eacute;s:</span>
+a&nbsp;felsorol&aacute;sb&oacute;l b&aacute;rmilyen
+st&aacute;tusz&uacute; &aacute;llom&aacute;nyt lehet
+t&ouml;r&ouml;lni!</li>
+
+
+  <li><span style="font-weight: bold;">M&aacute;sol&aacute;s:</span>
+a&nbsp;felsorol&aacute;sb&oacute;l kiv&aacute;lasztott
+&aacute;llom&aacute;nyt
+m&aacute;solja. P&eacute;ld&aacute;ul: A
+k&eacute;pernyőn
+l&aacute;that&oacute; list&aacute;ban a
+kiv&aacute;lasztott
+forr&aacute;s k&ouml;nyvt&aacute;r tartalma
+l&aacute;that&oacute;.
+Ebből kiv&aacute;lasztja a m&aacute;solni
+k&iacute;v&aacute;nt
+&aacute;llom&aacute;nyt. A&nbsp;<span style="font-weight: bold;">M&aacute;sol&aacute;s</span><span class="label"></span>
+gomb lenyom&aacute;s&aacute;ra a kiv&aacute;lasztott
+f&aacute;jlt
+&aacute;tm&aacute;solja a ment&eacute;s
+k&ouml;nyvt&aacute;rba. A
+keletkezett &aacute;llom&aacute;ny st&aacute;tusza
+"M&oacute;dos&iacute;that&oacute;" lesz.&nbsp;<span style="font-size: 12pt; font-family: Verdana;">Ha
+a
+m&aacute;sol&aacute;sra kijel&ouml;lt
+&aacute;llom&aacute;ny m&aacute;r
+l&eacute;tezik a ment&eacute;s k&ouml;nyvt&aacute;rban,
+akkor a
+m&aacute;sol&aacute;s
+ker&uuml;l v&eacute;grehajt&aacute;sra.</span></li>
+
+
+  <li><span style="font-weight: bold;">Forr&aacute;s
+k&ouml;nyvt&aacute;r kiv&aacute;laszt&aacute;sa:</span>
+k&ouml;nyvt&aacute;r megad&aacute;sa ahonnan
+m&aacute;solni szeretne a ment&eacute;sek
+k&ouml;nyvt&aacute;rba.</li>
+
+
+  <li><span style="font-weight: bold;">Vissza:</span>
+kil&eacute;p&eacute;s a funkci&oacute;b&oacute;l</li>
+
+
+</ul>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="594sor"></a>
+<a name="eimport"></a>
+<h2>Egyedi import&aacute;l&aacute;s</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Szerviz -&gt; Egyedi
+import&aacute;l&aacute;s</span></li>
+
+
+</ol>
+
+
+<p>Ezzel a funkci&oacute;val a m&aacute;s
+t&iacute;pus&uacute; (pl.: <span style="font-weight: bold;">.imp,
+.xml, .xkr</span><span style="font-weight: bold;" class="path"></span>, <span style="font-weight: bold;">.xcz</span>)
+&aacute;llom&aacute;ny
+beimport&aacute;l&aacute;s&aacute;t lehet megoldani a
+nyomtatv&aacute;nykit&ouml;ltő programba.</p>
+
+
+<ul>
+
+
+</ul>
+
+
+<p>A men&uuml;pont csak akkor &eacute;rhető el, ha nincs
+bet&ouml;lt&ouml;tt nyomtatv&aacute;ny. A
+funkci&oacute;
+megh&iacute;v&aacute;s&aacute;nak
+hat&aacute;s&aacute;ra a
+k&ouml;vetkező k&eacute;pernyő jelenik meg:</p>
+
+
+<p align="center"><img src="pics/kep_83.png"><br>
+
+
+Import&aacute;land&oacute; &aacute;llom&aacute;ny
+kiv&aacute;laszt&aacute;sa</p>
+
+
+<p>A k&eacute;pernyőn l&aacute;that&oacute; ablakban
+a
+"F&aacute;jlt&iacute;pus:" nevű leny&iacute;l&oacute;
+&eacute;rt&eacute;klist&aacute;ban szereplő
+kiterjeszt&eacute;sek
+k&ouml;z&uuml;l lehet v&aacute;lasztani.</p>
+
+
+<p>Alap&eacute;rtelmezett kiterjeszt&eacute;s az .imp.</p>
+
+
+<ul>
+
+
+  <li>Import &aacute;llom&aacute;nyok (.imp)</li>
+
+
+  <li>XML &aacute;llom&aacute;nyok (.xml)</li>
+
+
+  <li>XKR &aacute;llom&aacute;nyok (.xcz)</li>
+
+
+  <li>XKR &aacute;llom&aacute;nyok (.xkr)</li>
+
+
+Az XKR form&aacute;tum&aacute;ban teljesen megegyezik az XML
+form&aacute;tum&aacute;val. Saj&aacute;t
+kiterjeszt&eacute;st kapnak a
+bet&ouml;lthető XML &aacute;llom&aacute;nyok.
+</ul>
+
+
+<p>A megjelenő ablak az import k&ouml;nyvt&aacute;r
+tartalm&aacute;t
+jelen&iacute;ti meg, de csak a kiv&aacute;lasztott
+f&aacute;jlt&iacute;pusnak megfelelő
+&aacute;llom&aacute;nyokat.<br>
+
+
+A "Hely:" &eacute;rt&eacute;klist&aacute;t lenyitva
+tetszőleges k&ouml;nyvt&aacute;rba lehet
+elnavig&aacute;lni. </p>
+
+
+<p>A k&eacute;pernyőn szereplő gombok &eacute;s
+műk&ouml;d&eacute;s&uuml;k: </p>
+
+
+<ul>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Megnyit&aacute;s:</span>
+kiv&aacute;lasztott &aacute;llom&aacute;nyhoz
+tartoz&oacute;
+nyomtatv&aacute;ny bet&ouml;lt&eacute;sre ker&uuml;l
+&eacute;s az
+import&aacute;llom&aacute;ny adataival felt&ouml;ltődik</li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">M&eacute;gsem: </span>kil&eacute;p&eacute;s
+a funkci&oacute;b&oacute;l</li>
+
+
+</ul>
+
+
+<p>Ha az import&aacute;land&oacute;
+&aacute;llom&aacute;ny
+adatt&iacute;pus hib&aacute;kat tartalmaz, akkor is
+megpr&oacute;b&aacute;lja a program
+beimport&aacute;lni.&nbsp;<br>
+
+
+Ha az adatt&iacute;pus hiba az import&aacute;l&aacute;s
+sor&aacute;n
+lefut&oacute;
+&uacute;jrasz&aacute;m&iacute;t&aacute;sn&aacute;l
+hib&aacute;t okoz, akkor a k&ouml;vetkező &uuml;zenetablak
+jelenik meg,
+&eacute;s nem keletkezik import&aacute;lt
+&aacute;llom&aacute;ny.
+</p>
+
+
+<p align="center"><img src="pics/kep_103.png"><br>
+
+
+Import&aacute;l&aacute;s sor&aacute;n fell&eacute;pő
+hib&aacute;k</p>
+
+
+<p>Ha az
+import&aacute;land&oacute;&nbsp;&aacute;llom&aacute;ny
+olyan
+adatt&iacute;pus hib&aacute;kat tartalmaz, ami a
+lefut&oacute;
+&uacute;jrasz&aacute;m&iacute;t&aacute;sn&aacute;l
+nem okoz
+hib&aacute;t, akkor az import&aacute;l&aacute;s
+megt&ouml;rt&eacute;nik.</p>
+
+
+<p style="text-align: justify; font-family: Verdana;"><big><span style="font-size: 11pt;"><big>XCZ
+&aacute;llom&aacute;nyok eset&eacute;ben, ha
+b&aacute;rmilyen hiba van a csatolm&aacute;nyok
+import&aacute;l&aacute;sa k&ouml;zben
+(pl: csatolm&aacute;nyok darabsz&aacute;ma elt&eacute;r a
+csatolm&aacute;ny le&iacute;r&oacute;ban szereplő
+csatolm&aacute;nyok
+darabsz&aacute;m&aacute;t&oacute;l vagy
+&eacute;rtelmezhetetlen az atc &aacute;llom&aacute;ny),
+akkor egyetlen csatolm&aacute;ny
+sem ker&uuml;l import&aacute;l&aacute;sra.</big> <o:p></o:p></span></big></p>
+
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: Verdana;"><big><span style="font-family: Verdana;">Az
+XCZ &aacute;llom&aacute;ny
+import&aacute;l&aacute;s&aacute;nak
+sikeress&eacute;g&eacute;ről az al&aacute;bbi
+&uuml;zenetablak jelenik meg:</span></big></span></p>
+
+
+<p style="text-align: center;"><span style="font-size: 11pt; font-family: Verdana;"><big><span style="font-family: Verdana;"><img style="width: 703px; height: 326px;" alt="sikeres import&aacute;l&aacute;s" src="pics/kep_156.png"></span></big></span></p>
+
+
+<p>FONTOS!<br>
+
+
+Az import&aacute;l&aacute;s ut&aacute;n
+l&eacute;trej&ouml;vő
+&aacute;llom&aacute;nyon, ha ellenőrz&eacute;st futtat,
+addig nem
+jelennek meg az &ouml;sszef&uuml;gg&eacute;s
+hib&aacute;k a
+list&aacute;ban, am&iacute;g adatt&iacute;pus
+hib&aacute;t tartalmaz a
+f&aacute;jl! K&ouml;tegelt nyomtatv&aacute;ny (pl: 1008)
+eset&eacute;ben ha csak az egyik alnyomtatv&aacute;nyban (M-en)
+van
+adatt&iacute;pus hiba, akkor a t&ouml;bbi
+alnyomtatv&aacute;nyra is
+lefutnak az &ouml;sszef&uuml;gg&eacute;s
+ellenőrz&eacute;sek. </p>
+
+
+<p align="center"><img src="pics/kep_104.png"><br>
+
+
+K&ouml;tegelt nyomtatv&aacute;ny ellenőrz&eacute;si lista</p>
+
+
+<p></p>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="593sor"></a>
+<a name="import"></a>
+<h2>Csoportos import&aacute;l&aacute;s</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span style="font-weight: bold;">Szerviz
+-&gt; Csoportos import&aacute;l&aacute;s</span><span class="label"></span></li>
+
+
+</ol>
+
+
+<p>Ezzel a funkci&oacute;val az al&aacute;bbi feladatot
+lehet megoldani: </p>
+
+
+<ul>
+
+
+  <li>m&aacute;s t&iacute;pus&uacute; (pl.: <span style="font-weight: bold;">.imp, .dat, .xml, .xkr, .xcz</span><span style="font-weight: bold;" class="path"></span>)&aacute;llom&aacute;nyok
+beimport&aacute;l&aacute;sa a
+nyomtatv&aacute;nykit&ouml;ltő programba.</li>
+
+
+</ul>
+
+
+<ul>
+
+
+</ul>
+
+
+<p>Ez a funkci&oacute; az &aacute;llom&aacute;nyok
+kijel&ouml;l&eacute;se ut&aacute;n batch m&oacute;dban
+fut. A
+fut&aacute;s befejez&eacute;se ut&aacute;n
+r&eacute;szletes
+eredm&eacute;nylist&aacute;t ad
+az egyes &aacute;llom&aacute;nyok
+bet&ouml;lt&eacute;s&eacute;ről,
+esetleges hib&aacute;kr&oacute;l.</p>
+
+
+<p>A men&uuml;pont csak akkor &eacute;rhető el, ha nincs
+bet&ouml;lt&ouml;tt nyomtatv&aacute;ny. A
+funkci&oacute;
+megh&iacute;v&aacute;s&aacute;nak
+hat&aacute;s&aacute;ra a
+k&ouml;vetkező k&eacute;pernyő jelenik meg:</p>
+
+
+<p align="center"><img src="pics/kep_503.png"><br>
+
+
+Import&aacute;l&aacute;s</p>
+
+
+<p>A k&eacute;pernyőn l&aacute;that&oacute; ablakban
+a <span style="font-weight: bold;">Hozz&aacute;ad</span>
+gombbal felsorolhatja a list&aacute;ban az import&aacute;lni
+k&iacute;v&aacute;nt &aacute;llom&aacute;nyokat.</p>
+
+
+<p>Import&aacute;lhat&oacute;
+&aacute;llom&aacute;nyok:</p>
+
+
+<ul>
+
+
+  <li>XML &aacute;llom&aacute;nyok (.xml)</li>
+
+
+  <li>XKR &aacute;llom&aacute;nyok (.xkr)</li>
+
+
+Az XKR form&aacute;tum&aacute;ban teljesen megegyezik az XML
+form&aacute;tum&aacute;val. Saj&aacute;t
+kiterjeszt&eacute;st kapnak a
+bet&ouml;lthető XML &aacute;llom&aacute;nyok. <li>XML
+&aacute;llom&aacute;nyok csatolm&aacute;nnyal (.xcz)</li>
+
+
+  <li>Import
+&aacute;llom&aacute;nyok (.imp)</li>
+
+
+  <li>ABEV &aacute;llom&aacute;nyok (.dat; .abv; .kat;
+.elk)</li>
+
+
+</ul>
+
+
+<p>Fenti p&eacute;ld&aacute;ban a "1 db" a
+list&aacute;ban szereplő
+&aacute;llom&aacute;nyok sz&aacute;m&aacute;t jelenti.
+Ezeket kell
+beimport&aacute;lni.</p>
+
+
+<p>A k&eacute;pernyőn szereplő gombok &eacute;s
+műk&ouml;d&eacute;s&uuml;k:</p>
+
+
+<ul>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Hozz&aacute;ad:</span>
+a megjelenő
+list&aacute;b&oacute;l (import k&ouml;nyvt&aacute;r
+tartalm&aacute;t
+jelen&iacute;ti meg, de csak a kiv&aacute;lasztott szűrőnek
+megfelelő
+&aacute;llom&aacute;nyokat) kiv&aacute;laszthat&oacute;
+egy vagy
+t&ouml;bb f&aacute;jl. Itt m&aacute;r csak a
+kijel&ouml;lt
+form&aacute;tumnak megfelelő &aacute;llom&aacute;nyok
+jelennek meg.
+T&ouml;bb elem kijel&ouml;l&eacute;se a Windowsban
+megszokott
+m&oacute;don t&ouml;rt&eacute;nik. (Ctrl &eacute;s/vagy
+Shift gombok
+haszn&aacute;lat&aacute;val) A kiv&aacute;lasztott elemek
+megjelen&iacute;t&eacute;sre ker&uuml;lnek a
+list&aacute;ban teljes
+el&eacute;r&eacute;si &uacute;tvonallal egy&uuml;tt. A
+megjelenő lista
+a telep&iacute;t&eacute;skor megadott import
+k&ouml;nyvt&aacute;rra
+mutat.</li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Lista
+bet&ouml;lt&eacute;se:</span> ha
+rendelkez&eacute;sre &aacute;ll egy sz&ouml;veges (pl: txt)
+&aacute;llom&aacute;nyban az &aacute;llom&aacute;nyok
+list&aacute;ja
+(el&eacute;r&eacute;si &uacute;ttal egy&uuml;tt, vagy
+an&eacute;lk&uuml;l) vagy előzőleg a "Lista ment&eacute;se"
+gombbal
+lementette az &aacute;llom&aacute;nyokat, akkor itt tudja ennek
+az
+&aacute;llom&aacute;nynak a tartalm&aacute;t
+hozz&aacute;adni a
+list&aacute;hoz. FONTOS: a lista&aacute;llom&aacute;nyban
+el&eacute;r&eacute;si &uacute;t n&eacute;lk&uuml;l
+megadott
+&aacute;llom&aacute;nyokat abban a
+k&ouml;nyvt&aacute;rban keresi a
+program, ahonnan mag&aacute;t a
+lista&aacute;llom&aacute;nyt
+feltall&oacute;zta!&nbsp;<span style="font-size: 11pt; font-family: &quot;Verdana&quot;,sans-serif;"><big>A
+list&aacute;ban az egyes
+&aacute;llom&aacute;nyokn&aacute;l a&nbsp;17.
+"oszlopba" a nyomtatv&aacute;ny azonos&iacute;t&oacute;ja
+ker&uuml;l (ez a
+1708 nyomtatv&aacute;ny eset&eacute;ben megegyezik az 1.
+oszloppal teh&aacute;t 1708A&nbsp;vagy 1708M).</big></span></li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">T&ouml;r&ouml;l:</span>
+a list&aacute;ban
+kijel&ouml;lt elemeket lehet ezzel a gombbal
+t&ouml;r&ouml;lni. A
+list&aacute;ban t&ouml;bb sor kijel&ouml;l&eacute;se is
+lehets&eacute;ges egyszerre.(Ctrl &eacute;s/vagy gShift gomb)<br>
+
+
+  </li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Lista ment&eacute;se: </span>az
+ablakban
+l&aacute;that&oacute; lista menthető el vele
+(alap&eacute;rtelmezett
+esetben a telep&iacute;t&eacute;skor
+be&aacute;ll&iacute;tott naplo
+k&ouml;nyvt&aacute;rat aj&aacute;nlja fel a
+ment&eacute;s
+hely&eacute;nek).</li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Ind&iacute;t&aacute;s:</span>
+a gomb
+lenyom&aacute;sakor a list&aacute;ban szereplő elemek
+alapj&aacute;n a
+program megk&iacute;s&eacute;rli beimport&aacute;lni
+egyenk&eacute;nt
+az &aacute;llom&aacute;nyok tartalm&aacute;t, &eacute;s
+&aacute;llom&aacute;nyonk&eacute;nt lement&eacute;sre
+ker&uuml;lnek a
+bet&ouml;lt&ouml;tt nyomtatv&aacute;nyadatok. Ha
+bet&ouml;lt&eacute;skor s&uacute;lyos
+import&aacute;l&aacute;si hiba
+l&eacute;p fel, akkor adott &aacute;llom&aacute;ny
+kihagy&aacute;sra
+ker&uuml;l, ennek eredm&eacute;ny&eacute;ről a teljes
+műveletsor
+befejez&eacute;se ut&aacute;n visszajelz&eacute;s
+&eacute;rkezik.<br>
+
+
+Fontos!<br>
+
+
+Ha az import&aacute;land&oacute; &aacute;llom&aacute;ny
+adatt&iacute;pus hib&aacute;kat tartalmaz, akkor is
+megpr&oacute;b&aacute;lja a program beimport&aacute;lni. Ha
+az
+adatt&iacute;pus hiba az import&aacute;l&aacute;s
+sor&aacute;n
+lefut&oacute;
+&uacute;jrasz&aacute;m&iacute;t&aacute;sn&aacute;l
+hib&aacute;t okoz, akkor nem keletkezik import&aacute;lt
+&aacute;llom&aacute;ny.<br>
+
+
+Ha az
+import&aacute;land&oacute;&nbsp;&aacute;llom&aacute;ny
+olyan
+adatt&iacute;pus hib&aacute;kat tartalmaz, ami a
+lefut&oacute;
+&uacute;jrasz&aacute;m&iacute;t&aacute;sn&aacute;l
+nem
+okoz hib&aacute;t, akkor az import&aacute;l&aacute;s
+megt&ouml;rt&eacute;nik.</li>
+
+
+  <li><span class="label"></span><span style="font-weight: bold;">Bez&aacute;r:</span>
+kil&eacute;p&eacute;s a
+funkci&oacute;b&oacute;l illetve
+megszak&iacute;that&oacute;ak vele a
+v&eacute;grehajt&aacute;sra ker&uuml;lő műveletek.</li>
+
+
+</ul>
+
+
+<p>Az import&aacute;l&aacute;s eredm&eacute;nye az
+al&aacute;bbi ablakban jelenik meg:</p>
+
+
+<p align="center"><img src="pics/kep_54.png"><br>
+
+
+<small>
+Import&aacute;l&aacute;s log f&aacute;jl</small></p>
+
+
+<p style="text-align: justify; font-family: Verdana;"><big><span style="font-size: 11pt;"><big>XCZ
+&aacute;llom&aacute;nyok eset&eacute;ben, ha
+b&aacute;rmilyen hiba van a csatolm&aacute;nyok
+import&aacute;l&aacute;sa k&ouml;zben
+(pl: csatolm&aacute;nyok darabsz&aacute;ma elt&eacute;r a
+csatolm&aacute;ny le&iacute;r&oacute;ban szereplő
+csatolm&aacute;nyok
+darabsz&aacute;m&aacute;t&oacute;l vagy
+&eacute;rtelmezhetetlen az atc &aacute;llom&aacute;ny),
+akkor egyetlen csatolm&aacute;ny
+sem ker&uuml;l import&aacute;l&aacute;sra.</big> <o:p></o:p></span></big></p>
+
+
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: Verdana;"><big><span style="font-family: Verdana;">Az
+XCZ &aacute;llom&aacute;ny
+import&aacute;l&aacute;s&aacute;nak
+sikeress&eacute;g&eacute;ről az al&aacute;bbi
+&uuml;zenetablak jelenik meg:</span></big></span></p>
+
+
+<p style="text-align: center;"><img style="width: 703px; height: 326px;" alt="sikeres import" src="pics/kep_156.png"></p>
+
+
+<p style="text-align: justify;">Figyelem!<br>
+
+
+A Szerviz -&gt; Be&aacute;ll&iacute;t&aacute;sok
+Friss&iacute;t&eacute;s f&uuml;l&ouml;n az <b style="">Automatikus friss&iacute;t&eacute;sek
+enged&eacute;lyez&eacute;sek funkci&oacute;nk&eacute;nt</b>
+men&uuml;pontonk&eacute;nt
+hi&aacute;ba van enged&eacute;lyezve, enn&eacute;l a
+funkci&oacute;n&aacute;l figyelmen k&iacute;v&uuml;l
+marad, teh&aacute;t ebben
+az esetben <b style="">nem t&ouml;rt&eacute;nik
+meg az
+automatikus friss&iacute;t&eacute;s!</b></p>
+
+
+<p><a href="enyk_lap_3.htm#teteje">Lap teteje</a>
+| <a href="enyk_tartalom.htm#tartalom">Tartalom</a>
+| <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+&nbsp;<a name="attoltes"></a>
+<h2>Technikai &aacute;tt&ouml;lt&eacute;s
+&uacute;j nyomtatv&aacute;nyba</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span style="font-weight: bold;">Szerviz
+-&gt; Technikai &nbsp;&aacute;tt&ouml;lt&eacute;s
+&uacute;j nyomtatv&aacute;nyba</span><span class="label"></span></li>
+
+
+</ol>
+
+
+<p>A&nbsp;funkci&oacute;
+seg&iacute;ts&eacute;g&eacute;vel m&aacute;r
+megl&eacute;vő adatokat lehet m&aacute;s
+t&iacute;pus&uacute;, &uacute;j nyomtatv&aacute;nyba
+&aacute;tt&ouml;lteni. C&eacute;lszerű &eacute;v
+elej&eacute;n
+haszn&aacute;lni, p&eacute;ld&aacute;ul a 1008
+nyomtatv&aacute;ny
+adatait &aacute;temelni a k&ouml;vetkező &eacute;v
+j&aacute;rul&eacute;k nyomtatv&aacute;ny&aacute;ba
+(1108).&nbsp;</p>
+
+
+<p>A k&uuml;l&ouml;nb&ouml;ző
+t&iacute;pus&uacute; nyomtatv&aacute;nyok
+adatai nem minden esetben feleltethetők meg egym&aacute;snak. A
+program
+a kimarad&oacute; adatokr&oacute;l list&aacute;t
+k&eacute;sz&iacute;t,
+de emellett is előfordulhat adatelt&eacute;r&eacute;s,
+ez&eacute;rt az
+&aacute;tt&ouml;lt&eacute;s ut&aacute;n
+t&eacute;telesen ellenőrizze az
+&aacute;tvitt &eacute;rt&eacute;keket!</p>
+
+
+<p>A
+funkci&oacute;
+megh&iacute;v&aacute;s&aacute;nak
+hat&aacute;s&aacute;ra a
+k&ouml;vetkező k&eacute;pernyő jelenik meg:</p>
+
+
+<p align="center"><img style="width: 600px; height: 326px;" alt="Technikai &aacute;tt&ouml;lt&eacute;s &uacute;j nyomtatv&aacute;nyba" src="pics/kep122.png"><br>
+
+
+Technikai &nbsp;&aacute;tt&ouml;lt&eacute;s
+&uacute;j nyomtatv&aacute;nyba</p>
+
+
+<span style="font-weight: bold;">Kiindul&oacute;
+adat&aacute;llom&aacute;ny:&nbsp;</span>
+kiv&aacute;laszt&aacute;sa a <img style="width: 38px; height: 37px;" alt="Tall&oacute;z&aacute;s" src="pics/ikon_27.png"> ikonra kattintva
+lehets&eacute;ges, melynek hat&aacute;s&aacute;ra az
+al&aacute;bbi k&eacute;pernyő jelenik meg:<br>
+
+
+<br>
+
+
+<div style="text-align: center;"><img style="width: 708px; height: 464px;" alt="&Aacute;tt&ouml;ltendő adat&aacute;llom&aacute;ny kiv&aacute;laszt&aacute;sa" src="pics/kep123.png"><br>
+
+
+&Aacute;tt&ouml;ltendő adat&aacute;llom&aacute;ny
+kiv&aacute;laszt&aacute;sa<br>
+
+
+</div>
+
+
+<br>
+
+
+Ezen a k&eacute;pernyőn kiv&aacute;laszthatja
+azt az &aacute;llom&aacute;nyt, melynek az adatait
+&uacute;j
+nyomtatv&aacute;nyba szeretn&eacute; t&ouml;lteni.<br>
+
+
+A&nbsp;t&aacute;bl&aacute;zat oszlopainak m&eacute;rete
+&eacute;s az
+oszlopok sorrendje&nbsp;v&aacute;ltoztathat&oacute;,
+melyeket a program
+megjegyez. A&nbsp;<img style="width: 18px; height: 21px;" alt="" src="pics/ikon_35.png">
+gombra kattintva vissza&aacute;ll&iacute;thatja a
+t&aacute;bl&aacute;zat oszlopainak eredeti
+elrendez&eacute;s&eacute;t
+&eacute;s m&eacute;ret&eacute;t.<br>
+
+
+<br>
+
+
+<span style="font-weight: bold;">C&eacute;l
+nyomtatv&aacute;ny megad&aacute;sa</span>: a <img style="width: 38px; height: 37px;" alt="Tall&oacute;z&aacute;s" src="pics/ikon_27.png">
+kattintva megadhatja azt a nyomtatv&aacute;nyt, amelybe
+&aacute;t
+szeretn&eacute; t&ouml;lteni a kiv&aacute;lasztott
+adat&aacute;llom&aacute;nyt. Ezt az al&aacute;bbi
+k&eacute;pernyőn
+teheti meg:<br>
+
+
+<br>
+
+
+<div style="text-align: center;"><img style="width: 708px; height: 464px;" alt="&Uacute;j nyomtatv&aacute;ny kiv&aacute;laszt&aacute;sa" src="pics/kep124.png"><br>
+
+
+<small>
+&Uacute;j nyomtatv&aacute;ny kiv&aacute;laszt&aacute;sa</small></div>
+
+
+<br>
+
+
+Az&nbsp;<span style="font-weight: bold;">&Aacute;tt&ouml;lt&eacute;s</span>
+gombra kattintva&nbsp;a program a
+kiv&aacute;lasztott adat&aacute;llom&aacute;ny
+&eacute;rt&eacute;keit
+&aacute;tt&ouml;lti a megadott
+nyomtatv&aacute;nyt&iacute;pusba. <br>
+
+
+A k&eacute;pernyőn &uuml;zenetablakban
+jelenik meg, hogy mely mezők
+&eacute;rt&eacute;keit nem siker&uuml;lt
+&aacute;tt&ouml;lteni:<br>
+
+
+<br>
+
+
+<div style="text-align: center;"><img style="width: 688px; height: 530px;" alt="Eredm&eacute;ny lista" src="pics/kep125.png"><br>
+
+
+Eredm&eacute;nylista<br>
+
+
+<div style="text-align: left;"><br>
+
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;A <span style="font-weight: bold;">Rendben</span>
+gomb megnyom&aacute;s&aacute;ra az &uacute;j
+nyomtatv&aacute;ny az
+&aacute;tt&ouml;lt&ouml;tt adatokkal
+megjelen&iacute;t&eacute;sre
+ker&uuml;l.<br>
+
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; A
+k&eacute;pernyőn megjelenik egy
+figyelmeztet&eacute;s, ami a l&eacute;trej&ouml;vő
+nyomtatv&aacute;ny
+&eacute;rt&eacute;keinek t&eacute;teles
+ellenőrz&eacute;s&eacute;re
+figyelmeztet.<br>
+
+
+<br>
+
+
+<div style="text-align: center;"><img style="width: 914px; height: 162px;" alt="Figyelmeztet&eacute;s" src="pics/kep126.png"><br>
+
+
+</div>
+
+
+<div style="text-align: center;">Figyelmeztet&eacute;s<br>
+
+
+</div>
+
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+
+
+A <span style="font-weight: bold;">Lista
+ment&eacute;se</span>
+gomb hat&aacute;s&aacute;ra az ablakban
+l&aacute;that&oacute; lista
+menthető el (alap&eacute;rtelmezett esetben a
+telep&iacute;t&eacute;skor be&aacute;ll&iacute;tott
+adatok
+k&ouml;nyvt&aacute;r&aacute;t
+aj&aacute;nlja&nbsp;fel a ment&eacute;s
+hely&eacute;nek, ami tetsz&eacute;s szerint
+v&aacute;ltoztathat&oacute;).<br>
+
+
+<br>
+
+
+A<span style="font-weight: bold;"> M&eacute;gsem</span>
+gomb kil&eacute;p&eacute;s
+a funkci&oacute;b&oacute;l
+&aacute;tt&ouml;lt&eacute;s n&eacute;lk&uuml;l.<br>
+
+
+<br>
+
+
+A funkci&oacute; haszn&aacute;lata sor&aacute;n az
+al&aacute;bbi tulajdons&aacute;gokat vegye figyelembe:<br>
+
+
+- csak azonos szervezet nyomtatv&aacute;ny&aacute;ba
+t&ouml;lthet &aacute;t<br>
+
+
+- csak azonos t&iacute;pus&uacute; nyomtatv&aacute;nyokba
+t&ouml;ltheti
+&aacute;t az adatokat (pl: k&ouml;tegelt nyomtatv&aacute;ny
+adatait,
+csak k&ouml;tegelt nyomtatv&aacute;nyba)<br>
+
+
+- csak alnyomtatv&aacute;nyt tartalmaz&oacute;
+adat&aacute;llom&aacute;nyt nem t&ouml;lt &aacute;t<br>
+
+
+<br>
+
+
+FONTOS!<br>
+
+
+A megny&iacute;l&oacute; nyomtatv&aacute;nyon automatikusan
+lefut a mezők
+&eacute;rt&eacute;keinek
+&uacute;jrasz&aacute;m&iacute;t&aacute;sa.<br>
+
+
+A megny&iacute;l&oacute; nyomtatv&aacute;ny nem
+ker&uuml;l
+alap&eacute;rtelmez&eacute;sben ment&eacute;sre, erről a
+felhaszn&aacute;l&oacute;nak kell gondoskodni az Adatok
+-&gt;
+Nyomtatv&aacute;ny ment&eacute;se
+men&uuml;ponttal.<br>
+
+
+<br>
+
+
+A&nbsp;men&uuml;pontot csak
+k&ouml;r&uuml;ltekint&eacute;ssel szabad
+haszn&aacute;lni! Az &aacute;tt&ouml;lt&eacute;s
+ut&aacute;n megny&iacute;l&oacute;
+nyomtatv&aacute;ny adatainak t&eacute;teles
+ellenőrz&eacute;se sz&uuml;ks&eacute;ges!<br>
+
+
+</div>
+
+
+</div>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<p><a name="torzsimp"></a></p>
+
+
+<h2><a name="591sor">T&ouml;rzsadatok</a>
+&aacute;tv&eacute;tele az ABEV-ből
+</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span style="font-weight: bold;">Szerviz
+-&gt; T&ouml;rzsadatok &aacute;tv&eacute;tele az
+ABEV-ből</span><span class="label"></span></li>
+
+
+</ol>
+
+
+<p>A men&uuml;pont csak akkor &eacute;rhető el, ha nincs
+bet&ouml;lt&ouml;tt nyomtatv&aacute;ny.</p>
+
+
+<p>Az ABEV program t&ouml;rzsadatait lehet
+&aacute;tt&ouml;lteni a
+java-s nyomtatv&aacute;nykit&ouml;ltő program
+t&ouml;rzsadat
+&aacute;llom&aacute;ny&aacute;ba. Az
+&aacute;tt&ouml;lt&eacute;s
+ut&aacute;n az import&aacute;lt adatok
+tov&aacute;bb szerkeszthetőek a <span style="font-weight: bold;">Szerviz
+-&gt; </span><a style="font-weight: bold;" href="enyk_lap_3.htm#torzs">T&ouml;rzsadatok</a>&nbsp;men&uuml;pontban
+le&iacute;rtak
+alapj&aacute;n.</p>
+
+
+<p>Ha a felhaszn&aacute;l&oacute;
+g&eacute;p&eacute;n az ABEV
+telep&iacute;tve van, &eacute;s az alap&eacute;rtelmezett
+k&ouml;nyvt&aacute;rban tal&aacute;lhat&oacute;
+(Program Files/Abev
+2006) akkor a t&ouml;rzsadat &aacute;llom&aacute;nyt a
+konvert&aacute;l&oacute; program megkeresi. Amennyiben nem az
+alap&eacute;rtelmezett k&ouml;nyvt&aacute;rban
+tal&aacute;lhat&oacute;,
+akkor a felhaszn&aacute;l&oacute;nak egy
+tall&oacute;z&oacute; ablak
+jelenik meg &eacute;s k&eacute;zzel kell megkeresnie az
+&aacute;llom&aacute;nyt. Az &aacute;llom&aacute;ny
+neve: torzs.dtt</p>
+
+
+<p>Ha a program &aacute;tt&ouml;lt&eacute;s
+k&ouml;zben egyező
+ad&oacute;sz&aacute;mot/ad&oacute;azonos&iacute;t&oacute;jelet
+tal&aacute;l, akkor az al&aacute;bbi &uuml;zenet ablak
+jelenik meg:</p>
+
+
+<p align="center"><img src="pics/kiskep_31.png"><br>
+
+
+T&ouml;rzsadat egyezős&eacute;g </p>
+
+
+<p>Az &uuml;zenet ablak seg&iacute;ts&eacute;get
+ny&uacute;jt
+eld&ouml;nteni, hogy az adott rekordot be szeretn&eacute;-e
+t&ouml;lteni a t&ouml;rzsadatok k&ouml;z&eacute; a
+felhaszn&aacute;l&oacute;.
+<br>
+
+
+Az eredeti rekord a java-s nyomtatv&aacute;nykit&ouml;ltő
+program
+t&ouml;rzsadatai k&ouml;z&ouml;tt
+r&ouml;gz&iacute;tett
+ad&oacute;sz&aacute;m/ad&oacute;azonos&iacute;t&oacute;jel
+-n
+l&eacute;vő nevet, &aacute;lland&oacute;
+lakc&iacute;met
+(c&eacute;gn&eacute;l sz&eacute;khelyet)
+jelen&iacute;ti meg.</p>
+
+
+<p>Az &uacute;j rekord az ABEV t&ouml;rzsadatai
+k&ouml;z&ouml;tt
+r&ouml;gz&iacute;tett
+ad&oacute;sz&aacute;m/ad&oacute;azonos&iacute;t&oacute;jel
+-n
+l&eacute;vő nevet, &aacute;lland&oacute;
+lakc&iacute;met
+(c&eacute;gn&eacute;l sz&eacute;khelyet)
+jelen&iacute;ti
+meg.</p>
+
+
+<p>A&nbsp;<span class="label"></span><span style="font-weight: bold;">Fel&uuml;l&iacute;r&aacute;s</span>
+gomb
+hat&aacute;s&aacute;ra a t&ouml;rzsadat
+&aacute;llom&aacute;nyban
+tal&aacute;lhat&oacute;
+ad&oacute;sz&aacute;m/ad&oacute;azonos&iacute;t&oacute;jel-n
+l&eacute;vő adatok &aacute;t&iacute;r&aacute;sra
+ker&uuml;lnek
+az &uacute;j rekord adataival.</p>
+
+
+<p>A&nbsp;<span class="label"></span><span style="font-weight: bold;">Kihagy&aacute;s</span>
+gomb
+lenyom&aacute;s&aacute;val a t&ouml;rzsadat
+&aacute;llom&aacute;nyban
+nem ker&uuml;l &aacute;t&iacute;r&aacute;sra a
+k&eacute;pernyőn
+l&aacute;that&oacute; rekord.</p>
+
+
+<p>Az <span style="font-weight: bold;" class="label"></span><span style="font-weight: bold;">&Aacute;tt&ouml;lt&eacute;s
+v&eacute;ge</span> gomb lenyom&aacute;s&aacute;val az
+import&aacute;l&aacute;s
+megszak&iacute;that&oacute;. Ekkor a java-s
+nyomtatv&aacute;nykit&ouml;ltő program
+t&ouml;rzsadat&aacute;llom&aacute;ny&aacute;ban nem
+t&ouml;rt&eacute;nik v&aacute;ltoz&aacute;s.
+Azokr&oacute;l a
+rekordokr&oacute;l, amelyek valamilyen hiba miatt nem
+ker&uuml;lnek
+bet&ouml;lt&eacute;sre a
+t&ouml;rzsadat&aacute;llom&aacute;nyba,
+azokr&oacute;l az al&aacute;bbi k&eacute;pen
+l&aacute;that&oacute;
+lista jelenik meg.</p>
+
+
+<p align="center"><img src="pics/kiskep_32.png"><br>
+
+
+T&ouml;rzsadatok hibalista </p>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+<a name="592sor"></a>
+<a name="adoimp"></a>
+<h2>Ad&oacute;tan&aacute;csad&oacute;k
+&aacute;tv&eacute;tele az ABEV-ből</h2>
+
+
+<p>El&eacute;rhetős&eacute;ge:</p>
+
+
+<ol>
+
+
+  <li><span style="font-weight: bold;">Szerviz
+-&gt; Ad&oacute;tan&aacute;csad&oacute;k
+&aacute;tv&eacute;tele az ABEV-ből</span><span class="label"></span></li>
+
+
+</ol>
+
+
+<p>A men&uuml;pont csak akkor &eacute;rhető el, ha nincs
+bet&ouml;lt&ouml;tt nyomtatv&aacute;ny.</p>
+
+
+<p>Az ABEV program t&ouml;rzsadatait
+(ad&oacute;tan&aacute;csad&oacute;it) lehet
+&aacute;tt&ouml;lteni a
+java-s nyomtatv&aacute;nykit&ouml;ltő program
+t&ouml;rzsadat
+&aacute;llom&aacute;ny&aacute;ba. Az
+&aacute;tt&ouml;lt&eacute;s
+ut&aacute;n az import&aacute;lt adatok
+tov&aacute;bb szerkeszthetőek a&nbsp;<span style="font-weight: bold;">Szerviz -&gt; </span><a style="font-weight: bold;" href="enyk_lap_3.htm#torzs">T&ouml;rzsadatok</a><span style="font-weight: bold;"> </span>men&uuml;pontban
+le&iacute;rtak
+alapj&aacute;n.</p>
+
+
+<p>Ha a felhaszn&aacute;l&oacute;
+g&eacute;p&eacute;n az ABEV
+telep&iacute;tve van, &eacute;s az alap&eacute;rtelmezett
+k&ouml;nyvt&aacute;rban tal&aacute;lhat&oacute;
+(Program Files/Abev
+2006) akkor az ad&oacute;tan&aacute;csad&oacute;
+&aacute;llom&aacute;nyt a konvert&aacute;l&oacute;
+program megkeresi.
+Amennyiben nem az alap&eacute;rtelmezett
+k&ouml;nyvt&aacute;rban
+tal&aacute;lhat&oacute;, akkor a
+felhaszn&aacute;l&oacute;nak egy
+tall&oacute;z&oacute; ablak jelenik meg &eacute;s
+k&eacute;zzel kell
+megkeresnie az &aacute;llom&aacute;nyt. Az
+&aacute;llom&aacute;ny neve:
+atan.dtt
+</p>
+
+
+<p>Ha a program &aacute;tt&ouml;lt&eacute;s
+k&ouml;zben egyező
+ad&oacute;sz&aacute;mot/ad&oacute;azonos&iacute;t&oacute;jelet
+tal&aacute;l, akkor az al&aacute;bbi &uuml;zenet ablak
+jelenik meg:</p>
+
+
+<p align="center"><img src="pics/kiskep_33.png"><br>
+
+
+T&ouml;rzsadat (ad&oacute;tan&aacute;csad&oacute;)
+egyezős&eacute;g</p>
+
+
+<p>Az &uuml;zenet ablak seg&iacute;ts&eacute;get
+ny&uacute;jt
+eld&ouml;nteni, hogy az adott rekordot be szeretn&eacute;-e
+t&ouml;lteni a t&ouml;rzsadatok k&ouml;z&eacute; a
+felhaszn&aacute;l&oacute;.</p>
+
+
+<p>Az eredeti rekord a java-s
+nyomtatv&aacute;nykit&ouml;ltő program
+t&ouml;rzsadatai k&ouml;z&ouml;tt
+r&ouml;gz&iacute;tett
+ad&oacute;sz&aacute;m/ad&oacute;azonos&iacute;t&oacute;jel
+-n
+l&eacute;vő nevet jelen&iacute;ti meg. Az &uacute;j rekord
+az ABEV
+t&ouml;rzsadatai k&ouml;z&ouml;tt
+r&ouml;gz&iacute;tett
+ad&oacute;sz&aacute;m/ad&oacute;azonos&iacute;t&oacute;jel
+-n
+l&eacute;vő nevet jelen&iacute;ti meg.</p>
+
+
+<p>A&nbsp;<span style="font-weight: bold;">Fel&uuml;l&iacute;r&aacute;s</span>
+gomb
+hat&aacute;s&aacute;ra a t&ouml;rzsadat
+&aacute;llom&aacute;nyban
+tal&aacute;lhat&oacute;
+ad&oacute;sz&aacute;m/ad&oacute;azonos&iacute;t&oacute;jel-n
+l&eacute;vő adatok &aacute;t&iacute;r&aacute;sra
+ker&uuml;lnek az
+&uacute;j rekord adataival.</p>
+
+
+<p>A&nbsp;<span class="label"></span><span style="font-weight: bold;">Kihagy&aacute;s</span>
+gomb
+lenyom&aacute;s&aacute;val a t&ouml;rzsadat
+&aacute;llom&aacute;nyban
+nem ker&uuml;l &aacute;t&iacute;r&aacute;sra a
+k&eacute;pernyőn
+l&aacute;that&oacute; rekord.</p>
+
+
+<p>Az&nbsp;<span style="font-weight: bold;" class="label"></span><span style="font-weight: bold;">&Aacute;tt&ouml;lt&eacute;s
+v&eacute;ge</span>
+gomb lenyom&aacute;s&aacute;val az
+import&aacute;l&aacute;s
+megszak&iacute;that&oacute;. Ekkor a java-s
+nyomtatv&aacute;nykit&ouml;ltő program
+t&ouml;rzsadat&aacute;llom&aacute;ny&aacute;ban nem
+t&ouml;rt&eacute;nik v&aacute;ltoz&aacute;s.
+Azokr&oacute;l az
+ad&oacute;tan&aacute;csad&oacute;kr&oacute;l, amelyek
+valamilyen hiba
+miatt nem ker&uuml;lnek bet&ouml;lt&eacute;sre a
+t&ouml;rzsadat&aacute;llom&aacute;nyba, azokr&oacute;l
+az al&aacute;bbi
+k&eacute;pen l&aacute;that&oacute; lista jelenik meg.</p>
+
+
+<p align="center"><img src="pics/kiskep_34.png"><br>
+
+
+Ad&oacute;tan&aacute;csad&oacute;k hibalista</p>
+
+
+<p><a href="#teteje">Lap teteje</a> | <a href="enyk_tartalom.htm#tartalom">Tartalom</a> | <a href="enyk_index.html#index">T&aacute;rgymutat&oacute;</a></p>
+
+
+</body>
+</html>

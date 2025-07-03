@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+
+	
+  
+  
+  <meta http-equiv="Content-Type" content="text/htm; charset=utf-8">
+
+
+ 
+	
+
+	
+  
+  
+  
+  
+  <title>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program S&uacute;g&oacute;</title>
+  <style type="text/css">
+		BODY {font-family:verdana; font-size:12pt; margin:5px;}
+		H1 {font-size: 15pt;}
+		H2 {font-size: 14pt; font-weight:bold; border-bottom: 2px solid;}
+		H3 {font-size: 13pt; font-weight:bold; font-style:italic;}
+		H4 {font-size: 12pt; font-weight:bold;}
+		H5 {font-size: 12pt; font-weight:bold; font-style:italic;}
+		H6 {font-size: 11pt; font-weight:bold;}
+		TABLE {font-size: 12pt; border-collapse: collapse; clear: both;}
+		TD {border: 1px solid #666666; padding: 2px;}
+		DT {font-style:italic;}
+		.label {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+		.path {font-size:13pt; font-family: "courier new", monospace; font-weight:bold;}
+	</style>
+</head>
+
+
+<body lang="hu">
+
+
+
+
+<a name="teteje"></a>
+<h1>Java-s Nyomtatv&aacute;nykit&ouml;ltő Program S&uacute;g&oacute;</h1>
+
+
+
+
+<a name="904sor"></a>
+<a name="jar"></a>
+<h2>Jar &aacute;llom&aacute;nyok futtat&aacute;sa &eacute;s hozz&aacute;rendel&eacute;se a Java futtat&oacute; k&ouml;rnyezethez</h2>
+
+
+
+
+<p>A telep&iacute;tő csomagok JAR kiterjeszt&eacute;sű
+&aacute;llom&aacute;nyok. Ezek a java rendszer sz&aacute;m&aacute;ra
+futtathat&oacute; programok.</p>
+
+
+
+<p>M&aacute;r a telep&iacute;t&eacute;s megkezd&eacute;se előtt fel
+kell telep&iacute;teni a Java futtat&oacute; k&ouml;rnyezetet (JRE),
+mert en&eacute;lk&uuml;l a telep&iacute;tő program nem fog műk&ouml;dni!</p>
+
+
+
+
+<p>H&aacute;romf&eacute;le telep&iacute;tő csomag l&eacute;tezik:</p>
+
+
+
+<ul>
+
+
+
+	<li>A keretrendszer/program telep&iacute;t&eacute;s&eacute;t v&eacute;gző csomag. A neve <span class="path">abevjava_install.jar</span></li>
+
+
+
+	<li>A nyomtatv&aacute;nyok telep&iacute;t&eacute;s&eacute;t
+v&eacute;gző csomagok. A csomag nev&eacute;ben szerepel a
+nyomtatv&aacute;ny azonos&iacute;t&oacute;ja &eacute;s <span class="path">.jar</span> kiterjeszt&eacute;sű az &aacute;llom&aacute;ny.</li>
+
+
+
+	<li>A kit&ouml;lt&eacute;si &uacute;tmutat&oacute;k
+telep&iacute;t&eacute;s&eacute;t v&eacute;gző csomagok. A csomag
+nev&eacute;ben szerepel a nyomtatv&aacute;ny azonos&iacute;t&oacute;ja
+&eacute;s <span class="path">.jar</span> kiterjeszt&eacute;sű az &aacute;llom&aacute;ny.</li>
+
+
+
+</ul>
+
+
+
+
+<p>A JAR kiterjeszt&eacute;sű telep&iacute;tő csomagra dupl&aacute;n
+kattintva az eg&eacute;rrel elindul a telep&iacute;t&eacute;s.
+Amennyiben nem jelenik meg a telep&iacute;tő program, akkor feltehetően
+nincs hozz&aacute;rendelve a JAR t&iacute;pus&uacute;
+&aacute;llom&aacute;nyokhoz a java futtat&oacute; k&ouml;rnyezet. Az
+al&aacute;bbiak szerint j&aacute;rjon el: </p>
+
+
+
+<ul>
+
+
+
+	<li>Telep&iacute;tse &uacute;jra a java futtat&oacute; k&ouml;rnyezetet (JRE), az elv&eacute;gzi a hozz&aacute;rendel&eacute;st.</li>
+
+
+
+	
+</ul>
+
+
+
+
+<p>Ha nem siker&uuml;l az ismertetett m&oacute;dokon a
+hozz&aacute;rendel&eacute;s, akkor parancssorban l&eacute;pjen be abba
+a k&ouml;nyvt&aacute;rba, amelyikbe a NAV honlapj&aacute;r&oacute;l
+let&ouml;lt&ouml;tte a telep&iacute;tő programot &eacute;s &iacute;rja
+be a k&ouml;vetkezőt: <span class="path">java -jar "telep&iacute;tőcsomag neve"</span> pl:</p>
+
+
+
+<ul>
+
+
+ 
+	<li><span class="path">java -jar abevjava_install.jar</span></li>
+
+
+
+	<li><span class="path">java -jar APEH_0753.jar</span></li>
+
+
+
+	<li><span class="path">java -jar APEH_doc_0753.jar</span></li>
+
+
+
+</ul>
+
+
+<br>
+
+
+</body>
+</html>

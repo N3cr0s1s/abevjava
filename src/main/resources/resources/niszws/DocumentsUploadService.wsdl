@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:anykgw2="http://tarhely.gov.hu/anykgw2" name="DocumentsUploadService"
+                  targetNamespace="http://tarhely.gov.hu/anykgw2">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:anykgw2="http://tarhely.gov.hu/anykgw2"
+                   version="1.0">
+
+            <xs:import namespace="http://tarhely.gov.hu/anykgw2" schemaLocation="anykgw2.xsd"/>
+
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="DocumentsUploadRequest">
+        <wsdl:part element="anykgw2:DocumentsUploadRequest" name="documentsUploadRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="DocumentsUploadResponse">
+        <wsdl:part element="anykgw2:DocumentsUploadResponse" name="documentsUploadResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="DocumentsUploadService">
+        <wsdl:operation name="DocumentsUpload">
+            <wsdl:input message="anykgw2:DocumentsUploadRequest" name="DocumentsUploadRequest">
+            </wsdl:input>
+            <wsdl:output message="anykgw2:DocumentsUploadResponse" name="DocumentsUploadResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="DocumentsUploadServiceSoapBinding" type="anykgw2:DocumentsUploadService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="DocumentsUpload">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="DocumentsUploadRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="DocumentsUploadResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="DocumentsUploadService">
+        <wsdl:port binding="anykgw2:DocumentsUploadServiceSoapBinding" name="DocumentsUploadServicePort">
+            <soap:address location="https://teszt-krwsfe.magyarorszag.hu/anykgw2/DocumentsUploadService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

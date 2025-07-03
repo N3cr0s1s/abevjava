@@ -1,0 +1,53 @@
+# IntelliJ IDEA specific
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Compiled class files
+*.class
+
+# Package files
+*.jar
+!lib/*.jar
+!project-template/lib/*.jar
+!project-template/eroforrasok/*jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Gradle
+.gradle/
+build/
+
+# OS specific
+.DS_Store
+Thumbs.db

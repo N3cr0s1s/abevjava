@@ -1,0 +1,74 @@
+<blacklist validfrom="2024-02-04+01:00" validto="2025-02-04+01:00" application="ÁNYK">
+<template tid="TEL" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/TEL</target_url>
+</template>
+<template tid="NAV_J49" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/NAV_J49</target_url>
+</template>
+<template tid="24T1043H" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/24T1043H</target_url>
+</template>
+<template tid="23EGYAD" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/23EGYAD</target_url>
+</template>
+<template tid="EGYSTAT" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/EGYSTAT</target_url>
+</template>
+<template tid="AFAGYAK" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/AFAGYAK</target_url>
+</template>
+<template tid="40" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/40</target_url>
+</template>
+<template tid="AATKOD" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/AATKOD</target_url>
+</template>
+<template tid="GJADO" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/GJADO</target_url>
+</template>
+<template tid="ONELLB" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/ONELLB</target_url>
+</template>
+<template tid="IG01" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/IG01</target_url>
+</template>
+<template tid="CSEKK" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/CSEKK</target_url>
+</template>
+<template tid="GJFORGNYIL" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/GJFORGNYIL</target_url>
+</template>
+<template tid="VVBA" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/VVBA</target_url>
+</template>
+<template tid="AVBA" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/AVBA</target_url>
+</template>
+<template tid="B400" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/B400</target_url>
+</template>
+<template tid="ITV" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/ITV</target_url>
+</template>
+<template tid="VBBA" org="NAV">
+<message>A nyomtatvány már csak az Online Nyomtatványkitöltő Alkalmazásban érhető el!</message>
+<target_url>https://onya.nav.gov.hu/#!/athivas/VBBA</target_url>
+</template>
+</blacklist>
