@@ -13,6 +13,10 @@ I am not affiliated with any organization, have no political agenda, and have no
 
 ---
 
+![img.png](media/img.png)
+
+---
+
 ## Getting Started
 
 
